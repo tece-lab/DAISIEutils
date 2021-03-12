@@ -2,6 +2,7 @@
 # DAISIEutils
 
 <!-- badges: start -->
+![GitHub R package version](https://img.shields.io/github/r-package/v/tece-lab/DAISIEutils)
 [![R-CMD-check](https://github.com/tece-lab/DAISIEutils/workflows/R-CMD-check/badge.svg)](https://github.com/tece-lab/DAISIEutils/actions)
 [![Codecov test coverage](https://codecov.io/gh/tece-lab/DAISIEutils/branch/master/graph/badge.svg)](https://codecov.io/gh/tece-lab/DAISIEutils?branch=master)
 <!-- badges: end -->

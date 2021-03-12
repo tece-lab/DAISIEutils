@@ -1,5 +1,6 @@
 Package: DAISIEutils
-Title: What the Package Does (One Line, Title Case)
+Title: Utility Functions for the DAISIE Package
+Date: 2021-03-12
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Pedro",
@@ -7,7 +8,9 @@ Authors@R:
            role = c("aut", "cre"),
            email = "p.m.santos.neves@rug.nl",
            comment = c(ORCID = "0000-0003-2561-4677"))
-Description: What the package does (one paragraph).
+Description: The goal of DAISIEutils is to collect useful utility functions that
+    are used reccurently in DAISIE projects. DAISIEutils is a companion package 
+    of the R package DAISIE.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true

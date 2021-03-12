@@ -21,6 +21,7 @@
 #' )
 #' }
 #' @author Pedro Neves, Luis Valente
+#' @export
 print_main_header <- function(run_name, M, metadata) {
   testit::assert("M is numeric & finite", is.numeric(M) && is.finite(M))
   testit::assert("M is positive", M > 0)

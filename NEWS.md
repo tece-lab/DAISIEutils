@@ -6,4 +6,3 @@
 * Write `README.md` stub.
 * Add tests and coverage.
 * Added a `NEWS.md` file to track changes to the package.
-

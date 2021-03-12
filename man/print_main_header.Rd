@@ -24,7 +24,7 @@ so that metadata is recorded in the log files.
 }
 \note{
 Message is used to print function arguments. To retain formatting,
-a simple \code{devtools::session_info()} is used for session info, which uses
+a simple \code{sessioninfo::session_info()} is used for session info, which uses
 print. Hence, \code{session_info()} will go on \code{stdout}, while the remaining
 output of this function will go to \code{stderr}.
 }

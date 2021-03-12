@@ -29,7 +29,7 @@ print_main_header <- function(run_name, M, metadata) {
   print(sessioninfo::session_info())
   message(Sys.time())
 
-  message("Datalist: ", datalist_name)
+  message("Run name: ", run_name)
   message("M: ", M)
   message("metadata: ", metadata)
 }

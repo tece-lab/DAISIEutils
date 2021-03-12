@@ -8,7 +8,7 @@
 #' @return Nothing. Prints session and run info used by DAISIE to console.
 #'
 #' @note Message is used to print function arguments. To retain formatting,
-#'   a simple `devtools::session_info()` is used for session info, which uses
+#'   a simple `sessioninfo::session_info()` is used for session info, which uses
 #'   print. Hence, `session_info()` will go on `stdout`, while the remaining
 #'   output of this function will go to `stderr`.
 #'
@@ -26,7 +26,7 @@ print_main_header <- function(run_name, M, metadata) {
   testit::assert("M is positive", M > 0)
   testit::assert("run_name is character", is.character(run_name))
 
-  print(devtools::session_info())
+  print(sessioninfo::session_info())
   message(Sys.time())
 
   message("Datalist: ", datalist_name)

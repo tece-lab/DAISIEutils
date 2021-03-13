@@ -7,6 +7,8 @@
 create_output_folder(output_name, model, verbose = FALSE)
 }
 \arguments{
+\item{output_name}{A string. Will be the name of the created output folder.}
+
 \item{model}{Numeric integer from 1 to 4 with model that should run. Models
 are as follows:
 \enumerate{
@@ -18,6 +20,8 @@ to zero). All other parameters free.
 \item Clade specific model - diversity independent (K = Inf) and no
 anagenesis (laa fixed to zero). All other parameters free.
 }}
+
+\item{verbose}{Boolean. Defaults to FALSE. If TRUE, session info and run.}
 }
 \value{
 Creates appropriate directory. Returns string with path for

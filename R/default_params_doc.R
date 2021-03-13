@@ -19,6 +19,8 @@
 #' @param r_k Numeric. Uniformly sampled value of carrying capacity.
 #' @param r_gam Numeric. Uniformly sampled value of immigration rate.
 #' @param r_ana Numeric. Uniformly sampled value of anagenesis rate.
+#' @param output_name A string. Will be the name of the created output folder.
+#' @param verbose Boolean. Defaults to FALSE. If TRUE, session info and run.
 #' @return Nothing
 #' @keywords internal
 #' @export
@@ -30,6 +32,8 @@ default_params_doc <- function(run_name,
                                r_mu,
                                r_k,
                                r_gam,
-                               r_ana) {
+                               r_ana,
+                               output_name,
+                               verbose) {
   # Nothing
 }

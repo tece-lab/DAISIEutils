@@ -13,7 +13,9 @@ default_params_doc(
   r_mu,
   r_k,
   r_gam,
-  r_ana
+  r_ana,
+  output_name,
+  verbose
 )
 }
 \arguments{
@@ -46,6 +48,10 @@ anagenesis (laa fixed to zero). All other parameters free.
 \item{r_gam}{Numeric. Uniformly sampled value of immigration rate.}
 
 \item{r_ana}{Numeric. Uniformly sampled value of anagenesis rate.}
+
+\item{output_name}{A string. Will be the name of the created output folder.}
+
+\item{verbose}{Boolean. Defaults to FALSE. If TRUE, session info and run.}
 }
 \value{
 Nothing

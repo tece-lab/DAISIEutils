@@ -11,6 +11,8 @@ print_main_header(run_name, m, metadata)
 altough it is useful to name it after the dataset that is being analysed or
 generated.}
 
+\item{m}{Positive numeric integer with mainland species number.}
+
 \item{metadata}{A numeric or a string. To be improved to take more info.}
 }
 \value{

@@ -13,7 +13,7 @@
 #' r_k <- 3
 #' r_gam <- 4
 #' r_ana <- 5
-#' setup_model_arguments(
+#' setup_standard_model_args(
 #'   model = model,
 #'   r_lamc = r_lamc,
 #'   r_mu = r_mu,
@@ -21,7 +21,7 @@
 #'   r_gam = r_gam,
 #'   r_ana = r_ana
 #' )
-setup_model_arguments <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
+setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
   testit::assert(model %in% 1:4)
 
   ## M1  CS - DD

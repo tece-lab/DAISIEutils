@@ -4,16 +4,16 @@
 \alias{default_params_doc}
 \title{Default parameters documentation}
 \usage{
-default_params_doc(run_name, M, metadata)
+default_params_doc(run_name, m, metadata)
 }
 \arguments{
 \item{run_name}{Character with name of run to be printed. Can be anything,
 altough it is useful to name it after the dataset that is being analysed or
 generated.}
 
-\item{M}{Positive numeric integer with mainland species number.}
-
 \item{metadata}{A numeric or a string. To be improved to take more info.}
+
+\item{M}{Positive numeric integer with mainland species number.}
 }
 \value{
 Nothing

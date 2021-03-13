@@ -22,15 +22,15 @@
 #' }
 #' @author Pedro Neves, Luis Valente
 #' @export
-print_main_header <- function(run_name, M, metadata) {
-  testit::assert("M is numeric & finite", is.numeric(M) && is.finite(M))
-  testit::assert("M is positive", M > 0)
+print_main_header <- function(run_name, m, metadata) {
+  testit::assert("m is numeric & finite", is.numeric(m) && is.finite(m))
+  testit::assert("m is positive", m > 0)
   testit::assert("run_name is character", is.character(run_name))
 
   print(sessioninfo::session_info())
   message(Sys.time())
 
   message("Run name: ", run_name)
-  message("M: ", M)
+  message("m: ", m)
   message("metadata: ", metadata)
 }

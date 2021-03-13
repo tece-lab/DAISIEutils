@@ -6,9 +6,10 @@
 #' @param M Positive numeric integer with mainland species number.
 #' @param metadata A numeric or a string. To be improved to take more info.
 #' @return Nothing
+#' @keywords internal
 #' @export
 default_params_doc <- function(run_name,
-                               M,
+                               m,
                                metadata) {
   # Nothing
 }

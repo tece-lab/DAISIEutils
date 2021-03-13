@@ -21,3 +21,4 @@ Nothing
 \description{
 Default parameters documentation
 }
+\keyword{internal}

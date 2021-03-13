@@ -2,3 +2,4 @@
 
 export(default_params_doc)
 export(print_main_header)
+export(setup_model_arguments)

@@ -19,7 +19,7 @@ r_mu <- 2
 r_k <- 3
 r_gam <- 4
 r_ana <- 5
-hawaiispiders:::setup_model_arguments(
+setup_model_arguments(
   model = model,
   r_lamc = r_lamc,
   r_mu = r_mu,

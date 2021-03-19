@@ -22,7 +22,7 @@ run_analysis <- function(datalist,
                          seed,
                          file_path) {
 
-  datalist_name <- deparse(quote(datalist))
+  datalist_name <- deparse(substitute(datalist))
 
   island_age <- datalist[[1]]$island_age
 
@@ -82,7 +82,7 @@ run_analysis <- function(datalist,
     model,
     seed,
     island_age,
-    M,
+    m,
     type,
     p_type2,
     res,
@@ -123,7 +123,7 @@ run_analysis <- function(datalist,
     model,
     seed,
     island_age,
-    M,
+    m,
     type,
     p_type2,
     res,

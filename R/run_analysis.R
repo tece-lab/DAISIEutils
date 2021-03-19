@@ -60,7 +60,7 @@ run_analysis <- function(datalist,
   methode <- "lsodes"
   cond <- 1
   res <- 100
-  complete_initparsopt <- model_arguments
+  complete_initparsopt <- model_arguments$complete_initparsopt
 
   ##### RUN1 ML Optimization
   lik_res <- DAISIE::DAISIE_ML(

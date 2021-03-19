@@ -16,6 +16,7 @@
 #'   file_path
 #' )
 #' }
+#' @author Pedro Neves, Luis Valente
 run_analysis <- function(datalist,
                          m,
                          model,

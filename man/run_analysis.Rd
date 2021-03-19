@@ -47,3 +47,6 @@ run_analysis(
 )
 }
 }
+\author{
+Pedro Neves, Luis Valente
+}

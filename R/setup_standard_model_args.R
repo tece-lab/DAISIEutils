@@ -2,7 +2,7 @@
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return A list with [DAISIE::DAISIE_ML()] arguments.
+#' @return A named list with [DAISIE::DAISIE_ML()] arguments.
 #'
 #' @author Luis M Valente, Pedro Neves
 #' @export
@@ -32,6 +32,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- NULL
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_k, r_gam, r_ana)
+    complete_initparsopt <- initparsopt
   }
 
 
@@ -43,6 +44,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- 3
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_gam, r_ana)
+    complete_initparsopt <- c(r_lamc, r_mu, Inf, r_gam, r_ana)
   }
 
 
@@ -54,7 +56,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- 5
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_k, r_gam)
-
+    complete_initparsopt <- c(r_lamc, r_mu, r_k, r_gam, 0)
   }
 
   ## M4 CS - DI no anagenesis
@@ -65,6 +67,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- c(3, 5)
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_gam)
+    complete_initparsopt <- c(r_lamc, r_mu, Inf, r_gam, 0)
   }
 
   out <- list(
@@ -73,7 +76,8 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     parsfix = parsfix,
     idparsfix = idparsfix,
     idparsnoshift = idparsnoshift,
-    initparsopt = initparsopt
+    initparsopt = initparsopt,
+    complete_initparsopt = complete_initparsopt
   )
   return(out)
 }

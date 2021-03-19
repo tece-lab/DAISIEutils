@@ -21,7 +21,8 @@ test_that("use setup_standard_model_args", {
     parsfix = NULL,
     idparsfix = NULL,
     idparsnoshift = 6:10,
-    initparsopt = 1:5
+    initparsopt = 1:5,
+    complete_initparsopt = 1:5
   )
 
   expect_equal(model_arguments, expected_arguments)
@@ -43,7 +44,8 @@ test_that("use setup_standard_model_args", {
     parsfix = Inf,
     idparsfix = 3,
     idparsnoshift = 6:10,
-    initparsopt = c(1, 2, 4, 5)
+    initparsopt = c(1, 2, 4, 5),
+    complete_initparsopt = c(1, 2, Inf, 4, 5)
   )
 
   expect_equal(model_arguments, expected_arguments)
@@ -65,7 +67,8 @@ test_that("use setup_standard_model_args", {
     parsfix = 0,
     idparsfix = 5,
     idparsnoshift = 6:10,
-    initparsopt = 1:4
+    initparsopt = 1:4,
+    complete_initparsopt = c(1:4, 0)
   )
 
   expect_equal(model_arguments, expected_arguments)
@@ -87,7 +90,8 @@ test_that("use setup_standard_model_args", {
     parsfix = c(Inf, 0),
     idparsfix = c(3, 5),
     idparsnoshift = 6:10,
-    initparsopt = c(1, 2, 4)
+    initparsopt = c(1, 2, 4),
+    complete_initparsopt = c(1, 2, Inf, 4, 0)
   )
 
   expect_equal(model_arguments, expected_arguments)

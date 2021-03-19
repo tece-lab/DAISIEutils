@@ -30,7 +30,7 @@ anagenesis (laa fixed to zero). All other parameters free.
 \item{r_ana}{Numeric. Uniformly sampled value of anagenesis rate.}
 }
 \value{
-A list with \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML()}} arguments.
+A named list with \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML()}} arguments.
 }
 \description{
 Set up DAISIE_ML arguments

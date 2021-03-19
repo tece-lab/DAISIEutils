@@ -21,6 +21,9 @@
 #' @param r_ana Numeric. Uniformly sampled value of anagenesis rate.
 #' @param output_name A string. Will be the name of the created output folder.
 #' @param verbose Boolean. Defaults to FALSE. If TRUE, session info and run.
+#' @param results_root_folder Character. A path to the root folder containing
+#'   subfolders. Each subfolder contains result files for analysis runs.
+#'
 #' @return Nothing
 #' @keywords internal
 #' @export
@@ -34,6 +37,7 @@ default_params_doc <- function(run_name,
                                r_gam,
                                r_ana,
                                output_name,
-                               verbose) {
+                               verbose,
+                               results_root_folder) {
   # Nothing
 }

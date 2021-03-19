@@ -15,7 +15,8 @@ default_params_doc(
   r_gam,
   r_ana,
   output_name,
-  verbose
+  verbose,
+  results_root_folder
 )
 }
 \arguments{
@@ -52,6 +53,9 @@ anagenesis (laa fixed to zero). All other parameters free.
 \item{output_name}{A string. Will be the name of the created output folder.}
 
 \item{verbose}{Boolean. Defaults to FALSE. If TRUE, session info and run.}
+
+\item{results_root_folder}{Character. A path to the root folder containing
+subfolders. Each subfolder contains result files for analysis runs.}
 }
 \value{
 Nothing

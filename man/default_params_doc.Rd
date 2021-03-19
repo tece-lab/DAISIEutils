@@ -16,7 +16,10 @@ default_params_doc(
   r_ana,
   output_name,
   verbose,
-  results_root_folder
+  results_root_folder,
+  datalist,
+  seed,
+  file_path
 )
 }
 \arguments{
@@ -56,6 +59,14 @@ anagenesis (laa fixed to zero). All other parameters free.
 
 \item{results_root_folder}{Character. A path to the root folder containing
 subfolders. Each subfolder contains result files for analysis runs.}
+
+\item{datalist}{A list, conforming to the \code{DAISIE} object format. Usually
+preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
+details.}
+
+\item{seed}{Integer to be used as seed.}
+
+\item{file_path}{The system directory where the output files will be stored.}
 }
 \value{
 Nothing

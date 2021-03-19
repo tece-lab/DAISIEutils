@@ -7,6 +7,10 @@
 run_analysis(datalist, m, model, seed, file_path)
 }
 \arguments{
+\item{datalist}{A list, conforming to the \code{DAISIE} object format. Usually
+preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
+details.}
+
 \item{m}{Positive numeric integer with mainland species number.}
 
 \item{model}{Numeric integer from 1 to 4 with model that should run. Models
@@ -20,6 +24,10 @@ to zero). All other parameters free.
 \item Clade specific model - diversity independent (K = Inf) and no
 anagenesis (laa fixed to zero). All other parameters free.
 }}
+
+\item{seed}{Integer to be used as seed.}
+
+\item{file_path}{The system directory where the output files will be stored.}
 }
 \value{
 Nothing. Writes to file.

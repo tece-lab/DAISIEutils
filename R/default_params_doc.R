@@ -23,10 +23,11 @@
 #' @param verbose Boolean. Defaults to FALSE. If TRUE, session info and run.
 #' @param results_root_folder Character. A path to the root folder containing
 #'   subfolders. Each subfolder contains result files for analysis runs.
-#' @param datalist A list, conforming to the `DAISIE` object format. Usually
+#' @param datalist A list, conforming to the [`DAISIE`] object format. Usually
 #'   preprocessed by [DAISIE::DAISIE_dataprep()], see it's documentation for
 #'   details.
-#' @param seed Integer to be used as seed.
+#' @param seed A single numeric to be used as seed.
+#' @param seeds Numeric vector contaning the seeds to be used in the analysis.
 #' @param file_path The system directory where the output files will be stored.
 #'
 #' @return Nothing
@@ -46,6 +47,7 @@ default_params_doc <- function(run_name,
                                results_root_folder,
                                datalist,
                                seed,
+                               seeds,
                                file_path) {
   # Nothing
 }

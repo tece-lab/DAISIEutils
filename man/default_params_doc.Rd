@@ -19,6 +19,7 @@ default_params_doc(
   results_root_folder,
   datalist,
   seed,
+  seeds,
   file_path
 )
 }
@@ -60,11 +61,13 @@ anagenesis (laa fixed to zero). All other parameters free.
 \item{results_root_folder}{Character. A path to the root folder containing
 subfolders. Each subfolder contains result files for analysis runs.}
 
-\item{datalist}{A list, conforming to the \code{DAISIE} object format. Usually
+\item{datalist}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details.}
 
-\item{seed}{Integer to be used as seed.}
+\item{seed}{A single numeric to be used as seed.}
+
+\item{seeds}{Numeric vector contaning the seeds to be used in the analysis.}
 
 \item{file_path}{The system directory where the output files will be stored.}
 }

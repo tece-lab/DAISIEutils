@@ -18,6 +18,7 @@ default_params_doc(
   verbose,
   results_root_folder,
   datalist,
+  datalist_name,
   seed,
   seeds,
   file_path
@@ -64,6 +65,10 @@ subfolders. Each subfolder contains result files for analysis runs.}
 \item{datalist}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details.}
+
+\item{datalist_name}{A character vector with the name of the datalist that
+is the analyses run on. It is required internally so that it can be stored
+in the first column of the output file.}
 
 \item{seed}{A single numeric to be used as seed.}
 

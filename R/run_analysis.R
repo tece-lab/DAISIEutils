@@ -20,12 +20,11 @@
 #' }
 #' @author Pedro Neves, Luis Valente
 run_analysis <- function(datalist,
+                         datalist_name,
                          m,
                          model,
                          seed,
                          file_path) {
-
-  datalist_name <- deparse(substitute(datalist))
 
   island_age <- datalist[[1]]$island_age
 

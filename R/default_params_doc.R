@@ -26,6 +26,9 @@
 #' @param datalist A list, conforming to the [`DAISIE`] object format. Usually
 #'   preprocessed by [DAISIE::DAISIE_dataprep()], see it's documentation for
 #'   details.
+#' @param datalist_name A character vector with the name of the datalist that
+#'   is the analyses run on. It is required internally so that it can be stored
+#'   in the first column of the output file.
 #' @param seed A single numeric to be used as seed.
 #' @param seeds Numeric vector contaning the seeds to be used in the analysis.
 #' @param file_path The system directory where the output files will be stored.
@@ -46,6 +49,7 @@ default_params_doc <- function(run_name,
                                verbose,
                                results_root_folder,
                                datalist,
+                               datalist_name,
                                seed,
                                seeds,
                                file_path) {

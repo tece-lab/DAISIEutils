@@ -86,12 +86,15 @@ run_main <- function(datalist,
   )
 
   for (seed in seeds) {
-    message(
-      "Running analysis with seed: ", seed, "\n",
-      "This is seed ", which(seeds == seed), " out of ", length(seeds)
-    )
+    if (verbose) {
+      message(
+        "Running analysis with seed: ", seed, "\n",
+        "This is seed ", which(seeds == seed), " out of ", length(seeds)
+      )
+    }
     run_analysis(
       datalist = datalist,
+      datalist_name,
       m = m,
       model = model,
       seed = seed,

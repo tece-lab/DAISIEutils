@@ -4,12 +4,16 @@
 \alias{run_analysis}
 \title{Run DAISIE analysis}
 \usage{
-run_analysis(datalist, m, model, seed, file_path)
+run_analysis(datalist, datalist_name, m, model, seed, file_path)
 }
 \arguments{
 \item{datalist}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details.}
+
+\item{datalist_name}{A character vector with the name of the datalist that
+is the analyses run on. It is required internally so that it can be stored
+in the first column of the output file.}
 
 \item{m}{Positive numeric integer with mainland species number.}
 

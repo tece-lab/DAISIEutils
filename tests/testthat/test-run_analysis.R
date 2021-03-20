@@ -9,6 +9,7 @@ test_that("integration test", {
 
   run_analysis(
     datalist = Galapagos_datalist, # nolint
+    datalist_name = "Galapagos_datalist",
     m = m,
     model = model,
     seed = seed,

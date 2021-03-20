@@ -7,14 +7,16 @@ test_that("integration test", {
 
   file_path <- create_output_folder(output_name = "test_name", model = model)
 
-  run_analysis(
-    datalist = Galapagos_datalist, # nolint
-    datalist_name = "Galapagos_datalist",
-    m = m,
-    model = model,
-    seed = seed,
-    file_path = file_path
-  )
+  invisible(capture.output( # Omit console output in tests
+    run_analysis(
+      datalist = Galapagos_datalist, # nolint
+      datalist_name = "Galapagos_datalist",
+      m = m,
+      model = model,
+      seed = seed,
+      file_path = file_path
+    )
+  ))
   test_results <- read.delim(file_path, header = FALSE)
   column_names <- colnames(test_results[1, ])
 

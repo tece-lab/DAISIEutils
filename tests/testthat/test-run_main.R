@@ -8,13 +8,14 @@ test_that("run_main works", {
   seed <- 1
   file_path <- create_output_folder(output_name = datalist_name, model = model)
 
-  run_main(
-    datalist = Galapagos_datalist,
-    m = m,
-    model = model,
-    seeds = seed
-  )
-
+  invisible(capture.output( # Omit console output in tests
+    run_main(
+      datalist = Galapagos_datalist,
+      m = m,
+      model = model,
+      seeds = seed
+    )
+  ))
   galapagos_datalist_results <- read.delim(file_path, header = TRUE)
 
   expected_data_frame <- data.frame(

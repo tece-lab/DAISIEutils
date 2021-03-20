@@ -35,7 +35,6 @@ test_that("multiplication works", {
     output_file_header,
     file = file_path,
     ncolumns = length(output_file_header),
-    append = TRUE,
     sep = "\t"
   )
 
@@ -66,11 +65,12 @@ test_that("multiplication works", {
     0.8865595
   )
 
-  write(
-    expected_vector,
+  write.table(
+    expected_data_frame,
     file = file_path,
-    ncolumns = length(expected_data_frame),
     append = TRUE,
+    col.names = FALSE,
+    row.names = FALSE,
     sep = "\t"
   )
   output_df <- load_txt_results(dirname(dirname(file_path)))

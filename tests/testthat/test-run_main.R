@@ -15,7 +15,7 @@ test_that("run_main works", {
     seeds = seed
   )
 
-  Galapagos_datalist_results <- read.delim(file_path, header = TRUE)
+  galapagos_datalist_results <- read.delim(file_path, header = TRUE)
 
   expected_data_frame <- data.frame(
     "Galapagos_datalist",
@@ -69,7 +69,7 @@ test_that("run_main works", {
   )
   expect_equal(
     expected = expected_data_frame,
-    object = Galapagos_datalist_results[1, ],
+    object = galapagos_datalist_results[1, ],
     tolerance = 1e-6
   )
   # Clean-up

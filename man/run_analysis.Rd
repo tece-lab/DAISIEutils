@@ -2,12 +2,12 @@
 % Please edit documentation in R/run_analysis.R
 \name{run_analysis}
 \alias{run_analysis}
-\title{Run spider analysis}
+\title{Run DAISIE analysis}
 \usage{
 run_analysis(datalist, m, model, seed, file_path)
 }
 \arguments{
-\item{datalist}{A list, conforming to the \code{DAISIE} object format. Usually
+\item{datalist}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details.}
 
@@ -25,15 +25,17 @@ to zero). All other parameters free.
 anagenesis (laa fixed to zero). All other parameters free.
 }}
 
-\item{seed}{Integer to be used as seed.}
+\item{seed}{A single numeric to be used as seed.}
 
 \item{file_path}{The system directory where the output files will be stored.}
 }
 \value{
-Nothing. Writes to file.
+Nothing. Writes \code{\link{DAISIE}} analysis results to a \code{.txt} file. This
+file is stored in \code{file_path}. The directory in of \code{file_path} is created
+if it doesn't exist.
 }
 \description{
-Run spider analysis
+Run DAISIE analysis
 }
 \examples{
 \dontrun{

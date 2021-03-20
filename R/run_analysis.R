@@ -1,8 +1,10 @@
-#' Run spider analysis
+#' Run DAISIE analysis
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return Nothing. Writes to file.
+#' @return Nothing. Writes [`DAISIE`] analysis results to a `.txt` file. This
+#'   file is stored in `file_path`. The directory in of `file_path` is created
+#'   if it doesn't exist.
 #' @export
 #'
 #' @examples

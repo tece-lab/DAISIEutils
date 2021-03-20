@@ -3,10 +3,10 @@ test_that("run_main works", {
 
   data(Galapagos_datalist, package = "DAISIE")
   datalist_name <- "Galapagos_datalist"
-  M <- 50
+  m <- 50
   model <- 1
   seed <- 1
-  # file_path <- create_output_folder(output_name = datalist_name, model = model)
+  file_path <- create_output_folder(output_name = datalist_name, model = model)
 
   run_main(
     datalist = Galapagos_datalist,

@@ -6,8 +6,8 @@ test_that("integration test", {
   seed <- 1
 
   file_path <- create_output_folder(output_name = "test_name", model = model)
-
-  invisible(capture.output( # Omit console output in tests
+  # Omit console output in tests
+  invisible(capture.output(
     run_analysis(
       datalist = Galapagos_datalist, # nolint
       datalist_name = "Galapagos_datalist",

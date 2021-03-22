@@ -36,8 +36,9 @@ run_main <- function(datalist,
     duplicated_seeds <- seeds[duplicated(seeds)]
     duplicated_seeds <- paste(duplicated_seeds, collapse = " ")
     warning(
-      "Running experiment with duplicate seeds.\n",
-      "Duplicated seeds: ", duplicated_seeds, ".")
+      "Running experiment with duplicate seeds. Duplicated seeds: ",
+      duplicated_seeds, "."
+    )
   }
 
   testit::assert(

@@ -1,4 +1,4 @@
-test_that("multiplication works", {
+test_that("load_txt_results works", {
 
   file_path <- create_output_folder(
     output_name = "Galapagos_datalist",

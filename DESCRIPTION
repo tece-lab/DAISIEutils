@@ -28,4 +28,4 @@ Imports:
     readr,
     tibble
 Remotes: 
-    rsetienne/DAISIE@develop
+    rsetienne/DAISIE

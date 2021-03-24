@@ -21,7 +21,8 @@ default_params_doc(
   datalist_name,
   seed,
   seeds,
-  file_path
+  file_path,
+  results
 )
 }
 \arguments{
@@ -75,6 +76,10 @@ in the first column of the output file.}
 \item{seeds}{Numeric vector contaning the seeds to be used in the analysis.}
 
 \item{file_path}{The system directory where the output files will be stored.}
+
+\item{results}{A tibble contaning model results as read by
+\code{\link[=load_txt_results]{load_txt_results()}}. These results are themselves created and saved as
+text files by \code{\link[=run_analysis]{run_analysis()}} and friends.}
 }
 \value{
 Nothing

@@ -7,6 +7,10 @@
 calc_bic(results, m)
 }
 \arguments{
+\item{results}{A tibble contaning model results as read by
+\code{\link[=load_txt_results]{load_txt_results()}}. These results are themselves created and saved as
+text files by \code{\link[=run_analysis]{run_analysis()}} and friends.}
+
 \item{m}{Positive numeric integer with mainland species number.}
 }
 \value{

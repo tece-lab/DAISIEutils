@@ -32,6 +32,9 @@
 #' @param seed A single numeric to be used as seed.
 #' @param seeds Numeric vector contaning the seeds to be used in the analysis.
 #' @param file_path The system directory where the output files will be stored.
+#' @param results A tibble contaning model results as read by
+#'   [load_txt_results()]. These results are themselves created and saved as
+#'   text files by [run_analysis()] and friends.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -52,6 +55,7 @@ default_params_doc <- function(run_name,
                                datalist_name,
                                seed,
                                seeds,
-                               file_path) {
+                               file_path,
+                               results) {
   # Nothing
 }

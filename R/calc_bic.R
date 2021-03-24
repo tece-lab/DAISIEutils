@@ -9,4 +9,5 @@
 calc_bic <- function(results, m) {
   k <- results$df
   bic <- k * (log(m) + log(2 * pi)) - 2 * results$loglik
+  bic
 }

@@ -24,8 +24,8 @@ Config/testthat/edition: 3
 Imports: 
     sessioninfo,
     testit,
-    DAISIE (>= 3.2.0),
+    DAISIE (>= 3.2.1),
     readr,
     tibble
 Remotes: 
-    rsetienne/DAISIE
+    rsetienne/DAISIE@v3.2.1

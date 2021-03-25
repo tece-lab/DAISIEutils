@@ -20,7 +20,6 @@
 #' @param r_gam Numeric. Uniformly sampled value of immigration rate.
 #' @param r_ana Numeric. Uniformly sampled value of anagenesis rate.
 #' @param output_name A string. Will be the name of the created output folder.
-#' @param verbose Boolean. Defaults to FALSE. If TRUE, session info and run.
 #' @param results_root_folder Character. A path to the root folder containing
 #'   subfolders. Each subfolder contains result files for analysis runs.
 #' @param datalist A list, conforming to the [`DAISIE`] object format. Usually
@@ -49,7 +48,6 @@ default_params_doc <- function(run_name,
                                r_gam,
                                r_ana,
                                output_name,
-                               verbose,
                                results_root_folder,
                                datalist,
                                datalist_name,

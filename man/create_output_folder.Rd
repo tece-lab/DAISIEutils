@@ -4,7 +4,7 @@
 \alias{create_output_folder}
 \title{Create model output folder}
 \usage{
-create_output_folder(output_name, model, verbose = FALSE)
+create_output_folder(output_name, model)
 }
 \arguments{
 \item{output_name}{A string. Will be the name of the created output folder.}
@@ -20,8 +20,6 @@ to zero). All other parameters free.
 \item Clade specific model - diversity independent (K = Inf) and no
 anagenesis (laa fixed to zero). All other parameters free.
 }}
-
-\item{verbose}{Boolean. Defaults to FALSE. If TRUE, session info and run.}
 }
 \value{
 Creates appropriate directory. Returns string with path for

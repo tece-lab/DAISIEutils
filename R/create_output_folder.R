@@ -13,7 +13,7 @@
 #' \dontrun{
 #' create_output_folder(output_name = "results_folder", model = 1)
 #' }
-create_output_folder <- function(output_name, model, verbose = FALSE) {
+create_output_folder <- function(output_name, model) {
 
   if (is_on_cluster()) {
     output_folder <- file.path(Sys.getenv("HOME"), "results", output_name)
@@ -22,7 +22,7 @@ create_output_folder <- function(output_name, model, verbose = FALSE) {
   }
 
   if (!dir.exists(output_folder)) {
-    if (verbose) message(output_folder, " not found, creating it.")
+    message(output_folder, " not found, creating it.")
     dir.create(path = output_folder, recursive = TRUE)
   }
   testit::assert(

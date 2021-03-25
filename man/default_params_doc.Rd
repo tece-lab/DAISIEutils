@@ -15,7 +15,6 @@ default_params_doc(
   r_gam,
   r_ana,
   output_name,
-  verbose,
   results_root_folder,
   datalist,
   datalist_name,
@@ -57,8 +56,6 @@ anagenesis (laa fixed to zero). All other parameters free.
 \item{r_ana}{Numeric. Uniformly sampled value of anagenesis rate.}
 
 \item{output_name}{A string. Will be the name of the created output folder.}
-
-\item{verbose}{Boolean. Defaults to FALSE. If TRUE, session info and run.}
 
 \item{results_root_folder}{Character. A path to the root folder containing
 subfolders. Each subfolder contains result files for analysis runs.}

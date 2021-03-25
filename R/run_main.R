@@ -34,8 +34,7 @@ run_main <- function(datalist,
 
   file_path <- create_output_folder(
     output_name = datalist_name,
-    model = model,
-    verbose = verbose
+    model = model
   )
 
   output_file_header <- c(

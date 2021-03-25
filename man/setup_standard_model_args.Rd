@@ -7,16 +7,16 @@
 setup_standard_model_args(model, r_lamc, r_mu, r_k, r_gam, r_ana)
 }
 \arguments{
-\item{model}{Numeric integer from 1 to 4 with model that should run. Models
-are as follows:
-\enumerate{
-\item Clade specific model - diversity dependent. All parameters free.
-\item Clade specific model - diversity independent (K = Inf). All other
-parameters free.
-\item Clade specific model - diversity dependent and no anagenesis (laa fixed
-to zero). All other parameters free.
-\item Clade specific model - diversity independent (K = Inf) and no
+\item{model}{A string with model that should run. Models are as follows:
+\itemize{
+\item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
+free.
+\item \code{"cr_di"} Clade specific model - diversity independent (K = Inf). All
+other parameters free.
+\item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
 anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf) and
+no anagenesis (laa fixed to zero). All other parameters free.
 }}
 
 \item{r_lamc}{Numeric. Uniformly sampled value of cladogenesis rate.}
@@ -36,7 +36,7 @@ A named list with \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML()}} arguments.
 Set up DAISIE_ML arguments
 }
 \examples{
-model <- 1
+model <- cr_dd
 r_lamc <- 1
 r_mu <- 2
 r_k <- 3

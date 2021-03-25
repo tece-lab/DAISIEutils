@@ -33,16 +33,16 @@ generated.}
 
 \item{metadata}{A numeric or a string. To be improved to take more info.}
 
-\item{model}{Numeric integer from 1 to 4 with model that should run. Models
-are as follows:
-\enumerate{
-\item Clade specific model - diversity dependent. All parameters free.
-\item Clade specific model - diversity independent (K = Inf). All other
-parameters free.
-\item Clade specific model - diversity dependent and no anagenesis (laa fixed
-to zero). All other parameters free.
-\item Clade specific model - diversity independent (K = Inf) and no
+\item{model}{A string with model that should run. Models are as follows:
+\itemize{
+\item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
+free.
+\item \code{"cr_di"} Clade specific model - diversity independent (K = Inf). All
+other parameters free.
+\item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
 anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf) and
+no anagenesis (laa fixed to zero). All other parameters free.
 }}
 
 \item{r_lamc}{Numeric. Uniformly sampled value of cladogenesis rate.}

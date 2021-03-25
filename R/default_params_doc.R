@@ -5,15 +5,15 @@
 #'   generated.
 #' @param m Positive numeric integer with mainland species number.
 #' @param metadata A numeric or a string. To be improved to take more info.
-#' @param model Numeric integer from 1 to 4 with model that should run. Models
-#'   are as follows:
-#'  1. Clade specific model - diversity dependent. All parameters free.
-#'  2. Clade specific model - diversity independent (K = Inf). All other
-#'     parameters free.
-#'  3. Clade specific model - diversity dependent and no anagenesis (laa fixed
-#'     to zero). All other parameters free.
-#'  4. Clade specific model - diversity independent (K = Inf) and no
+#' @param model A string with model that should run. Models are as follows:
+#'   * `"cr_dd"` Clade specific model - diversity dependent. All parameters
+#'     free.
+#'   * `"cr_di"` Clade specific model - diversity independent (K = Inf). All
+#'     other parameters free.
+#'   * `"cr_dd_0laa"` Clade specific model - diversity dependent and no
 #'     anagenesis (laa fixed to zero). All other parameters free.
+#'   * `"cr_di_0laa"` Clade specific model - diversity independent (K = Inf) and
+#'     no anagenesis (laa fixed to zero). All other parameters free.
 #' @param r_lamc Numeric. Uniformly sampled value of cladogenesis rate.
 #' @param r_mu Numeric. Uniformly sampled value of extinction rate.
 #' @param r_k Numeric. Uniformly sampled value of carrying capacity.

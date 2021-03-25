@@ -4,7 +4,7 @@
 #'
 #' @return A named list with [DAISIE::DAISIE_ML()] arguments.
 #'
-#' @author Luis M Valente, Pedro Neves
+#' @author Luis M Valente, Pedro Neves, Joshua W. Lambert
 #' @export
 #' @examples
 #' model <- cr_dd

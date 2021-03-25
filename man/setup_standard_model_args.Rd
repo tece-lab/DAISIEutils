@@ -52,5 +52,5 @@ setup_standard_model_args(
 )
 }
 \author{
-Luis M Valente, Pedro Neves
+Luis M Valente, Pedro Neves, Joshua W. Lambert
 }

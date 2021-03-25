@@ -6,9 +6,18 @@
 \usage{
 is_daisie_object(data)
 }
+\arguments{
+\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
+details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+}
 \value{
 \code{TRUE} if \code{data} is a valid \link{DAISIE} object, \code{FALSE} if not.
 }
 \description{
 Checks if object is a \link{DAISIE} simulation object
+}
+\author{
+Pedro Neves, Richèl J. C. Bilderbeek
 }

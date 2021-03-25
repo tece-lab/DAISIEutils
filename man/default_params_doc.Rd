@@ -5,19 +5,15 @@
 \title{Default parameters documentation}
 \usage{
 default_params_doc(
-  run_name,
-  m,
-  metadata,
   model,
   r_lamc,
   r_mu,
   r_k,
   r_gam,
   r_ana,
-  output_name,
+  data_name,
   results_root_folder,
-  datalist,
-  datalist_name,
+  data,
   seed,
   seeds,
   file_path,
@@ -25,14 +21,6 @@ default_params_doc(
 )
 }
 \arguments{
-\item{run_name}{Character with name of run to be printed. Can be anything,
-altough it is useful to name it after the dataset that is being analysed or
-generated.}
-
-\item{m}{Positive numeric integer with mainland species number.}
-
-\item{metadata}{A numeric or a string. To be improved to take more info.}
-
 \item{model}{A string with model that should run. Models are as follows:
 \itemize{
 \item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
@@ -55,28 +43,28 @@ no anagenesis (laa fixed to zero). All other parameters free.
 
 \item{r_ana}{Numeric. Uniformly sampled value of anagenesis rate.}
 
-\item{output_name}{A string. Will be the name of the created output folder.}
+\item{data_name}{String. Will be used for the name of the created output
+folder.}
 
 \item{results_root_folder}{Character. A path to the root folder containing
 subfolders. Each subfolder contains result files for analysis runs.}
 
-\item{datalist}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
-details.}
-
-\item{datalist_name}{A character vector with the name of the datalist that
-is the analyses run on. It is required internally so that it can be stored
-in the first column of the output file.}
+details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
 
 \item{seed}{A single numeric to be used as seed.}
-
-\item{seeds}{Numeric vector contaning the seeds to be used in the analysis.}
 
 \item{file_path}{The system directory where the output files will be stored.}
 
 \item{results}{A tibble contaning model results as read by
 \code{\link[=load_txt_results]{load_txt_results()}}. These results are themselves created and saved as
 text files by \code{\link[=run_analysis]{run_analysis()}} and friends.}
+
+\item{datalist_name}{A character vector with the name of the datalist that
+is the analyses run on. It is required internally so that it can be stored
+in the first column of the output file.}
 }
 \value{
 Nothing

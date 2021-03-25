@@ -4,11 +4,9 @@
 \alias{create_output_folder}
 \title{Create model output folder}
 \usage{
-create_output_folder(output_name, model)
+create_output_folder(output_directory_name, model, seed)
 }
 \arguments{
-\item{output_name}{A string. Will be the name of the created output folder.}
-
 \item{model}{A string with model that should run. Models are as follows:
 \itemize{
 \item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
@@ -20,6 +18,8 @@ anagenesis (laa fixed to zero). All other parameters free.
 \item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf) and
 no anagenesis (laa fixed to zero). All other parameters free.
 }}
+
+\item{seed}{A single numeric to be used as seed.}
 }
 \value{
 Creates appropriate directory. Returns string with path for

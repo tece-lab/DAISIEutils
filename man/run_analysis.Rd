@@ -7,6 +7,11 @@
 run_analysis(data, model, seed)
 }
 \arguments{
+\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
+details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+
 \item{model}{A string with model that should run. Models are as follows:
 \itemize{
 \item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
@@ -42,5 +47,5 @@ run_analysis(
 }
 }
 \author{
-Pedro Neves, Luis Valente
+Pedro Neves, Joshua W. Lambert, Luis Valente
 }

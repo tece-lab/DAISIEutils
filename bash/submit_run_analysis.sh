@@ -37,7 +37,7 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group cr_di
+# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group relaxedDAISIE cr_di
 ################################################################################
 
 
@@ -46,9 +46,11 @@
 # Arguments to follow the Rscript are as follows:
 datalist_name=$1
 model=$2
+package=$3
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
 Rscript DAISIEutils/scripts/run_main_peregrine.R ${datalist_name} \
                                                  ${model} \
+                                                 ${package} \
                                                  ${seed} \

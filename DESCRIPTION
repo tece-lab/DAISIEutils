@@ -26,6 +26,10 @@ Imports:
     testit,
     DAISIE (>= 3.2.1),
     readr,
-    tibble
-Remotes: 
-    rsetienne/DAISIE@v3.2.1
+    tibble,
+    hawaiispiders (>= 1.0.1),
+    relaxedDAISIE (>= 0.1.0)
+Remotes:  
+    rsetienne/DAISIE@v3.2.1,
+    Neves-P/hawaiispiders,
+    joshwlambert/relaxedDAISIE

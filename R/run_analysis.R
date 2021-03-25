@@ -19,12 +19,22 @@
 #' )
 #' }
 #' @author Pedro Neves, Luis Valente
-run_analysis <- function(datalist,
-                         datalist_name,
-                         m,
-                         model,
-                         seed,
-                         file_path) {
+run_analysis <- function(
+  data,
+  model,
+  seed) {
+
+  # TODO: Write is DAISIE object assert
+
+  print_metadata(
+    data = data,
+    model = model,
+    seed = seed)
+
+  file_path <- create_output_folder(
+    output_name = data,
+    model = model
+  )
 
   island_age <- datalist[[1]]$island_age
 

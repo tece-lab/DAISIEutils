@@ -4,7 +4,7 @@
 \alias{run_main}
 \title{Run analysis from a set of initial parameters}
 \usage{
-run_main(datalist, m, model, seeds, verbose = FALSE)
+run_main(datalist, m, model, seeds)
 }
 \arguments{
 \item{datalist}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
@@ -26,8 +26,6 @@ anagenesis (laa fixed to zero). All other parameters free.
 }}
 
 \item{seeds}{Numeric vector contaning the seeds to be used in the analysis.}
-
-\item{verbose}{Boolean. Defaults to FALSE. If TRUE, session info and run.}
 }
 \value{
 Saves results to .txt file.

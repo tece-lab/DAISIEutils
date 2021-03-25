@@ -21,30 +21,16 @@
 run_main <- function(datalist,
                      m,
                      model,
-                     seeds,
-                     verbose = FALSE) {
+                     seeds) {
   # TODO: Write is DAISIE object assert
 
   datalist_name <- deparse(substitute(datalist))
   testit::assert(is.character(datalist_name))
 
-  if (verbose) {
-    print_main_header(run_name = datalist_name, m = m, metadata = model)
-  }
 
-  if (length(unique(seeds)) != length(seeds))  {
-    duplicated_seeds <- seeds[duplicated(seeds)]
-    duplicated_seeds <- paste(duplicated_seeds, collapse = " ")
-    warning(
-      "Running experiment with duplicate seeds. Duplicated seeds: ",
-      duplicated_seeds, "."
-    )
-  }
+  print_main_header(run_name = datalist_name, m = m, metadata = model)
 
-  testit::assert(
-    fact = "Seeds is numeric vector",
-    is.numeric(seeds) && is.vector(seeds)
-  )
+
 
   file_path <- create_output_folder(
     output_name = datalist_name,
@@ -87,12 +73,10 @@ run_main <- function(datalist,
   )
 
   for (seed in seeds) {
-    if (verbose) {
-      message(
-        "Running analysis with seed: ", seed, "\n",
-        "This is seed ", which(seeds == seed), " out of ", length(seeds)
-      )
-    }
+    message(
+      "Running analysis with seed: ", seed, "\n",
+      "This is seed ", which(seeds == seed), " out of ", length(seeds)
+    )
     run_analysis(
       datalist = datalist,
       datalist_name,

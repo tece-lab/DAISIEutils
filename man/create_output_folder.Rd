@@ -35,7 +35,7 @@ Create model output folder
 }
 \examples{
 \dontrun{
-create_output_folder(output_name = "results_folder", model = 1)
+create_output_folder(data_name = "results_folder", model = 1)
 }
 }
 \author{

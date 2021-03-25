@@ -3,9 +3,10 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=DAISIE
-#SBATCH --output=logs/DAISIE/job-%j.log
+#SBATCH --output=logs/DAISIE/job-%a.log
 #SBATCH --mem=2GB
-#SBATCH --partition=regular
+#SBATCH --array=1-10
+#SBATCH --partition=gelifes
 
 # DAISIEutils: Utility Functions for the DAISIE Package
 # Copyright (C) 2021 Pedro Neves
@@ -23,25 +24,31 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+################################ Usage #########################################
+#         This bash script submits a set of DAISIE model inference jobs        #
+#                 Submissions are made to the regular partition.               #
 ################################################################################
-# This script can either be called directly, or by submit_models_peregrine.sh  #
-# script found in the same folder.                                             #
+### Arguments ###
+# datalist_name - the name of the datalist object, as found as data on
+#   the hawaiispiders package.
+# model - the name of a DAISIE model to indicate which parameters are estimated
+# or fixed.
+# seed - The seed used to sample the optimization initial parameters.
 ################################################################################
+##### Before running make sure install_DAISIEutils.sh has been run ####
+# Example:
+# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group cr_di
+################################################################################
+
 
 # See DAISIEutils::run_main() documentation for help.
 # See also DAISIEutils/bash/submit_run_robustness_peregrine.sh for help.
 # Arguments to follow the Rscript are as follows:
 datalist_name=$1
-M=$2
-model_to_run=$3
-seed_range_1=$4
-seed_range_2=$5
-verbose=$6
+model=$2
+seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
 Rscript DAISIEutils/scripts/run_main_peregrine.R ${datalist_name} \
-                                                 ${M} \
-                                                 ${model_to_run} \
-                                                 ${seed_range_1} \
-                                                 ${seed_range_2} \
-                                                 ${verbose}
+                                                 ${model} \
+                                                 ${seed} \

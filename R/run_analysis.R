@@ -13,27 +13,28 @@
 #' run_analysis(
 #'   datalist = Galapagos_datalist,
 #'   m = 165,
-#'   model = 1,
+#'   model = cr_dd,
 #'   seed = 1,
 #'   file_path
 #' )
 #' }
-#' @author Pedro Neves, Luis Valente
+#' @author Pedro Neves, Joshua W. Lambert, Luis Valente
 run_analysis <- function(
   data,
   model,
   seed) {
 
-  # TODO: Write is DAISIE object assert
+  # TODO: Write is DAISIE object assert is_daisie_object()
 
   print_metadata(
     data = data,
     model = model,
     seed = seed)
-
+  data_name <- deparse(substitute(data))
   file_path <- create_output_folder(
-    output_name = data,
-    model = model
+    data_name = data_name,
+    model = model,
+    seed = seed
   )
 
   island_age <- datalist[[1]]$island_age
@@ -74,9 +75,9 @@ run_analysis <- function(
   res <- 100
   complete_initparsopt <- model_arguments$complete_initparsopt
 
-  ##### RUN1 ML Optimization
+  ##### ML Optimization ####
   lik_res <- DAISIE::DAISIE_ML(
-    datalist = datalist,
+    datalist = data,
     initparsopt = initparsopt,
     idparsnoshift = idparsnoshift,
     idparsopt = idparsopt,
@@ -88,67 +89,10 @@ run_analysis <- function(
     res = res
   )
 
-  lik_res <- as.matrix(lik_res)
-  to_write <- c(
-    datalist_name,
-    model,
-    seed,
-    island_age,
-    m,
-    type,
-    p_type2,
-    res,
-    methode,
-    "R1",
-    as.matrix(lik_res),
-    complete_initparsopt
-  )
-  write(
-    to_write,
-    file = file_path,
-    ncolumns = length(to_write),
-    append = TRUE,
-    sep = "\t"
+
+  saveRDS(
+    lik_res,
+    file = file_path
   )
 
-  ##### RUN2 ML Optimization
-
-  initparsopt <- lik_res[idparsopt]
-
-
-  lik_res <- DAISIE::DAISIE_ML(
-    datalist = datalist,
-    initparsopt = initparsopt,
-    idparsnoshift = idparsnoshift,
-    idparsopt = idparsopt,
-    parsfix = parsfix,
-    idparsfix = idparsfix,
-    ddmodel = ddmodel,
-    methode = methode,
-    cond = cond,
-    res = res
-  )
-
-  lik_res <- as.matrix(lik_res)
-  to_write <- c(
-    datalist_name,
-    model,
-    seed,
-    island_age,
-    m,
-    type,
-    p_type2,
-    res,
-    methode,
-    "R2",
-    as.matrix(lik_res),
-    complete_initparsopt
-  )
-  write(
-    to_write,
-    file = file_path,
-    ncolumns = length(to_write),
-    append = TRUE,
-    sep = "\t"
-  )
 }

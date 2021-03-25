@@ -3,9 +3,7 @@
 #' @inheritParams default_params_doc
 #'
 #' @return `TRUE` if `data` is a valid [DAISIE] object, `FALSE` if not.
-#' @export
-#'
-#' @examples
+#' @author Pedro Neves, Richèl J. C. Bilderbeek
 is_daisie_object <- function(data) {
   if (!is.list(data)) {
     return(FALSE)

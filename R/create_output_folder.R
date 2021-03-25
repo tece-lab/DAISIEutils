@@ -13,12 +13,14 @@
 #' \dontrun{
 #' create_output_folder(output_name = "results_folder", model = 1)
 #' }
-create_output_folder <- function(output_name, model) {
+create_output_folder <- function(output_directory_name, model, seed) {
 
   if (is_on_cluster()) {
-    output_folder <- file.path(Sys.getenv("HOME"), "results", output_name)
+    output_folder <- file.path(
+      Sys.getenv("HOME"), "results", output_directory_name
+    )
   } else {
-    output_folder <- file.path(getwd(), "results", output_name)
+    output_folder <- file.path(getwd(), "results", output_directory_name)
   }
 
   if (!dir.exists(output_folder)) {
@@ -31,7 +33,7 @@ create_output_folder <- function(output_name, model) {
   )
   file_path <- file.path(
     output_folder,
-    paste0(output_name, "_", "m_", model, ".txt")
+    paste0(output_directory_name, "_m_", model, "_s_", seed, ".rds")
   )
 
   file_path

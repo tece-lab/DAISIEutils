@@ -7,7 +7,7 @@
 #' @author Luis M Valente, Pedro Neves
 #' @export
 #' @examples
-#' model <- 1
+#' model <- cr_dd
 #' r_lamc <- 1
 #' r_mu <- 2
 #' r_k <- 3
@@ -25,7 +25,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
   testit::assert(model %in% 1:4)
 
   ## M1  CS - DD
-  if (model == "1") {
+  if (model == "cr_dd") {
     ddmodel <- 11
     idparsopt <- 1:5
     parsfix <- NULL
@@ -37,7 +37,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
 
 
   ## M2 CS - DI
-  if (model == "2") {
+  if (model == "cr_di") {
     ddmodel <- 0
     idparsopt <- c(1, 2, 4, 5)
     parsfix <- Inf
@@ -49,7 +49,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
 
 
   ## M3 CS - DD no anagenesis
-  if (model == "3") {
+  if (model == "cr_dd_0laa") {
     ddmodel <- 11
     idparsopt <- c(1, 2, 3, 4)
     parsfix <- 0
@@ -60,7 +60,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
   }
 
   ## M4 CS - DI no anagenesis
-  if (model == "4") {
+  if (model == "cr_di_0laa") {
     ddmodel <- 0
     idparsopt <- c(1, 2, 4)
     parsfix <- c(Inf, 0)

@@ -32,7 +32,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- NULL
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_k, r_gam, r_ana)
-    complete_initparsopt <- initparsopt
+    cs_version <- 1
   }
 
 
@@ -44,7 +44,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- 3
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_gam, r_ana)
-    complete_initparsopt <- c(r_lamc, r_mu, Inf, r_gam, r_ana)
+    cs_version <- 1
   }
 
 
@@ -56,7 +56,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- 5
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_k, r_gam)
-    complete_initparsopt <- c(r_lamc, r_mu, r_k, r_gam, 0)
+    cs_version <- 1
   }
 
   ## M4 CS - DI no anagenesis
@@ -67,7 +67,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix <- c(3, 5)
     idparsnoshift <- 6:10
     initparsopt <- c(r_lamc, r_mu, r_gam)
-    complete_initparsopt <- c(r_lamc, r_mu, Inf, r_gam, 0)
+    cs_version <- 1
   }
 
   out <- list(
@@ -77,7 +77,7 @@ setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
     idparsfix = idparsfix,
     idparsnoshift = idparsnoshift,
     initparsopt = initparsopt,
-    complete_initparsopt = complete_initparsopt
+    cs_version = cs_version
   )
   return(out)
 }

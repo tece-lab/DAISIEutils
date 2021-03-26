@@ -4,7 +4,7 @@
 \alias{run_analysis}
 \title{Run DAISIE analysis}
 \usage{
-run_analysis(data, model, seed)
+run_analysis(data, model, seed, cond)
 }
 \arguments{
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually

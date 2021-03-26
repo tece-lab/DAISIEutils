@@ -22,7 +22,8 @@
 run_analysis <- function(
   data,
   model,
-  seed) {
+  seed,
+  cond) {
 
   # TODO: Write is DAISIE object assert is_daisie_object()
 
@@ -37,7 +38,7 @@ run_analysis <- function(
     seed = seed
   )
 
-  island_age <- datalist[[1]]$island_age
+  island_age <- data[[1]]$island_age
 
   set.seed(
     seed,
@@ -55,6 +56,7 @@ run_analysis <- function(
   type <- 1
   p_type2 <- 0
 
+
   model_arguments <- setup_standard_model_args(
     model = model,
     r_lamc = r_lamc,
@@ -70,10 +72,7 @@ run_analysis <- function(
   parsfix <- model_arguments$parsfix
   idparsfix <- model_arguments$idparsfix
   ddmodel <- model_arguments$ddmodel
-  methode <- "lsodes"
-  cond <- 1
-  res <- 100
-  complete_initparsopt <- model_arguments$complete_initparsopt
+  cs_version <- model_arguments$cs_version
 
   ##### ML Optimization ####
   lik_res <- DAISIE::DAISIE_ML(
@@ -84,11 +83,12 @@ run_analysis <- function(
     parsfix = parsfix,
     idparsfix = idparsfix,
     ddmodel = ddmodel,
-    methode = methode,
     cond = cond,
-    res = res
+    CS_version = cs_version
   )
 
+  bic <- calc_bic(results = lik_res, data = data)
+  lik_res <- cbind(lik_res, bic)
 
   saveRDS(
     lik_res,

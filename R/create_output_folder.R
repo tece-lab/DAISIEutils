@@ -33,7 +33,7 @@ create_output_folder <- function(data_name , model, seed) {
   )
   file_path <- file.path(
     output_folder,
-    paste0(data_name , "_m_", model, "_s_", seed, ".rds")
+    paste0(data_name, "_" , model, "_", seed, ".rds")
   )
 
   file_path

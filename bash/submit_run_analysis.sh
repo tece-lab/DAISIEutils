@@ -34,10 +34,11 @@
 # model - the name of a DAISIE model to indicate which parameters are estimated
 # or fixed.
 # seed - The seed used to sample the optimization initial parameters.
+# cond - The conditioning for DAISIE_ML
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group relaxedDAISIE cr_di
+# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group relaxedDAISIE cr_di 5
 ################################################################################
 
 
@@ -47,6 +48,7 @@
 datalist_name=$1
 model=$2
 package=$3
+cond=$4
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -54,3 +56,4 @@ Rscript DAISIEutils/scripts/run_main_peregrine.R ${datalist_name} \
                                                  ${model} \
                                                  ${package} \
                                                  ${seed} \
+                                                 ${cond} \

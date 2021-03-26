@@ -4,12 +4,17 @@
 \alias{calc_bic}
 \title{Compute Bayesian Information Criterion of a model}
 \usage{
-calc_bic(results, m)
+calc_bic(results, data)
 }
 \arguments{
 \item{results}{A tibble contaning model results as read by
 \code{\link[=load_txt_results]{load_txt_results()}}. These results are themselves created and saved as
 text files by \code{\link[=run_analysis]{run_analysis()}} and friends.}
+
+\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
+details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
 }
 \value{
 Numeric value with BIC

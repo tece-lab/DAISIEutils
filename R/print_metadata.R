@@ -15,7 +15,7 @@
 #' @examples
 #' \dontrun{
 #' print_metadata(
-#'   data = "Galapagos_datalist",
+#'   data_name = "Galapagos_datalist",
 #'   model = cr_di,
 #'   seed = 1
 #' )

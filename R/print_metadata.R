@@ -26,7 +26,7 @@ print_metadata <- function(
   data_name,
   model,
   seed) {
-  testit::assert("Data is character", is.character(data))
+  testit::assert("data_name is character", is.character(data_name))
 
   print(sessioninfo::session_info())
   message(Sys.time())

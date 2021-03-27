@@ -15,9 +15,9 @@ default_params_doc(
   results_root_folder,
   data,
   seed,
-  seeds,
   file_path,
-  results
+  results,
+  cond
 )
 }
 \arguments{
@@ -62,9 +62,8 @@ details. Otherwise it may be generated via simulations, using
 \code{\link[=load_txt_results]{load_txt_results()}}. These results are themselves created and saved as
 text files by \code{\link[=run_analysis]{run_analysis()}} and friends.}
 
-\item{datalist_name}{A character vector with the name of the datalist that
-is the analyses run on. It is required internally so that it can be stored
-in the first column of the output file.}
+\item{cond}{An integer specfying conditioning, as described in
+\code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 }
 \value{
 Nothing

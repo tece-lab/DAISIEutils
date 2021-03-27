@@ -25,6 +25,9 @@ no anagenesis (laa fixed to zero). All other parameters free.
 }}
 
 \item{seed}{A single numeric to be used as seed.}
+
+\item{cond}{An integer specfying conditioning, as described in
+\code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 }
 \value{
 Nothing. Writes \code{\link{DAISIE}} analysis results to a \code{.txt} file. This

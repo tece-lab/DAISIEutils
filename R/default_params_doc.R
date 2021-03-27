@@ -22,14 +22,13 @@
 #'   preprocessed by [DAISIE::DAISIE_dataprep()], see it's documentation for
 #'   details. Otherwise it may be generated via simulations, using
 #'   [DAISIE::DAISIE_sim_constant_rate()] and friends.
-#' @param datalist_name A character vector with the name of the datalist that
-#'   is the analyses run on. It is required internally so that it can be stored
-#'   in the first column of the output file.
 #' @param seed A single numeric to be used as seed.
 #' @param file_path The system directory where the output files will be stored.
 #' @param results A tibble contaning model results as read by
 #'   [load_txt_results()]. These results are themselves created and saved as
 #'   text files by [run_analysis()] and friends.
+#' @param cond An integer specfying conditioning, as described in
+#'   [DAISIE::DAISIE_ML_CS()].
 #'
 #' @return Nothing
 #' @keywords internal
@@ -45,6 +44,7 @@ default_params_doc <- function(model,
                                data,
                                seed,
                                file_path,
-                               results) {
+                               results,
+                               cond) {
   # Nothing
 }

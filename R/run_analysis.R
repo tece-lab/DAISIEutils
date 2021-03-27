@@ -27,11 +27,11 @@ run_analysis <- function(
 
   # TODO: Write is DAISIE object assert is_daisie_object()
 
+  data_name <- deparse(substitute(data))
   print_metadata(
-    data = data,
+    data_name = data_name,
     model = model,
     seed = seed)
-  data_name <- deparse(substitute(data))
   file_path <- create_output_folder(
     data_name = data_name,
     model = model,

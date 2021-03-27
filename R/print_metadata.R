@@ -16,7 +16,7 @@
 #' \dontrun{
 #' print_metadata(
 #'   data_name = "Galapagos_datalist",
-#'   model = cr_di,
+#'   model = "cr_di",
 #'   seed = 1
 #' )
 #' }
@@ -30,7 +30,7 @@ print_metadata <- function(
 
   print(sessioninfo::session_info())
   message(Sys.time())
-  message("Data name: ", data)
+  message("Data name: ", data_name)
   message("Model name: ", model)
   message("Running analysis with seed: ", seed)
 }

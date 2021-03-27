@@ -41,7 +41,7 @@ output of this function will go to \code{stderr}.
 \dontrun{
 print_metadata(
   data_name = "Galapagos_datalist",
-  model = cr_di,
+  model = "cr_di",
   seed = 1
 )
 }

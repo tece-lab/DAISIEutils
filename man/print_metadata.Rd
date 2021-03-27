@@ -4,13 +4,11 @@
 \alias{print_metadata}
 \title{Print session and run info to console/log file}
 \usage{
-print_metadata(data, model, seed)
+print_metadata(data_name, model, seed)
 }
 \arguments{
-\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
-preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
-details. Otherwise it may be generated via simulations, using
-\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+\item{data_name}{String. Will be used for the name of the created output
+folder.}
 
 \item{model}{A string with model that should run. Models are as follows:
 \itemize{

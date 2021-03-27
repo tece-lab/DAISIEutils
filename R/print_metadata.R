@@ -23,7 +23,7 @@
 #' @author Pedro Neves, Luis Valente
 #' @export
 print_metadata <- function(
-  data,
+  data_name,
   model,
   seed) {
   testit::assert("Data is character", is.character(data))

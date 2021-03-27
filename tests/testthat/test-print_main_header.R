@@ -1,5 +1,5 @@
-test_that("print_main_header works", {
-  data <- "test_name"
+test_that("print_metadata works", {
+  data_name <- "test_name"
   model <- "cr_dd"
   seed <- 123
   # Note: hides messages and output within test, still tests

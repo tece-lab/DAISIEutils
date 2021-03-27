@@ -24,9 +24,9 @@
 #'   [DAISIE::DAISIE_sim_constant_rate()] and friends.
 #' @param seed A single numeric to be used as seed.
 #' @param file_path The system directory where the output files will be stored.
-#' @param results A tibble contaning model results as read by
-#'   [load_txt_results()]. These results are themselves created and saved as
-#'   text files by [run_analysis()] and friends.
+#' @param results A data frame contaning model results as created by
+#'   [run_analysis()]. These results are the [DAISIE::DAISIE_ML_CS()] and the
+#'   bic, and they're saved as an RDS file by [run_analysis()].
 #' @param cond An integer specfying conditioning, as described in
 #'   [DAISIE::DAISIE_ML_CS()].
 #'

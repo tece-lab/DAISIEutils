@@ -1,5 +1,5 @@
 test_that("use setup_standard_model_args", {
-  model <- 1
+  model <- "cr_dd"
   r_lamc <- 1
   r_mu <- 2
   r_k <- 3
@@ -22,12 +22,12 @@ test_that("use setup_standard_model_args", {
     idparsfix = NULL,
     idparsnoshift = 6:10,
     initparsopt = 1:5,
-    complete_initparsopt = 1:5
+    cs_version = 1
   )
 
   expect_equal(model_arguments, expected_arguments)
 
-  model <- 2
+  model <- "cr_di"
 
   model_arguments <- setup_standard_model_args(
     model = model,
@@ -45,12 +45,12 @@ test_that("use setup_standard_model_args", {
     idparsfix = 3,
     idparsnoshift = 6:10,
     initparsopt = c(1, 2, 4, 5),
-    complete_initparsopt = c(1, 2, Inf, 4, 5)
+    cs_version = 1
   )
 
   expect_equal(model_arguments, expected_arguments)
 
-  model <- 3
+  model <- "cr_dd_0laa"
 
   model_arguments <- setup_standard_model_args(
     model = model,
@@ -68,12 +68,12 @@ test_that("use setup_standard_model_args", {
     idparsfix = 5,
     idparsnoshift = 6:10,
     initparsopt = 1:4,
-    complete_initparsopt = c(1:4, 0)
+    cs_version = 1
   )
 
   expect_equal(model_arguments, expected_arguments)
 
-  model <- 4
+  model <- "cr_di_0laa"
 
   model_arguments <- setup_standard_model_args(
     model = model,
@@ -91,8 +91,9 @@ test_that("use setup_standard_model_args", {
     idparsfix = c(3, 5),
     idparsnoshift = 6:10,
     initparsopt = c(1, 2, 4),
-    complete_initparsopt = c(1, 2, Inf, 4, 0)
+    cs_version = 1
   )
 
   expect_equal(model_arguments, expected_arguments)
 })
+

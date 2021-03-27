@@ -13,5 +13,10 @@ The goal of DAISIEutils is to collect useful utility functions that
 \author{
 \strong{Maintainer}: Pedro Neves \email{p.m.santos.neves@rug.nl} (\href{https://orcid.org/0000-0003-2561-4677}{ORCID})
 
+Authors:
+\itemize{
+  \item Joshua W. Lambert \email{j.w.l.lambert@rug.nl} (\href{https://orcid.org/0000-0001-5218-3046}{ORCID})
+}
+
 }
 \keyword{internal}

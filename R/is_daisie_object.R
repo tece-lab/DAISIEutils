@@ -16,17 +16,19 @@ is_daisie_object <- function(data) {
 
   first_element_names <- unlist(lapply(X = lapply(data, `[[`, 1), FUN = names))
   first_expected_names <- c("island_age", "not_present", "stt_all")
-  if (!all(first_element_names %in% expected_names)) {
+  if (!all(first_element_names %in% first_expected_names)) {
     return(FALSE)
   }
 
-  # stt_tables <- lapply(lapply(data, `[[`, 1), FUN = function(x) x$stt_all)
-  # n_extant_species <- lapply(stt_tables, function(x) sum(x[nrow(x), ]))
-  # have_extant_species <- which(n_extant_species != 0)
-  # second_expected_names <- c("branching_times", "stac", "missing_species")
-
-
-
-
-}
-
+  # TODO: Finish this function, test subsequent elements of list after metada.
+  # stt_tables <- lapply(
+  #   lapply(data, `[[`, 1),
+  #   FUN = function(x) x$stt_all) nolint
+  # n_extant_species <- lapply(stt_tables, function(x) sum(x[nrow(x), ])) nolint
+  # have_extant_species <- which(n_extant_species != 0) nolint
+  #   second_expected_names <- c(
+  #   "branching_times",
+  #   "stac",
+  #   "missing_species"
+  # ) nolint
+  }

@@ -8,7 +8,7 @@ on:
     branches:
       - main
       - master
-      -develop
+      - develop
 
 name: test-coverage
 

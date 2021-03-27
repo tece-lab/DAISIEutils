@@ -47,5 +47,5 @@ print_metadata(
 }
 }
 \author{
-Pedro Neves, Luis Valente
+Pedro Neves, Luis Valente, Joshua W. Lambert
 }

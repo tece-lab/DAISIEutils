@@ -20,7 +20,7 @@
 #'   seed = 1
 #' )
 #' }
-#' @author Pedro Neves, Luis Valente
+#' @author Pedro Neves, Luis Valente, Joshua W. Lambert
 #' @export
 print_metadata <- function(
   data_name,

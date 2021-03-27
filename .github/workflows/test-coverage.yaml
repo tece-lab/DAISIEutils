@@ -27,6 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           install.packages(c("remotes"))
+          remotes::install_github("Neves-P/hawaiispiders", auth_token = "${{ secrets.ACESS_TOKEN }}")
           remotes::install_deps(dependencies = TRUE, auth_token = "${{ secrets.ACESS_TOKEN }}")
           remotes::install_cran("covr")
         shell: Rscript {0}

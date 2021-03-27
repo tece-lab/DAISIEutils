@@ -22,7 +22,8 @@
 #'   r_ana = r_ana
 #' )
 setup_standard_model_args <- function(model, r_lamc, r_mu, r_k, r_gam, r_ana) {
-  testit::assert(model %in% 1:4)
+  expected_models <- c("cr_dd", "cr_di", "cr_dd_0laa", "cr_di_0laa")
+  testit::assert(model %in% expected_models)
 
   ## M1  CS - DD
   if (model == "cr_dd") {

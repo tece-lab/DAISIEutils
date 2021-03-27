@@ -15,4 +15,3 @@ test_that("Directory is created", {
   # Clean-up
   expect_equal(unlink(file.path(getwd(), "results"), recursive = TRUE), 0)
 })
-

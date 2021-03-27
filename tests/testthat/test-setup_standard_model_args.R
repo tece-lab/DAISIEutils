@@ -96,4 +96,3 @@ test_that("use setup_standard_model_args", {
 
   expect_equal(model_arguments, expected_arguments)
 })
-

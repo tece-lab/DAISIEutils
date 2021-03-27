@@ -68,6 +68,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          install.packages('remotes')
           remotes::install_deps(dependencies = TRUE, auth_token = "${{ secrets.ACESS_TOKEN }}")
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}

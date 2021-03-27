@@ -38,8 +38,6 @@ run_analysis <- function(
     seed = seed
   )
 
-  island_age <- data[[1]]$island_age
-
   set.seed(
     seed,
     kind = "Mersenne-Twister",
@@ -52,10 +50,6 @@ run_analysis <- function(
   r_k <- stats::runif(1, min = 6, max = 200)
   r_gam <- stats::runif(1, min = 0, max = 0.0001)
   r_ana <- stats::runif(1, min = 0.1, max = 4)
-
-  type <- 1
-  p_type2 <- 0
-
 
   model_arguments <- setup_standard_model_args(
     model = model,

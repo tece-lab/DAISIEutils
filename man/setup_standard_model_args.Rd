@@ -36,7 +36,7 @@ A named list with \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML()}} arguments.
 Set up DAISIE_ML arguments
 }
 \examples{
-model <- cr_dd
+model <- "cr_dd"
 r_lamc <- 1
 r_mu <- 2
 r_k <- 3

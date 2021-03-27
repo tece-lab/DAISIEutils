@@ -7,7 +7,7 @@
 #' @author Luis M Valente, Pedro Neves, Joshua W. Lambert
 #' @export
 #' @examples
-#' model <- cr_dd
+#' model <- "cr_dd"
 #' r_lamc <- 1
 #' r_mu <- 2
 #' r_k <- 3

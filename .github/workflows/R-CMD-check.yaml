@@ -3,14 +3,14 @@
 on:
   push:
     branches:
-      # - main
-      # - master
-      # - develop
+      - main
+      - master
+      - develop
   pull_request:
     branches:
-      # - main
-      # - master
-      # - develop
+      - main
+      - master
+      - develop
 
 name: R-CMD-check
 
@@ -46,7 +46,7 @@ jobs:
       - name: Query dependencies
         run: |
           install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE, auth_token = "${{ secrets.ACESS_TOKEN }}"), ".github/depends.Rds", version = 2)
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE, "${{ secrets.ACESS_TOKEN }}"), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
@@ -68,8 +68,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          remotes::install_github("Neves-P/hawaiispiders", auth_token = "${{ secrets.ACESS_TOKEN }}")
-          remotes::install_deps(dependencies = TRUE)
+          remotes::install_deps(dependencies = TRUE, "${{ secrets.ACESS_TOKEN }}")
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 

@@ -15,10 +15,20 @@ test_that("integration test", {
     )
   ))
 
-
-  colnames(expected_data_frame) <- column_names
-  expect_equal(expected_data_frame, test_results[1, ],
-               tolerance = 1e-6)
+  obtained_result <- readRDS(file.path(
+    getwd(), "results", "Galapagos_datalist", "Galapagos_datalist_cr_dd_1.rds")
+  )
+  expected_data_frame <- data.frame(
+    lambda_c = 2.57838865507069,
+    mu = 2.70482929613855,
+    K = 3074.82843572708,
+    gamma = 0.00935776284898708,
+    lambda_a = 1.00321372406581,
+    loglik = -75.9999607726643,
+    df = 5,
+    conv = 0,
+    bic = 195.728083272286)
+  expect_equal(obtained_result, expected_data_frame)
   # Clean-up
   expect_equal(unlink("results", recursive = TRUE), 0)
 })

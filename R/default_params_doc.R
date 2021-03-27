@@ -44,7 +44,6 @@ default_params_doc <- function(model,
                                results_root_folder,
                                data,
                                seed,
-                               seeds,
                                file_path,
                                results) {
   # Nothing

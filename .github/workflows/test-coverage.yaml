@@ -16,7 +16,7 @@ jobs:
   test-coverage:
     runs-on: macOS-latest
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_PAT: ${{ secrets.ACESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
 
@@ -27,8 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           install.packages(c("remotes"))
-          remotes::install_github("Neves-P/hawaiispiders", auth_token = "${{ secrets.ACESS_TOKEN }}")
-          remotes::install_deps(dependencies = TRUE, auth_token = "${{ secrets.ACESS_TOKEN }}")
+          remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("covr")
         shell: Rscript {0}
 

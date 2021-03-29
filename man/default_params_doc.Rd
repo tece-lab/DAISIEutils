@@ -6,11 +6,6 @@
 \usage{
 default_params_doc(
   model,
-  r_lamc,
-  r_mu,
-  r_k,
-  r_gam,
-  r_ana,
   data_name,
   results_root_folder,
   data,
@@ -31,17 +26,37 @@ other parameters free.
 anagenesis (lama fixed to zero). All other parameters free.
 \item \code{"cr_di_0lama"} Clade specific model - diversity independent (K = Inf)
 and no anagenesis (lama fixed to zero). All other parameters free.
+\item \code{"cr_di_0lamc"} Clade specific model - diversity indendent (K = Inf)
+and no cladogenesis (lamc fixed to zero). All other parameters free.
+\item \code{"cr_dd_0lamc"} Clade specific model - diversity dependent and no
+cladogenesis (lamc fixed to zero). All other parameters free.
+\item \code{"rr_lamc_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed cladogenesis. All other parameters free.
+\item \code{"rr_lamc_dd"} Clade specific model - diversity dependent and relaxed
+cladogenesis. All other parameters free.
+\item \code{"rr_mu_di"} Clade specific model - diversity independent (K = Inf) and
+relaxed extinction. All other parameters free.
+\item \code{"rr_mu_dd"} Clade specific model - diversity dependent and relaxed
+extinction. All other parameters free.
+\item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
+capacity. All other parameters free.
+\item \code{"rr_lama_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed anagenesis. All other parameters free.
+\item \code{"rr_lama_dd"} Clade specific model - diversity dependent and relaxed
+anagenesis. All other parameters free.
+\item \code{"rr_mu_di_0lamc"} Clade specific model - diversity independent,
+relaxed extinction, and no cladogenesis (lamc fixed to zero). All other
+parameters free.
+\item \code{"rr_mu_dd_0lamc"} Clade specific model - diversity dependent,
+\item \code{"rr_k_0lamc"} Clade specific model - diversity dependent,
+\item \code{"rr_lama_di_0lamc"} Clade specific model - diversity independent
+\item \code{"r_lama_dd_0lamc"} Clade specific model - diversity dependent
+\item \code{"rr_lamc_di_0lama"} Clade specific model - diversity independent
+\item \code{"rr_lamc_dd_0lama"} Clade specific model - diversity dependent
+\item \code{"rr_mu_di_0lama"} Clade specific model - diversity independent
+\item \code{"rr_mu_dd_0lama"} Clade specific model - diversity dependent
+\item \code{"rr_k_0lama"} Clade specific model - diversity dependent
 }}
-
-\item{r_lamc}{Numeric. Uniformly sampled value of cladogenesis rate.}
-
-\item{r_mu}{Numeric. Uniformly sampled value of extinction rate.}
-
-\item{r_k}{Numeric. Uniformly sampled value of carrying capacity.}
-
-\item{r_gam}{Numeric. Uniformly sampled value of immigration rate.}
-
-\item{r_ana}{Numeric. Uniformly sampled value of anagenesis rate.}
 
 \item{data_name}{String. Will be used for the name of the created output
 folder.}

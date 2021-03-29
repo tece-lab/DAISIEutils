@@ -16,10 +16,10 @@ folder.}
 free.
 \item \code{"cr_di"} Clade specific model - diversity independent (K = Inf). All
 other parameters free.
-\item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
-anagenesis (laa fixed to zero). All other parameters free.
-\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf) and
-no anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_dd_0lama"} Clade specific model - diversity dependent and no
+anagenesis (lama fixed to zero). All other parameters free.
+\item \code{"cr_di_0lama"} Clade specific model - diversity independent (K = Inf)
+and no anagenesis (lama fixed to zero). All other parameters free.
 }}
 
 \item{seed}{A single numeric to be used as seed.}

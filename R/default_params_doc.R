@@ -5,15 +5,10 @@
 #'     free.
 #'   * `"cr_di"` Clade specific model - diversity independent (K = Inf). All
 #'     other parameters free.
-#'   * `"cr_dd_0laa"` Clade specific model - diversity dependent and no
-#'     anagenesis (laa fixed to zero). All other parameters free.
-#'   * `"cr_di_0laa"` Clade specific model - diversity independent (K = Inf) and
-#'     no anagenesis (laa fixed to zero). All other parameters free.
-#' @param r_lamc Numeric. Uniformly sampled value of cladogenesis rate.
-#' @param r_mu Numeric. Uniformly sampled value of extinction rate.
-#' @param r_k Numeric. Uniformly sampled value of carrying capacity.
-#' @param r_gam Numeric. Uniformly sampled value of immigration rate.
-#' @param r_ana Numeric. Uniformly sampled value of anagenesis rate.
+#'   * `"cr_dd_0lama"` Clade specific model - diversity dependent and no
+#'     anagenesis (lama fixed to zero). All other parameters free.
+#'   * `"cr_di_0lama"` Clade specific model - diversity independent (K = Inf)
+#'     and no anagenesis (lama fixed to zero). All other parameters free.
 #' @param data_name String. Will be used for the name of the created output
 #'   folder.
 #' @param results_root_folder Character. A path to the root folder containing
@@ -33,18 +28,14 @@
 #' @return Nothing
 #' @keywords internal
 #' @export
-default_params_doc <- function(model,
-                               r_lamc,
-                               r_mu,
-                               r_k,
-                               r_gam,
-                               r_ana,
-                               data_name,
-                               results_root_folder,
-                               data,
-                               seed,
-                               file_path,
-                               results,
-                               cond) {
+default_params_doc <- function(
+  model,
+  data_name,
+  results_root_folder,
+  data,
+  seed,
+  file_path,
+  results,
+  cond) {
   # Nothing
 }

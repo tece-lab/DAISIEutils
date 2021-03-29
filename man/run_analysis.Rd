@@ -18,10 +18,10 @@ details. Otherwise it may be generated via simulations, using
 free.
 \item \code{"cr_di"} Clade specific model - diversity independent (K = Inf). All
 other parameters free.
-\item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
-anagenesis (laa fixed to zero). All other parameters free.
-\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf) and
-no anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_dd_0lama"} Clade specific model - diversity dependent and no
+anagenesis (lama fixed to zero). All other parameters free.
+\item \code{"cr_di_0lama"} Clade specific model - diversity independent (K = Inf)
+and no anagenesis (lama fixed to zero). All other parameters free.
 }}
 
 \item{seed}{A single numeric to be used as seed.}
@@ -30,7 +30,7 @@ no anagenesis (laa fixed to zero). All other parameters free.
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 }
 \value{
-Nothing. Writes \code{\link{DAISIE}} analysis results to a \code{.txt} file. This
+Nothing. Writes \code{\link{DAISIE}} analysis results to a \code{.rds} file. This
 file is stored in \code{file_path}. The directory in of \code{file_path} is created
 if it doesn't exist.
 }
@@ -42,10 +42,9 @@ Run DAISIE analysis
 data(Galapagos_datalist, package = "DAISIE")
 run_analysis(
   datalist = Galapagos_datalist,
-  m = 165,
   model = cr_dd,
   seed = 1,
-  file_path
+  cond = 1,
 )
 }
 }

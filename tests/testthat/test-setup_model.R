@@ -1,18 +1,8 @@
-test_that("use setup_standard_model_args", {
+test_that("use setup_model", {
   model <- "cr_dd"
-  r_lamc <- 1
-  r_mu <- 2
-  r_k <- 3
-  r_gam <- 4
-  r_ana <- 5
 
-  model_arguments <- setup_standard_model_args(
-    model = model,
-    r_lamc = r_lamc,
-    r_mu = r_mu,
-    r_k = r_k,
-    r_gam = r_gam,
-    r_ana = r_ana
+  model_arguments <- setup_model(
+    model = model
   )
 
   expected_arguments <- list(
@@ -29,13 +19,8 @@ test_that("use setup_standard_model_args", {
 
   model <- "cr_di"
 
-  model_arguments <- setup_standard_model_args(
-    model = model,
-    r_lamc = r_lamc,
-    r_mu = r_mu,
-    r_k = r_k,
-    r_gam = r_gam,
-    r_ana = r_ana
+  model_arguments <- setup_model(
+    model = model
   )
 
   expected_arguments <- list(
@@ -50,15 +35,10 @@ test_that("use setup_standard_model_args", {
 
   expect_equal(model_arguments, expected_arguments)
 
-  model <- "cr_dd_0laa"
+  model <- "cr_dd_0lama"
 
-  model_arguments <- setup_standard_model_args(
-    model = model,
-    r_lamc = r_lamc,
-    r_mu = r_mu,
-    r_k = r_k,
-    r_gam = r_gam,
-    r_ana = r_ana
+  model_arguments <- setup_model(
+    model = model
   )
 
   expected_arguments <- list(
@@ -73,15 +53,10 @@ test_that("use setup_standard_model_args", {
 
   expect_equal(model_arguments, expected_arguments)
 
-  model <- "cr_di_0laa"
+  model <- "cr_di_0lama"
 
-  model_arguments <- setup_standard_model_args(
-    model = model,
-    r_lamc = r_lamc,
-    r_mu = r_mu,
-    r_k = r_k,
-    r_gam = r_gam,
-    r_ana = r_ana
+  model_arguments <- setup_model(
+    model = model
   )
 
   expected_arguments <- list(

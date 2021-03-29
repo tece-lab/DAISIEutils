@@ -32,3 +32,82 @@ test_that("integration test", {
   # Clean-up
   expect_equal(unlink("results", recursive = TRUE), 0)
 })
+
+test_that("run_analysis fails when expected", {
+  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
+  model <- "cr_dd"
+  seed <- 1
+  cond <- 1
+
+  # Omit console output in tests
+  expect_error(invisible(capture.output(
+    run_analysis(
+      data = list(), # nolint
+      model = model,
+      seed = seed,
+      cond = cond
+    )
+  )))
+  # Clean-up
+  expect_equal(unlink("results", recursive = TRUE), 0)
+})
+
+test_that("run_analysis fails when expected", {
+  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
+  data(Galapagos_datalist, package = "DAISIE")
+  model <- 1
+  seed <- 1
+  cond <- 1
+
+  # Omit console output in tests
+  expect_error(invisible(capture.output(
+    run_analysis(
+      data = Galapagos_datalist, # nolint
+      model = model,
+      seed = seed,
+      cond = cond
+    )
+  )))
+  # Clean-up
+  expect_equal(unlink("results", recursive = TRUE), 0)
+})
+
+test_that("run_analysis fails when expected", {
+  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
+  data(Galapagos_datalist, package = "DAISIE")
+  model <- "cr_dd"
+  seed <- "nonsense"
+  cond <- 1
+
+  # Omit console output in tests
+  expect_error(invisible(capture.output(
+    run_analysis(
+      data = Galapagos_datalist, # nolint
+      model = model,
+      seed = seed,
+      cond = cond
+    )
+  )))
+  # Clean-up
+  expect_equal(unlink("results", recursive = TRUE), 0)
+})
+
+test_that("run_analysis fails when expected", {
+  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
+  data(Galapagos_datalist, package = "DAISIE")
+  model <- "cr_dd"
+  seed <- 1
+  cond <- "nonsense"
+
+  # Omit console output in tests
+  expect_error(invisible(capture.output(
+    run_analysis(
+      data = Galapagos_datalist, # nolint
+      model = model,
+      seed = seed,
+      cond = cond
+    )
+  )))
+  # Clean-up
+  expect_equal(unlink("results", recursive = TRUE), 0)
+})

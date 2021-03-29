@@ -32,7 +32,7 @@ setup_model <- function(
 
   # define default DAISIE model (CR DD)
   ddmodel <- 11
-  idparsopt <- c(clado = 1, ex = 2, k = 5, immig = 4, ana = 5)
+  idparsopt <- c(clado = 1, ex = 2, k = 3, immig = 4, ana = 5)
   parsfix <- NULL
   idparsfix <- NULL
   idparsnoshift <- 6:10
@@ -61,7 +61,7 @@ setup_model <- function(
     idparsopt <- idparsopt[-which(names(idparsopt) == "ana")]
     parsfix <- c(parsfix, 0)
     idparsfix <- c(idparsfix, 5)
-    initparsopt <- initparsopt[-which(names(idparsopt) == "ana")]
+    initparsopt <- initparsopt[-which(names(initparsopt) == "ana")]
   }
 
   # change to relaxed-rate model

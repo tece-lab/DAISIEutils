@@ -12,7 +12,17 @@ Authors@R: c(
            family = "Lambert",
            role = c("aut"),
            email = "j.w.l.lambert@rug.nl",
-           comment = c(ORCID = "0000-0001-5218-3046")))
+           comment = c(ORCID = "0000-0001-5218-3046")),
+    person(given = "Luis",
+           family = "Valente",
+           email = "luis.valente@naturalis.nl",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0003-4247-8785")),
+    person(given = "Richèl J.C.",
+           family = "Bilderbeek",
+           email = "richel@richelbilderbeek.nl",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0003-1107-7049")))
 Description: The goal of DAISIEutils is to collect useful utility functions that
     are used reccurently in DAISIE projects. DAISIEutils is a companion package 
     of the R package DAISIE.

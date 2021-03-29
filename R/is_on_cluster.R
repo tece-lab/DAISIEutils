@@ -11,6 +11,6 @@ is_on_cluster <- function() {
   if (identical(Sys.getenv("HOSTNAME"), "peregrine.hpc.rug.nl")) {
     return(TRUE)
   } else {
-    FALSE
+    return(FALSE)
   }
 }

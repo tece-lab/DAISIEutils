@@ -5,8 +5,8 @@
 #' @return `TRUE` if `data` is a valid [DAISIE] object, `FALSE` if not.
 #' @export
 #' @author Pedro Neves, Richèl J. C. Bilderbeek
-is_daisie_data <- function(daisie_data) {
-  if (!is.list(daisie_data)) {
+is_daisie_data <- function(data) {
+  if (!is.list(data)) {
     return(FALSE)
   }
 
@@ -39,14 +39,14 @@ is_daisie_data <- function(daisie_data) {
   }
 
 
-  first_element_lengths <- vapply(X = lapply(daisie_data, `[[`, 1),
+  first_element_lengths <- vapply(X = lapply(data, `[[`, 1),
                                   length,
                                   numeric(1))
   if (!all(first_element_lengths == 3)) {
     return(FALSE)
   }
 
-  first_element_names <- unlist(lapply(X = lapply(daisie_data, `[[`, 1),
+  first_element_names <- unlist(lapply(X = lapply(data, `[[`, 1),
                                        FUN = names))
   first_expected_names <- c("island_age", "not_present", "stt_all")
   if (!all(first_element_names %in% first_expected_names)) {

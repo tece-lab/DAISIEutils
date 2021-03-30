@@ -18,7 +18,7 @@ setup_model <- function(
                        "rr_lac_dd", "rr_mu_di", "rr_mu_dd", "rr_k",
                        "rr_laa_di", "rr_laa_dd", "rr_mu_di_0lac",
                        "rr_mu_dd_0lac", "rr_k_0lac", "rr_laa_di_0lac",
-                       "r_laa_dd_0lac", "rr_lac_di_0laa",
+                       "rr_laa_dd_0lac", "rr_lac_di_0laa",
                        "rr_lac_dd_0laa", "rr_mu_di_0laa", "rr_mu_dd_0laa",
                        "rr_k_0laa")
   testit::assert(model %in% expected_models)
@@ -68,22 +68,22 @@ setup_model <- function(
   if (grepl("rr", model)) {
     idparsopt <- c(idparsopt, 6)
     initparsopt <- c(initparsopt, sd)
-    if (grepl("rr_lac")) {
+    if (grepl("rr_lac", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
         relaxed_par = "cladogenesis")
     }
-    if (grepl("rr_mu")) {
+    if (grepl("rr_mu", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
         relaxed_par = "extinction")
     }
-    if (grepl("rr_k")) {
+    if (grepl("rr_k", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
         relaxed_par = "carrying_capacity")
     }
-    if (grepl("rr_laa")) {
+    if (grepl("rr_laa", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
         relaxed_par = "anagenesis")

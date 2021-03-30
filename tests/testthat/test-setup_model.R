@@ -63,7 +63,7 @@ test_that("setup_model is correct for cr_dd_0laa", {
   expect_equal(model_arguments, expected_arguments)
 })
 
-test_that("setup_model is correct for cr_dd_0laa", {
+test_that("setup_model is correct for cr_di_0laa", {
   set.seed(1)
   model <- "cr_di_0laa"
   model_arguments <- setup_model(

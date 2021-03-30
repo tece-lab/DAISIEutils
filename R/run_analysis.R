@@ -24,7 +24,7 @@ run_analysis <- function(
   seed,
   cond) {
 
-  # testit::assert(is_daisie_data(daisia_data = data))
+  # testit::assert(is_daisie_data(daisia_data = data)) #nolint
   data_name <- deparse(substitute(data))
   print_metadata(
     data_name = data_name,

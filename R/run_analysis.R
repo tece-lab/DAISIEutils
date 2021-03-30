@@ -2,7 +2,7 @@
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return Nothing. Writes [`DAISIE`] analysis results to a `.txt` file. This
+#' @return Nothing. Writes [`DAISIE`] analysis results to a `.rds` file. This
 #'   file is stored in `file_path`. The directory in of `file_path` is created
 #'   if it doesn't exist.
 #' @export
@@ -12,10 +12,9 @@
 #' data(Galapagos_datalist, package = "DAISIE")
 #' run_analysis(
 #'   datalist = Galapagos_datalist,
-#'   m = 165,
 #'   model = cr_dd,
 #'   seed = 1,
-#'   file_path
+#'   cond = 1,
 #' )
 #' }
 #' @author Pedro Neves, Joshua W. Lambert, Luis Valente
@@ -25,8 +24,7 @@ run_analysis <- function(
   seed,
   cond) {
 
-  # TODO: Write is DAISIE object assert is_daisie_object()
-
+  # testit::assert(is_daisie_data(daisia_data = data)) #nolint
   data_name <- deparse(substitute(data))
   print_metadata(
     data_name = data_name,
@@ -45,19 +43,8 @@ run_analysis <- function(
     sample.kind = "Rejection"
   )
 
-  r_lamc <- stats::runif(1, min = 0, max = 2)
-  r_mu <- stats::runif(1, min = 0, max = 2)
-  r_k <- stats::runif(1, min = 6, max = 200)
-  r_gam <- stats::runif(1, min = 0, max = 0.0001)
-  r_ana <- stats::runif(1, min = 0.1, max = 4)
-
-  model_arguments <- setup_standard_model_args(
-    model = model,
-    r_lamc = r_lamc,
-    r_mu = r_mu,
-    r_k = r_k,
-    r_gam = r_gam,
-    r_ana = r_ana
+  model_arguments <- setup_model(
+    model = model
   )
 
   initparsopt <- model_arguments$initparsopt
@@ -88,5 +75,4 @@ run_analysis <- function(
     lik_res,
     file = file_path
   )
-
 }

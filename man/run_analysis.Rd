@@ -20,8 +20,47 @@ free.
 other parameters free.
 \item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
 anagenesis (laa fixed to zero). All other parameters free.
-\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf) and
-no anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf)
+and no anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_di_0lac"} Clade specific model - diversity indendent (K = Inf)
+and no cladogenesis (lac fixed to zero). All other parameters free.
+\item \code{"cr_dd_0lac"} Clade specific model - diversity dependent and no
+cladogenesis (lac fixed to zero). All other parameters free.
+\item \code{"rr_lac_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed cladogenesis. All other parameters free.
+\item \code{"rr_lac_dd"} Clade specific model - diversity dependent and relaxed
+cladogenesis. All other parameters free.
+\item \code{"rr_mu_di"} Clade specific model - diversity independent (K = Inf) and
+relaxed extinction. All other parameters free.
+\item \code{"rr_mu_dd"} Clade specific model - diversity dependent and relaxed
+extinction. All other parameters free.
+\item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
+capacity. All other parameters free.
+\item \code{"rr_laa_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed anagenesis. All other parameters free.
+\item \code{"rr_laa_dd"} Clade specific model - diversity dependent and relaxed
+anagenesis. All other parameters free.
+\item \code{"rr_mu_di_0lac"} Clade specific model - diversity independent,
+relaxed extinction, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_mu_dd_0lac"} Clade specific model - diversity dependent, relaxed
+extinction, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_k_0lac"} Clade specific model - diversity dependent, relaxed
+carrying capacity, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_laa_di_0lac"} Clade specific model - diversity independent,
+relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"r_laa_dd_0lac"} Clade specific model - diversity dependent, relaxed
+anagenesis, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_lac_di_0laa"} Clade specific model - diversity independent,
+relaxed cladogenesis, and no anagenesis (laa fixed to zero)
+\item \code{"rr_lac_dd_0laa"} Clade specific model - diversity dependent
+\item \code{"rr_mu_di_0laa"} Clade specific model - diversity independent
+\item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
+\item \code{"rr_k_0laa"} Clade specific model - diversity dependent
 }}
 
 \item{seed}{A single numeric to be used as seed.}
@@ -30,7 +69,7 @@ no anagenesis (laa fixed to zero). All other parameters free.
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 }
 \value{
-Nothing. Writes \code{\link{DAISIE}} analysis results to a \code{.txt} file. This
+Nothing. Writes \code{\link{DAISIE}} analysis results to a \code{.rds} file. This
 file is stored in \code{file_path}. The directory in of \code{file_path} is created
 if it doesn't exist.
 }
@@ -42,10 +81,9 @@ Run DAISIE analysis
 data(Galapagos_datalist, package = "DAISIE")
 run_analysis(
   datalist = Galapagos_datalist,
-  m = 165,
   model = cr_dd,
   seed = 1,
-  file_path
+  cond = 1,
 )
 }
 }

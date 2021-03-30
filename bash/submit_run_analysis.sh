@@ -38,7 +38,7 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group relaxedDAISIE cr_di 5
+# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group cr_di relaxedDAISIE 5
 ################################################################################
 
 

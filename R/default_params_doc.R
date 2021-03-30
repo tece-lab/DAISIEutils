@@ -7,13 +7,47 @@
 #'     other parameters free.
 #'   * `"cr_dd_0laa"` Clade specific model - diversity dependent and no
 #'     anagenesis (laa fixed to zero). All other parameters free.
-#'   * `"cr_di_0laa"` Clade specific model - diversity independent (K = Inf) and
-#'     no anagenesis (laa fixed to zero). All other parameters free.
-#' @param r_lamc Numeric. Uniformly sampled value of cladogenesis rate.
-#' @param r_mu Numeric. Uniformly sampled value of extinction rate.
-#' @param r_k Numeric. Uniformly sampled value of carrying capacity.
-#' @param r_gam Numeric. Uniformly sampled value of immigration rate.
-#' @param r_ana Numeric. Uniformly sampled value of anagenesis rate.
+#'   * `"cr_di_0laa"` Clade specific model - diversity independent (K = Inf)
+#'     and no anagenesis (laa fixed to zero). All other parameters free.
+#'   * `"cr_di_0lac"` Clade specific model - diversity indendent (K = Inf)
+#'     and no cladogenesis (lac fixed to zero). All other parameters free.
+#'   * `"cr_dd_0lac"` Clade specific model - diversity dependent and no
+#'     cladogenesis (lac fixed to zero). All other parameters free.
+#'   * `"rr_lac_di"` Clade specific model - diversity independent (K = Inf)
+#'     and relaxed cladogenesis. All other parameters free.
+#'   * `"rr_lac_dd"` Clade specific model - diversity dependent and relaxed
+#'     cladogenesis. All other parameters free.
+#'   * `"rr_mu_di"` Clade specific model - diversity independent (K = Inf) and
+#'     relaxed extinction. All other parameters free.
+#'   * `"rr_mu_dd"` Clade specific model - diversity dependent and relaxed
+#'     extinction. All other parameters free.
+#'   * `"rr_k"` Clade specific model - diversity dependent and relaxed carrying
+#'     capacity. All other parameters free.
+#'   * `"rr_laa_di"` Clade specific model - diversity independent (K = Inf)
+#'     and relaxed anagenesis. All other parameters free.
+#'   * `"rr_laa_dd"` Clade specific model - diversity dependent and relaxed
+#'     anagenesis. All other parameters free.
+#'   * `"rr_mu_di_0lac"` Clade specific model - diversity independent,
+#'     relaxed extinction, and no cladogenesis (lac fixed to zero). All other
+#'     parameters free.
+#'   * `"rr_mu_dd_0lac"` Clade specific model - diversity dependent, relaxed
+#'     extinction, and no cladogenesis (lac fixed to zero). All other
+#'     parameters free.
+#'   * `"rr_k_0lac"` Clade specific model - diversity dependent, relaxed
+#'     carrying capacity, and no cladogenesis (lac fixed to zero). All other
+#'     parameters free.
+#'   * `"rr_laa_di_0lac"` Clade specific model - diversity independent,
+#'     relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
+#'     parameters free.
+#'   * `"r_laa_dd_0lac"` Clade specific model - diversity dependent, relaxed
+#'     anagenesis, and no cladogenesis (lac fixed to zero). All other
+#'     parameters free.
+#'   * `"rr_lac_di_0laa"` Clade specific model - diversity independent,
+#'     relaxed cladogenesis, and no anagenesis (laa fixed to zero)
+#'   * `"rr_lac_dd_0laa"` Clade specific model - diversity dependent
+#'   * `"rr_mu_di_0laa"` Clade specific model - diversity independent
+#'   * `"rr_mu_dd_0laa"` Clade specific model - diversity dependent
+#'   * `"rr_k_0laa"` Clade specific model - diversity dependent
 #' @param data_name String. Will be used for the name of the created output
 #'   folder.
 #' @param results_root_folder Character. A path to the root folder containing
@@ -33,18 +67,14 @@
 #' @return Nothing
 #' @keywords internal
 #' @export
-default_params_doc <- function(model,
-                               r_lamc,
-                               r_mu,
-                               r_k,
-                               r_gam,
-                               r_ana,
-                               data_name,
-                               results_root_folder,
-                               data,
-                               seed,
-                               file_path,
-                               results,
-                               cond) {
+default_params_doc <- function(
+  model,
+  data_name,
+  results_root_folder,
+  data,
+  seed,
+  file_path,
+  results,
+  cond) {
   # Nothing
 }

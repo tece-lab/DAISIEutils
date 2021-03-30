@@ -82,3 +82,44 @@ test_that("setup_model is correct for cr_di_0laa", {
   )
   expect_equal(model_arguments, expected_arguments)
 })
+
+test_that("setup_model is correct for cr_dd_0lac", {
+  set.seed(1)
+  model <- "cr_dd_0lac"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 11,
+    idparsopt = c(mu = 2, k = 3, gam = 4, laa = 5),
+    parsfix = 0,
+    idparsfix = 1,
+    idparsnoshift = 6:10,
+    initparsopt = c(mu = 7.44247799274e-01,
+                    k = 1.17133552490e+02,
+                    gam = 9.08207789995e-05,
+                    laa = 8.865595e-01),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})
+
+test_that("setup_model is correct for cr_di_0lac", {
+  set.seed(1)
+  model <- "cr_di_0lac"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 0,
+    idparsopt = c(mu = 2, gam = 4, laa = 5),
+    parsfix = c(0, Inf),
+    idparsfix = c(1, 3),
+    idparsnoshift = 6:10,
+    initparsopt = c(mu = 0.744247799274,
+                    gam = 0.000090820779,
+                    laa = 0.886559531046),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})

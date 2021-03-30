@@ -94,7 +94,7 @@ bootstap <- function(
     model_1_lik_res = model_1_lik_res,
     model_2_lik_res = model_2_lik_res
     )
-browser()
+
   sim_1 <- run_sim(
     data = data,
     model = model_1,

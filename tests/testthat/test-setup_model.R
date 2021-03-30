@@ -15,7 +15,7 @@ test_that("setup_model is correct for cr_dd", {
       mu = 7.44247799274e-01,
       k = 1.17133552490e+02,
       gam = 9.08207789995e-05,
-      laa = 8.86559531046e-01 ),
+      laa = 8.86559531046e-01),
     cs_version = 1
   )
   expect_equal(model_arguments, expected_arguments)

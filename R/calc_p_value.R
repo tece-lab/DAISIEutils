@@ -11,7 +11,17 @@ calc_p_value <- function(
   data
 ) {
 
+  data_name <- deparse(substitute(data))
+  if (is_on_cluster()) {
+    output_folder <- file.path(
+      Sys.getenv("HOME"), "results", data_name
+    )
+  } else {
+    output_folder <- file.path(getwd(), "results", data_name)
+  }
   # load all from a data set
+  # make a list one RDS per element
+  apply(readRDS, ) #TODO finish
 
   # extract all the lik_ratio_0
   testit::assert(all(lik_ratio_0) == lik_ratio_0[1])

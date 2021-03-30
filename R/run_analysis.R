@@ -11,7 +11,7 @@
 #' \dontrun{
 #' data(Galapagos_datalist, package = "DAISIE")
 #' run_analysis(
-#'   datalist = Galapagos_datalist,
+#'   data = Galapagos_datalist,
 #'   model = cr_dd,
 #'   seed = 1,
 #'   cond = 1,

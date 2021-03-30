@@ -123,3 +123,50 @@ test_that("setup_model is correct for cr_di_0lac", {
   )
   expect_equal(model_arguments, expected_arguments)
 })
+
+test_that("setup_model is correct for rr_lac_di", {
+  set.seed(1)
+  model <- "rr_lac_di"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 0,
+    idparsopt = c(lac = 1, mu = 2, gam = 4, laa = 5, 6),
+    parsfix = Inf,
+    idparsfix = 3,
+    idparsnoshift = 6:10,
+    initparsopt = c(lac = 0.53101732628419995,
+                    mu = 0.74424779927358031,
+                    gam = 0.00009082077899948,
+                    laa = 0.88655953104607754,
+                    9.085507164709270e-01),
+    cs_version = list(model = 2,
+                      relaxed_par = "cladogenesis")
+  )
+  expect_equal(model_arguments, expected_arguments)
+})
+
+test_that("setup_model is correct for rr_lac_dd", {
+  set.seed(1)
+  model <- "rr_lac_dd"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 11,
+    idparsopt = c(lac = 1, mu = 2, k = 3, gam = 4, laa = 5, 6),
+    parsfix = NULL,
+    idparsfix = NULL,
+    idparsnoshift = 6:10,
+    initparsopt = c(lac = 0.5310173262842,
+                    mu = 0.7442477992735803,
+                    k = 117.1335524902679026,
+                    gam = 0.0000908207789995,
+                    laa = 0.8865595310460775,
+                    0.9085507164709270),
+    cs_version = list(model = 2,
+                      relaxed_par = "cladogenesis")
+  )
+  expect_equal(model_arguments, expected_arguments)
+})

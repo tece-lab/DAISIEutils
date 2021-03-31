@@ -14,7 +14,7 @@ likelihood model}
 likelihood model}
 }
 \value{
-
+Numeric likelihood ratio
 }
 \description{
 Calculates the loglikelihood ratio between two models

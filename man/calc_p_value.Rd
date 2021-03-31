@@ -14,7 +14,7 @@ details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
 }
 \value{
-
+Numeric p-value
 }
 \description{
 Calculates p-value for rejecting a model from a distribution of likelihood

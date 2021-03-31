@@ -95,10 +95,10 @@ bic, and they're saved as an RDS file by \code{\link[=run_analysis]{run_analysis
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
 \item{model_1}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter.}
+see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_analysis()}}.}
 
-\item{model_2}{A string with model that should run. For a list of possible
-models see documentation for \code{model} parameter.}
+\item{model_2}{A string with model that should run. For a list of options
+see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_analysis()}}.}
 
 \item{model_1_lik_res}{A data frame with results from a DAISIE maximum
 likelihood model}

@@ -20,11 +20,15 @@ test_that("calc_loglik_ratio works", {
     df = 5,
     conv = 0)
 
-  actual_loglik_ratio <- calc_loglik_ratio(model_1_lik_res = lik_res_1, model_2_lik_res = lik_res_2))
-expect_length(actual_loglik_ratio, 1)
-expect_true(is.numeric(actual_loglik_ratio))
-expect_equal(actual_loglik_ratio, delta)
+  actual_loglik_ratio <- calc_loglik_ratio(
+    model_1_lik_res = lik_res_1,
+    model_2_lik_res = lik_res_2
+  )
+  expect_length(actual_loglik_ratio, 1)
+  expect_true(is.numeric(actual_loglik_ratio))
+  expect_equal(actual_loglik_ratio, delta)
 })
+
 test_that("calc_loglik_ratio abuse", {
   lik_res_1 <- data.frame(
     lambda_c = 2.575631,

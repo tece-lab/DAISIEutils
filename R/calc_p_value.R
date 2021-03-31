@@ -19,13 +19,16 @@ calc_p_value <- function(
   }
 
   files <- list.files(path = output_folder, full.names = TRUE, pattern = "boot")
+  if (length(files) == 0) {
+    stop("There are no files found for this data set")
+  }
   list_res <- lapply(files, readRDS)
 
-  lik_ratio_0 <- unlist(lapply(list_res, '[[', 3))
+  lik_ratio_0 <- unlist(lapply(list_res, "[[", 3))
   testit::assert(is.numeric(lik_ratio_0))
   testit::assert(stats::var(lik_ratio_0, na.rm = TRUE) == 0)
 
-  lik_ratio_1 <- unlist(lapply(list_res, '[[', 7))
+  lik_ratio_1 <- unlist(lapply(list_res, "[[", 7))
   testit::assert(is.numeric(lik_ratio_1))
 
   r_model_1 <- length(which(lik_ratio_1 > lik_ratio_0))

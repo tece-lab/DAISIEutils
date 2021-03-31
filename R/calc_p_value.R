@@ -24,11 +24,11 @@ calc_p_value <- function(
   }
   list_res <- lapply(files, readRDS)
 
-  lik_ratio_0 <- unlist(lapply(list_res, '[[', 3))
+  lik_ratio_0 <- unlist(lapply(list_res, "[[", 3))
   testit::assert(is.numeric(lik_ratio_0))
   testit::assert(stats::var(lik_ratio_0, na.rm = TRUE) == 0)
 
-  lik_ratio_1 <- unlist(lapply(list_res, '[[', 7))
+  lik_ratio_1 <- unlist(lapply(list_res, "[[", 7))
   testit::assert(is.numeric(lik_ratio_1))
 
   r_model_1 <- length(which(lik_ratio_1 > lik_ratio_0))

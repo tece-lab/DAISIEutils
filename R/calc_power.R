@@ -23,14 +23,14 @@ calc_power <- function(
   }
   list_res <- lapply(files, readRDS)
 
-  lik_ratio_1 <- unlist(lapply(list_res, '[[', 7))
+  lik_ratio_1 <- unlist(lapply(list_res, "[[", 7))
   testit::assert(is.numeric(lik_ratio_1))
 
   # calculate lik_ratio_alpha
-  lik_ratio_alpha = stats::quantile(lik_ratio_1, 0.95, type = 4)
+  lik_ratio_alpha <- stats::quantile(lik_ratio_1, 0.95, type = 4)
   testit::assert(is.numeric(lik_ratio_alpha))
 
-  lik_ratio_2 <- unlist(lapply(list_res, '[[', 11))
+  lik_ratio_2 <- unlist(lapply(list_res, "[[", 11))
   testit::assert(is.numeric(lik_ratio_2))
 
   r_model_2 <- length(which(lik_ratio_2 > lik_ratio_alpha))

@@ -3,7 +3,7 @@
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return
+#' @return Numeric p-value
 #' @export
 calc_p_value <- function(
   data
@@ -23,7 +23,7 @@ calc_p_value <- function(
 
   lik_ratio_0 <- unlist(lapply(list_res, '[[', 3))
   testit::assert(is.numeric(lik_ratio_0))
-  testit::assert(var(lik_ratio_0, na.rm = TRUE) == 0)
+  testit::assert(stats::var(lik_ratio_0, na.rm = TRUE) == 0)
 
   lik_ratio_1 <- unlist(lapply(list_res, '[[', 7))
   testit::assert(is.numeric(lik_ratio_1))

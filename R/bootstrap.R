@@ -28,11 +28,11 @@ bootstap <- function(
   data_name <- deparse(substitute(data))
   print_metadata(
     data_name = data_name,
-    model = paste(model_1, model_2),
+    model = "boot",
     seed = seed)
   file_path <- create_output_folder(
     data_name = data_name,
-    model = paste(model_1, model_2),
+    model = "boot",
     seed = seed
   )
   set.seed(
@@ -99,32 +99,32 @@ bootstap <- function(
     data = data,
     model = model_1,
     lik_res = model_1_lik_res,
-    cond = cond,
+    cond = cond
   )
 
   ##### ML Optimization ####
   model_1_sim_1_lik_res <- DAISIE::DAISIE_ML(
-    datalist = sim_1,
+    datalist = sim_1[[1]],
     initparsopt = model_1_initparsopt,
     idparsnoshift = model_1_idparsnoshift,
     idparsopt = model_1_idparsopt,
     parsfix = model_1_parsfix,
     idparsfix = model_1_idparsfix,
     ddmodel = model_1_ddmodel,
-    cond = model_1_cond,
+    cond = cond,
     CS_version = model_1_cs_version
   )
 
   ##### ML Optimization ####
   model_2_sim_1_lik_res <- DAISIE::DAISIE_ML(
-    datalist = sim_1,
+    datalist = sim_1[[1]],
     initparsopt = model_2_initparsopt,
     idparsnoshift = model_2_idparsnoshift,
     idparsopt = model_2_idparsopt,
     parsfix = model_2_parsfix,
     idparsfix = model_2_idparsfix,
     ddmodel = model_2_ddmodel,
-    cond = model_2_cond,
+    cond = cond,
     CS_version = model_2_cs_version
   )
 
@@ -142,27 +142,27 @@ bootstap <- function(
 
   ##### ML Optimization ####
   model_1_sim_2_lik_res <- DAISIE::DAISIE_ML(
-    datalist = sim_2,
+    datalist = sim_2[[1]],
     initparsopt = model_1_initparsopt,
     idparsnoshift = model_1_idparsnoshift,
     idparsopt = model_1_idparsopt,
     parsfix = model_1_parsfix,
     idparsfix = model_1_idparsfix,
     ddmodel = model_1_ddmodel,
-    cond = model_1_cond,
+    cond = cond,
     CS_version = model_1_cs_version
   )
 
   ##### ML Optimization ####
   model_2_sim_2_lik_res <- DAISIE::DAISIE_ML(
-    datalist = sim_2,
+    datalist = sim_2[[1]],
     initparsopt = model_2_initparsopt,
     idparsnoshift = model_2_idparsnoshift,
     idparsopt = model_2_idparsopt,
     parsfix = model_2_parsfix,
     idparsfix = model_2_idparsfix,
     ddmodel = model_2_ddmodel,
-    cond = model_2_cond,
+    cond = cond,
     CS_version = model_2_cs_version
   )
 

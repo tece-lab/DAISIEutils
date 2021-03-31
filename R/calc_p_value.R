@@ -5,8 +5,6 @@
 #'
 #' @return
 #' @export
-#'
-#' @examples
 calc_p_value <- function(
   data
 ) {

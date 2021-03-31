@@ -19,6 +19,9 @@ calc_p_value <- function(
   }
 
   files <- list.files(path = output_folder, full.names = TRUE, pattern = "boot")
+  if (length(files) == 0) {
+    stop("There are no files found for this data set")
+  }
   list_res <- lapply(files, readRDS)
 
   lik_ratio_0 <- unlist(lapply(list_res, '[[', 3))

@@ -64,9 +64,9 @@
 #' @param cond An integer specfying conditioning, as described in
 #'   [DAISIE::DAISIE_ML_CS()].
 #' @param model_1 A string with model that should run. For a list of options
-#'   see documentation for \code{model} parameter.
-#' @param model_2 A string with model that should run. For a list of possible
-#'   models see documentation for \code{model} parameter.
+#'   see documentation for \code{model} parameter in [run_analysis()].
+#' @param model_2 A string with model that should run. For a list of options
+#'   see documentation for \code{model} parameter in [run_analysis()].
 #' @param model_1_lik_res A data frame with results from a DAISIE maximum
 #'   likelihood model
 #' @param model_2_lik_res A data frame with results from a DAISIE maximum

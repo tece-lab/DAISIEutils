@@ -13,10 +13,10 @@ details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
 
 \item{model_1}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter.}
+see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_analysis()}}.}
 
-\item{model_2}{A string with model that should run. For a list of possible
-models see documentation for \code{model} parameter.}
+\item{model_2}{A string with model that should run. For a list of options
+see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_analysis()}}.}
 
 \item{seed}{A single numeric to be used as seed.}
 

@@ -17,6 +17,7 @@ default_params_doc(
   model_2,
   model_1_lik_res,
   model_2_lik_res,
+  model_lik_res,
   lik_res
 )
 }
@@ -104,6 +105,9 @@ see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_a
 likelihood model}
 
 \item{model_2_lik_res}{A data frame with results from a DAISIE maximum
+likelihood model}
+
+\item{model_lik_res}{A data frame with results from a DAISIE maximum
 likelihood model}
 
 \item{lik_res}{A data frame with results from a DAISIE maximum likelihood

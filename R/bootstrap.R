@@ -61,7 +61,8 @@ bootstap <- function(
     pattern = paste0(model_2, "_[0-9].rds$"))
   model_2_lik_res <- lapply(model_2_files, readRDS)
 
-  ####  INSERT FUNCTION THAT CALCULATES THE BEST MODEL
+  best_model_1 <- choose_best_model(model_1_lik_res)
+  best_model_2 <- choose_best_model(model_2_lik_res)
 
   lik_ratio_0 <- calc_loglik_ratio(
     model_1_lik_res = model_1_lik_res,

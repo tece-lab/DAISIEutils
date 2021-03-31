@@ -12,5 +12,6 @@ choose_best_model <- function(model_lik_res) {
   best_loglik_index <- which(logliks == max(logliks, na.rm = TRUE))
   best_model <- model_lik_res[best_loglik_index]
   testit::assert(length(best_model) == 1)
-  return(best_model)
+
+  return(best_model[[1]])
 }

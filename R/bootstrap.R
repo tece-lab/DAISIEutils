@@ -41,8 +41,6 @@ bootstap <- function(
     normal.kind = "Inversion",
     sample.kind = "Rejection"
   )
-
-  data_name <- deparse(substitute(data))
   if (is_on_cluster()) {
     output_folder <- file.path(
       Sys.getenv("HOME"), "results", data_name
@@ -55,15 +53,17 @@ bootstap <- function(
   model_1_file <- list.files(
     path = output_folder,
     full.names = TRUE,
-    pattern = paste0(model_1, ".rds$"))
-  model_1_res <- readRDS(model_1_file)
+    pattern = paste0(model_1, "_[0-9].rds$"))
+  model_1_lik_res <- readRDS(model_1_file)
 
   # load model 2
   model_2_file <- list.files(
     path = output_folder,
     full.names = TRUE,
-    pattern = paste0(model_2, ".rds$"))
-  model_2_res <- readRDS(model_1_file)
+    pattern = paste0(model_2, "_[0-9].rds$"))
+  model_2_lik_res <- readRDS(model_2_file)
+
+  ####  INSERT FUNCTION THAT CALCULATES THE BEST MODEL
 
   lik_ratio_0 <- calc_loglik_ratio(
     model_1_lik_res = model_1_lik_res,

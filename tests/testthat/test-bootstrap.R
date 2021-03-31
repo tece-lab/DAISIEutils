@@ -15,13 +15,19 @@ test_that("bootstrap works", {
   expect_true(all(file.copy(reference_files, results_folder)))
 
 
-  expect_snapshot_file(bootstap(
+  bootstap(
     data = Galapagos_datalist,
     model_1 = "cr_dd",
     model_2 = "cr_di",
     seed = seed,
-    cond = cond),
-    "tests/testdata/Galapagos_datalist_boot_1.rds", binary = TRUE)
+    cond = cond
+  )
+  actual_output <- readRDS(
+    "results/Galapagos_datalist/Galapagos_datalist_boot_1.rds"
+  )
+  expected_output <- readRDS("tests/testdata/Galapagos_datalist_boot_1.rds")
+
+  expect_equal(actual_output, expected_output)
 
   # Delete temp folder
   expect_equal(unlink(file.path(getwd(), "results"), recursive = TRUE), 0)

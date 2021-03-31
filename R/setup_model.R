@@ -66,8 +66,8 @@ setup_model <- function(
 
   # change to relaxed-rate model
   if (grepl("rr", model)) {
-    idparsopt <- c(idparsopt, 6)
-    initparsopt <- c(initparsopt, sd)
+    idparsopt <- c(idparsopt, sd = 6)
+    initparsopt <- c(initparsopt, sd = sd)
     if (grepl("rr_lac", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,

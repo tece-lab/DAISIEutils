@@ -41,6 +41,42 @@ bootstap <- function(
     normal.kind = "Inversion",
     sample.kind = "Rejection"
   )
+  if (is_on_cluster()) {
+    output_folder <- file.path(
+      Sys.getenv("HOME"), "results", data_name
+    )
+  } else {
+    output_folder <- file.path(getwd(), "results", data_name)
+  }
+
+  # load model 1
+  model_1_file <- list.files(
+    path = output_folder,
+    full.names = TRUE,
+    pattern = paste0(model_1, "_[0-9].rds$"))
+  model_1_lik_res <- readRDS(model_1_file)
+
+  # load model 2
+  model_2_file <- list.files(
+    path = output_folder,
+    full.names = TRUE,
+    pattern = paste0(model_2, "_[0-9].rds$"))
+  model_2_lik_res <- readRDS(model_2_file)
+
+  ####  INSERT FUNCTION THAT CALCULATES THE BEST MODEL
+
+  lik_ratio_0 <- calc_loglik_ratio(
+    model_1_lik_res = model_1_lik_res,
+    model_2_lik_res = model_2_lik_res
+    )
+
+  sim_1 <- run_sim(
+    data = data,
+    model = model_1,
+    lik_res = model_1_lik_res,
+    cond = cond
+  )
+
   model_1_arguments <- setup_model(
     model = model_1
   )
@@ -63,44 +99,6 @@ bootstap <- function(
   model_2_idparsfix <- model_2_arguments$idparsfix
   model_2_ddmodel <- model_2_arguments$ddmodel
   model_2_cs_version <- model_2_arguments$cs_version
-
-  ##### ML Optimization ####
-  model_1_lik_res <- DAISIE::DAISIE_ML(
-    datalist = data,
-    initparsopt = model_1_initparsopt,
-    idparsnoshift = model_1_idparsnoshift,
-    idparsopt = model_1_idparsopt,
-    parsfix = model_1_parsfix,
-    idparsfix = model_1_idparsfix,
-    ddmodel = model_1_ddmodel,
-    cond = cond,
-    CS_version = model_1_cs_version
-  )
-
-  ##### ML Optimization ####
-  model_2_lik_res <- DAISIE::DAISIE_ML(
-    datalist = data,
-    initparsopt = model_2_initparsopt,
-    idparsnoshift = model_2_idparsnoshift,
-    idparsopt = model_2_idparsopt,
-    parsfix = model_2_parsfix,
-    idparsfix = model_2_idparsfix,
-    ddmodel = model_2_ddmodel,
-    cond = cond,
-    CS_version = model_2_cs_version
-  )
-
-  lik_ratio_0 <- calc_loglik_ratio(
-    model_1_lik_res = model_1_lik_res,
-    model_2_lik_res = model_2_lik_res
-    )
-
-  sim_1 <- run_sim(
-    data = data,
-    model = model_1,
-    lik_res = model_1_lik_res,
-    cond = cond
-  )
 
   ##### ML Optimization ####
   model_1_sim_1_lik_res <- DAISIE::DAISIE_ML(

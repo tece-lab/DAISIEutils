@@ -4,11 +4,13 @@ on:
       - main
       - master
       - develop
+      - tests
   pull_request:
     branches:
       - main
       - master
       - develop
+      - tests
 
 name: test-coverage
 

@@ -2,10 +2,8 @@
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return
+#' @return List with output from [`DAISIE`] simulation
 #' @export
-#'
-#' @examples
 run_sim <- function(
   data,
   model,

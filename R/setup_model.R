@@ -25,8 +25,8 @@ setup_model <- function(
 
   lac <- stats::runif(1, min = 0, max = 2)
   mu <- stats::runif(1, min = 0, max = 2)
-  k <- stats::runif(1, min = 6, max = 200)
-  gam <- stats::runif(1, min = 0, max = 0.0001)
+  k <- stats::runif(1, min = 50, max = 200)
+  gam <- stats::runif(1, min = 1e-5, max = 0.1)
   laa <- stats::runif(1, min = 0.1, max = 4)
   sd <- stats::runif(1, min = 0.1, max = 1)
 
@@ -66,8 +66,8 @@ setup_model <- function(
 
   # change to relaxed-rate model
   if (grepl("rr", model)) {
-    idparsopt <- c(idparsopt, 6)
-    initparsopt <- c(initparsopt, sd)
+    idparsopt <- c(idparsopt, sd = 6)
+    initparsopt <- c(initparsopt, sd = sd)
     if (grepl("rr_lac", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,

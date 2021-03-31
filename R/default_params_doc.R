@@ -71,6 +71,8 @@
 #'   likelihood model
 #' @param model_2_lik_res A data frame with results from a DAISIE maximum
 #'   likelihood model
+#' @param model_lik_res A data frame with results from a DAISIE maximum
+#'   likelihood model
 #' @param lik_res A data frame with results from a DAISIE maximum likelihood
 #'   model
 #'
@@ -90,6 +92,7 @@ default_params_doc <- function(
   model_2,
   model_1_lik_res,
   model_2_lik_res,
+  model_lik_res,
   lik_res) {
   # Nothing
 }

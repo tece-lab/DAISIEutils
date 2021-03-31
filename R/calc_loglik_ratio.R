@@ -2,10 +2,8 @@
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return
+#' @return Numeric likelihood ratio
 #' @export
-#'
-#' @examples
 calc_loglik_ratio <- function(
   model_1_lik_res,
   model_2_lik_res) {

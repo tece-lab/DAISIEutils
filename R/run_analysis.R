@@ -12,9 +12,9 @@
 #' data(Galapagos_datalist, package = "DAISIE")
 #' run_analysis(
 #'   data = Galapagos_datalist,
-#'   model = cr_dd,
+#'   model = "cr_dd",
 #'   seed = 1,
-#'   cond = 1,
+#'   cond = 1
 #' )
 #' }
 #' @author Pedro Neves, Joshua W. Lambert, Luis Valente

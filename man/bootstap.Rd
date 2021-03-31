@@ -36,8 +36,8 @@ Runs a parameteric bootstrapping likelihood ratio test on two DAISIE models
 data(Galapagos_datalist, package = "DAISIE")
 bootstrap(
   data = Galapagos_datalist,
-  model_1 = cr_dd,
-  model_2 = cr_di,
+  model_1 = "cr_dd",
+  model_2 = "cr_di",
   seed = 1,
   cond = 1,
 )

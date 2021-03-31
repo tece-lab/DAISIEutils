@@ -29,9 +29,7 @@ run_sim <- function(
       replicates = 1,
       cond = cond,
       plot_sims = FALSE)
-  }
-
-  if (grepl("rr", model)) {
+  } else if (grepl("rr", model)) {
     relaxed_par <- setup_model(model)$cs_version$relaxed_par
 
     sim <- DAISIE::DAISIE_sim_relaxed_rate(

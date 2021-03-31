@@ -13,7 +13,7 @@ details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
 }
 \value{
-
+Numeric power
 }
 \description{
 Calculates power to detect the true model

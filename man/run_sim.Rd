@@ -70,7 +70,7 @@ model}
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 }
 \value{
-
+List with output from \code{\link{DAISIE}} simulation
 }
 \description{
 Runs a DAISIE simulation

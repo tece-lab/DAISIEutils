@@ -8,7 +8,7 @@
 calc_p_value <- function(
   data
 ) {
-browser()
+
   data_name <- deparse(substitute(data))
   if (is_on_cluster()) {
     output_folder <- file.path(
@@ -19,13 +19,11 @@ browser()
   }
 
   files <- list.files(path = output_folder, full.names = TRUE, pattern = "boot")
-  # check if this can be deleted
-  # boot_files <- files[which(grepl("boot", files))]
   list_res <- lapply(files, readRDS)
 
   lik_ratio_0 <- unlist(lapply(list_res, '[[', 3))
   testit::assert(is.numeric(lik_ratio_0))
-  testit::assert(var(lik_ratio_0, na.rm = TRUE) < 1e-5)
+  testit::assert(var(lik_ratio_0, na.rm = TRUE) == 0)
 
   lik_ratio_1 <- unlist(lapply(list_res, '[[', 7))
   testit::assert(is.numeric(lik_ratio_1))

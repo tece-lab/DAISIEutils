@@ -32,18 +32,7 @@ run_sim <- function(
   }
 
   if (grepl("rr", model)) {
-    if (grepl("rr_lac", model)) {
-      relaxed_par <- "cladogenesis"
-    }
-    if (grepl("rr_mu", model)) {
-      relaxed_par <- "extinction"
-    }
-    if (grepl("rr_k", model)) {
-      relaxed_par <- "carrying_capacity"
-    }
-    if (grepl("rr_laa", model)) {
-      relaxed_par <- "anagenesis"
-    }
+    relaxed_par <- setup_model(model)$cs_version$relaxed_par
 
     sim <- DAISIE::DAISIE_sim_relaxed_rate(
       time = time,

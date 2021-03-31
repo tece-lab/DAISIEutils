@@ -1,4 +1,5 @@
 test_that("bootstrap works", {
+  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data_name <- "Galapagos_datalist"
   data(Galapagos_datalist, package = "DAISIE")
   model <- "cr_dd"

@@ -20,8 +20,9 @@ browser()
     output_folder <- file.path(getwd(), "results", data_name)
   }
 
-  files <- list.files(path = output_folder, full.names = TRUE)
-  boot_files <- files[which(grepl("boot", files))]
+  files <- list.files(path = output_folder, full.names = TRUE, pattern = "boot")
+  # check if this can be deleted
+  # boot_files <- files[which(grepl("boot", files))]
   list_res <- lapply(files, readRDS)
 
   lik_ratio_0 <- unlist(lapply(list_res, '[[', 3))

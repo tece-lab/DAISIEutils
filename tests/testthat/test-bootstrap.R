@@ -26,7 +26,11 @@ test_that("bootstrap works", {
   actual_output <- readRDS(
     "results/Galapagos_datalist/Galapagos_datalist_boot_1.rds"
   )
-  expected_output <- readRDS("tests/testdata/Galapagos_datalist_boot_1.rds")
+
+  expected_path <- readRDS(file.path(
+    getwd(), "tests", "testdata", "Galapagos_datalist_boot_1.rds"
+  ))
+  expected_output <- readRDS(expected_path)
 
   expect_equal(actual_output, expected_output)
 

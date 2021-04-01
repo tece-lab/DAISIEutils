@@ -12,7 +12,9 @@ test_that("calc_power produces correct output", {
   ))
 
   # Place files need to run bootstrap
-  reference_files <- list.files("tests/testdata/", full.names = TRUE)
+  reference_files <- list.files(file.path(
+    getwd(), "tests", "testdata"
+  ), full.names = TRUE)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   output <- calc_power(data = Galapagos_datalist)

@@ -20,7 +20,7 @@ create_output_folder <- function(data_name, model, seed) {
       Sys.getenv("HOME"), "results", data_name
     )
   } else {
-    output_folder <- file.path(getwd(), "results", data_name)
+    output_folder <- file.path("results", data_name)
   }
 
   if (!dir.exists(output_folder)) {

@@ -46,16 +46,17 @@ bootstap <- function(
       Sys.getenv("HOME"), "results", data_name
     )
   } else {
-    output_folder <- file.path(getwd(), "results", data_name)
+    output_folder <- file.path("results", data_name)
   }
-
+  print(output_folder)
+  print(list.files("results/Galapagos_datalist/"))
   model_1_files <- list.files(
     path = output_folder,
     full.names = TRUE,
     pattern = paste0(model_1, "_[0-9].rds$"))
   model_1_lik_res <- lapply(model_1_files, readRDS)
   length(model_1_lik_res)
-  print(model_1_lik_res)
+  print(output_folder)
 
   model_2_files <- list.files(
     path = output_folder,

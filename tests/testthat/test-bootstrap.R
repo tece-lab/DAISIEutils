@@ -1,20 +1,19 @@
 test_that("bootstrap works", {
-  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
+  # skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data_name <- "Galapagos_datalist"
   data(Galapagos_datalist, package = "DAISIE")
   model <- "cr_dd"
   seed <- 1
   cond <- 1
-  results_folder <- dirname(create_output_folder(
-    data_name = data_name,
-    model = model,
-    seed = seed
-  ))
+  results_folder <- file.path("results", "Galapagos_datalist")
 
   # Place files need to run bootstrap
-  reference_files <- list.files("tests/testdata/", full.names = TRUE)
+  reference_files <- list.files(
+    "tests/testdata/",
+    full.names = TRUE
+  )
   expect_true(all(file.copy(reference_files, results_folder)))
-
+  print(list.files(results_folder))
 
   bootstap(
     data = Galapagos_datalist,

@@ -54,6 +54,8 @@ bootstap <- function(
     full.names = TRUE,
     pattern = paste0(model_1, "_[0-9].rds$"))
   model_1_lik_res <- lapply(model_1_files, readRDS)
+  length(model_1_lik_res)
+  print(model_1_lik_res)
 
   model_2_files <- list.files(
     path = output_folder,

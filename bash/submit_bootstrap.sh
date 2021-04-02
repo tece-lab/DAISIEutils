@@ -2,10 +2,10 @@
 #SBATCH --time=9-23:05:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --job-name=DAISIE
+#SBATCH --job-name=bootstrap
 #SBATCH --output=logs/DAISIE/job-%a.log
 #SBATCH --mem=2GB
-#SBATCH --array=1-10
+#SBATCH --array=1-1000
 #SBATCH --partition=gelifes
 
 # DAISIEutils: Utility Functions for the DAISIE Package
@@ -25,13 +25,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ################################ Usage #########################################
-#         This bash script submits a set of DAISIE model inference jobs        #
+#         This bash script submits bootstraping of two DAISIE models           #
 #                 Submissions are made to the gelifes partition.               #
 ################################################################################
 ### Arguments ###
-# data - the name of the datalist object, as found as data on
+# datalist_name - the name of the datalist object, as found as data on
 #   the hawaiispiders package.
-# model - the name of a DAISIE model to indicate which parameters are estimated
+# model_1 - the name of a DAISIE model to indicate which parameters are estimated
+# or fixed.
+# model_2 - the name of a DAISIE model to indicate which parameters are estimated
 # or fixed.
 # package - the name of the package where the data is stored.
 # seed - The seed used to sample the optimization initial parameters.
@@ -39,23 +41,25 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_run_analysis.sh Aldabra_Group cr_di relaxedDAISIE 5
+# sbatch DAISIEutils/bash/submit_bootstrap.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
 ################################################################################
 
 
 # See DAISIEutils::run_main() documentation for help.
 # See also DAISIEutils/bash/submit_run_robustness_peregrine.sh for help.
 # Arguments to follow the Rscript are as follows:
-data=$1
-model=$2
-package=$3
-cond=$4
+datalist_name=$1
+model_1=$2
+model_2=$3
+package=$4
+cond=$5
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
-Rscript DAISIEutils/scripts/run_analysis.R ${data} \
-                                           ${model} \
-                                           ${package} \
-                                           ${seed} \
-                                           ${cond} \
+Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
+                                        ${model_1} \
+                                        ${model_2} \
+                                        ${package}
+                                        ${seed} \
+                                        ${cond} \
 

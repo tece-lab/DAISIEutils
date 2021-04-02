@@ -8,5 +8,6 @@
 #SBATCH --partition=gelifes
 
 mkdir -p logs
+ml R
 
 Rscript -e 'remotes::install_github("tece-lab/DAISIEutils")'

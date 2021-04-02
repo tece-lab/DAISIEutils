@@ -26,13 +26,14 @@
 
 ################################ Usage #########################################
 #         This bash script submits a set of DAISIE model inference jobs        #
-#                 Submissions are made to the regular partition.               #
+#                 Submissions are made to the gelifes partition.               #
 ################################################################################
 ### Arguments ###
-# datalist_name - the name of the datalist object, as found as data on
+# data - the name of the datalist object, as found as data on
 #   the hawaiispiders package.
 # model - the name of a DAISIE model to indicate which parameters are estimated
 # or fixed.
+# package - the name of the package where the data is stored.
 # seed - The seed used to sample the optimization initial parameters.
 # cond - The conditioning for DAISIE_ML
 ################################################################################
@@ -45,15 +46,16 @@
 # See DAISIEutils::run_main() documentation for help.
 # See also DAISIEutils/bash/submit_run_robustness_peregrine.sh for help.
 # Arguments to follow the Rscript are as follows:
-datalist_name=$1
+data=$1
 model=$2
 package=$3
 cond=$4
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
-Rscript DAISIEutils/scripts/run_main_peregrine.R ${datalist_name} \
-                                                 ${model} \
-                                                 ${package} \
-                                                 ${seed} \
-                                                 ${cond} \
+Rscript DAISIEutils/scripts/run_analysis.R ${data} \
+                                           ${model} \
+                                           ${package} \
+                                           ${seed} \
+                                           ${cond} \
+

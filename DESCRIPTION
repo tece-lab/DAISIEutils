@@ -40,12 +40,13 @@ Config/testthat/edition: 3
 Imports: 
     sessioninfo,
     testit,
+    hawaiispiders (>= 1.0.1),
+    relaxedDAISIE (>= 0.1.0),
     DAISIE (>= 3.2.1),
     readr,
-    tibble,
-    hawaiispiders (>= 1.0.1),
-    relaxedDAISIE (>= 0.1.0)
+    tibble
 Remotes:  
     joshwlambert/relaxedDAISIE,
-    rsetienne/DAISIE@v3.2.1,
-    Neves-P/hawaiispiders
+    Neves-P/hawaiispiders,
+    rsetienne/DAISIE@v3.2.1
+    

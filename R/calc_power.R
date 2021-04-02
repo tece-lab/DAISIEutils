@@ -21,7 +21,7 @@ calc_power <- function(
   if (length(files) == 0) {
     stop("No files found.")
   }
-  if (length(files) != 1000 || length(files) == 5) {
+  if (!(xor(length(files) != 1000, length(files) != 5))) {
     stop("1000 bootstrap results expected but only ", length(files), " found.")
   }
 

@@ -46,9 +46,10 @@ bootstap <- function(
       Sys.getenv("HOME"), "results", data_name
     )
   } else {
-    output_folder <- file.path("results", data_name)
+    output_folder <- file.path("results", data_name) # needs to read testdata too
   }
   print(output_folder)
+  print(list.files("results"))
   print(list.files("results/Galapagos_datalist/"))
   model_1_files <- list.files(
     path = output_folder,

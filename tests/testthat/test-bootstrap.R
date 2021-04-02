@@ -9,11 +9,9 @@ test_that("bootstrap works", {
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    "tests/testdata/",
+    file.path(getwd(), "testdata/"),
     full.names = TRUE
   )
-  expect_true(all(file.copy(reference_files, results_folder)))
-  print(list.files(results_folder))
 
   bootstap(
     data = Galapagos_datalist,
@@ -26,10 +24,9 @@ test_that("bootstrap works", {
     "results/Galapagos_datalist/Galapagos_datalist_boot_1.rds"
   )
 
-  expected_path <- readRDS(file.path(
-    getwd(), "tests", "testdata", "Galapagos_datalist_boot_1.rds"
+  expected_output <- readRDS(file.path(
+    "tests", "testdata", "Galapagos_datalist_boot_1.rds"
   ))
-  expected_output <- readRDS(expected_path)
 
   expect_equal(actual_output, expected_output)
 

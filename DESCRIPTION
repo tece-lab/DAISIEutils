@@ -46,6 +46,6 @@ Imports:
     hawaiispiders (>= 1.0.1),
     relaxedDAISIE (>= 0.1.0)
 Remotes:  
+    joshwlambert/relaxedDAISIE,
     rsetienne/DAISIE@v3.2.1,
-    Neves-P/hawaiispiders,
-    joshwlambert/relaxedDAISIE
+    Neves-P/hawaiispiders

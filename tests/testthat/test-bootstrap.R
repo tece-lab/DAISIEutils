@@ -17,14 +17,16 @@ test_that("bootstrap works", {
   )
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
-
-  bootstap(
-    data = Galapagos_datalist,
-    model_1 = "cr_dd",
-    model_2 = "cr_di",
-    seed = seed,
-    cond = cond
-  )
+  # Omit console output in tests
+  invisible(suppressMessages(capture.output(
+    bootstap(
+      data = Galapagos_datalist,
+      model_1 = "cr_dd",
+      model_2 = "cr_di",
+      seed = seed,
+      cond = cond
+    )
+  )))
   actual_output <- readRDS(results_name)
 
   expected_output <- readRDS(

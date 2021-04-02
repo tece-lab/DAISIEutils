@@ -6,14 +6,14 @@ test_that("integration test", {
   cond <- 1
 
   # Omit console output in tests
-  invisible(capture.output(
+  invisible(capture.output(suppressMessages(
     run_analysis(
       data = Galapagos_datalist, # nolint
       model = model,
       seed = seed,
       cond = cond
     )
-  ))
+  )))
 
   obtained_result <- readRDS(file.path(
     getwd(), "results", "Galapagos_datalist", "Galapagos_datalist_cr_dd_1.rds")

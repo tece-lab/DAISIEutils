@@ -9,7 +9,7 @@ test_that("Directory is created", {
   )
   expect_equal(
     file_name,
-    file.path(getwd(), "results", "test", "test_cr_dd_1.rds")
+    file.path("results", "test", "test_cr_dd_1.rds")
   )
   expect_true(dir.exists(file.path(getwd(), "results", "test")))
   # Clean-up

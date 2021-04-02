@@ -5,7 +5,6 @@ test_that("bootstrap works", {
   model <- "cr_dd"
   seed <- 1
   cond <- 1
-  results_folder <- file.path("results", "Galapagos_datalist")
 
   # Place files need to run bootstrap
   reference_files <- list.files(file.path(getwd(), "testdata/"), full.names = TRUE)
@@ -14,6 +13,7 @@ test_that("bootstrap works", {
     model = "boot",
     seed = 1
   )
+  results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
   bootstap(
     data = Galapagos_datalist,
@@ -31,5 +31,5 @@ test_that("bootstrap works", {
   expect_equal(actual_output, expected_output)
 
   # Delete temp folder
-  expect_equal(unlink(file.path(getwd(), "results"), recursive = TRUE), 0)
+  expect_equal(unlink(results_folder, recursive = TRUE), 0)
 })

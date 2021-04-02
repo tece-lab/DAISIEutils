@@ -34,5 +34,5 @@ test_that("bootstrap works", {
   expect_equal(actual_output, expected_output)
 
   # Delete temp folder
-  expect_equal(unlink(results_folder, recursive = TRUE), 0)
+  expect_equal(unlink("results", recursive = TRUE), 0)
 })

@@ -1,7 +1,7 @@
 test_that("calc_p_value produces correct output", {
-  skip("WIP")
   data("Galapagos_datalist", package = "DAISIE")
 
+  data_name <- "Galapagos_datalist"
   model <- "cr_dd"
   seed <- 1
   cond <- 1
@@ -12,11 +12,11 @@ test_that("calc_p_value produces correct output", {
   ))
 
   # Place files need to run bootstrap
-  reference_files <- list.files("tests/testdata/", full.names = TRUE)
+  reference_files <- list.files("testdata/", full.names = TRUE)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   output <- calc_p_value(data = Galapagos_datalist)
-  expected_output <- 0.904095904096
+  expected_output <- 0.666666666666667
   expect_equal(output, expected_output)
 
   # Delete temp folder

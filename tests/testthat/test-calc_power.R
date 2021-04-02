@@ -1,25 +1,22 @@
 test_that("calc_power produces correct output", {
-  # skip("WIP")
   data("Galapagos_datalist", package = "DAISIE")
 
+  data_name <- "Galapagos_datalist"
   model <- "cr_dd"
   seed <- 1
   cond <- 1
-  # Place files need to run test
-  reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
-  )
+  results_folder <- dirname(create_output_folder(
+    data_name = data_name,
+    model = model,
+    seed = seed
+  ))
 
-  results_name <- create_output_folder(
-    data_name = "Galapagos_datalist",
-    model = "boot",
-    seed = 1
-  )
-  results_folder <- dirname(results_name)
+  # Place files need to run bootstrap
+  reference_files <- list.files("testdata/", full.names = TRUE)
   expect_true(all(file.copy(reference_files, results_folder)))
   output <- calc_power(data = Galapagos_datalist)
 
-  expected_output <- 0.904095904096
+  expected_output <- 0.166666666666667
   expect_equal(output, expected_output)
 
   # Delete temp folder

@@ -7,7 +7,9 @@ test_that("bootstrap works", {
   cond <- 1
 
   # Place files need to run bootstrap
-  reference_files <- list.files(file.path(getwd(), "testdata/"), full.names = TRUE)
+  reference_files <- list.files(
+    file.path(getwd(), "testdata/"), full.names = TRUE
+  )
   results_name <- create_output_folder(
     data_name = "Galapagos_datalist",
     model = "boot",
@@ -15,6 +17,7 @@ test_that("bootstrap works", {
   )
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
+
   bootstap(
     data = Galapagos_datalist,
     model_1 = "cr_dd",

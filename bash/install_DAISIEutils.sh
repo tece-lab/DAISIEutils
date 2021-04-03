@@ -7,7 +7,7 @@
 #SBATCH --mem=2GB
 #SBATCH --partition=gelifes
 
-mkdir -p logs
+mkdir -p logs/DAISIE
 ml R
 
 Rscript -e 'remotes::install_github("tece-lab/DAISIEutils")'

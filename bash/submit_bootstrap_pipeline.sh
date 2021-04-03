@@ -1,10 +1,11 @@
 #!/bin/bash
-#SBATCH --time=9-23:05:00
+#SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --job-name=DAISIE
-#SBATCH --output=logs/DAISIE/pipeline.log
+#SBATCH --job-name=boot_pipe
+#SBATCH --output=logs/DAISIE/job-%a.log
 #SBATCH --mem=2GB
+#SBATCH --array=1-1000
 #SBATCH --partition=gelifes
 
 # DAISIEutils: Utility Functions for the DAISIE Package
@@ -40,7 +41,7 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_bootstrap.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
+# sbatch DAISIEutils/bash/submit_pipeline.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
 ################################################################################
 
 
@@ -51,10 +52,13 @@ model_1=$2
 model_2=$3
 package=$4
 cond=$5
+seed=${SLURM_ARRAY_TASK_ID}
 
-sbatch DAISIEutils/bash/submit_run_analysis.sh ${datalist_name} ${model_1} ${package} ${cond}
-
-sbatch DAISIEutils/bash/submit_run_analysis.sh ${datalist_name} ${model_2} ${package} ${cond}
-
-sbatch --dependency=singleton --job-name=DAISIE DAISIEutils/bash/submit_bootstrap_pipeline.sh ${datalist_name} ${model_1} ${model_2} ${package} ${cond}
+ml R
+Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
+                                        ${model_1} \
+                                        ${model_2} \
+                                        ${package} \
+                                        ${seed} \
+                                        ${cond} \
 

@@ -58,7 +58,7 @@ ml R
 Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
                                         ${model_1} \
                                         ${model_2} \
-                                        ${package}
+                                        ${package} \
                                         ${seed} \
                                         ${cond} \
 

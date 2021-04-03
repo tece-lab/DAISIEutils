@@ -9,7 +9,7 @@
 #SBATCH --partition=gelifes
 
 # DAISIEutils: Utility Functions for the DAISIE Package
-# Copyright (C) 2021 Pedro Neves
+# Copyright (C) 2021 Pedro Neves, Joshua W. Lambert
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -43,8 +43,7 @@
 ################################################################################
 
 
-# See DAISIEutils::run_main() documentation for help.
-# See also DAISIEutils/bash/submit_run_robustness_peregrine.sh for help.
+# See DAISIEutils::run_analysis() documentation for help.
 # Arguments to follow the Rscript are as follows:
 data=$1
 model=$2

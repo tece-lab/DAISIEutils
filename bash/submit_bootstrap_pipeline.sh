@@ -25,8 +25,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ################################ Usage #########################################
-#         This bash script submits bootstraping of two DAISIE models           #
-#                 Submissions are made to the gelifes partition.               #
+#         ! THIS BASH FILE IS NOT TO BE CALLED MANUALLY. FOR MANUAL OPERATION  #
+#                         USE submit_bootstrap.sh INSTEAD!                     #
 ################################################################################
 ### Arguments ###
 # datalist_name - the name of the datalist object, as found as data on

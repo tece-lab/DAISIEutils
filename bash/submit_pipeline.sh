@@ -24,7 +24,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ################################ Usage #########################################
-#         This bash script submits bootstraping of two DAISIE models           #
+#         This bash script submits a pipeline running analysis of two DAISIE   #
+#                models and then bootstraps from the produced output.          #
+#         !BOOTSTRAP MUST TAKE 3 DAYS OR LESS! If more time is needed, run     #
+#             submit_run_analysis.sh and submit_bootstrap.sh manually.         #
+#         If doing so, ensure submit_run_analysis.sh has finished before       #
+#                             starting bootstraps.
+#                                                                              #
 #                 Submissions are made to the gelifes partition.               #
 ################################################################################
 ### Arguments ###
@@ -40,7 +46,7 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_bootstrap.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
+# sbatch DAISIEutils/bash/submit_pipeline.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
 ################################################################################
 
 

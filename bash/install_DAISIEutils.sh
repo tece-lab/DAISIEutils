@@ -4,7 +4,7 @@
 #SBATCH --ntasks=1
 #SBATCH --job-name=install_DAISIEutils
 #SBATCH --output=install_DAISIEutils.log
-#SBATCH --mem=1GB
+#SBATCH --mem=2GB
 #SBATCH --partition=gelifes
 
 mkdir -p logs

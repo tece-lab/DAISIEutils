@@ -20,12 +20,12 @@
 #' }
 bootstap <- function(
   data,
+  data_name,
   model_1,
   model_2,
   seed,
   cond) {
 
-  data_name <- deparse(substitute(data))
   print_metadata(
     data_name = data_name,
     model = "boot",

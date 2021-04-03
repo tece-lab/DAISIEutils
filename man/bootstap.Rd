@@ -4,13 +4,16 @@
 \alias{bootstap}
 \title{Runs a parameteric bootstrapping likelihood ratio test on two DAISIE models}
 \usage{
-bootstap(data, model_1, model_2, seed, cond)
+bootstap(data, data_name, model_1, model_2, seed, cond)
 }
 \arguments{
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+
+\item{data_name}{String. Will be used for the name of the created output
+folder.}
 
 \item{model_1}{A string with model that should run. For a list of options
 see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_analysis()}}.}

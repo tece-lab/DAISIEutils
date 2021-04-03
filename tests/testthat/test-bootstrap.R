@@ -2,6 +2,7 @@ test_that("bootstrap works", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data_name <- "Galapagos_datalist"
   data(Galapagos_datalist, package = "DAISIE")
+  data_name <- "Galapagos_datalist"
   model <- "cr_dd"
   seed <- 1
   cond <- 1
@@ -11,7 +12,7 @@ test_that("bootstrap works", {
     file.path(getwd(), "testdata/"), full.names = TRUE
   )
   results_name <- create_output_folder(
-    data_name = "Galapagos_datalist",
+    data_name = data_name,
     model = "boot",
     seed = 1
   )
@@ -21,6 +22,7 @@ test_that("bootstrap works", {
   invisible(suppressMessages(capture.output(
     bootstap(
       data = Galapagos_datalist,
+      data_name = data_name,
       model_1 = "cr_dd",
       model_2 = "cr_di",
       seed = seed,

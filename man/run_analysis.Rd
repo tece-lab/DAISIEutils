@@ -4,13 +4,16 @@
 \alias{run_analysis}
 \title{Run DAISIE analysis}
 \usage{
-run_analysis(data, model, seed, cond)
+run_analysis(data, data_name, model, seed, cond)
 }
 \arguments{
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+
+\item{data_name}{String. Will be used for the name of the created output
+folder.}
 
 \item{model}{A string with model that should run. Models are as follows:
 \itemize{
@@ -81,6 +84,7 @@ Run DAISIE analysis
 data(Galapagos_datalist, package = "DAISIE")
 run_analysis(
   data = Galapagos_datalist,
+  data_name = "Galapagos_datalist",
   model = "cr_dd",
   seed = 1,
   cond = 1

@@ -12,6 +12,7 @@
 #' data(Galapagos_datalist, package = "DAISIE")
 #' run_analysis(
 #'   data = Galapagos_datalist,
+#'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
 #'   seed = 1,
 #'   cond = 1
@@ -20,12 +21,12 @@
 #' @author Pedro Neves, Joshua W. Lambert, Luis Valente
 run_analysis <- function(
   data,
+  data_name,
   model,
   seed,
   cond) {
 
   # testit::assert(is_daisie_data(daisia_data = data)) #nolint
-  data_name <- deparse(substitute(data))
   print_metadata(
     data_name = data_name,
     model = model,

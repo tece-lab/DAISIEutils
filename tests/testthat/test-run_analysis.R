@@ -1,6 +1,7 @@
 test_that("integration test", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data(Galapagos_datalist, package = "DAISIE")
+  data_name <- "Galapagos_datalist"
   model <- "cr_dd"
   seed <- 1
   cond <- 1
@@ -9,6 +10,7 @@ test_that("integration test", {
   invisible(capture.output(suppressMessages(
     run_analysis(
       data = Galapagos_datalist, # nolint
+      data_name = data_name,
       model = model,
       seed = seed,
       cond = cond
@@ -36,6 +38,7 @@ test_that("integration test", {
 test_that("run_analysis fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   model <- "cr_dd"
+  data_name <- "Galapagos_datalist"
   seed <- 1
   cond <- 1
 
@@ -43,6 +46,7 @@ test_that("run_analysis fails when expected", {
   expect_error(invisible(capture.output(
     run_analysis(
       data = list(), # nolint
+      data_name = data_name,
       model = model,
       seed = seed,
       cond = cond
@@ -55,6 +59,7 @@ test_that("run_analysis fails when expected", {
 test_that("run_analysis fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data(Galapagos_datalist, package = "DAISIE")
+  data_name <- "Galapagos_datalist"
   model <- 1
   seed <- 1
   cond <- 1
@@ -63,6 +68,7 @@ test_that("run_analysis fails when expected", {
   expect_error(invisible(capture.output(
     run_analysis(
       data = Galapagos_datalist, # nolint
+      data_name = data_name,
       model = model,
       seed = seed,
       cond = cond
@@ -75,6 +81,7 @@ test_that("run_analysis fails when expected", {
 test_that("run_analysis fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data(Galapagos_datalist, package = "DAISIE")
+  data_name <- "Galapagos_datalist"
   model <- "cr_dd"
   seed <- "nonsense"
   cond <- 1
@@ -83,6 +90,7 @@ test_that("run_analysis fails when expected", {
   expect_error(invisible(capture.output(
     run_analysis(
       data = Galapagos_datalist, # nolint
+      data_name = data_name,
       model = model,
       seed = seed,
       cond = cond
@@ -95,6 +103,7 @@ test_that("run_analysis fails when expected", {
 test_that("run_analysis fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data(Galapagos_datalist, package = "DAISIE")
+  data_name <- "Galapagos_datalist"
   model <- "cr_dd"
   seed <- 1
   cond <- "nonsense"
@@ -103,6 +112,7 @@ test_that("run_analysis fails when expected", {
   expect_error(invisible(capture.output(
     run_analysis(
       data = Galapagos_datalist, # nolint
+      data_name = data_name,
       model = model,
       seed = seed,
       cond = cond

@@ -1,8 +1,6 @@
 args <- commandArgs(TRUE)
 
-data(args[1], package = args[4])
-
-data_name <- do.call(data, args = list(args[1], package = args[3]))
+data_name <- do.call(data, args = list(args[1], package = args[4]))
 
 DAISIEutils::bootstap(
   data = get(data_name),

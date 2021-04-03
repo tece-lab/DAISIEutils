@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --time=9-23:05:00
+#SBATCH --time=00:10:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=DAISIE
 #SBATCH --output=logs/DAISIE/pipeline.log
-#SBATCH --mem=2GB
-#SBATCH --partition=gelifes
+#SBATCH --mem=1GB
+#SBATCH --partition=short
 
 # DAISIEutils: Utility Functions for the DAISIE Package
 # Copyright (C) 2021 Pedro Neves, Joshua W. Lambert

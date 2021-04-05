@@ -37,6 +37,9 @@ run_analysis <- function(
     seed = seed
   )
 
+  if (file.exists(file_path)) {
+    return("File already present, job completed.")
+  }
   set.seed(
     seed,
     kind = "Mersenne-Twister",

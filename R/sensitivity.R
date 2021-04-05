@@ -16,6 +16,7 @@
 #'   full_output = FALSE
 #' )
 #' }
+#' @author Joshua W. Lambert
 sensitivity <- function(
   data_names,
   full_output) {

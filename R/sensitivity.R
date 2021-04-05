@@ -38,6 +38,7 @@ sensitivity <- function(
 
     best_models_list[[i]] <- list()
     list_names <- c()
+
     for (j in seq_along(expected_models)) {
       data_files <- list.files(
         path = output_folder,

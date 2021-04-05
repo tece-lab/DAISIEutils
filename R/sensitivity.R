@@ -60,7 +60,6 @@ sensitivity <- function(
   }
   names(best_models_list) <- data_names
   ranked_models <- list()
-  sorted_ranked_models <- list()
 
   ranked_models <- lapply(best_models_list, function(x) {
     sort(sapply(x, "[[", 9), decreasing = FALSE)

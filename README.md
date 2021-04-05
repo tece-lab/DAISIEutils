@@ -9,7 +9,7 @@
 <!-- badges: end -->
 
 The goal of DAISIEutils is to collect useful utility functions that are used recurrently in DAISIE projects. DAISIEutils is a companion package of the R package [DAISIE](https://github.com/rsetienne/DAISIE).
-This includes pipelines for typical analyses using the DAISIE's maximum likelihood model inference.
+This includes pipelines for typical analyses using the DAISIE's maximum likelihood inference.
 
 ## Installation
 

@@ -18,7 +18,9 @@ default_params_doc(
   model_1_lik_res,
   model_2_lik_res,
   model_lik_res,
-  lik_res
+  lik_res,
+  data_names,
+  full_output
 )
 }
 \arguments{
@@ -112,6 +114,12 @@ likelihood model}
 
 \item{lik_res}{A data frame with results from a DAISIE maximum likelihood
 model}
+
+\item{data_names}{A vector of strings with the names of the data sets you
+want to compare sensitivity}
+
+\item{full_output}{A boolean determining whether the full model ouput is
+returned in \code{\link[=sensitivity]{sensitivity()}}.}
 }
 \value{
 Nothing

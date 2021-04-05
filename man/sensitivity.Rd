@@ -2,8 +2,7 @@
 % Please edit documentation in R/sensitivity.R
 \name{sensitivity}
 \alias{sensitivity}
-\title{Read the results of \code{\link[=run_analysis]{run_analysis()}} and compares model selection to determine
-sensitivity to different data input into the same model or set of models.}
+\title{Read the results of \code{\link[=run_analysis]{run_analysis()}} and compares model selection}
 \usage{
 sensitivity(data_names, full_output)
 }
@@ -18,8 +17,9 @@ returned in \code{\link[=sensitivity]{sensitivity()}}.}
 List
 }
 \description{
-Read the results of \code{\link[=run_analysis]{run_analysis()}} and compares model selection to determine
-sensitivity to different data input into the same model or set of models.
+Reads the results of \code{\link[=run_analysis]{run_analysis()}} and compares model selection to
+determine sensitivity to different data input into the same model or set of
+models.
 }
 \examples{
 \dontrun{

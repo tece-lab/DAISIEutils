@@ -1,5 +1,8 @@
-#' Read the results of [run_analysis()] and compares model selection to determine
-#' sensitivity to different data input into the same model or set of models.
+#' Read the results of [run_analysis()] and compares model selection
+#'
+#' Reads the results of [run_analysis()] and compares model selection to
+#' determine sensitivity to different data input into the same model or set of
+#' models.
 #'
 #' @inheritParams default_params_doc
 #'
@@ -46,8 +49,8 @@ sensitivity <- function(
         pattern = paste0(expected_models[j], "_[0-9].rds$"))
 
       if (length(data_files) > 0) {
-        data_lik_res <- lapply(data_files, readRDS) # nolint TODO: REMOVE
-        best_model <- choose_best_model(data_lik_res) # nolint TODO: REMOVE
+        data_lik_res <- lapply(data_files, readRDS)
+        best_model <- choose_best_model(data_lik_res)
         best_models_list[[i]][[j]] <- best_model
         list_names[j] <- expected_models[j]
       }

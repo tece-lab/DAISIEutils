@@ -21,8 +21,8 @@ test_that("run_sim cr model works", {
   )
   # expect_true(is_daisie_data(out)) TODO: Finish is_daisie_data() to use this.
 
-  expect_length(out[[1]], 8)
-  expected_last_line <- c(Time = 0, nI = 5, nA = 1, nC = 9, present = 7)
+  expect_length(out[[1]], 11)
+  expected_last_line <- c(Time = 0, nI = 4, nA = 2, nC = 23, present = 10)
   expect_equal(out[[1]][[1]]$stt_all[26, ], expected_last_line)
 })
 
@@ -50,7 +50,7 @@ test_that("run_sim rr model works", {
   )
   # expect_true(is_daisie_data(out)) TODO: Finish is_daisie_data() to use this.
 
-  expect_length(out[[1]], 11)
-  expected_last_line <- c(Time = 0, nI = 0, nA = 6, nC = 148, present = 10)
+  expect_length(out[[1]], 9)
+  expected_last_line <- c(Time = 0, nI = 1, nA = 3, nC = 325, present = 8)
   expect_equal(out[[1]][[1]]$stt_all[26, ], expected_last_line)
 })

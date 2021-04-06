@@ -1,5 +1,5 @@
 test_that("integration test", {
-  #skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
+  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- "cr_dd"
@@ -80,7 +80,7 @@ test_that("run_analysis fails when expected", {
 
 test_that("run_analysis fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data("Azores", package = "DAISIE")
+  data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- "cr_dd"
   seed <- "nonsense"

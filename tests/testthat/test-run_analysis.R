@@ -1,5 +1,5 @@
 test_that("integration test", {
-  skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
+  #skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- "cr_dd"
@@ -21,15 +21,15 @@ test_that("integration test", {
     getwd(), "results", "Azores", "Azores_cr_dd_1.rds")
   )
   expected_data_frame <- data.frame(
-    lambda_c = 2.556237280343648,
-    mu = 2.686757075111843,
-    K = 9245.783416787153,
-    gamma = 0.009325448643906421,
-    lambda_a = 1.007726332102268,
-    loglik = -75.99980195099431,
+    lambda_c = 0.25515252521,
+    mu = 2.37865891765,
+    K = 0.688038204241,
+    gamma = 0.041041097267,
+    lambda_a = 1.55073608641,
+    loglik = -100.335327769,
     df = 5,
     conv = 0,
-    bic = 195.727765628946)
+    bic = 244.398817264)
   expect_equal(obtained_result, expected_data_frame)
   # Clean-up
   expect_equal(unlink("results", recursive = TRUE), 0)

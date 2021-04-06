@@ -66,7 +66,7 @@ bootstap <- function(
   lik_ratio_0 <- calc_loglik_ratio(
     model_1_lik_res = best_model_1,
     model_2_lik_res = best_model_2
-    )
+  )
 
   sim_1 <- run_sim(
     data = data,

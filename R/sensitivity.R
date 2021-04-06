@@ -19,7 +19,7 @@
 #' @author Joshua W. Lambert
 sensitivity <- function(
   data_names,
-  full_output) {
+  full_output = FALSE) {
 
   best_models_list <- list()
   output <- list()

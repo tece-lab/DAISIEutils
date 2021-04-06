@@ -1,7 +1,7 @@
 test_that("run_sim cr model works", {
-  data(Galapagos_datalist, package = "DAISIE")
+  data("Azores", package = "relaxedDAISIE")
   model <- "cr_dd"
-  data <- Galapagos_datalist
+  data <- Azores
   cond <- 1
   set.seed(1)
   lik_res <- data.frame(
@@ -27,9 +27,9 @@ test_that("run_sim cr model works", {
 })
 
 test_that("run_sim rr model works", {
-  data(Galapagos_datalist, package = "DAISIE")
+  data("Azores", package = "relaxedDAISIE")
   model <- "rr_lac_di"
-  data <- Galapagos_datalist
+  data <- Azores
   cond <- 1
   set.seed(1)
   lik_res <- data.frame(

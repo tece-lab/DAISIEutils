@@ -1,5 +1,5 @@
 test_that("calc_bic works", {
-  data("Galapagos_datalist", package = "DAISIE")
+  data("Azores", package = "relaxedDAISIE")
   results <- data.frame(
     lambda_c = 2.575631,
     mu = 2.703317,
@@ -11,7 +11,7 @@ test_that("calc_bic works", {
     conv = 0)
   bic <- calc_bic(
     results = results,
-    data = Galapagos_datalist)
+    data = Azores)
   expect_equal(bic, 195.7286817)
 })
 
@@ -32,7 +32,7 @@ test_that("calc_bic fails when expected", {
 })
 
 test_that("calc_bic fails when expected", {
-  data("Galapagos_datalist", package = "DAISIE")
+  data("Azores", package = "relaxedDAISIE")
   results <- data.frame(
     lambda_c = "nonsense",
     mu = "nonsense",
@@ -44,5 +44,5 @@ test_that("calc_bic fails when expected", {
     conv = "nonsense")
   expect_error(calc_bic(
     results = results,
-    data = Galapagos_datalist))
+    data = Azores))
 })

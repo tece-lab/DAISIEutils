@@ -36,7 +36,8 @@ run_analysis <- function(
     model = model,
     seed = seed
   )
-
+  testit::assert(is.numeric(seed) && is.finite(seed))
+  testit::assert(is.numeric(cond) && is.finite(cond))
   if (file.exists(file_path)) {
     return("File already present, job completed.")
   }

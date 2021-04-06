@@ -1,8 +1,8 @@
 test_that("bootstrap works", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data_name <- "Galapagos_datalist"
-  data(Galapagos_datalist, package = "DAISIE")
-  data_name <- "Galapagos_datalist"
+  data_name <- "Azores"
+  data("Azores", package = "relaxedDAISIE")
+  data_name <- "Azores"
   model <- "cr_dd"
   seed <- 1
   cond <- 1
@@ -21,7 +21,7 @@ test_that("bootstrap works", {
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
     bootstap(
-      data = Galapagos_datalist,
+      data = Azores,
       data_name = data_name,
       model_1 = "cr_dd",
       model_2 = "cr_di",
@@ -32,7 +32,7 @@ test_that("bootstrap works", {
   actual_output <- readRDS(results_name)
 
   expected_output <- readRDS(
-    file.path(getwd(), "testdata/Galapagos_datalist_boot_1.rds")
+    file.path(getwd(), "testdata/Azores_boot_1.rds")
   )
 
   expect_equal(actual_output, expected_output)

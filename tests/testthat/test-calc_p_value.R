@@ -1,7 +1,7 @@
 test_that("calc_p_value produces correct output", {
-  data("Galapagos_datalist", package = "DAISIE")
+  data("Azores", package = "relaxedDAISIE")
 
-  data_name <- "Galapagos_datalist"
+  data_name <- "Azores"
   model <- "cr_dd"
   seed <- 1
   cond <- 1
@@ -15,8 +15,8 @@ test_that("calc_p_value produces correct output", {
   reference_files <- list.files("testdata/", full.names = TRUE)
   expect_true(all(file.copy(reference_files, results_folder)))
 
-  output <- calc_p_value(data = Galapagos_datalist)
-  expected_output <- 0.666666666666667
+  output <- calc_p_value(data = Azores)
+  expected_output <- 0.83333333
   expect_equal(output, expected_output)
 
   # Delete temp folder

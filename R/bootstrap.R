@@ -51,13 +51,13 @@ bootstap <- function(
   model_1_files <- list.files(
     path = output_folder,
     full.names = TRUE,
-    pattern = paste0(model_1, "_[0-9].rds$"))
+    pattern = paste0(data_name, "_", model_1, "_[0-9].rds$"))
   model_1_lik_res <- lapply(model_1_files, readRDS)
 
   model_2_files <- list.files(
     path = output_folder,
     full.names = TRUE,
-    pattern = paste0(model_2, "_[0-9].rds$"))
+    pattern = paste0(data_name, "_", model_2, "_[0-9].rds$"))
   model_2_lik_res <- lapply(model_2_files, readRDS)
 
   best_model_1 <- choose_best_model(model_1_lik_res)
@@ -66,7 +66,7 @@ bootstap <- function(
   lik_ratio_0 <- calc_loglik_ratio(
     model_1_lik_res = best_model_1,
     model_2_lik_res = best_model_2
-    )
+  )
 
   sim_1 <- run_sim(
     data = data,

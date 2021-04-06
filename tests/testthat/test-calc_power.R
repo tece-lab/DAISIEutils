@@ -1,7 +1,7 @@
 test_that("calc_power produces correct output", {
-  data("Galapagos_datalist", package = "DAISIE")
+  data("Azores", package = "relaxedDAISIE")
 
-  data_name <- "Galapagos_datalist"
+  data_name <- "Azores"
   model <- "cr_dd"
   seed <- 1
   cond <- 1
@@ -14,7 +14,7 @@ test_that("calc_power produces correct output", {
   # Place files need to run bootstrap
   reference_files <- list.files("testdata/", full.names = TRUE)
   expect_true(all(file.copy(reference_files, results_folder)))
-  output <- calc_power(data = Galapagos_datalist)
+  output <- calc_power(data = Azores)
 
   expected_output <- 0.166666666666667
   expect_equal(output, expected_output)

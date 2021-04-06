@@ -4,7 +4,7 @@
 \alias{sensitivity}
 \title{Read the results of \code{\link[=run_analysis]{run_analysis()}} and compares model selection}
 \usage{
-sensitivity(data_names, full_output)
+sensitivity(data_names, full_output = FALSE)
 }
 \arguments{
 \item{data_names}{A vector of strings with the names of the data sets you

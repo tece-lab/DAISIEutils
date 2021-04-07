@@ -10,7 +10,7 @@
 #' @examples
 #' \dontrun{
 #' data(Galapagos_datalist, package = "DAISIE")
-#' run_analysis(
+#' run_daisie_ml(
 #'   data = Galapagos_datalist,
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
@@ -19,7 +19,7 @@
 #' )
 #' }
 #' @author Pedro Neves, Joshua W. Lambert, Luis Valente
-run_analysis <- function(
+run_daisie_ml <- function(
   data,
   data_name,
   model,

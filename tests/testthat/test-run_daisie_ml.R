@@ -8,7 +8,7 @@ test_that("integration test", {
 
   # Omit console output in tests
   invisible(capture.output(suppressMessages(
-    run_analysis(
+    run_daisie_ml(
       data = Azores, # nolint
       data_name = data_name,
       model = model,
@@ -35,7 +35,7 @@ test_that("integration test", {
   expect_equal(unlink("results", recursive = TRUE), 0)
 })
 
-test_that("run_analysis fails when expected", {
+test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   model <- "cr_dd"
   data_name <- "Azores"
@@ -44,7 +44,7 @@ test_that("run_analysis fails when expected", {
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
-    run_analysis(
+    run_daisie_ml(
       data = list(), # nolint
       data_name = data_name,
       model = model,
@@ -56,7 +56,7 @@ test_that("run_analysis fails when expected", {
   expect_equal(unlink("results", recursive = TRUE), 0)
 })
 
-test_that("run_analysis fails when expected", {
+test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
@@ -66,7 +66,7 @@ test_that("run_analysis fails when expected", {
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
-    run_analysis(
+    run_daisie_ml(
       data = Azores, # nolint
       data_name = data_name,
       model = model,
@@ -78,7 +78,7 @@ test_that("run_analysis fails when expected", {
   expect_equal(unlink("results", recursive = TRUE), 0)
 })
 
-test_that("run_analysis fails when expected", {
+test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
@@ -88,7 +88,7 @@ test_that("run_analysis fails when expected", {
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
-    run_analysis(
+    run_daisie_ml(
       data = Azores, # nolint
       data_name = data_name,
       model = model,
@@ -100,7 +100,7 @@ test_that("run_analysis fails when expected", {
   expect_equal(unlink("results", recursive = TRUE), 0)
 })
 
-test_that("run_analysis fails when expected", {
+test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
@@ -110,7 +110,7 @@ test_that("run_analysis fails when expected", {
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
-    run_analysis(
+    run_daisie_ml(
       data = Azores, # nolint
       data_name = data_name,
       model = model,

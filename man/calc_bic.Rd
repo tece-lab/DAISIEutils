@@ -8,8 +8,8 @@ calc_bic(results, data)
 }
 \arguments{
 \item{results}{A data frame contaning model results as created by
-\code{\link[=run_analysis]{run_analysis()}}. These results are the \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} and the
-bic, and they're saved as an RDS file by \code{\link[=run_analysis]{run_analysis()}}.}
+\code{\link[=run_daisie_ml]{run_daisie_ml()}}. These results are the \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} and the
+bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for

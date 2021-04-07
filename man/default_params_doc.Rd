@@ -91,17 +91,17 @@ details. Otherwise it may be generated via simulations, using
 \item{file_path}{The system directory where the output files will be stored.}
 
 \item{results}{A data frame contaning model results as created by
-\code{\link[=run_analysis]{run_analysis()}}. These results are the \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} and the
-bic, and they're saved as an RDS file by \code{\link[=run_analysis]{run_analysis()}}.}
+\code{\link[=run_daisie_ml]{run_daisie_ml()}}. These results are the \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} and the
+bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
 \item{cond}{An integer specfying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
 \item{model_1}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_analysis()}}.}
+see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
 \item{model_2}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter in \code{\link[=run_analysis]{run_analysis()}}.}
+see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
 \item{model_1_lik_res}{A data frame with results from a DAISIE maximum
 likelihood model}

@@ -1,6 +1,6 @@
-#' Read the results of [run_analysis()] and compares model selection
+#' Read the results of [run_daisie_ml()] and compares model selection
 #'
-#' Reads the results of [run_analysis()] and compares model selection to
+#' Reads the results of [run_daisie_ml()] and compares model selection to
 #' determine sensitivity to different data input into the same model or set of
 #' models.
 #'

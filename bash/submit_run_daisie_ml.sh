@@ -43,7 +43,7 @@
 ################################################################################
 
 
-# See DAISIEutils::run_analysis() documentation for help.
+# See DAISIEutils::run_daisie_ml() documentation for help.
 # Arguments to follow the Rscript are as follows:
 data=$1
 model=$2
@@ -52,7 +52,7 @@ cond=$4
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
-Rscript DAISIEutils/scripts/run_analysis.R ${data} \
+Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                            ${model} \
                                            ${package} \
                                            ${seed} \

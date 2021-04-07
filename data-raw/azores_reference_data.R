@@ -11,7 +11,7 @@ cond <- 1
 
 for (model in models) {
   for (seed in seeds) {
-    run_analysis(
+    run_daisie_ml(
       data = Azores,
       data_name = data_name,
       model = model,
@@ -21,7 +21,7 @@ for (model in models) {
 }
 
 for (seed in seeds) {
-  bootstap(
+  bootstrap(
     data = Azores,
     data_name = data_name,
     model_1 = "cr_dd",

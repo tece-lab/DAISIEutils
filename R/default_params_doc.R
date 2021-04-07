@@ -59,14 +59,14 @@
 #' @param seed A single numeric to be used as seed.
 #' @param file_path The system directory where the output files will be stored.
 #' @param results A data frame contaning model results as created by
-#'   [run_analysis()]. These results are the [DAISIE::DAISIE_ML_CS()] and the
-#'   bic, and they're saved as an RDS file by [run_analysis()].
+#'   [run_daisie_ml()]. These results are the [DAISIE::DAISIE_ML_CS()] and the
+#'   bic, and they're saved as an RDS file by [run_daisie_ml()].
 #' @param cond An integer specfying conditioning, as described in
 #'   [DAISIE::DAISIE_ML_CS()].
 #' @param model_1 A string with model that should run. For a list of options
-#'   see documentation for \code{model} parameter in [run_analysis()].
+#'   see documentation for \code{model} parameter in [run_daisie_ml()].
 #' @param model_2 A string with model that should run. For a list of options
-#'   see documentation for \code{model} parameter in [run_analysis()].
+#'   see documentation for \code{model} parameter in [run_daisie_ml()].
 #' @param model_1_lik_res A data frame with results from a DAISIE maximum
 #'   likelihood model
 #' @param model_2_lik_res A data frame with results from a DAISIE maximum

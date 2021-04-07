@@ -2,7 +2,7 @@ args <- commandArgs(TRUE)
 
 data_name <- do.call(data, args = list(args[1], package = args[4]))
 
-DAISIEutils::bootstap(
+DAISIEutils::bootstrap(
   data = get(data_name),
   data_name = data_name,
   model_1 = args[2],

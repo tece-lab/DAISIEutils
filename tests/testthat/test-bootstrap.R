@@ -20,7 +20,7 @@ test_that("bootstrap works", {
   expect_true(all(file.copy(reference_files, results_folder)))
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
-    bootstap(
+    bootstrap(
       data = Azores,
       data_name = data_name,
       model_1 = "cr_dd",

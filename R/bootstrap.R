@@ -18,7 +18,7 @@
 #'   cond = 1,
 #' )
 #' }
-bootstap <- function(
+bootstrap <- function(
   data,
   data_name,
   model_1,

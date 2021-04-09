@@ -1,4 +1,4 @@
-test_that("bootstrap works", {
+test_that("bootstrap_lr works", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data_name <- "Azores"
   data("Azores", package = "relaxedDAISIE")
@@ -13,7 +13,7 @@ test_that("bootstrap works", {
   )
   results_name <- create_output_folder(
     data_name = data_name,
-    model = "boot",
+    model = "boot_lr",
     seed = 1
   )
   results_folder <- dirname(results_name)
@@ -23,7 +23,8 @@ test_that("bootstrap works", {
     bootstrap(
       data = Azores,
       data_name = data_name,
-      model = "cr_dd",
+      model_1 = "cr_dd",
+      model_2 = "cr_di",
       seed = seed,
       cond = cond
     )
@@ -31,7 +32,7 @@ test_that("bootstrap works", {
   actual_output <- readRDS(results_name)
 
   expected_output <- readRDS(
-    file.path(getwd(), "testdata/Azores_boot_1.rds")
+    file.path(getwd(), "testdata/Azores_boot_lr_1.rds")
   )
 
   expect_equal(actual_output, expected_output)

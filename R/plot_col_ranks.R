@@ -1,3 +1,14 @@
+#' Plots the ranking of the colonisation events
+#'
+#' @param tt stub
+#'
+#' @return Nothing, returns plot
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' plot_col_ranks(tt = tt)
+#' }
 plot_col_ranks <- function(tt) {
     ## COLONISATION RANKS
     barplot(tt[,2],

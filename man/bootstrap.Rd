@@ -2,9 +2,9 @@
 % Please edit documentation in R/bootstrap.R
 \name{bootstrap}
 \alias{bootstrap}
-\title{Runs a parameteric bootstrapping likelihood ratio test on two DAISIE models}
+\title{Runs a bootstrapping on a DAISIE model to determine parameter precision}
 \usage{
-bootstrap(data, data_name, model_1, model_2, seed, cond)
+bootstrap(data, data_name, model, seed, cond)
 }
 \arguments{
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
@@ -15,11 +15,56 @@ details. Otherwise it may be generated via simulations, using
 \item{data_name}{String. Will be used for the name of the created output
 folder.}
 
-\item{model_1}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
-
-\item{model_2}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
+\item{model}{A string with model that should run. Models are as follows:
+\itemize{
+\item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
+free.
+\item \code{"cr_di"} Clade specific model - diversity independent (K = Inf). All
+other parameters free.
+\item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
+anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf)
+and no anagenesis (laa fixed to zero). All other parameters free.
+\item \code{"cr_di_0lac"} Clade specific model - diversity indendent (K = Inf)
+and no cladogenesis (lac fixed to zero). All other parameters free.
+\item \code{"cr_dd_0lac"} Clade specific model - diversity dependent and no
+cladogenesis (lac fixed to zero). All other parameters free.
+\item \code{"rr_lac_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed cladogenesis. All other parameters free.
+\item \code{"rr_lac_dd"} Clade specific model - diversity dependent and relaxed
+cladogenesis. All other parameters free.
+\item \code{"rr_mu_di"} Clade specific model - diversity independent (K = Inf) and
+relaxed extinction. All other parameters free.
+\item \code{"rr_mu_dd"} Clade specific model - diversity dependent and relaxed
+extinction. All other parameters free.
+\item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
+capacity. All other parameters free.
+\item \code{"rr_laa_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed anagenesis. All other parameters free.
+\item \code{"rr_laa_dd"} Clade specific model - diversity dependent and relaxed
+anagenesis. All other parameters free.
+\item \code{"rr_mu_di_0lac"} Clade specific model - diversity independent,
+relaxed extinction, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_mu_dd_0lac"} Clade specific model - diversity dependent, relaxed
+extinction, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_k_0lac"} Clade specific model - diversity dependent, relaxed
+carrying capacity, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_laa_di_0lac"} Clade specific model - diversity independent,
+relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"r_laa_dd_0lac"} Clade specific model - diversity dependent, relaxed
+anagenesis, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"rr_lac_di_0laa"} Clade specific model - diversity independent,
+relaxed cladogenesis, and no anagenesis (laa fixed to zero)
+\item \code{"rr_lac_dd_0laa"} Clade specific model - diversity dependent
+\item \code{"rr_mu_di_0laa"} Clade specific model - diversity independent
+\item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
+\item \code{"rr_k_0laa"} Clade specific model - diversity dependent
+}}
 
 \item{seed}{A single numeric to be used as seed.}
 
@@ -32,15 +77,15 @@ file is stored in \code{file_path}. The directory in of \code{file_path} is crea
 if it doesn't exist.
 }
 \description{
-Runs a parameteric bootstrapping likelihood ratio test on two DAISIE models
+Runs a bootstrapping on a DAISIE model to determine parameter precision
 }
 \examples{
 \dontrun{
 data(Galapagos_datalist, package = "DAISIE")
 bootstrap(
   data = Galapagos_datalist,
-  model_1 = "cr_dd",
-  model_2 = "cr_di",
+  data_name = "Galapagos_datalist",
+  model = "cr_dd",
   seed = 1,
   cond = 1,
 )

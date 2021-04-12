@@ -58,15 +58,15 @@ model_2=$3
 package=$4
 cond=$5
 
-sbatch DAISIEutils/bash/submit_run_analysis.sh ${datalist_name} \
-                                               ${model_1} \
-                                               ${package} \
-                                               ${cond}
+sbatch DAISIEutils/bash/submit_run_daisie_ml.sh ${datalist_name} \
+                                                ${model_1} \
+                                                ${package} \
+                                                ${cond}
 
-sbatch DAISIEutils/bash/submit_run_analysis.sh ${datalist_name} \
-                                               ${model_2} \
-                                               ${package} \
-                                               ${cond}
+sbatch DAISIEutils/bash/submit_run_daisie_ml.sh ${datalist_name} \
+                                                ${model_2} \
+                                                ${package} \
+                                                ${cond}
 
 sbatch --dependency=singleton --job-name=DAISIE DAISIEutils/bash/submit_bootstrap_lr.sh ${datalist_name} \
                                                                                         ${model_1} \

@@ -3,7 +3,7 @@ test_that("integration test", {
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- "cr_dd"
-  seed <- 1
+  rng_stream_index <- 1
   cond <- 1
 
   # Omit console output in tests
@@ -12,7 +12,7 @@ test_that("integration test", {
       data = Azores, # nolint
       data_name = data_name,
       model = model,
-      seed = seed,
+      rng_stream_index = rng_stream_index,
       cond = cond
     )
   )))
@@ -39,7 +39,7 @@ test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   model <- "cr_dd"
   data_name <- "Azores"
-  seed <- 1
+  rng_stream_index <- 1
   cond <- 1
 
   # Omit console output in tests
@@ -48,7 +48,7 @@ test_that("run_daisie_ml fails when expected", {
       data = list(), # nolint
       data_name = data_name,
       model = model,
-      seed = seed,
+      rng_stream_index = rng_stream_index,
       cond = cond
     )
   )))
@@ -61,7 +61,7 @@ test_that("run_daisie_ml fails when expected", {
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- 1
-  seed <- 1
+  rng_stream_index <- 1
   cond <- 1
 
   # Omit console output in tests
@@ -70,7 +70,7 @@ test_that("run_daisie_ml fails when expected", {
       data = Azores, # nolint
       data_name = data_name,
       model = model,
-      seed = seed,
+      rng_stream_index = rng_stream_index,
       cond = cond
     )
   )))
@@ -83,7 +83,7 @@ test_that("run_daisie_ml fails when expected", {
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- "cr_dd"
-  seed <- "nonsense"
+  rng_stream_index <- "nonsense"
   cond <- 1
 
   # Omit console output in tests
@@ -92,7 +92,7 @@ test_that("run_daisie_ml fails when expected", {
       data = Azores, # nolint
       data_name = data_name,
       model = model,
-      seed = seed,
+      rng_stream_index = rng_stream_index,
       cond = cond
     )
   )))
@@ -105,7 +105,7 @@ test_that("run_daisie_ml fails when expected", {
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- "cr_dd"
-  seed <- 1
+  rng_stream_index <- 1
   cond <- "nonsense"
 
   # Omit console output in tests
@@ -114,7 +114,7 @@ test_that("run_daisie_ml fails when expected", {
       data = Azores, # nolint
       data_name = data_name,
       model = model,
-      seed = seed,
+      rng_stream_index = rng_stream_index,
       cond = cond
     )
   )))

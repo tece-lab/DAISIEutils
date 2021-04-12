@@ -11,9 +11,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' create_output_folder(data_name = "results_folder", model = "cr_dd", seed = 1)
+#' create_output_folder(
+#'   data_name = "results_folder",
+#'   model = "cr_dd",
+#'   rng_stream_index = 1
+#' )
 #' }
-create_output_folder <- function(data_name, model, seed) {
+create_output_folder <- function(data_name, model, rng_stream_index) {
 
   if (is_on_cluster()) {
     output_folder <- file.path(

@@ -7,6 +7,7 @@
 #' \dontrun{
 #' save_seed()
 #' }
+#' @family seed
 save_seed <- function() {
   if (is_on_cluster()) {
     file_path <- file.path(

@@ -4,6 +4,7 @@
 #' @export
 #'
 #' @examples
+#' @family seed
 set_seed <- function() {
   seed <- as.numeric(Sys.time())
 
@@ -22,7 +23,7 @@ set_seed <- function() {
   file_path <- create_output_folder(
     data_name = "rng_state",
     model = NA,
-    seed = NA
+    rng_stream_index = NA
   )
 
   saveRDS(

@@ -14,7 +14,7 @@
 #'   data = Galapagos_datalist,
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
-#'   seed = 1,
+#'   rng_stream_index = 1,
 #'   cond = 1
 #' )
 #' }
@@ -23,18 +23,18 @@ run_daisie_ml <- function(
   data,
   data_name,
   model,
-  seed,
+  rng_stream_index,
   cond) {
 
   # testit::assert(is_daisie_data(daisia_data = data)) #nolint
   print_metadata(
     data_name = data_name,
     model = model,
-    seed = seed)
+    rng_stream_index = rng_stream_index)
   file_path <- create_output_folder(
     data_name = data_name,
     model = model,
-    seed = seed
+    rng_stream_index = rng_stream_index
   )
   testit::assert(is.numeric(seed) && is.finite(seed))
   testit::assert(is.numeric(cond) && is.finite(cond))
@@ -43,6 +43,7 @@ run_daisie_ml <- function(
   }
 
   .GlobalEnv$.Random.seed <- read_seed()
+  jump_seed(index = seed, jump_size = 1e8)
 
   model_arguments <- setup_model(
     model = model

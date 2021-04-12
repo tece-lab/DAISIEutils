@@ -17,3 +17,9 @@ Saves the state of the RNG
 save_seed()
 }
 }
+\seealso{
+Other seed: 
+\code{\link{read_seed}()},
+\code{\link{set_seed}()}
+}
+\concept{seed}

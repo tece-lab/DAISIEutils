@@ -14,7 +14,7 @@
 #'   data = Galapagos_datalist,
 #'   model_1 = "cr_dd",
 #'   model_2 = "cr_di",
-#'   seed = 1,
+#'   rng_stream_index = 1,
 #'   cond = 1,
 #' )
 #' }
@@ -23,17 +23,17 @@ bootstrap_lr <- function(
   data_name,
   model_1,
   model_2,
-  seed,
+  rng_stream_index,
   cond) {
 
   print_metadata(
     data_name = data_name,
     model = paste("boot_lr", model_1, model_2, sep = "_"),
-    seed = seed)
+    rng_stream_index = rng_stream_index)
   file_path <- create_output_folder(
     data_name = data_name,
     model = paste("boot_lr", model_1, model_2, sep = "_"),
-    seed = seed
+    rng_stream_index = rng_stream_index
   )
 
   .GlobalEnv$.Random.seed <- read_seed()

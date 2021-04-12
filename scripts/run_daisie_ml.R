@@ -6,5 +6,5 @@ DAISIEutils::run_daisie_ml(
   data = get(data_name),
   data_name = data_name,
   model = args[2],
-  seed = as.numeric(args[4]),
+  rng_stream_index = as.numeric(args[4]),
   cond = as.numeric(args[5]))

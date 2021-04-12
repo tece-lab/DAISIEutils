@@ -5,7 +5,7 @@ test_that("Directory is created", {
   file_name <- create_output_folder(
     data_name = data_name,
     model = model,
-    seed = seed
+    rng_stream_index = rng_stream_index
   )
   expect_equal(
     file_name,

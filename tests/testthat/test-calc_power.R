@@ -3,12 +3,12 @@ test_that("calc_power produces correct output", {
 
   data_name <- "Azores"
   model <- "cr_dd"
-  seed <- 1
+  rng_stream_index <- 1
   cond <- 1
   results_folder <- dirname(create_output_folder(
     data_name = data_name,
     model = model,
-    seed = seed
+    rng_stream_index = rng_stream_index
   ))
 
   # Place files need to run bootstrap

@@ -17,3 +17,9 @@ Read the seed from a saved file
 read_seed()
 }
 }
+\seealso{
+Other seed: 
+\code{\link{save_seed}()},
+\code{\link{set_seed}()}
+}
+\concept{seed}

@@ -4,7 +4,7 @@ test_that("bootstrap works", {
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- "cr_dd"
-  seed <- 1
+  rng_stream_index <- 1
   cond <- 1
 
   # Place files need to run bootstrap
@@ -14,7 +14,7 @@ test_that("bootstrap works", {
   results_name <- create_output_folder(
     data_name = data_name,
     model = "boot",
-    seed = 1
+    rng_stream_index = 1
   )
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
@@ -24,7 +24,7 @@ test_that("bootstrap works", {
       data = Azores,
       data_name = data_name,
       model = "cr_dd",
-      seed = seed,
+      rng_stream_index = rng_stream_index,
       cond = cond
     )
   )))

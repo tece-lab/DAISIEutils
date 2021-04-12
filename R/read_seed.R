@@ -7,6 +7,7 @@
 #' \dontrun{
 #' read_seed()
 #' }
+#' @family seed
 read_seed <- function() {
   if (is_on_cluster()) {
     file_path <- file.path(

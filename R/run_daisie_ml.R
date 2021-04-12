@@ -43,7 +43,7 @@ run_daisie_ml <- function(
   }
 
   .GlobalEnv$.Random.seed <- read_seed()
-  jump_seed(index = seed, jump_size = 1e8)
+  jump_seed(index = rng_stream_index, jump_size = 1e8)
 
   model_arguments <- setup_model(
     model = model

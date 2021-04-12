@@ -35,12 +35,9 @@ bootstrap_lr <- function(
     model = paste("boot_lr", model_1, model_2, sep = "_"),
     seed = seed
   )
-  set.seed(
-    seed,
-    kind = "Mersenne-Twister",
-    normal.kind = "Inversion",
-    sample.kind = "Rejection"
-  )
+
+  .GlobalEnv$.Random.seed <- read_seed()
+
   if (is_on_cluster()) {
     output_folder <- file.path(
       Sys.getenv("HOME"), "results", data_name

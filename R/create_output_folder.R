@@ -31,9 +31,18 @@ create_output_folder <- function(data_name, model, seed) {
     "output folder exists",
     dir.exists(output_folder)
   )
-  file_path <- file.path(
-    output_folder,
-    paste0(data_name, "_", model, "_", seed, ".rds")
-  )
+
+  if (is.na(model) || is.na(seed)) {
+    file_path <- file.path(
+      output_folder,
+      paste0(data_name, ".rds")
+    )
+  } else {
+    file_path <- file.path(
+      output_folder,
+      paste0(data_name, "_", model, "_", seed, ".rds")
+    )
+  }
+
   return(file_path)
 }

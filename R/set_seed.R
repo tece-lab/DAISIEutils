@@ -19,7 +19,7 @@ set_seed <- function() {
     seed = seed
   )
 
-  file.path <- create_output_folder(
+  file_path <- create_output_folder(
     data_name = "rng_state",
     model = NA,
     seed = NA

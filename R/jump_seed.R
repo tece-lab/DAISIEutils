@@ -1,12 +1,15 @@
-#' Title
+#' Jumps forward in a seed stream
 #'
-#' @param index
-#' @param jump_size
+#' @param index stub
+#' @param jump_size stub
 #'
-#' @return
+#' @return Nothing, this is a void function.
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' jump_seed(index = 1, jump_size = 1e8)
+#' }
 jump_seed <- function(
   index,
   jump_size = 1e8) {

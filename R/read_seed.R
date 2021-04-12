@@ -23,7 +23,7 @@ read_seed <- function() {
   }
 
   message("The system time that set the seed was:", rng_state$seed)
-  seed_stream <- rng_stat$random_seed
+  seed_stream <- rng_state$random_seed
 
   return(seed_stream)
 }

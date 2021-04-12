@@ -1,3 +1,9 @@
+#' Sets seed using current system time.
+#'
+#' @return Nothing, system time and `.GlobalEnv$.Random.seed` to `.rds` file.
+#' @export
+#'
+#' @examples
 set_seed <- function() {
   seed <- as.numeric(Sys.time())
 

@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --time=9-23:05:00
+#SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --job-name=bootstrap_lr
+#SBATCH --job-name=boot_pipe
 #SBATCH --output=logs/DAISIE/b-%a.log
 #SBATCH --mem=2GB
 #SBATCH --array=1-1000
@@ -25,9 +25,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ################################ Usage #########################################
-#         This bash script submits bootstraping likelihood ratio test          #
-#                           of two DAISIE models                               #
-#                 Submissions are made to the gelifes partition.               #
+#         ! THIS BASH FILE IS NOT TO BE CALLED MANUALLY. FOR MANUAL OPERATION  #
+#                         USE submit_bootstrap.sh INSTEAD!                     #
 ################################################################################
 ### Arguments ###
 # datalist_name - the name of the datalist object, as found as data on
@@ -42,7 +41,7 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_bootstrap_lr.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
+# sbatch DAISIEutils/bash/submit_pipeline.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
 ################################################################################
 
 

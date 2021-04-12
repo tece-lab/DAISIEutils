@@ -68,8 +68,8 @@ sbatch DAISIEutils/bash/submit_run_analysis.sh ${datalist_name} \
                                                ${package} \
                                                ${cond}
 
-sbatch --dependency=singleton --job-name=DAISIE DAISIEutils/bash/submit_bootstrap_pipeline.sh ${datalist_name} \
-                                                                                              ${model_1} \
-                                                                                              ${model_2} \
-                                                                                              ${package} \
-                                                                                              ${cond}
+sbatch --dependency=singleton --job-name=DAISIE DAISIEutils/bash/submit_bootstrap_lr.sh ${datalist_name} \
+                                                                                        ${model_1} \
+                                                                                        ${model_2} \
+                                                                                        ${package} \
+                                                                                        ${cond}

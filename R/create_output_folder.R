@@ -36,7 +36,7 @@ create_output_folder <- function(data_name, model, rng_stream_index) {
     dir.exists(output_folder)
   )
 
-  if (is.na(model) || is.na(seed)) {
+  if (is.na(model) || is.na(rng_stream_index)) {
     file_path <- file.path(
       output_folder,
       paste0(data_name, ".rds")
@@ -44,7 +44,7 @@ create_output_folder <- function(data_name, model, rng_stream_index) {
   } else {
     file_path <- file.path(
       output_folder,
-      paste0(data_name, "_", model, "_", seed, ".rds")
+      paste0(data_name, "_", model, "_", rng_stream_index, ".rds")
     )
   }
 

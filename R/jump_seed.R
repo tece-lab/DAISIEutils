@@ -15,6 +15,6 @@ jump_seed <- function(
   jump_size = 1e8) {
 
   for (i in seq_len(index)) {
-    samples <- runif(n = jump_size, min = 0, max = 1)
+    samples <- stats::runif(n = jump_size, min = 0, max = 1)
   }
 }

@@ -22,6 +22,7 @@ read_seed <- function() {
     stop("First run DAISIEutils::set_seed to make a seed")
   }
 
+  message("The system time that set the seed was:", rng_state$seed)
   seed_stream <- rng_stat$random_seed
 
   return(seed_stream)

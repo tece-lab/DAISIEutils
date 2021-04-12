@@ -41,12 +41,8 @@ run_daisie_ml <- function(
   if (file.exists(file_path)) {
     return("File already present, job completed.")
   }
-  set.seed(
-    seed,
-    kind = "Mersenne-Twister",
-    normal.kind = "Inversion",
-    sample.kind = "Rejection"
-  )
+
+  .GlobalEnv$.Random.seed <- read_seed()
 
   model_arguments <- setup_model(
     model = model

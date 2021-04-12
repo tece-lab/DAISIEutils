@@ -53,8 +53,8 @@ seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
 Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
-                                           ${model} \
-                                           ${package} \
-                                           ${seed} \
-                                           ${cond} \
+                                            ${model} \
+                                            ${package} \
+                                            ${seed} \
+                                            ${cond} \
 

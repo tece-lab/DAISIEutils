@@ -5,7 +5,7 @@ test_that("integration test", {
   model <- "cr_dd"
   rng_stream_index <- 1
   cond <- 1
-
+  set_seed()
   # Omit console output in tests
   invisible(capture.output(suppressMessages(
     run_daisie_ml(

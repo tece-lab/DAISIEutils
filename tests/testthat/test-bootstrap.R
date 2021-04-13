@@ -18,6 +18,7 @@ test_that("bootstrap works", {
   )
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
+  set_seed()
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
     bootstrap(

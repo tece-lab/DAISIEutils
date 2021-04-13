@@ -59,7 +59,7 @@ run_daisie_ml <- function(
   idparsfix <- model_arguments$idparsfix
   ddmodel <- model_arguments$ddmodel
   cs_version <- model_arguments$cs_version
-
+  message("initparsopt: ", initparsopt)
   ##### ML Optimization ####
   lik_res <- DAISIE::DAISIE_ML(
     datalist = data,

@@ -9,7 +9,7 @@ test_that("bootstrap works", {
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata"), full.names = TRUE
   )
   results_name <- create_output_folder(
     data_name = data_name,
@@ -24,8 +24,8 @@ test_that("bootstrap works", {
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
   expect_true(all(
     file.copy(
-      file.path(results_folder, "rng_state", "rng_state.rds"),
-      file.path(results_folder, "rng_state")))
+      file.path(results_folder, "rng_state.rds"),
+      file.path("results", "rng_state")))
   )
 
   # Omit console output in tests

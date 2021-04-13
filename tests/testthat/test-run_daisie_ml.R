@@ -9,6 +9,10 @@ test_that("integration test", {
 
 results_folder <- file.path(getwd(), "results", data_name)
 
+reference_files <- list.files(
+  file.path(getwd(), "testdata/"), full.names = TRUE
+)
+
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -56,6 +60,10 @@ test_that("run_daisie_ml fails when expected", {
 
   results_folder <- file.path(getwd(), "results", data_name)
 
+  reference_files <- list.files(
+    file.path(getwd(), "testdata/"), full.names = TRUE
+  )
+
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -88,6 +96,9 @@ test_that("run_daisie_ml fails when expected", {
   cond <- 1
   results_folder <- file.path(getwd(), "results", data_name)
 
+  reference_files <- list.files(
+    file.path(getwd(), "testdata/"), full.names = TRUE
+  )
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -120,6 +131,10 @@ test_that("run_daisie_ml fails when expected", {
   cond <- 1
   results_folder <- file.path(getwd(), "results", data_name)
 
+  reference_files <- list.files(
+    file.path(getwd(), "testdata/"), full.names = TRUE
+  )
+
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -151,6 +166,11 @@ test_that("run_daisie_ml fails when expected", {
   rng_stream_index <- 1
   cond <- "nonsense"
   results_folder <- file.path(getwd(), "results", data_name)
+
+
+  reference_files <- list.files(
+    file.path(getwd(), "testdata/"), full.names = TRUE
+  )
 
   expect_true(all(file.copy(reference_files, results_folder)))
 

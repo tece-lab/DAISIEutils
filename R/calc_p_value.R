@@ -22,7 +22,7 @@ calc_p_value <- function(
   if (length(files) == 0) {
     stop("No files found.")
   }
-  if (!(xor(length(files) != 1000, length(files) != 5))) {
+  if (length(files) != 1000 | length(files) != 5) {
     stop("1000 bootstrap results expected but only ", length(files), " found.")
   }
   list_res <- lapply(files, readRDS)

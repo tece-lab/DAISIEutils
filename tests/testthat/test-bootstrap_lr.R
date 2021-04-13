@@ -17,7 +17,14 @@ test_that("bootstrap_lr works", {
     rng_stream_index = 1
   )
   results_folder <- dirname(results_name)
-  expect_true(all(file.copy(reference_files, results_folder, recursive = TRUE)))
+
+  dir.create(file.path("results", "rng_state"), recursive = TRUE)
+  expect_true(all(
+    file.copy(
+      file.path(results_folder, "rng_state.rds"),
+      file.path("results", "rng_state")))
+  )
+
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
     bootstrap_lr(

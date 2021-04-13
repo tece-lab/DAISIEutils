@@ -3,7 +3,8 @@ test_that("bootstrap_lr works", {
   data_name <- "Azores"
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
-  model <- "cr_dd"
+  model_1 <- "cr_dd"
+  model_2 <- "cr_di"
   rng_stream_index <- 1
   cond <- 1
 
@@ -13,7 +14,7 @@ test_that("bootstrap_lr works", {
   )
   results_name <- create_output_folder(
     data_name = data_name,
-    model = "boot_lr",
+    model = paste("boot_lr", model_1, model_2, sep = "_"),
     rng_stream_index = 1
   )
 
@@ -32,8 +33,8 @@ test_that("bootstrap_lr works", {
     bootstrap_lr(
       data = Azores,
       data_name = data_name,
-      model_1 = "cr_dd",
-      model_2 = "cr_di",
+      model_1 = model_1,
+      model_2 = model_2,
       rng_stream_index = rng_stream_index,
       cond = cond
     )
@@ -41,7 +42,7 @@ test_that("bootstrap_lr works", {
   actual_output <- readRDS(results_name)
 
   expected_output <- readRDS(
-    file.path(getwd(), "testdata/Azores_boot_lr_1.rds")
+    file.path(getwd(), "testdata/Azores_boot_lr_cr_dd_cr_di_1.rds")
   )
 
   expect_equal(actual_output, expected_output)

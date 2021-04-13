@@ -45,8 +45,10 @@ run_daisie_ml <- function(
 
   .GlobalEnv$.Random.seed <- read_seed()
   message("post reading seed runif ", runif(3))
+  message("First 3 elements of .Random.seed after reading", .GlobalEnv$.Random.seed[1:3])
   jump_seed(index = rng_stream_index, jump_size = 1e8)
   message("post jumping seed runif ", runif(3))
+  message("First 3 elements of .Random.seed after jumping", .GlobalEnv$.Random.seed[1:3])
 
   model_arguments <- setup_model(
     model = model

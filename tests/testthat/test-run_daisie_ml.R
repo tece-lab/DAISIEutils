@@ -8,7 +8,7 @@ test_that("integration test", {
 
   # Place files need for run_daisie_ml
   reference_files <- list.files(
-    file.path(getwd(), "tests/testthat/testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata/"), full.names = TRUE
   )
   results_name <- create_output_folder(
     data_name = data_name,

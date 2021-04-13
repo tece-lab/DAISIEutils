@@ -104,13 +104,21 @@ test_that("run_daisie_ml fails when expected", {
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model <- 1
-  rng_stream_index <- 1
+  rng_stream_index <- 10
   cond <- 1
-  results_folder <- file.path(getwd(), "results", data_name)
 
+  # Place files need for run_daisie_ml
   reference_files <- list.files(
     file.path(getwd(), "testdata/"), full.names = TRUE
   )
+  results_name <- create_output_folder(
+    data_name = data_name,
+    model = model,
+    rng_stream_index = rng_stream_index
+  )
+
+  results_folder <- dirname(results_name)
+  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -141,12 +149,19 @@ test_that("run_daisie_ml fails when expected", {
   model <- "cr_dd"
   rng_stream_index <- "nonsense"
   cond <- 1
-  results_folder <- file.path(getwd(), "results", data_name)
 
+  # Place files need for run_daisie_ml
   reference_files <- list.files(
     file.path(getwd(), "testdata/"), full.names = TRUE
   )
+  results_name <- create_output_folder(
+    data_name = data_name,
+    model = model,
+    rng_stream_index = rng_stream_index
+  )
 
+  results_folder <- dirname(results_name)
+  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -177,13 +192,19 @@ test_that("run_daisie_ml fails when expected", {
   model <- "cr_dd"
   rng_stream_index <- 1
   cond <- "nonsense"
-  results_folder <- file.path(getwd(), "results", data_name)
 
-
+  # Place files need for run_daisie_ml
   reference_files <- list.files(
     file.path(getwd(), "testdata/"), full.names = TRUE
   )
+  results_name <- create_output_folder(
+    data_name = data_name,
+    model = model,
+    rng_stream_index = rng_stream_index
+  )
 
+  results_folder <- dirname(results_name)
+  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)

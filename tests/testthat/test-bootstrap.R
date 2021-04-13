@@ -17,15 +17,7 @@ test_that("bootstrap works", {
     rng_stream_index = 1
   )
   results_folder <- dirname(results_name)
-  expect_true(all(file.copy(reference_files, results_folder)))
-
-  rng_state_path <- file.path(getwd(), "testdata/rng_state/rng_state.rds")
-  print(rng_state_path)
-  rng_state_temp_dir <- file.path("results", "rng_state")
-  dir.create(path = rng_state_temp_dir, recursive = TRUE)
-  expect_true(all(file.copy(rng_state_path, rng_state_temp_dir)))
-
-  .GlobalEnv$.Random.seed <- read_seed()
+  expect_true(all(file.copy(reference_files, results_folder, recursive = TRUE)))
 
   # Omit console output in tests
   invisible(suppressMessages(capture.output(

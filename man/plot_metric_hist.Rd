@@ -2,11 +2,13 @@
 % Please edit documentation in R/plot_metric_hist.R
 \name{plot_metric_hist}
 \alias{plot_metric_hist}
-\title{Title}
+\title{Plots histograms for a given metric}
 \usage{
 plot_metric_hist(results, metric, type)
 }
 \arguments{
+\item{results}{List output from \code{\link[=goodness_fit]{goodness_fit()}}}
+
 \item{metric}{A string determining which metric to plot, options are:
 \itemize{
 \item num_spec
@@ -20,10 +22,19 @@ plot_metric_hist(results, metric, type)
 \item num_col_incl_recol
 \item num_recol
 }}
+
+\item{type}{String, eiter: "type1_only" or "type1and2"}
 }
 \value{
-
+Nothing
 }
 \description{
-Title
+Plots histograms for a given metric
+}
+\examples{
+\dontrun{
+goodness_fit(
+metric = "num_spec",
+type = "type1_only")
+}
 }

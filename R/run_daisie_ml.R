@@ -43,7 +43,7 @@ run_daisie_ml <- function(
     return("File already present, job completed.")
   }
 
-  .GlobalEnv$.Random.seed <- read_seed()
+  .GlobalEnv$.Random.seed <- read_seed() #nolint
   jump_seed(index = rng_stream_index, jump_size = 1e8)
 
   model_arguments <- setup_model(

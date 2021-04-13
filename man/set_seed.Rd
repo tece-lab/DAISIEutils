@@ -12,6 +12,9 @@ Nothing, system time and \code{.GlobalEnv$.Random.seed} to \code{.rds} file.
 \description{
 Sets seed using current system time.
 }
+\examples{
+\dontrun{set_seed()}
+}
 \seealso{
 Other seed: 
 \code{\link{read_seed}()},

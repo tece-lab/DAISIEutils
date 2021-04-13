@@ -3,7 +3,7 @@
 #' @return Nothing, system time and `.GlobalEnv$.Random.seed` to `.rds` file.
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{set_seed()}
 #' @family seed
 set_seed <- function() {
   seed <- as.numeric(Sys.time())

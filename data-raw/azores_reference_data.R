@@ -21,7 +21,7 @@ for (model in models) {
 }
 
 for (rng_stream_index in rng_stream_indices) {
-  bootstrap(
+  bootstrap_lr(
     data = Azores,
     data_name = data_name,
     model_1 = "cr_dd",

@@ -4,10 +4,15 @@
 #' @param sim stub
 #' @param plot stub
 #'
-#' @return
+#' @return Matrix?
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' col_rank(
+#' data = Galapagos_datalist,
+#' sim = islands_1type_1000reps)
+#' }
 col_rank <- function(
   data,
   sim,
@@ -72,7 +77,7 @@ col_rank <- function(
   tt[4, ] <- c(4, length(which(max_clade == 4)))
   tt[5, ] <- c(5, length(which(max_clade == 5)))
 
-  par(mfrow = c(3, 4))
+  graphics::par(mfrow = c(3, 4))
 
   if (plot) {
     plot_col_ranks(tt = tt)

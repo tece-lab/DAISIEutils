@@ -17,7 +17,10 @@
 #'   rng_stream_index = 1
 #' )
 #' }
-create_output_folder <- function(data_name, model, rng_stream_index) {
+create_output_folder <- function(
+  data_name,
+  model,
+  rng_stream_index) {
 
   if (is_on_cluster()) {
     output_folder <- file.path(

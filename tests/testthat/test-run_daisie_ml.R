@@ -7,12 +7,12 @@ test_that("integration test", {
   cond <- 1
 
 
-results_folder <- file.path(getwd(), "results", data_name)
-
-reference_files <- list.files(
-  file.path(getwd(), "testdata/"), full.names = TRUE
-)
-
+  results_folder <- file.path(getwd(), "results", data_name)
+  print(results_folder)
+  reference_files <- list.files(
+    file.path(getwd(), "testdata/"), full.names = TRUE
+  )
+  print(reference_files)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)

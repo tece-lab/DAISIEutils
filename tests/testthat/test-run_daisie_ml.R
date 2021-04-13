@@ -5,6 +5,13 @@ test_that("integration test", {
   model <- "cr_dd"
   rng_stream_index <- 1
   cond <- 1
+
+  rng_state_path <- file.path(getwd(), "testdata/rng_state/rng_state.rds")
+  print(rng_state_path)
+  rng_state_temp_dir <- file.path("results", "rng_state")
+  dir.create(path = rng_state_temp_dir, recursive = TRUE)
+  expect_true(all(file.copy(rng_state_path, rng_state_temp_dir)))
+
   .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
@@ -42,6 +49,13 @@ test_that("run_daisie_ml fails when expected", {
   data_name <- "Azores"
   rng_stream_index <- 1
   cond <- 1
+
+  rng_state_path <- file.path(getwd(), "testdata/rng_state/rng_state.rds")
+  print(rng_state_path)
+  rng_state_temp_dir <- file.path("results", "rng_state")
+  dir.create(path = rng_state_temp_dir, recursive = TRUE)
+  expect_true(all(file.copy(rng_state_path, rng_state_temp_dir)))
+
   .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
@@ -65,6 +79,12 @@ test_that("run_daisie_ml fails when expected", {
   model <- 1
   rng_stream_index <- 1
   cond <- 1
+  rng_state_path <- file.path(getwd(), "testdata/rng_state/rng_state.rds")
+  print(rng_state_path)
+  rng_state_temp_dir <- file.path("results", "rng_state")
+  dir.create(path = rng_state_temp_dir, recursive = TRUE)
+  expect_true(all(file.copy(rng_state_path, rng_state_temp_dir)))
+
   .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
@@ -88,6 +108,12 @@ test_that("run_daisie_ml fails when expected", {
   model <- "cr_dd"
   rng_stream_index <- "nonsense"
   cond <- 1
+  rng_state_path <- file.path(getwd(), "testdata/rng_state/rng_state.rds")
+  print(rng_state_path)
+  rng_state_temp_dir <- file.path("results", "rng_state")
+  dir.create(path = rng_state_temp_dir, recursive = TRUE)
+  expect_true(all(file.copy(rng_state_path, rng_state_temp_dir)))
+
   .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
@@ -111,6 +137,12 @@ test_that("run_daisie_ml fails when expected", {
   model <- "cr_dd"
   rng_stream_index <- 1
   cond <- "nonsense"
+  rng_state_path <- file.path(getwd(), "testdata/rng_state/rng_state.rds")
+  print(rng_state_path)
+  rng_state_temp_dir <- file.path("results", "rng_state")
+  dir.create(path = rng_state_temp_dir, recursive = TRUE)
+  expect_true(all(file.copy(rng_state_path, rng_state_temp_dir)))
+
   .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests

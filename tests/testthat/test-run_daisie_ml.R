@@ -17,7 +17,6 @@ test_that("integration test", {
   )
 
   results_folder <- dirname(results_name)
-  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -75,7 +74,6 @@ test_that("run_daisie_ml fails when expected", {
   )
 
   results_folder <- dirname(results_name)
-  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -118,7 +116,6 @@ test_that("run_daisie_ml fails when expected", {
   )
 
   results_folder <- dirname(results_name)
-  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -161,7 +158,6 @@ test_that("run_daisie_ml fails when expected", {
   )
 
   results_folder <- dirname(results_name)
-  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)
@@ -204,7 +200,6 @@ test_that("run_daisie_ml fails when expected", {
   )
 
   results_folder <- dirname(results_name)
-  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)

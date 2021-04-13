@@ -13,7 +13,7 @@ test_that("bootstrap works", {
   )
   results_name <- create_output_folder(
     data_name = data_name,
-    model = "boot",
+    model = "boot_lr",
     rng_stream_index = 1
   )
   results_folder <- dirname(results_name)

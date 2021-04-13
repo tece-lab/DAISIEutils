@@ -18,11 +18,12 @@ test_that("bootstrap works", {
   )
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
-  expect_true(all(file.copy(
-    file.path(file.path(results_folder, "rng_state", "rng_state.rds"),
-              file.path(results_folder, "rng_state"), recursive = TRUE),
-    data_name)
-  ))
+
+  expect_true(all(
+    file.copy(
+      file.path(results_folder, "rng_state", "rng_state.rds"),
+      file.path(results_folder, "rng_state"), recursive = TRUE))
+  )
 
   # Omit console output in tests
   invisible(suppressMessages(capture.output(

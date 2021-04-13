@@ -38,12 +38,15 @@ run_daisie_ml <- function(
   )
   testit::assert(is.numeric(rng_stream_index) && is.finite(rng_stream_index))
   testit::assert(is.numeric(cond) && is.finite(cond))
+  message("pre reading seed runif ", runif(3))
   if (file.exists(file_path)) {
     return("File already present, job completed.")
   }
 
   .GlobalEnv$.Random.seed <- read_seed()
+  message("post reading seed runif ", runif(3))
   jump_seed(index = rng_stream_index, jump_size = 1e8)
+  message("post jumping seed runif ", runif(3))
 
   model_arguments <- setup_model(
     model = model

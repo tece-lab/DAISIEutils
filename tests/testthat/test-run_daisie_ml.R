@@ -6,13 +6,18 @@ test_that("integration test", {
   rng_stream_index <- 1
   cond <- 1
 
-
-  results_folder <- file.path(getwd(), "results", data_name)
-  print(results_folder)
+  # Place files need for run_daisie_ml
   reference_files <- list.files(
-    file.path(getwd(), "testdata"), full.names = TRUE
+    file.path(getwd(), "tests/testthat/testdata/"), full.names = TRUE
   )
-  print(reference_files)
+  results_name <- create_output_folder(
+    data_name = data_name,
+    model = model,
+    rng_stream_index = 1
+  )
+
+  results_folder <- dirname(results_name)
+  # results_folder <- file.path(getwd(), "results", data_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)

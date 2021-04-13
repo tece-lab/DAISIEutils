@@ -17,8 +17,6 @@ test_that("bootstrap works", {
     rng_stream_index = 1
   )
   results_folder <- dirname(results_name)
-  print(reference_files)
-  print(results_folder)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   dir.create(file.path("results", "rng_state"), recursive = TRUE)

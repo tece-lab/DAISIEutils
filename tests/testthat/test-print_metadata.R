@@ -4,9 +4,15 @@ test_that("print_metadata works", {
   rng_stream_index <- 123
   # Note: hides messages and output within test, still tests
   suppressMessages(invisible(capture.output(expect_message(
-    print_metadata(data_name = data_name, model = model, rng_stream_index = rng_stream_index)
+    print_metadata(
+      data_name = data_name,
+      model = model,
+      rng_stream_index = rng_stream_index)
   ))))
   suppressMessages(expect_output(
-    print_metadata(data_name = data_name, model = model, rng_stream_index = rng_stream_index)
+    print_metadata(
+      data_name = data_name,
+      model = model,
+      rng_stream_index = rng_stream_index)
   ))
 })

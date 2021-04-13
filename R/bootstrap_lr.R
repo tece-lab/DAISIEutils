@@ -36,7 +36,7 @@ bootstrap_lr <- function(
     rng_stream_index = rng_stream_index
   )
 
-  .GlobalEnv$.Random.seed <- read_seed()
+  .GlobalEnv$.Random.seed <- read_seed() #nolint
 
   if (is_on_cluster()) {
     output_folder <- file.path(

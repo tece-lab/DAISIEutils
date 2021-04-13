@@ -6,6 +6,7 @@ test_that("bootstrap_lr works", {
   model <- "cr_dd"
   rng_stream_index <- 1
   cond <- 1
+  .GlobalEnv$.Random.seed <- read_seed()
 
   # Place files need to run bootstrap
   reference_files <- list.files(
@@ -20,7 +21,7 @@ test_that("bootstrap_lr works", {
   expect_true(all(file.copy(reference_files, results_folder)))
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
-    bootstrap(
+    bootstrap_lr(
       data = Azores,
       data_name = data_name,
       model_1 = "cr_dd",

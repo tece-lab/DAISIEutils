@@ -5,7 +5,8 @@ test_that("integration test", {
   model <- "cr_dd"
   rng_stream_index <- 1
   cond <- 1
-  set_seed()
+  .GlobalEnv$.Random.seed <- read_seed()
+
   # Omit console output in tests
   invisible(capture.output(suppressMessages(
     run_daisie_ml(
@@ -41,6 +42,7 @@ test_that("run_daisie_ml fails when expected", {
   data_name <- "Azores"
   rng_stream_index <- 1
   cond <- 1
+  .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
@@ -63,6 +65,7 @@ test_that("run_daisie_ml fails when expected", {
   model <- 1
   rng_stream_index <- 1
   cond <- 1
+  .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
@@ -85,6 +88,7 @@ test_that("run_daisie_ml fails when expected", {
   model <- "cr_dd"
   rng_stream_index <- "nonsense"
   cond <- 1
+  .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
@@ -107,6 +111,7 @@ test_that("run_daisie_ml fails when expected", {
   model <- "cr_dd"
   rng_stream_index <- 1
   cond <- "nonsense"
+  .GlobalEnv$.Random.seed <- read_seed()
 
   # Omit console output in tests
   expect_error(invisible(capture.output(

@@ -29,4 +29,11 @@ for (rng_stream_index in rng_stream_indices) {
     rng_stream_index = rng_stream_index,
     cond = cond
   )
+  bootstrap(
+    data = Azores,
+    data_name = data_name,
+    model = "cr_dd",
+    rng_stream_index = rng_stream_index,
+    cond = cond
+  )
 }

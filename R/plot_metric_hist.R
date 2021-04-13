@@ -103,9 +103,9 @@ plot_metric_hist <- function(
     graphics::abline(v = stats::median(results$number_stac4, na.rm = T),
            col = "black",
            lwd = 2)
-    graphics::arrows(non_endemic_spec_data,
+    graphics::arrows(results$non_endemic_spec_data,
            2000,
-           non_endemic_spec_data,
+           results$non_endemic_spec_data,
            0,
            col = "blue",
            length = 0.07,

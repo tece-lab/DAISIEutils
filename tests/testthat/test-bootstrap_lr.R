@@ -1,6 +1,5 @@
 test_that("bootstrap_lr works", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data_name <- "Azores"
   data("Azores", package = "relaxedDAISIE")
   data_name <- "Azores"
   model_1 <- "cr_dd"

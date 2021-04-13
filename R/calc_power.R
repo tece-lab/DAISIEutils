@@ -17,7 +17,11 @@ calc_power <- function(
     output_folder <- file.path(getwd(), "results", data_name)
   }
 
-  files <- list.files(path = output_folder, full.names = TRUE, pattern = "boot")
+  files <- list.files(
+    path = output_folder,
+    full.names = TRUE,
+    pattern = "boot_lr"
+  )
   if (length(files) == 0) {
     stop("No files found.")
   }

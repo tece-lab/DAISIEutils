@@ -46,7 +46,7 @@
 # See DAISIEutils::bootstrap() documentation for help.
 # Arguments to follow the Rscript are as follows:
 datalist_name=$1
-model_1=$2
+model=$2
 package=$3
 cond=$4
 seed=${SLURM_ARRAY_TASK_ID}

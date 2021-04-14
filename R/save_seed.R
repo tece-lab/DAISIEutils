@@ -11,10 +11,10 @@
 save_seed <- function() {
   if (is_on_cluster()) {
     file_path <- file.path(
-      Sys.getenv("HOME"), "results", "rng_state"
+      Sys.getenv("HOME"), "results", "rng_state", "rng_state.rds"
     )
   } else {
-    file_path <- file.path("results", "rng_state")
+    file_path <- file.path("results", "rng_state", "rng_state.rds")
   }
 
   rng_state <- .GlobalEnv$.Random.seed

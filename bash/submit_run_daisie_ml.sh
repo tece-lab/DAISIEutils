@@ -2,8 +2,8 @@
 #SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --job-name=DAISIE
-#SBATCH --output=logs/DAISIE/job-%j-array-%a.log
+#SBATCH --job-name=daisie_ml
+#SBATCH --output=logs/DAISIE/%x-%j-array-%a.log
 #SBATCH --mem=2GB
 #SBATCH --array=1-10
 #SBATCH --partition=gelifes

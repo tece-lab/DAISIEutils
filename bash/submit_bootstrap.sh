@@ -47,14 +47,13 @@
 # Arguments to follow the Rscript are as follows:
 datalist_name=$1
 model_1=$2
-model_2=$3
-package=$4
-cond=$5
+package=$3
+cond=$4
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
 Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
-                                        ${model_1} \
+                                        ${model} \
                                         ${package} \
                                         ${seed} \
                                         ${cond} \

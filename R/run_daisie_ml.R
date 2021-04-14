@@ -43,7 +43,8 @@ run_daisie_ml <- function(
     return("File already present, job completed.")
   }
 
-  .GlobalEnv$.Random.seed <- read_seed() #nolint
+  rng_state <- read_seed()
+  .GlobalEnv$.Random.seed <- rng_state$random_seed #nolint
   jump_seed(index = rng_stream_index, jump_size = 1e8)
 
   model_arguments <- setup_model(
@@ -79,6 +80,6 @@ run_daisie_ml <- function(
     file = file_path
   )
   if (rng_stream_index == 10) {
-    save_seed()
+    save_seed(seed = rng_state$seed)
   }
 }

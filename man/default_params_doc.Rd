@@ -20,7 +20,8 @@ default_params_doc(
   model_lik_res,
   lik_res,
   data_names,
-  full_output
+  full_output,
+  seed
 )
 }
 \arguments{
@@ -122,6 +123,8 @@ want to compare sensitivity}
 
 \item{full_output}{A boolean determining whether the full model ouput is
 returned in \code{\link[=sensitivity]{sensitivity()}}.}
+
+\item{seed}{The clock time set in \code{\link[=set_seed]{set_seed()}}.}
 }
 \value{
 Nothing

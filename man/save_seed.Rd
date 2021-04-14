@@ -4,7 +4,10 @@
 \alias{save_seed}
 \title{Saves the state of the RNG}
 \usage{
-save_seed()
+save_seed(seed)
+}
+\arguments{
+\item{seed}{The clock time set in \code{\link[=set_seed]{set_seed()}}.}
 }
 \value{
 Nothing, only saves the state of the RNG in the global environment

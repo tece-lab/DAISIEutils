@@ -81,6 +81,7 @@
 #' want to compare sensitivity
 #' @param full_output A boolean determining whether the full model ouput is
 #' returned in [sensitivity()].
+#' @param seed The clock time set in [set_seed()].
 #'
 #' @return Nothing
 #' @keywords internal
@@ -101,6 +102,7 @@ default_params_doc <- function(
   model_lik_res,
   lik_res,
   data_names,
-  full_output) {
+  full_output,
+  seed) {
   # Nothing
 }

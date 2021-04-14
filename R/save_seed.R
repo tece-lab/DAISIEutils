@@ -20,7 +20,7 @@ save_seed <- function(seed) {
   }
 
   rng_state <- list(
-    random_seed = .Random.seed,
+    random_seed = .GlobalEnv$.Random.seed,
     seed = seed
   )
 

@@ -2,8 +2,8 @@
 #SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --job-name=boot_pipe
-#SBATCH --output=logs/DAISIE/b-%a.log
+#SBATCH --job-name=boot_lr
+#SBATCH --output=logs/DAISIE/%x-%j-array-%a.log
 #SBATCH --mem=2GB
 #SBATCH --array=1-1000
 #SBATCH --partition=gelifes

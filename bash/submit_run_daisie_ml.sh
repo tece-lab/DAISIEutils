@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=DAISIE
-#SBATCH --output=logs/DAISIE/a-%a.log
+#SBATCH --output=logs/DAISIE/job-%j-array-%a.log
 #SBATCH --mem=2GB
 #SBATCH --array=1-10
 #SBATCH --partition=gelifes

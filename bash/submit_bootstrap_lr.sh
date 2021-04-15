@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=boot_lr
-#SBATCH --output=logs/DAISIE/%x-%j-array-%a.log
+#SBATCH --output=logs/%x-%j-array-%a.log
 #SBATCH --mem=2GB
 #SBATCH --array=1-1000
 #SBATCH --partition=gelifes

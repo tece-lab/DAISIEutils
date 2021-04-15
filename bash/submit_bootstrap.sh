@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=bootstrap
-#SBATCH --output=logs/DAISIE/b-%a.log
+#SBATCH --output=logs/b-%a.log
 #SBATCH --mem=2GB
 #SBATCH --array=1-1000
 #SBATCH --partition=gelifes

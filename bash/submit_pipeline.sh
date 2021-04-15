@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=DAISIE
-#SBATCH --output=logs/DAISIE/pipeline.log
+#SBATCH --output=logs/pipeline.log
 #SBATCH --mem=1GB
 #SBATCH --partition=short
 

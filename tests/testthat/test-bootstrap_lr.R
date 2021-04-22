@@ -27,7 +27,8 @@ test_that("bootstrap_lr works", {
       data_name = data_name,
       model_1 = model_1,
       model_2 = model_2,
-      cond = cond
+      cond = cond,
+      array_index
     )
   )))
   actual_output <- readRDS(results_name)

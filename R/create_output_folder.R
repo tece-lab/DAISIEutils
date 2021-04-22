@@ -14,13 +14,13 @@
 #' create_output_folder(
 #'   data_name = "results_folder",
 #'   model = "cr_dd",
-#'   rng_stream_index = 1
+#'   array_index = 1
 #' )
 #' }
 create_output_folder <- function(
   data_name,
   model,
-  rng_stream_index) {
+  array_index) {
 
   if (is_on_cluster()) {
     output_folder <- file.path(
@@ -39,7 +39,7 @@ create_output_folder <- function(
     dir.exists(output_folder)
   )
 
-  if (is.na(model) || is.na(rng_stream_index)) {
+  if (is.na(model) || is.na(array_index)) {
     file_path <- file.path(
       output_folder,
       paste0(data_name, ".rds")
@@ -47,7 +47,7 @@ create_output_folder <- function(
   } else {
     file_path <- file.path(
       output_folder,
-      paste0(data_name, "_", model, "_", rng_stream_index, ".rds")
+      paste0(data_name, "_", model, "_", array_index, ".rds")
     )
   }
 

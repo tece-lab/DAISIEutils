@@ -14,7 +14,7 @@
 #'   data = Galapagos_datalist,
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
-#'   rng_stream_index = 1,
+#'   array_index = 1,
 #'   cond = 1
 #' )
 #' }
@@ -23,29 +23,36 @@ run_daisie_ml <- function(
   data,
   data_name,
   model,
-  rng_stream_index,
+  array_index,
   cond) {
+
+  seed <- as.numeric(Sys.time()) + array_index
+
+  set.seed(
+    seed,
+    kind = "Mersenne-Twister",
+    normal.kind = "Inversion",
+    sample.kind = "Rejection"
+  )
 
   # testit::assert(is_daisie_data(daisia_data = data)) #nolint
   print_metadata(
     data_name = data_name,
     model = model,
-    rng_stream_index = rng_stream_index)
+    array_index = array_index,
+    seed = seed)
   file_path <- create_output_folder(
     data_name = data_name,
     model = model,
-    rng_stream_index = rng_stream_index
+    array_index = array_index
   )
-  testit::assert(is.numeric(rng_stream_index) && is.finite(rng_stream_index))
+  testit::assert(is.numeric(array_index) && is.finite(array_index))
   testit::assert(is.numeric(cond) && is.finite(cond))
 
   if (file.exists(file_path)) {
     return("File already present, job completed.")
   }
 
-  rng_state <- read_seed()
-  .GlobalEnv$.Random.seed <- rng_state$random_seed #nolint
-  jump_seed(index = rng_stream_index, jump_size = 1e8)
 
   model_arguments <- setup_model(
     model = model
@@ -79,7 +86,4 @@ run_daisie_ml <- function(
     lik_res,
     file = file_path
   )
-  if (rng_stream_index == 10) {
-    save_seed(seed = rng_state$seed)
-  }
 }

@@ -24,11 +24,13 @@ sensitivity <- function(
   print_metadata(
     data_name = paste0(data_names, collapse = "_"),
     model = "sens",
-    rng_stream_index = NA)
+    array_index = NA,
+    seed = NA)
   file_path <- create_output_folder(
     data_name = paste0(data_names, collapse = "_"),
     model = "sens",
-    rng_stream_index = NA
+    array_index = NA,
+    seed = NA
   )
 
   best_models_list <- list()

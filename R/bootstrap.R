@@ -14,7 +14,7 @@
 #'   data = Galapagos_datalist,
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
-#'   rng_stream_index = 1,
+#'   array_index = 1,
 #'   cond = 1,
 #' )
 #' }
@@ -22,21 +22,28 @@ bootstrap <- function(
   data,
   data_name,
   model,
-  rng_stream_index,
+  array_index,
   cond) {
+
+  seed <- as.numeric(Sys.time()) + array_index
+
+  set.seed(
+    seed,
+    kind = "Mersenne-Twister",
+    normal.kind = "Inversion",
+    sample.kind = "Rejection"
+  )
 
   print_metadata(
     data_name = data_name,
     model = paste("boot", model, sep = "_"),
-    rng_stream_index = rng_stream_index)
+    array_index = array_index,
+    seed = seed)
   file_path <- create_output_folder(
     data_name = data_name,
     model = paste("boot", model, sep = "_"),
-    rng_stream_index = rng_stream_index
+    array_index = array_index
   )
-
-  rng_state <- read_seed()
-  .GlobalEnv$.Random.seed <- rng_state$random_seed #nolint
 
   if (is_on_cluster()) {
     output_folder <- file.path(

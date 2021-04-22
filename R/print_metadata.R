@@ -17,7 +17,8 @@
 #' print_metadata(
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_di",
-#'   rng_stream_index = 1
+#'   array_index = 1,
+#'   seed = 1
 #' )
 #' }
 #' @author Pedro Neves, Luis Valente, Joshua W. Lambert
@@ -25,12 +26,14 @@
 print_metadata <- function(
   data_name,
   model,
-  rng_stream_index) {
+  array_index,
+  seed) {
   testit::assert("data_name is character", is.character(data_name))
 
   print(sessioninfo::session_info(pkgs = "DAISIEutils"))
   message(Sys.time())
   message("Data name: ", data_name)
   message("Model name: ", model)
-  message("Running analysis with at RNG index: ", rng_stream_index)
+  message("Running analysis with array index: ", array_index)
+  message("Running analysis with seed: ", seed)
 }

@@ -19,12 +19,7 @@ test_that("integration test", {
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
-  dir.create(file.path("results", "rng_state"), recursive = TRUE)
-  expect_true(all(
-    file.copy(
-      file.path(results_folder, "rng_state.rds"),
-      file.path("results", "rng_state")))
-  )
+
 
   # Omit console output in tests
   invisible(capture.output(suppressMessages(
@@ -32,7 +27,7 @@ test_that("integration test", {
       data = Azores, # nolint
       data_name = data_name,
       model = model,
-      rng_stream_index = rng_stream_index,
+      array_index = array_index,
       cond = cond
     )
   )))

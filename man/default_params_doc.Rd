@@ -9,7 +9,7 @@ default_params_doc(
   data_name,
   results_root_folder,
   data,
-  rng_stream_index,
+  array_index,
   file_path,
   results,
   cond,
@@ -87,6 +87,9 @@ preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}},
 details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
 
+\item{array_index}{A single numeric with the array index. It is used for
+naming the output file.}
+
 \item{file_path}{The system directory where the output files will be stored.}
 
 \item{results}{A data frame contaning model results as created by
@@ -121,9 +124,6 @@ want to compare sensitivity}
 returned in \code{\link[=sensitivity]{sensitivity()}}.}
 
 \item{seed}{The clock time set in \code{\link[=set_seed]{set_seed()}}.}
-
-\item{array_index}{A single numeric with the array index. It is used for
-naming the output file.}
 }
 \value{
 Nothing

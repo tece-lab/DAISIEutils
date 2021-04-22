@@ -42,7 +42,7 @@ bootstrap_lr(
   data = Galapagos_datalist,
   model_1 = "cr_dd",
   model_2 = "cr_di",
-  rng_stream_index = 1,
+  array_index = 1,
   cond = 1,
 )
 }

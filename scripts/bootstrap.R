@@ -6,5 +6,5 @@ DAISIEutils::bootstrap(
   data = get(data_name),
   data_name = data_name,
   model = args[2],
-  rng_stream_index = as.numeric(args[4]),
+  array_index = as.numeric(args[4]),
   cond = as.numeric(args[5]))

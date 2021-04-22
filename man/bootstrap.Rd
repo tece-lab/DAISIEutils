@@ -87,7 +87,7 @@ bootstrap(
   data = Galapagos_datalist,
   data_name = "Galapagos_datalist",
   model = "cr_dd",
-  rng_stream_index = 1,
+  array_index = 1,
   cond = 1,
 )
 }

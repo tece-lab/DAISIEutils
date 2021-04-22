@@ -4,7 +4,7 @@ test_that("bootstrap_lr works", {
   data_name <- "Azores"
   model_1 <- "cr_dd"
   model_2 <- "cr_di"
-  rng_stream_index <- 1
+  array_index <- 1
   cond <- 1
 
   # Place files need to run bootstrap
@@ -14,18 +14,11 @@ test_that("bootstrap_lr works", {
   results_name <- create_output_folder(
     data_name = data_name,
     model = paste("boot_lr", model_1, model_2, sep = "_"),
-    rng_stream_index = 1
+    array_index = 1
   )
 
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
-
-  dir.create(file.path("results", "rng_state"), recursive = TRUE)
-  expect_true(all(
-    file.copy(
-      file.path(results_folder, "rng_state.rds"),
-      file.path("results", "rng_state")))
-  )
 
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
@@ -34,7 +27,6 @@ test_that("bootstrap_lr works", {
       data_name = data_name,
       model_1 = model_1,
       model_2 = model_2,
-      rng_stream_index = rng_stream_index,
       cond = cond
     )
   )))

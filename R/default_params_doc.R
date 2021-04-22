@@ -90,7 +90,7 @@ default_params_doc <- function(
   data_name,
   results_root_folder,
   data,
-  rng_stream_index,
+  array_index,
   file_path,
   results,
   cond,

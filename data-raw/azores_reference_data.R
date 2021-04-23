@@ -16,7 +16,8 @@ for (model in models) {
       data_name = data_name,
       model = model,
       array_index = array_index,
-      cond = cond)
+      cond = cond,
+      test = TRUE)
   }
 }
 
@@ -27,13 +28,15 @@ for (array_index in array_indices) {
     model_1 = "cr_dd",
     model_2 = "cr_di",
     array_index = array_index,
-    cond = cond
+    cond = cond,
+    test = TRUE
   )
   bootstrap(
     data = Azores,
     data_name = data_name,
     model = "cr_dd",
     array_index = array_index,
-    cond = cond
+    cond = cond,
+    test = TRUE
   )
 }

@@ -17,6 +17,8 @@ test_that("bootstrap works", {
     model = "boot_cr_dd",
     array_index = 1
   )
+  results_folder <- dirname(results_name)
+  expect_true(all(file.copy(reference_files, results_folder)))
 
 
   # Omit console output in tests

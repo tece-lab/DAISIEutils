@@ -42,12 +42,10 @@ Imports:
     testit,
     hawaiispiders (>= 1.0.1),
     relaxedDAISIE (>= 0.1.0),
-    DAISIErobustness,
     DAISIE (>= 3.2.1),
     readr,
-    tibble,
+    tibble
 Remotes:  
     joshwlambert/relaxedDAISIE,
     Neves-P/hawaiispiders,
-    Neves-P/DAISIErobustness,
     rsetienne/DAISIE@v3.2.1

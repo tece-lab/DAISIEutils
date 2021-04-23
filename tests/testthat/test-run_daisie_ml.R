@@ -38,15 +38,15 @@ test_that("integration test", {
     getwd(), "results", "Azores", "Azores_cr_dd_1.rds")
   )
   expected_data_frame <- data.frame(
-    lambda_c = 0.1147265796927377,
-    mu = 2.3778308803941361,
-    K = 0.74456307048433057,
-    gamma = 0.041026917223855416,
-    lambda_a = 1.5506801701109478,
-    loglik = -100.33532706867457,
+    lambda_c = 0.255152525210057,
+    mu = 2.37865891764784,
+    K = 0.688038204241112,
+    gamma = 0.0410410972670184,
+    lambda_a = 1.55073608640901,
+    loglik = -100.335327768561,
     df = 5,
     conv = 0,
-    bic = 244.39881586430656)
+    bic = 244.39881726408)
   expect_equal(obtained_result, expected_data_frame)
   # Clean-up
   expect_equal(unlink("results", recursive = TRUE), 0)

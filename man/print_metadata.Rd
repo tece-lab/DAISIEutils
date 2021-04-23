@@ -64,7 +64,10 @@ relaxed cladogenesis, and no anagenesis (laa fixed to zero)
 \item{array_index}{A single numeric with the array index. It is used for
 naming the output file.}
 
-\item{seed}{The clock time set in \code{\link[=set_seed]{set_seed()}}.}
+\item{seed}{Integer with value to be used as the seed for Mersenne-Twister.
+This value is determined by \code{\link[=Sys.time]{Sys.time()}} and \code{array_index} to ensure
+parallel jobs have different seeds. Only the last 6 digits of the
+\code{\link[=Sys.time]{Sys.time()}} (as an integer) are used.}
 }
 \value{
 Nothing. Prints session and run info used by DAISIE to console.

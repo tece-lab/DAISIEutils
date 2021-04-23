@@ -5,6 +5,7 @@ test_that("integration test", {
   model <- "cr_dd"
   array_index <- 1
   cond <- 1
+  test <- TRUE
 
   # Place files need for run_daisie_ml
   reference_files <- list.files(
@@ -28,7 +29,8 @@ test_that("integration test", {
       data_name = data_name,
       model = model,
       array_index = array_index,
-      cond = cond
+      cond = cond,
+      test = test
     )
   )))
 
@@ -79,7 +81,8 @@ test_that("run_daisie_ml fails when expected", {
       data_name = data_name,
       model = model,
       array_index = array_index,
-      cond = cond
+      cond = cond,
+      test = test
     )
   )))
   # Clean-up
@@ -114,7 +117,8 @@ test_that("run_daisie_ml fails when expected", {
       data_name = data_name,
       model = model,
       array_index = array_index,
-      cond = cond
+      cond = cond,
+      test = test
     )
   )))
   # Clean-up
@@ -150,7 +154,8 @@ test_that("run_daisie_ml fails when expected", {
       data_name = data_name,
       model = model,
       array_index = array_index,
-      cond = cond
+      cond = cond,
+      test = test
     )
   )))
   # Clean-up
@@ -182,7 +187,8 @@ test_that("run_daisie_ml fails when expected", {
       data_name = data_name,
       model = model,
       array_index = array_index,
-      cond = cond
+      cond = cond,
+      test = test
     )
   )))
   # Clean-up

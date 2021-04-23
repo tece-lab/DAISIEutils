@@ -6,6 +6,7 @@ test_that("bootstrap works", {
   model <- "cr_dd"
   array_index <- 1
   cond <- 1
+  test <- TRUE
 
   # Place files need to run bootstrap
   reference_files <- list.files(
@@ -25,7 +26,8 @@ test_that("bootstrap works", {
       data_name = data_name,
       model = "cr_dd",
       array_index = array_index,
-      cond = cond
+      cond = cond,
+      test = test
     )
   )))
   actual_output <- readRDS(results_name)

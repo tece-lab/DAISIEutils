@@ -24,10 +24,14 @@ bootstrap_lr <- function(
   model_1,
   model_2,
   array_index,
-  cond) {
+  cond,
+  test = FALSE) {
 
-  seed <- as.numeric(Sys.time()) + array_index
-
+  if (test) {
+    seed <- array_index
+  } else {
+    seed <- as.integer(Sys.time()) %% 10000L * array_index
+  }
   set.seed(
     seed,
     kind = "Mersenne-Twister",

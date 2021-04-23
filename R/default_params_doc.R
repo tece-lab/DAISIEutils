@@ -77,10 +77,15 @@
 #' @param lik_res A data frame with results from a DAISIE maximum likelihood
 #'   model
 #' @param data_names A vector of strings with the names of the data sets you
-#' want to compare sensitivity
+#'   want to compare sensitivity
 #' @param full_output A boolean determining whether the full model ouput is
-#' returned in [sensitivity()].
-#' @param seed The clock time set in [set_seed()].
+#'   returned in [sensitivity()].
+#' @param seed Integer with value to be used as the seed for Mersenne-Twister.
+#'   This value is determined by [Sys.time()] and `array_index` to ensure
+#'   parallel jobs have different seeds. Only the last 6 digits of the
+#'   [Sys.time()] (as an integer) are used.
+#' @param test A boolean, defaults to `FALSE`. Set to `TRUE` for testing
+#'   purposes, to fix the seed.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -102,6 +107,7 @@ default_params_doc <- function(
   lik_res,
   data_names,
   full_output,
-  seed) {
+  seed,
+  test) {
   # Nothing
 }

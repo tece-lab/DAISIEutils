@@ -36,4 +36,6 @@ print_metadata <- function(
   message("Model name: ", model)
   message("Running analysis with array index: ", array_index)
   message("Running analysis with seed: ", seed)
+  message("CAUTION: Do not submit jobs simultaneously in order for jobs to have
+          different seeds.")
 }

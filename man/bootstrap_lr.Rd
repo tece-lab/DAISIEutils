@@ -4,7 +4,15 @@
 \alias{bootstrap_lr}
 \title{Runs a parameteric bootstrapping likelihood ratio test on two DAISIE models}
 \usage{
-bootstrap_lr(data, data_name, model_1, model_2, array_index, cond)
+bootstrap_lr(
+  data,
+  data_name,
+  model_1,
+  model_2,
+  array_index,
+  cond,
+  test = FALSE
+)
 }
 \arguments{
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
@@ -26,6 +34,9 @@ naming the output file.}
 
 \item{cond}{An integer specfying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
+
+\item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
+purposes, to fix the seed.}
 }
 \value{
 Nothing. Writes bootstrapping results to a \code{.rds} file. This

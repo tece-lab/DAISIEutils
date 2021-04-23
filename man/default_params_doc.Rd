@@ -21,7 +21,8 @@ default_params_doc(
   lik_res,
   data_names,
   full_output,
-  seed
+  seed,
+  test
 )
 }
 \arguments{
@@ -123,7 +124,13 @@ want to compare sensitivity}
 \item{full_output}{A boolean determining whether the full model ouput is
 returned in \code{\link[=sensitivity]{sensitivity()}}.}
 
-\item{seed}{The clock time set in \code{\link[=set_seed]{set_seed()}}.}
+\item{seed}{Integer with value to be used as the seed for Mersenne-Twister.
+This value is determined by \code{\link[=Sys.time]{Sys.time()}} and \code{array_index} to ensure
+parallel jobs have different seeds. Only the last 6 digits of the
+\code{\link[=Sys.time]{Sys.time()}} (as an integer) are used.}
+
+\item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
+purposes, to fix the seed.}
 }
 \value{
 Nothing

@@ -29,8 +29,7 @@ sensitivity <- function(
   file_path <- create_output_folder(
     data_name = paste0(data_names, collapse = "_"),
     model = "sens",
-    array_index = NA,
-    seed = NA
+    array_index = NA
   )
 
   best_models_list <- list()

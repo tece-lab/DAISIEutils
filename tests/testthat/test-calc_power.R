@@ -16,7 +16,7 @@ test_that("calc_power produces correct output", {
   expect_true(all(file.copy(reference_files, results_folder)))
   output <- calc_power(data = Azores)
 
-  expected_output <- 0.16666667
+  expected_output <- 0.166666666667
   expect_equal(output, expected_output)
 
   # Delete temp folder

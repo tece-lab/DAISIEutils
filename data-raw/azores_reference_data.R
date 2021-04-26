@@ -49,3 +49,5 @@ for (array_index in array_indices) {
     test = TRUE
   )
 }
+
+sensitivity(data_names = c("Azores", "Azores_alt_m"), full_output = TRUE)

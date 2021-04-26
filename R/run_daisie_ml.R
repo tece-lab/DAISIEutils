@@ -55,10 +55,6 @@ run_daisie_ml <- function(
   testit::assert(is.numeric(array_index) && is.finite(array_index))
   testit::assert(is.numeric(cond) && is.finite(cond))
 
-  if (file.exists(file_path)) {
-    return("File already present, job completed.")
-  }
-
   model_arguments <- setup_model(
     model = model
   )

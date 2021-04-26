@@ -29,4 +29,4 @@ DAISIEutils allows a researcher to easily accomplish the following tasks:
 * Fit said models to data, sampling from a number of initial parameters to minimize model convergence on local optima.
 * Choose best fitting models.
 * Run bootstrap likelihood ratio tests.
-* Test the sensitivity of results to changing parameters (WIP).
+* Test the sensitivity of results to changing parameters.

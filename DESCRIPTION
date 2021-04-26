@@ -35,17 +35,17 @@ Depends: R (>= 4.0.0)
 Suggests: 
     testthat (>= 3.0.0),
     covr,
-    lintr
+    lintr,
+    hawaiispiders (>= 1.0.1)
 Config/testthat/edition: 3
 Imports: 
     sessioninfo,
     testit,
-    hawaiispiders (>= 1.0.1),
     relaxedDAISIE (>= 0.1.0),
     DAISIE (>= 3.2.1),
     readr,
     tibble
-Remotes:  
+Remotes: 
     joshwlambert/relaxedDAISIE,
     Neves-P/hawaiispiders,
     rsetienne/DAISIE@v3.2.1

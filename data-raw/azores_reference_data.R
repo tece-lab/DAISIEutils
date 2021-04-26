@@ -5,7 +5,7 @@
 # by R CHECK
 array_indices <- 1:5
 data(Azores, package = "relaxedDAISIE")
-data_name <- "Azores"
+data(Azores_alt_m, package = "relaxedDAISIE")
 models <- c("cr_dd", "cr_di")
 cond <- 1
 
@@ -13,18 +13,27 @@ for (model in models) {
   for (array_index in array_indices) {
     run_daisie_ml(
       data = Azores,
-      data_name = data_name,
+      data_name = "Azores",
       model = model,
       array_index = array_index,
       cond = cond,
-      test = TRUE)
+      test = TRUE
+    )
+    run_daisie_ml(
+      data = Azores_alt_m,
+      data_name = "Azores_alt_m",
+      model = model,
+      array_index = array_index,
+      cond = cond,
+      test = TRUE
+    )
   }
 }
 
 for (array_index in array_indices) {
   bootstrap_lr(
     data = Azores,
-    data_name = data_name,
+    data_name = "Azores",
     model_1 = "cr_dd",
     model_2 = "cr_di",
     array_index = array_index,
@@ -33,7 +42,7 @@ for (array_index in array_indices) {
   )
   bootstrap(
     data = Azores,
-    data_name = data_name,
+    data_name = "Azores",
     model = "cr_dd",
     array_index = array_index,
     cond = cond,

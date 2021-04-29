@@ -22,7 +22,8 @@ default_params_doc(
   data_names,
   full_output,
   seed,
-  test
+  test,
+  logs_path
 )
 }
 \arguments{
@@ -131,6 +132,9 @@ parallel jobs have different seeds. Only the last 6 digits of the
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}
+
+\item{logs_path}{Character with path to the folder containing logs. Only log
+files should be present, in plain text format.}
 }
 \value{
 Nothing

@@ -86,6 +86,8 @@
 #'   [Sys.time()] (as an integer) are used.
 #' @param test A boolean, defaults to `FALSE`. Set to `TRUE` for testing
 #'   purposes, to fix the seed.
+#' @param logs_path Character with path to the folder containing logs. Only log
+#' files should be present, in plain text format.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -108,6 +110,7 @@ default_params_doc <- function(
   data_names,
   full_output,
   seed,
-  test) {
+  test,
+  logs_path) {
   # Nothing
 }

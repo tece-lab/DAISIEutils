@@ -30,8 +30,7 @@ print_metadata <- function(
   seed) {
   testit::assert("data_name is character", is.character(data_name))
   message(
-    "CAUTION: Do not submit jobs simultaneously in order for jobs to have
-     different seeds."
+    "CAUTION: Do not submit jobs simultaneously so jobs have different seeds."
   )
   message("Data name: ", data_name)
   message("Running analysis with array index: ", array_index)

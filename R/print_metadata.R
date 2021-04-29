@@ -38,6 +38,6 @@ print_metadata <- function(
   message("Model name: ", model)
   message("Start time: ", Sys.time())
 
-  print(sessioninfo::session_info(pkgs = "DAISIEutils"), max.levels = 100)
+  print(sessioninfo::session_info(pkgs = "DAISIEutils"), max.levels = 200)
   message("\n")
 }

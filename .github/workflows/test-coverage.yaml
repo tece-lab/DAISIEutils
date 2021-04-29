@@ -3,11 +3,13 @@ on:
     branches:
       - master
       - develop
+      - logs
 
   pull_request:
     branches:
       - master
       - develop
+      - logs
 
 name: test-coverage
 

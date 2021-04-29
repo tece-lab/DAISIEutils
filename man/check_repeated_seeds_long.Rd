@@ -33,7 +33,7 @@ checked. \code{\link[=check_repeated_seeds]{check_repeated_seeds()}} will fail f
 }
 \examples{
 \dontrun{
-repeated_seeds <- check_repeated_seeds_long(logs_path = "/logs")
+repeated_seeds <- check_repeated_seeds_long(logs_path = "/logs/")
 }
 }
 \seealso{

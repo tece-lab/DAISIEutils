@@ -28,6 +28,7 @@ print_metadata <- function(
   model,
   array_index,
   seed) {
+  # options(width = 500)
   testit::assert("data_name is character", is.character(data_name))
   message(
     "CAUTION: Do not submit jobs simultaneously to ensure different seeds."
@@ -38,6 +39,6 @@ print_metadata <- function(
   message("Running analysis with seed: ", seed)
   message("Start time: ", Sys.time())
 
-  print(sessioninfo::session_info(pkgs = "DAISIEutils"), max.levels = 200)
+  print(sessioninfo::session_info(pkgs = "DAISIEutils"), max.levels = 500)
   message("\n")
 }

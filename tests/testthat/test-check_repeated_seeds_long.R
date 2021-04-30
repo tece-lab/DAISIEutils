@@ -4,22 +4,7 @@ test_that("check_repeated_seeds_long works no duplicates", {
   reference_path <- file.path(
     getwd(), "testdata", "testlogs", "no_dups", "deprecated"
   )
-  file.path(
-    getwd(),
-    "testdata",
-    "testlogs",
-    "no_dups",
-    "deprecated"
-  )
-  print("long")
-  print(reference_path)
-  print(list.files(reference_path))
-  print(getwd())
-  print(list.files(getwd()))
-  print(list.files(file.path(getwd(), "testdata")))
-  print(list.files(file.path(getwd(), "testdata", "testlogs")))
-  print(list.files(file.path(getwd(), "testdata", "testlogs", "no_dups")))
-  print(list.files(file.path(getwd(), "testdata", "testlogs", "no_dups", "deprecated")))
+
   obtained_output <- check_repeated_seeds_long(logs_path = reference_path)
   expected_output <- data.frame(
     "Data" = character(),
@@ -36,9 +21,7 @@ test_that("check_repeated_seeds_long works with duplicates", {
   reference_path <- file.path(
     getwd(), "testdata", "testlogs", "dups", "deprecated"
   )
-  print("long")
-  print(reference_path)
-  print(list.files(reference_path))
+
   obtained_output <- check_repeated_seeds_long(logs_path = reference_path)
   expected_output <- data.frame(
     "Data" = "y_c_min",

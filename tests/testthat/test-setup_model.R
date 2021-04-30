@@ -265,5 +265,3 @@ test_that("setup_model is correct for rr_laa_dd", {
   )
   expect_equal(model_arguments, expected_arguments)
 })
-
-

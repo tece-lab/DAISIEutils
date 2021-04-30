@@ -41,8 +41,8 @@ check_repeated_seeds <- function(logs_path) {
   array_indices <- c()
   seeds <- c()
   for (i in seq_along(log_heads)) {
-    array_line <- log_heads[[i]][4]
-    seed_line <- log_heads[[i]][5]
+    array_line <- log_heads[[i]][3]
+    seed_line <- log_heads[[i]][4]
     testit::assert(
       fact = "Array line found. Try check_repeated_seeds_long() if this fails",
       grepl("Running analysis with array index:", array_line))

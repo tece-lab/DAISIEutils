@@ -1,21 +1,20 @@
-CAUTION: Do not submit jobs simultaneously in order for jobs to have
-     different seeds.
+CAUTION: Do not submit jobs simultaneously to ensure different seeds.
 Data name: Aldabra_Group
 Running analysis with array index: 6
 Running analysis with seed: 2994
 Model name: cr_di
 Start time: 2021-04-29 20:21:40
 ─ Session info ───────────────────────────────────────────────────────────────
- setting  value                       
+ setting  value
  version  R version 4.0.0 (2020-04-24)
- os       CentOS Linux 7 (Core)       
- system   x86_64, linux-gnu           
- ui       X11                         
- language (EN)                        
- collate  en_US.UTF-8                 
- ctype    en_US.UTF-8                 
- tz       Europe/Amsterdam            
- date     2021-04-29                  
+ os       CentOS Linux 7 (Core)
+ system   x86_64, linux-gnu
+ ui       X11
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Europe/Amsterdam
+ date     2021-04-29
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  package           * version    date       lib
@@ -79,82 +78,82 @@ Start time: 2021-04-29 20:21:40
  utf8                1.2.1      2021-03-12 [1]
  vctrs               0.3.8      2021-04-29 [1]
  withr               2.4.2      2021-04-18 [1]
- source                                     
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- Github (rsetienne/DAISIE@6da0e3f)          
- Github (tece-lab/DAISIEutils@aef96e4)      
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
+ source
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ Github (rsetienne/DAISIE@6da0e3f)
+ Github (tece-lab/DAISIEutils@aef96e4)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
  Github (joshwlambert/relaxedDAISIE@ddb6b9b)
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
- CRAN (R 4.0.0)                             
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
+ CRAN (R 4.0.0)
 
 [1] /home/p282067/R/x86_64-pc-linux-gnu-library/4.0
 [2] /apps/haswell/software/R/4.0.0-foss-2020a/lib64/R/library
 
 
 results/Aldabra_Group not found, creating it.
-You are optimizing lambda_c mu gamma lambda_a 
-You are fixing K 
-Calculating the likelihood for the initial parameters. 
-The loglikelihood for the initial parameter values is -83.39781 
-Optimizing the likelihood - this may take a while. 
+You are optimizing lambda_c mu gamma lambda_a
+You are fixing K
+Calculating the likelihood for the initial parameters.
+The loglikelihood for the initial parameter values is -83.39781
+Optimizing the likelihood - this may take a while.
 
  Maximum likelihood parameter estimates: lambda_c: 0.000007, mu: 0.616663, K: Inf,
-      gamma: 0.016014, lambda_a: 1.007485 
- Maximum loglikelihood: -73.410206 
+      gamma: 0.016014, lambda_a: 1.007485
+ Maximum loglikelihood: -73.410206
 Warning message:
 In dir.create(path = output_folder, recursive = TRUE) :
   'results/Aldabra_Group' already exists

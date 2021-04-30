@@ -2,7 +2,7 @@ test_that("check_repeated_seeds_long works no duplicates", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
 
   reference_path <- file.path(
-    getwd(), "testdata", "testlogs", "no_dups", "old"
+    getwd(), "testdata", "testlogs", "no_dups", "deprecated"
   )
   print("long")
   print(reference_path)
@@ -26,7 +26,7 @@ test_that("check_repeated_seeds_long works with duplicates", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
 
   reference_path <- file.path(
-    getwd(), "testdata", "testlogs", "dups", "old"
+    getwd(), "testdata", "testlogs", "dups", "deprecated"
   )
   print("long")
   print(reference_path)

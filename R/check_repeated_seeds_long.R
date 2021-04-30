@@ -5,12 +5,16 @@
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return A named list with two elements.
-#'   * `duplicated_seeds`: A character vector with the seed values that were
-#'   found to be duplicated within the folder. Will be empty if no duplicates
-#'   were found
-#'   * `duplicated_array_indices`: A numeric vector with corresponding array
-#'   indices. Will be empty if no duplicates were found.
+#' @return A data frame with four columns. Each line contains the information
+#'   of one result with a duplicated seed. There will be no lines if there are
+#'   no duplicated seeds in the any of the logs.
+#'   Columns are as follows:
+#'   * `Data`: A character vector with the name of the data set where duplicates
+#'     were found.
+#'   * `Models`: A numeric with corresponding array index. Will be empty if no
+#'     duplicates were found.
+#'   * `Seeds`: A numeric with the corresponding seed that was duplicated.
+#'   * `Array_indices`: A numeric with corresponding array index.
 #' @export
 #' @author Pedro Neves
 #'
@@ -29,7 +33,7 @@
 #' }
 check_repeated_seeds_long <- function(logs_path) {
   message("Use check_repeated_seeds_long() instead if checking logs generated
-          by current versions of DAISIEutils")
+          by current versions of DAISIEutils.")
   testit::assert(fact = "Folder exists", dir.exists(logs_path))
 
   logfiles <- list.files(logs_path, full.names = TRUE)
@@ -37,22 +41,35 @@ check_repeated_seeds_long <- function(logs_path) {
 
   logs <- lapply(logfiles, readLines)
 
+  data_names <- c()
+  model_names <- c()
   array_indices <- c()
   seeds <- c()
   for (i in seq_along(logs)) {
+    data_line <- logs[[i]][grepl("Data name", logs[[i]])]
+    model_line <- logs[[i]][grepl("Model name", logs[[i]])]
     array_line <- logs[[i]][grepl("Running analysis with array", logs[[i]])]
     seed_line <- logs[[i]][grepl("Running analysis with seed", logs[[i]])]
 
+    data_names[i] <- sub(".*: ", "", data_line)
+    model_names[i] <- sub(".*: ", "", model_line)
     array_indices[i] <- sub(".*: ", "", array_line)
     seeds[i] <- sub(".*: ", "", seed_line)
   }
 
-  duplicated_seeds <- seeds[duplicated(seeds)]
+  duplicated_seeds <- as.numeric(seeds[duplicated(seeds)])
   duplicated_seed_indices <- which(duplicated(seeds))
-  duplicated_array_indices <- array_indices[duplicated_seed_indices]
 
-  return(list(
-    duplicated_seeds = duplicated_seeds,
-    duplicated_array_indices = duplicated_array_indices
-  ))
+  duplicated_data_names <- data_names[duplicated_seed_indices]
+  duplicated_model_names <- model_names[duplicated_seed_indices]
+  duplicated_array_indices <- as.numeric(array_indices[duplicated_seed_indices])
+
+  out <- data.frame(
+    "Data" = duplicated_data_names,
+    "Models" = duplicated_model_names,
+    "Seeds" = duplicated_seeds,
+    "Array_indices" = duplicated_array_indices
+  )
+
+  return(out)
 }

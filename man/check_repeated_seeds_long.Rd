@@ -11,13 +11,17 @@ check_repeated_seeds_long(logs_path)
 files should be present, in plain text format.}
 }
 \value{
-A named list with two elements.
+A data frame with four columns. Each line contains the information
+of one result with a duplicated seed. There will be no lines if there are
+no duplicated seeds in the any of the logs.
+Columns are as follows:
 \itemize{
-\item \code{duplicated_seeds}: A character vector with the seed values that were
-found to be duplicated within the folder. Will be empty if no duplicates
-were found
-\item \code{duplicated_array_indices}: A numeric vector with corresponding array
-indices. Will be empty if no duplicates were found.
+\item \code{Data}: A character vector with the name of the data set where duplicates
+were found.
+\item \code{Models}: A numeric with corresponding array index. Will be empty if no
+duplicates were found.
+\item \code{Seeds}: A numeric with the corresponding seed that was duplicated.
+\item \code{Array_indices}: A numeric with corresponding array index.
 }
 }
 \description{

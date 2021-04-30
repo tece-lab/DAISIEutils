@@ -4,6 +4,7 @@ test_that("check_repeated_seeds_long works no duplicates", {
   reference_path <- file.path(
     getwd(), "testdata", "testlogs", "old"
   )
+  print("long")
   print(reference_path)
   print(list.files(reference_path))
   obtained_output <- check_repeated_seeds_long(logs_path = reference_path)

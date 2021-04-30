@@ -9,7 +9,7 @@ test_that("integration test", {
 
   # Place files need for run_daisie_ml
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "*.rds"
   )
   results_name <- create_output_folder(
     data_name = data_name,
@@ -19,8 +19,6 @@ test_that("integration test", {
 
   results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
-
-
 
   # Omit console output in tests
   invisible(capture.output(suppressMessages(
@@ -62,7 +60,7 @@ test_that("run_daisie_ml fails when expected", {
 
   # Place files need for run_daisie_ml
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "*.rds"
   )
   results_name <- create_output_folder(
     data_name = data_name,
@@ -99,7 +97,7 @@ test_that("run_daisie_ml fails when expected", {
 
   # Place files need for run_daisie_ml
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata/"), full.names = TRUE, , pattern = "*.rds"
   )
   results_name <- create_output_folder(
     data_name = data_name,
@@ -135,7 +133,7 @@ test_that("run_daisie_ml fails when expected", {
 
   # Place files need for run_daisie_ml
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "*.rds"
   )
   results_name <- create_output_folder(
     data_name = data_name,
@@ -172,7 +170,7 @@ test_that("run_daisie_ml fails when expected", {
 
   # Place files need for run_daisie_ml
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "*.rds"
   )
   results_name <- create_output_folder(
     data_name = data_name,

@@ -12,7 +12,11 @@ test_that("calc_power produces correct output", {
   ))
 
   # Place files need to run bootstrap
-  reference_files <- list.files("testdata/", full.names = TRUE)
+  reference_files <- list.files(
+    "testdata/",
+    full.names = TRUE,
+    pattern = "*.rds"
+  )
   expect_true(all(file.copy(reference_files, results_folder)))
   output <- calc_power(data = Azores)
 

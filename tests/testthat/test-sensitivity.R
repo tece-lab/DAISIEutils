@@ -4,7 +4,7 @@ test_that("sensitivity works", {
 
   # Place files need for sensitivity
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE
+    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "*.rds"
   )
   azores_filepath <- create_output_folder(
     data_name = data_names[1],

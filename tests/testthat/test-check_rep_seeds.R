@@ -5,7 +5,7 @@ test_that("check_repeated_seeds works no duplicates", {
     getwd(), "testdata", "testlogs", "no_dups", "current"
   )
 
-  obtained_output <- check_repeated_seeds(logs_path = reference_path)
+  obtained_output <- check_rep_seeds(logs_path = reference_path)
   expected_output <- data.frame(
     "Data" = character(),
     "Models" = character(),
@@ -22,7 +22,7 @@ test_that("check_repeated_seeds works with duplicates", {
     getwd(), "testdata", "testlogs", "dups", "current"
   )
 
-  obtained_output <- check_repeated_seeds(logs_path = reference_path)
+  obtained_output <- check_rep_seeds(logs_path = reference_path)
   expected_output <- data.frame(
     "Data" = "Aldabra_Group",
     "Models" = "cr_di",

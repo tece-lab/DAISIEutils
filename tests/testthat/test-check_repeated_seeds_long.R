@@ -7,10 +7,17 @@ test_that("check_repeated_seeds_long works no duplicates", {
   print("long")
   print(reference_path)
   print(list.files(reference_path))
+  print(getwd())
+  print(list.files(getwd()))
+  print(list.files(getwd(), "testdata"))
+  print(list.files(getwd(), "testdata", "testlogs"))
+  print(list.files(getwd(), "testdata", "testlogs", "no_dups"))
   obtained_output <- check_repeated_seeds_long(logs_path = reference_path)
-  expected_output <- list(
-    duplicated_seeds = character(),
-    duplicated_array_indices = character()
+  expected_output <- data.frame(
+    "Data" = character(),
+    "Models" = character(),
+    "Seeds" = numeric(),
+    "Array_indices" = numeric()
   )
   expect_identical(object = obtained_output, expected = expected_output)
 })

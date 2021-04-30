@@ -30,10 +30,10 @@ test_that("check_repeated_seeds works with duplicates", {
     check_rep_seeds(logs_path = reference_path)
   )
   expected_output <- data.frame(
-    "Data" = "Aldabra_Group",
-    "Models" = "cr_di",
-    "Seeds" = 2994,
-    "Array_indices" = 9
+    "Data" = rep("Aldabra_Group", 2),
+    "Models" = rep("cr_di", 2),
+    "Seeds" = rep(2994, 2),
+    "Array_indices" = c(6, 9)
   )
   expect_identical(object = obtained_output, expected = expected_output)
 })

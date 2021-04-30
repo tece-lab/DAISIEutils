@@ -30,10 +30,10 @@ test_that("check_rep_seeds_depr works with duplicates", {
     check_rep_seeds_depr(logs_path = reference_path)
   )
   expected_output <- data.frame(
-    "Data" = "y_c_min",
-    "Models" = "cr_dd_0laa",
-    "Seeds" = 2922,
-    "Array_indices" = 3
+    "Data" = rep("y_c_min", 2),
+    "Models" = rep("cr_dd_0laa", 2),
+    "Seeds" = rep(2922, 2),
+    "Array_indices" = c(3, 4)
   )
   expect_identical(object = obtained_output, expected = expected_output)
 })

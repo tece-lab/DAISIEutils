@@ -71,6 +71,7 @@ check_rep_seeds <- function(logs_path) {
   }
 
   duplicated_seeds <- seeds[seeds %in% unique(seeds[duplicated(seeds)])]
+  duplicated_seeds <- as.numeric(duplicated_seeds)
   duplicated_seed_indices <- which(seeds %in% unique(seeds[duplicated(seeds)]))
 
   duplicated_data_names <- data_names[duplicated_seed_indices]

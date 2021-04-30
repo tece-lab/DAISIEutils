@@ -52,16 +52,16 @@ check_rep_seeds <- function(logs_path) {
     array_line <- log_heads[[i]][4]
     seed_line <- log_heads[[i]][5]
     testit::assert(
-      fact = "Array line found. Try check_rep_seeds_depr() if this fails",
+      fact = "Array line exists. Try check_rep_seeds_depr() if this fails",
       grepl("Data name:", data_line))
     testit::assert(
-      fact = "Array line found. Try check_rep_seeds_depr() if this fails",
+      fact = "Array line exists. Try check_rep_seeds_depr() if this fails",
       grepl("Running analysis with array index:", array_line))
     testit::assert(
-      fact = "Seed line found. Try check_rep_seeds_depr() if this fails",
+      fact = "Seed line exists. Try check_rep_seeds_depr() if this fails",
       grepl("Running analysis with seed:", seed_line))
     testit::assert(
-      fact = "Seed line found. Try check_rep_seeds_depr() if this fails",
+      fact = "Seed line exists. Try check_rep_seeds_depr() if this fails",
       grepl("Model name:", model_line))
 
     data_names[i] <- sub(".*: ", "", data_line)
@@ -70,8 +70,8 @@ check_rep_seeds <- function(logs_path) {
     seeds[i] <- sub(".*: ", "", seed_line)
   }
 
-  duplicated_seeds <- as.numeric(seeds[duplicated(seeds)])
-  duplicated_seed_indices <- which(duplicated(seeds))
+  duplicated_seeds <- seeds[seeds %in% unique(seeds[duplicated(seeds)])]
+  duplicated_seed_indices <- which(seeds %in% unique(seeds[duplicated(seeds)]))
 
   duplicated_data_names <- data_names[duplicated_seed_indices]
   duplicated_model_names <- model_names[duplicated_seed_indices]

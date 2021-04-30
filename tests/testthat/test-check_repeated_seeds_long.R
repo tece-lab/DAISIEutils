@@ -12,6 +12,7 @@ test_that("check_repeated_seeds_long works no duplicates", {
   print(list.files(file.path(getwd(), "testdata")))
   print(list.files(file.path(getwd(), "testdata", "testlogs")))
   print(list.files(file.path(getwd(), "testdata", "testlogs", "no_dups")))
+  print(list.files(file.path(getwd(), "testdata", "testlogs", "no_dups", "deprecated")))
   obtained_output <- check_repeated_seeds_long(logs_path = reference_path)
   expected_output <- data.frame(
     "Data" = character(),

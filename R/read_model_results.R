@@ -7,7 +7,7 @@
 #'
 #' @author Pedro Neves
 read_model_results <- function(results_root_folder) {
-  tesit::assert(
+  testit::assert(
     "Root folder exists",
     dir.exists(results_root_folder)
   )

@@ -59,7 +59,7 @@
 #' @param array_index A single numeric with the array index. It is used for
 #'   naming the output file.
 #' @param file_path The system directory where the output files will be stored.
-#' @param results A data frame contaning model results as created by
+#' @param results A data frame containing model results as created by
 #'   [run_daisie_ml()]. These results are the [DAISIE::DAISIE_ML_CS()] and the
 #'   bic, and they're saved as an RDS file by [run_daisie_ml()].
 #' @param cond An integer specfying conditioning, as described in

@@ -94,7 +94,7 @@ naming the output file.}
 
 \item{file_path}{The system directory where the output files will be stored.}
 
-\item{results}{A data frame contaning model results as created by
+\item{results}{A data frame containing model results as created by
 \code{\link[=run_daisie_ml]{run_daisie_ml()}}. These results are the \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} and the
 bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 

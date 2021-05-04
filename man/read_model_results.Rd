@@ -11,7 +11,10 @@ read_model_results(results_root_folder)
 subfolders. Each subfolder contains result files for analysis runs.}
 }
 \value{
-Data frame with all the results obtained
+Nested list. First layer corresponds to the data sets, as per the
+folders found in \code{results_root_folder}. The second layer corresponds to the
+models run for each dataset, each containing a 1 row long data frame with
+the of the alternate seed runs for each model.
 }
 \description{
 Reads \code{run_daisie_ml()} results

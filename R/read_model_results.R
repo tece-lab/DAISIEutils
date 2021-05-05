@@ -64,6 +64,11 @@ read_model_results <- function(results_root_folder) {
           x = result_files
         )
     )
+    bool_indices <- unlist(lapply(model_files_bools, which))
+    testit::assert(
+      fact = "Models read without duplicates",
+      all(!duplicated(bool_indices)
+      ))
 
     model_list <- list()
     for (i in seq_along(model_files_bools)) {

@@ -5,13 +5,11 @@ on:
     branches:
       - master
       - develop
-      - read_results
 
   pull_request:
     branches:
       - master
       - develop
-      - read_results
 
 name: R-CMD-check
 

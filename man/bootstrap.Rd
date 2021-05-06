@@ -77,8 +77,9 @@ purposes, to fix the seed.}
 }
 \value{
 Nothing. Writes bootstrapping results to a \code{.rds} file. This
-file is stored in \code{file_path}. The directory in of \code{file_path} is created
-if it doesn't exist.
+file is stored in \verb{$HOME/results/data_name} if running on the cluster or
+\verb{/results/data_name} if running locally. The directory is created if it
+doesn't exist.
 }
 \description{
 Runs a bootstrapping on a DAISIE model to determine parameter precision

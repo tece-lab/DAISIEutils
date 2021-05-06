@@ -3,8 +3,9 @@
 #' @inheritParams default_params_doc
 #'
 #' @return Nothing. Writes bootstrapping results to a `.rds` file. This
-#'   file is stored in `file_path`. The directory in of `file_path` is created
-#'   if it doesn't exist.
+#'   file is stored in `$HOME/results/data_name` if running on the cluster or
+#'   `/results/data_name` if running locally. The directory is created if it
+#'   doesn't exist.
 #' @export
 #'
 #' @examples

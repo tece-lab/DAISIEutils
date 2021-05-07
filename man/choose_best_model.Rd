@@ -13,6 +13,8 @@ likelihood model}
 \value{
 A list of length one, with a data frame of 1 row containing the best
 estimated models from the given seeds, as determined by the loglik.
+If no model was estimated successfully, returns similar structure with all
+fields as \code{NA}.
 }
 \description{
 From multiple seeds, choose the best model fit

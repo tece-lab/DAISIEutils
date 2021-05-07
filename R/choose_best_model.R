@@ -9,8 +9,12 @@
 #' @author Pedro Neves
 choose_best_model <- function(model_lik_res) {
   logliks <- unlist(lapply(X = model_lik_res, FUN = "[[", "loglik"))
-  best_loglik_index <- which(logliks == max(logliks, na.rm = TRUE))
-  best_model <- model_lik_res[best_loglik_index]
+  if (all(is.na(logliks))) {
+    best_model <- model_lik_res[1]
+  } else {
+    best_loglik_index <- which(logliks == max(logliks, na.rm = TRUE))
+    best_model <- model_lik_res[best_loglik_index]
+  }
   testit::assert(length(best_model) == 1)
 
   return(best_model[[1]])

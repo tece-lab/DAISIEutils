@@ -39,7 +39,7 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_bootstrap.sh Aldabra_Group cr_di cr_dd relaxedDAISIE 5
+# sbatch DAISIEutils/bash/submit_bootstrap.sh Aldabra_Group cr_di relaxedDAISIE 5
 ################################################################################
 
 

@@ -19,7 +19,8 @@
 #' @author Joshua W. Lambert
 sensitivity <- function(
   data_names,
-  full_output = FALSE) {
+  full_output = FALSE,
+  save_to_file = TRUE) {
 
   print_metadata(
     data_name = paste0(data_names, collapse = "_"),
@@ -109,8 +110,12 @@ sensitivity <- function(
   if (full_output) {
     output$full_output <- best_models_list
   }
-  saveRDS(
-    output,
-    file = file_path
-  )
+  if (isTRUE(save_to_file)) {
+    saveRDS(
+      output,
+      file = file_path
+    )
+  } else if (isFALSE(save_to_file)) {
+    return(output)
+  }
 }

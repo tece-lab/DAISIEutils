@@ -4,7 +4,7 @@
 \alias{sensitivity}
 \title{Read the results of \code{\link[=run_daisie_ml]{run_daisie_ml()}} and compares model selection}
 \usage{
-sensitivity(data_names, full_output = FALSE)
+sensitivity(data_names, full_output = FALSE, save_to_file = TRUE)
 }
 \arguments{
 \item{data_names}{A vector of strings with the names of the data sets you
@@ -12,6 +12,9 @@ want to compare sensitivity.}
 
 \item{full_output}{A boolean determining whether the full model output is
 returned.}
+
+\item{save_to_file}{Boolean, defaults to \code{TRUE}. If \code{TRUE}, results will
+saved to file. If \code{FALSE}, results will be returned to the environment.}
 }
 \value{
 List

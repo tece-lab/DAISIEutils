@@ -87,7 +87,9 @@
 #' @param test A boolean, defaults to `FALSE`. Set to `TRUE` for testing
 #'   purposes, to fix the seed.
 #' @param logs_path Character with path to the folder containing logs. Only log
-#' files should be present, in plain text format.
+#'   files should be present, in plain text format.
+#' @param save_to_file Boolean, defaults to `TRUE`. If `TRUE`, results will
+#'   saved to file. If `FALSE`, results will be returned to the environment.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -111,6 +113,7 @@ default_params_doc <- function(
   full_output,
   seed,
   test,
-  logs_path) {
+  logs_path,
+  save_to_file) {
   # Nothing
 }

@@ -77,7 +77,8 @@ run_daisie_ml <- function(
     idparsfix = idparsfix,
     ddmodel = ddmodel,
     cond = cond,
-    CS_version = cs_version
+    CS_version = cs_version,
+    optimmethod = "simplex"
   )
 
   bic <- calc_bic(results = lik_res, data = data)

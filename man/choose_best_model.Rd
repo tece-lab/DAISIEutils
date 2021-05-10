@@ -8,7 +8,7 @@ choose_best_model(model_lik_res)
 }
 \arguments{
 \item{model_lik_res}{A data frame with results from a DAISIE maximum
-likelihood model}
+likelihood model.}
 }
 \value{
 A list of length one, with a data frame of 1 row containing the best

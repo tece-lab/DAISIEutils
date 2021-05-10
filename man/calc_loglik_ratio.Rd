@@ -8,10 +8,10 @@ calc_loglik_ratio(model_1_lik_res, model_2_lik_res)
 }
 \arguments{
 \item{model_1_lik_res}{A data frame with results from a DAISIE maximum
-likelihood model}
+likelihood model.}
 
 \item{model_2_lik_res}{A data frame with results from a DAISIE maximum
-likelihood model}
+likelihood model.}
 }
 \value{
 Numeric likelihood ratio

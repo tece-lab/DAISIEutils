@@ -98,7 +98,7 @@ naming the output file.}
 \code{\link[=run_daisie_ml]{run_daisie_ml()}}. These results are the \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} and the
 bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
-\item{cond}{An integer specfying conditioning, as described in
+\item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
 \item{model_1}{A string with model that should run. For a list of options
@@ -108,22 +108,22 @@ see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_
 see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
 \item{model_1_lik_res}{A data frame with results from a DAISIE maximum
-likelihood model}
+likelihood model.}
 
 \item{model_2_lik_res}{A data frame with results from a DAISIE maximum
-likelihood model}
+likelihood model.}
 
 \item{model_lik_res}{A data frame with results from a DAISIE maximum
-likelihood model}
+likelihood model.}
 
 \item{lik_res}{A data frame with results from a DAISIE maximum likelihood
-model}
+model.}
 
 \item{data_names}{A vector of strings with the names of the data sets you
-want to compare sensitivity}
+want to compare sensitivity.}
 
-\item{full_output}{A boolean determining whether the full model ouput is
-returned in \code{\link[=sensitivity]{sensitivity()}}.}
+\item{full_output}{A boolean determining whether the full model output is
+returned.}
 
 \item{seed}{Integer with value to be used as the seed for Mersenne-Twister.
 This value is determined by \code{\link[=Sys.time]{Sys.time()}} and \code{array_index} to ensure

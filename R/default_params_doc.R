@@ -62,24 +62,24 @@
 #' @param results A data frame containing model results as created by
 #'   [run_daisie_ml()]. These results are the [DAISIE::DAISIE_ML_CS()] and the
 #'   bic, and they're saved as an RDS file by [run_daisie_ml()].
-#' @param cond An integer specfying conditioning, as described in
+#' @param cond An integer specifying conditioning, as described in
 #'   [DAISIE::DAISIE_ML_CS()].
 #' @param model_1 A string with model that should run. For a list of options
 #'   see documentation for \code{model} parameter in [run_daisie_ml()].
 #' @param model_2 A string with model that should run. For a list of options
 #'   see documentation for \code{model} parameter in [run_daisie_ml()].
 #' @param model_1_lik_res A data frame with results from a DAISIE maximum
-#'   likelihood model
+#'   likelihood model.
 #' @param model_2_lik_res A data frame with results from a DAISIE maximum
-#'   likelihood model
+#'   likelihood model.
 #' @param model_lik_res A data frame with results from a DAISIE maximum
-#'   likelihood model
+#'   likelihood model.
 #' @param lik_res A data frame with results from a DAISIE maximum likelihood
-#'   model
+#'   model.
 #' @param data_names A vector of strings with the names of the data sets you
-#'   want to compare sensitivity
-#' @param full_output A boolean determining whether the full model ouput is
-#'   returned in [sensitivity()].
+#'   want to compare sensitivity.
+#' @param full_output A boolean determining whether the full model output is
+#'   returned.
 #' @param seed Integer with value to be used as the seed for Mersenne-Twister.
 #'   This value is determined by [Sys.time()] and `array_index` to ensure
 #'   parallel jobs have different seeds. Only the last 6 digits of the

@@ -8,10 +8,10 @@ sensitivity(data_names, full_output = FALSE)
 }
 \arguments{
 \item{data_names}{A vector of strings with the names of the data sets you
-want to compare sensitivity}
+want to compare sensitivity.}
 
-\item{full_output}{A boolean determining whether the full model ouput is
-returned in \code{\link[=sensitivity]{sensitivity()}}.}
+\item{full_output}{A boolean determining whether the full model output is
+returned.}
 }
 \value{
 List

@@ -32,7 +32,7 @@ see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_
 \item{array_index}{A single numeric with the array index. It is used for
 naming the output file.}
 
-\item{cond}{An integer specfying conditioning, as described in
+\item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing

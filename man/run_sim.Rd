@@ -64,9 +64,9 @@ relaxed cladogenesis, and no anagenesis (laa fixed to zero)
 }}
 
 \item{lik_res}{A data frame with results from a DAISIE maximum likelihood
-model}
+model.}
 
-\item{cond}{An integer specfying conditioning, as described in
+\item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 }
 \value{

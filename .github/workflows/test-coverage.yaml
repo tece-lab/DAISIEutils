@@ -3,11 +3,13 @@ on:
     branches:
       - master
       - develop
+      - return
 
   pull_request:
     branches:
       - master
       - develop
+      - return
 
 name: test-coverage
 

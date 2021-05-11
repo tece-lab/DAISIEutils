@@ -21,11 +21,6 @@ sensitivity <- function(
   data_names,
   full_output = FALSE) {
 
-  print_metadata(
-    data_name = paste0(data_names, collapse = "_"),
-    model = "sens",
-    array_index = NA,
-    seed = NA)
   file_path <- create_output_folder(
     data_name = paste0(data_names, collapse = "_"),
     model = "sens",

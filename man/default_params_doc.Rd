@@ -23,8 +23,7 @@ default_params_doc(
   full_output,
   seed,
   test,
-  logs_path,
-  save_to_file
+  logs_path
 )
 }
 \arguments{
@@ -136,9 +135,6 @@ purposes, to fix the seed.}
 
 \item{logs_path}{Character with path to the folder containing logs. Only log
 files should be present, in plain text format.}
-
-\item{save_to_file}{Boolean, defaults to \code{TRUE}. If \code{TRUE}, results will
-saved to file. If \code{FALSE}, results will be returned to the environment.}
 }
 \value{
 Nothing

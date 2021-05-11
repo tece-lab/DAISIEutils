@@ -68,7 +68,7 @@ sensitivity <- function(
   ranked_models <- list()
 
   ranked_models <- lapply(best_models_list, function(x) {
-    sort(sapply(x, "[[", 9), decreasing = FALSE)
+    sort(sapply(x, `[[`, "bic"), decreasing = FALSE)
   })
 
   names_ranked_models <- lapply(ranked_models, names)

@@ -65,6 +65,12 @@ sensitivity <- function(
     names(best_models_list[[i]]) <- list_names
   }
   names(best_models_list) <- data_names
+
+  for (data_name in data_names) {
+    best_models_list[[data_name]][sapply(
+      best_models_list[[data_name]], is.null)] <- NULL
+  }
+
   ranked_models <- list()
 
   ranked_models <- lapply(best_models_list, function(x) {

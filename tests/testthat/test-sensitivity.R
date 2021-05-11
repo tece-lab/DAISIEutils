@@ -23,11 +23,7 @@ test_that("sensitivity works", {
   azores_alt_m_folder <- dirname(azores_alt_m_filepath)
   expect_true(all(file.copy(reference_files, azores_alt_m_folder)))
 
-  sensitivity(data_names = data_names, full_output = TRUE)
-
-  obtained_result <- readRDS(file.path(
-    getwd(), "results", "Azores_Azores_alt_m", "Azores_Azores_alt_m.rds")
-  )
+  obtained_result <- sensitivity(data_names = data_names, full_output = TRUE)
 
   expected_result <- readRDS(file.path(
     getwd(), "testdata/Azores_Azores_alt_m.rds")

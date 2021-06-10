@@ -2,7 +2,7 @@
 
 -   `choose_best_model()` correctly handles results where no model was estimated successfully, and returns `NA` appropriately.
 
--   `sensitivity()` now works correctly regardless of the number of parameters used to estimate the chosen models. This means relaxed-rate models and any model fitting that returns results with more than the base `DAISIE` parameters is accomodated.
+-   `sensitivity()` now works correctly regardless of the number of parameters used to estimate the chosen models. This means relaxed-rate models and any model fitting that returns results with more than the base `DAISIE` parameters is accommodated.
 
 -   `sensitivity()` no longer saves to file and instead returns results to the environment.
 

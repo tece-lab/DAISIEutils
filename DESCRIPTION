@@ -1,7 +1,7 @@
 Package: DAISIEutils
 Title: Utility Functions for the DAISIE Package
-Date: 2021-04-26
-Version: 1.0.0
+Date: 2021-06-10
+Version: 1.1.0
 Authors@R: c(
     person(given = "Pedro",
            family = "Neves",

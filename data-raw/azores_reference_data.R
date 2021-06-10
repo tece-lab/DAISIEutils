@@ -30,6 +30,13 @@ for (model in models) {
   }
 }
 
+sens_out <- sensitivity(
+  data_names = c("Azores", "Azores_alt_m"),
+  full_output = TRUE
+)
+
+saveRDS(sens_out, "results/Azores_Azores_alt_m.rds")
+
 for (array_index in array_indices) {
   bootstrap_lr(
     data = Azores,
@@ -50,4 +57,3 @@ for (array_index in array_indices) {
   )
 }
 
-sensitivity(data_names = c("Azores", "Azores_alt_m"), full_output = TRUE)

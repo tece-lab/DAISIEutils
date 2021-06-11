@@ -49,6 +49,7 @@ sensitivity <- function(
         full.names = TRUE,
         pattern = paste0(expected_models[j], "_[0-9].rds$"))
 
+      print(data_files)
       if (length(data_files) > 0) {
         data_lik_res <- lapply(data_files, readRDS)
         best_model <- choose_best_model(data_lik_res)

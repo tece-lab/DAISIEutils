@@ -20,7 +20,7 @@ test_that("calc_p_value produces correct output", {
   expect_true(all(file.copy(reference_files, results_folder)))
 
   output <- calc_p_value(data = Azores)
-  expected_output <- 0.83333333
+  expected_output <- 0.33333333
   expect_equal(output, expected_output)
 
   # Delete temp folder

@@ -30,3 +30,8 @@ DAISIEutils allows a researcher to easily accomplish the following tasks:
 * Choose best fitting models.
 * Run bootstrap likelihood ratio tests.
 * Test the sensitivity of results to changing data sets.
+
+## Support/Questions
+For feature requests or bug-reports, please submit an [issue](https://github.com/tece-lab/DAISIEutils/issues/new).
+
+For other matters, contact the authors: [@Neves-P](https://github.com/Neves-P) or [@joshwlambert](https://github.com/joshwlambert).

@@ -10,6 +10,14 @@ The goal of DAISIEutils is to collect useful utility functions that
     are used recurently in DAISIE projects. DAISIEutils is a companion package 
     of the R package DAISIE.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/tece-lab/DAISIEutils}
+  \item Report bugs at \url{https://github.com/tece-lab/DAISIEutils/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Pedro Neves \email{p.m.santos.neves@rug.nl} (\href{https://orcid.org/0000-0003-2561-4677}{ORCID})
 

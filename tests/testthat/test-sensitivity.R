@@ -4,7 +4,12 @@ test_that("sensitivity works", {
 
   # Place files need for sensitivity
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "*.rds"
+    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "Azores_cr_d*"
+  )
+  reference_files_alt <- list.files(
+    file.path(getwd(), "testdata/"),
+    full.names = TRUE,
+    pattern = "Azores_alt_m_d*"
   )
   azores_filepath <- create_output_folder(
     data_name = data_names[1],
@@ -21,7 +26,7 @@ test_that("sensitivity works", {
   expect_true(all(file.copy(reference_files, azores_folder)))
 
   azores_alt_m_folder <- dirname(azores_alt_m_filepath)
-  expect_true(all(file.copy(reference_files, azores_alt_m_folder)))
+  expect_true(all(file.copy(reference_files_alt, azores_alt_m_folder)))
 
   obtained_result <- sensitivity(data_names = data_names, full_output = TRUE)
 

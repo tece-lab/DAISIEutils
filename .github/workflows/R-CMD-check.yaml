@@ -2,16 +2,9 @@
 # https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
 on:
   push:
-    branches:
-      - master
-      - develop
-      - return
-
   pull_request:
-    branches:
-      - master
-      - develop
-      - return
+  schedule:
+  - cron: "0 0 * * *"
 
 name: R-CMD-check
 

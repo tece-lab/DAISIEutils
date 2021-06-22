@@ -1,15 +1,8 @@
 on:
   push:
-    branches:
-      - master
-      - develop
-      - return
-
   pull_request:
-    branches:
-      - master
-      - develop
-      - return
+  schedule:
+  - cron: "0 0 * * *"
 
 name: test-coverage
 

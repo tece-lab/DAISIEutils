@@ -2,14 +2,32 @@
 #'
 #' Reads the results of [run_daisie_ml()] and compares model selection to
 #' determine sensitivity to different data input into the same model or set of
-#' models. The [run_daisie_ml()] results are expected to be within `results/`
-#' folder in the current working directory.
-#'
+#' models. The [run_daisie_ml()] results are expected to be located
+#' in sub folders within the `results/` folder in the current working directory.
+#' These sub folders must have the same names as the elements of `data_names`.
 #'
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return List
+#' @return
+#' A list of 3 elements if `full_output` is `FALSE`, or of 4 elements if
+#' `TRUE`. The elements are as follows:
+#' \describe{
+#'   \item{`best_fit_sensitivity`}{A character vector of length one, which
+#'   reports whether the best fit model is sensitive to the input.}
+#'   \item{`model_selection_sensitivity`}{A character vector of length one,
+#'   which reports whether the rank (or order) of the model selection is
+#'   sensitive to the input.}
+#'   \item{`model_selection_rank`}{A named list of as many elements as the there
+#'   are models in `data_names`. Each named list contains a sorted named vector
+#'   with the corresponding BIC value of each fit model. The sort is always
+#'   ascending.}
+#'   \item{`full_output`}{Only returned if `full_output` is `TRUE`. A named list
+#'   with a similar structure as `model_selection_rank`. Instead of named
+#'   vectors with the BIC values, however, the full [run_daisie_ml()] data frame
+#'   output is returned. This is a one row data frame, with the parameter
+#'   estimates, degrees of freedom, convergence information and BIC value.}
+#' }
 #' @export
 #'
 #' @examples

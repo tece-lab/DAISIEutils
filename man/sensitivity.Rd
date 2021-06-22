@@ -14,12 +14,31 @@ want to compare sensitivity.}
 returned.}
 }
 \value{
-List
+A list of 3 elements if \code{full_output} is \code{FALSE}, or of 4 elements if
+\code{TRUE}. The elements are as follows:
+\describe{
+\item{\code{best_fit_sensitivity}}{A character vector of length one, which
+reports whether the best fit model is sensitive to the input.}
+\item{\code{model_selection_sensitivity}}{A character vector of length one,
+which reports whether the rank (or order) of the model selection is
+sensitive to the input.}
+\item{\code{model_selection_rank}}{A named list of as many elements as the there
+are models in \code{data_names}. Each named list contains a sorted named vector
+with the corresponding BIC value of each fit model. The sort is always
+ascending.}
+\item{\code{full_output}}{Only returned if \code{full_output} is \code{TRUE}. A named list
+with a similar structure as \code{model_selection_rank}. Instead of named
+vectors with the BIC values, however, the full \code{\link[=run_daisie_ml]{run_daisie_ml()}} data frame
+output is returned. This is a one row data frame, with the parameter
+estimates, degrees of freedom, convergence information and BIC value.}
+}
 }
 \description{
 Reads the results of \code{\link[=run_daisie_ml]{run_daisie_ml()}} and compares model selection to
 determine sensitivity to different data input into the same model or set of
-models.
+models. The \code{\link[=run_daisie_ml]{run_daisie_ml()}} results are expected to be located
+in sub folders within the \verb{results/} folder in the current working directory.
+These sub folders must have the same names as the elements of \code{data_names}.
 }
 \examples{
 \dontrun{

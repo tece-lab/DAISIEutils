@@ -6,6 +6,10 @@
 
 -   `sensitivity()` no longer saves to file and instead returns results to the environment.
 
+-   Improved `sensitivity()` documentation.
+
+-   Depend on and install `DAISIE` v4.0.2.
+
 # DAISIEutils 1.0.0
 
 -   Complete overhaul of package.

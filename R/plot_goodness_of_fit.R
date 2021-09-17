@@ -218,10 +218,13 @@ plot_bootstrap_results <- function(overall_results, sumstats = c(65,5,28,1), yli
           ylim = c(0, ylim4))
 }
 
-#dataset_CS <- 'd:/data/tex/Etienne et al 2019/frogs_sim_CS_T30_M1000_R5000.RData'
-#dataset_IW <- 'd:/data/tex/Etienne et al 2019/frogs_sim_IW_T30_M1000_R5000.RData'
-#overall_results_CS <- summarize_bootstrap_results(simulation_dataset = dataset_CS)
-#overall_results_IW <- summarize_bootstrap_results(simulation_dataset = dataset_IW)
-#par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
-#plot_bootstrap_results(overall_results = overall_results_CS, title = 'Simulated under CS')
-#plot_bootstrap_results(overall_results = overall_results_IW, title = 'Simulated under IW')
+make_CSvsIW_plots <- function()
+{
+  dataset_CS <- 'd:/data/tex/Etienne et al 2019/frogs_sim_CS_T30_M1000_R5000.RData'
+  dataset_IW <- 'd:/data/tex/Etienne et al 2019/frogs_sim_IW_T30_M1000_R5000.RData'
+  overall_results_CS <- DAISIEutils::summarize_bootstrap_results(simulation_dataset = dataset_CS)
+  overall_results_IW <- DAISIEutils::summarize_bootstrap_results(simulation_dataset = dataset_IW)
+  par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
+  DAISIEutils::plot_bootstrap_results(overall_results = overall_results_CS, title = 'Simulated under CS')
+  DAISIEutils::plot_bootstrap_results(overall_results = overall_results_IW, title = 'Simulated under IW')
+}  

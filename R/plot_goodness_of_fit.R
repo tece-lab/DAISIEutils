@@ -9,7 +9,7 @@
 #' @param m_pool size of the mainland pool
 #' @param time age of the island or archipelago
 #' @return overall_results a list of results
-#' @author Rampal S. Etienne
+#' @author Rampal S. Etienne & Luis Valente
 #' @export summarize_bootstrap_results
 summarize_bootstrap_results <- function(simulation_dataset, empirical_summary_statistics, m_pool = 1000)
 {
@@ -170,7 +170,7 @@ summarize_bootstrap_results <- function(simulation_dataset, empirical_summary_st
 #' @return none Four plots are shown: histogram of the number of species,
 #' histogram of the number of colonizations, histogram of the largest clade size
 #' and histogram of the rank of the largest clade
-#' @author Rampal S. Etienne
+#' @author Rampal S. Etienne & Luis Valente
 #' @export plot_bootstrap_results
 plot_bootstrap_results <- function(overall_results, sumstats = c(65,5,28,1), ylim4 = 0.7, title = NULL)
 {

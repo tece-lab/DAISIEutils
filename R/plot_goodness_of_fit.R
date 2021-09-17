@@ -13,13 +13,38 @@
 #' @export summarize_bootstrap_results
 #' @examples
 #' \dontrun{
-#' dataset_CS <- 'd:/data/tex/Etienne et al 2019/frogs_sim_CS_T30_M1000_R5000.RData'
-#' dataset_IW <- 'd:/data/tex/Etienne et al 2019/frogs_sim_IW_T30_M1000_R5000.RData'
-#' overall_results_CS <- DAISIEutils::summarize_bootstrap_results(
-#'   simulation_dataset = dataset_CS
+#' clado_rate <- 0.5
+#' ext_rate <- 0.2
+#' carr_cap <- Inf
+#' immig_rate <- 0.005
+#' ana_rate <- 1
+#' sim_pars <- c(clado_rate, ext_rate, carr_cap, immig_rate, ana_rate)
+#' set.seed(1)
+#'
+#' dataset_cs <- DAISIE::DAISIE_sim_constant_rate(
+#'   time = 10,
+#'   M = 1000,
+#'   pars = sim_pars,
+#'   replicates = 2,
+#'   plot_sims = FALSE,
+#'   verbose = FALSE,
+#'   divdepmodel = "CS"
 #' )
-#' overall_results_IW <- DAISIEutils::summarize_bootstrap_results(
-#'   simulation_dataset = dataset_IW
+#'
+#' dataset_iw <- DAISIE::DAISIE_sim_constant_rate(
+#'   time = 10,
+#'   M = 1000,
+#'   pars = sim_pars,
+#'   replicates = 2,
+#'   plot_sims = FALSE,
+#'   verbose = FALSE,
+#'   divdepmodel = "IW"
+#' )
+#' overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
+#'   simulation_dataset = dataset_cs
+#' )
+#' overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
+#'   simulation_dataset = dataset_iw
 #' )
 #' par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
 #' DAISIEutils::plot_bootstrap_results(
@@ -134,7 +159,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
 
   datasets5 <- list()
   for(i in 1:length(simulation_dataset)) {
-    if(length(simulation_dataset[[i]]) == 6) {
+    if(length(simulation_dataset[[i]]) == 6) { #typo?
       pl <- length(datasets5) + 1
       datasets5[[pl]] <- simulation_dataset[[i]]
     }

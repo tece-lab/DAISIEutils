@@ -58,16 +58,6 @@ overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
 overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
   simulation_dataset = dataset_iw
 )
-)
-par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
-DAISIEutils::plot_bootstrap_results(
-  overall_results = overall_results_cs,
-  title = 'Simulated under CS'
-)
-DAISIEutils::plot_bootstrap_results(
-  overall_results = overall_results_iw,
-  title = 'Simulated under IW'
-)
 }
 }
 \author{

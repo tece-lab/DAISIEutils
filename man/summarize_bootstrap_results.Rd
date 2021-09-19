@@ -4,20 +4,16 @@
 \alias{summarize_bootstrap_results}
 \title{Computes summary results of bootstrap simulations useful for plotting}
 \usage{
-summarize_bootstrap_results(
-  simulation_dataset,
-  empirical_summary_statistics,
-  m_pool = 1000
-)
+summarize_bootstrap_results(simulation_dataset, m_pool = 1000)
 }
 \arguments{
 \item{simulation_dataset}{output of DAISIE_sim}
 
+\item{m_pool}{size of the mainland pool}
+
 \item{empirical_summary_statistics}{vector with the number of species, number
 of colonization, size of the largest clade and the rank of the largest clade
 in the empirical data}
-
-\item{m_pool}{size of the mainland pool}
 
 \item{time}{age of the island or archipelago}
 }
@@ -29,21 +25,47 @@ The output is a list of results
 }
 \examples{
 \dontrun{
-dataset_CS <- 'd:/data/tex/Etienne et al 2019/frogs_sim_CS_T30_M1000_R5000.RData'
-dataset_IW <- 'd:/data/tex/Etienne et al 2019/frogs_sim_IW_T30_M1000_R5000.RData'
-overall_results_CS <- DAISIEutils::summarize_bootstrap_results(
-  simulation_dataset = dataset_CS
+clado_rate <- 0.5
+ext_rate <- 0.2
+carr_cap <- Inf
+immig_rate <- 0.005
+ana_rate <- 1
+sim_pars <- c(clado_rate, ext_rate, carr_cap, immig_rate, ana_rate)
+set.seed(1)
+
+dataset_cs <- DAISIE::DAISIE_sim_constant_rate(
+  time = 10,
+  M = 1000,
+  pars = sim_pars,
+  replicates = 10,
+  plot_sims = FALSE,
+  verbose = FALSE,
+  divdepmodel = "CS"
 )
-overall_results_IW <- DAISIEutils::summarize_bootstrap_results(
-  simulation_dataset = dataset_IW
+
+dataset_iw <- DAISIE::DAISIE_sim_constant_rate(
+  time = 10,
+  M = 1000,
+  pars = sim_pars,
+  replicates = 10,
+  plot_sims = FALSE,
+  verbose = FALSE,
+  divdepmodel = "IW"
+)
+overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
+  simulation_dataset = dataset_cs
+)
+overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
+  simulation_dataset = dataset_iw
+)
 )
 par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
 DAISIEutils::plot_bootstrap_results(
-  overall_results = overall_results_CS,
+  overall_results = overall_results_cs,
   title = 'Simulated under CS'
 )
 DAISIEutils::plot_bootstrap_results(
-  overall_results = overall_results_IW,
+  overall_results = overall_results_iw,
   title = 'Simulated under IW'
 )
 }

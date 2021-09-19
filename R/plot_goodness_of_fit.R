@@ -25,7 +25,7 @@
 #'   time = 10,
 #'   M = 1000,
 #'   pars = sim_pars,
-#'   replicates = 2,
+#'   replicates = 10,
 #'   plot_sims = FALSE,
 #'   verbose = FALSE,
 #'   divdepmodel = "CS"
@@ -35,7 +35,7 @@
 #'   time = 10,
 #'   M = 1000,
 #'   pars = sim_pars,
-#'   replicates = 2,
+#'   replicates = 10,
 #'   plot_sims = FALSE,
 #'   verbose = FALSE,
 #'   divdepmodel = "IW"
@@ -46,18 +46,18 @@
 #' overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
 #'   simulation_dataset = dataset_iw
 #' )
+#' )
 #' par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
 #' DAISIEutils::plot_bootstrap_results(
-#'   overall_results = overall_results_CS,
+#'   overall_results = overall_results_cs,
 #'   title = 'Simulated under CS'
 #' )
 #' DAISIEutils::plot_bootstrap_results(
-#'   overall_results = overall_results_IW,
+#'   overall_results = overall_results_iw,
 #'   title = 'Simulated under IW'
 #' )
 #' }
 summarize_bootstrap_results <- function(simulation_dataset,
-                                        empirical_summary_statistics,
                                         m_pool = 1000) {
   replicates <- length(simulation_dataset)
 
@@ -79,9 +79,10 @@ summarize_bootstrap_results <- function(simulation_dataset,
     the_island <- simulation_dataset[[i]]
     number_colonists <- append(
       number_colonists,
-      m_pool - the_island[[1]]$not_present)
+      m_pool - the_island[[1]]$not_present
+    )
     number_stac0 <- append(number_stac0, the_island[[1]]$not_present)
-    unlist(the_island) -> u_island
+    u_island <- unlist(the_island)
 
     if (the_island[[1]]$not_present == m_pool) {
       number_spec <- append(number_spec, 0)
@@ -95,12 +96,12 @@ summarize_bootstrap_results <- function(simulation_dataset,
     } else {
       s <- NULL
       cc <- NULL
-      for(j in 2:length(the_island)) {
-        if(is.null(the_island[[j]]$all_colonisations)) {
+      for (j in 2:length(the_island)) {
+        if (is.null(the_island[[j]]$all_colonisations)) {
           s <- c(s, length(the_island[[j]]$branching_times) - 1)
           cc <- c(cc, the_island[[j]]$branching_times[2])
         } else {
-          for(k in 1:length(the_island[[j]]$all_colonisations)) {
+          for (k in 1:length(the_island[[j]]$all_colonisations)) {
             s <- c(
               s,
               length(the_island[[j]]$all_colonisations[[k]]$event_times) - 1
@@ -111,7 +112,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
       }
       scc <- sort(cc, decreasing = TRUE)
       rank_largest_clade <- c(rank_largest_clade,which(scc == cc[which.max(s)]))
-      number_spec <- append(number_spec,sum(s))
+      number_spec <- append(number_spec, sum(s))
       number_stac1 <- append(
         number_stac1,
         length(which(u_island[which(names(u_island) == "stac")] == 1))
@@ -158,16 +159,16 @@ summarize_bootstrap_results <- function(simulation_dataset,
   the_prop_youngest <- c()
 
   datasets5 <- list()
-  for(i in 1:length(simulation_dataset)) {
-    if(length(simulation_dataset[[i]]) == 6) { #typo?
+  for (i in seq_along(simulation_dataset)) {
+    if (length(simulation_dataset[[i]]) > 6) { #typo?
       pl <- length(datasets5) + 1
       datasets5[[pl]] <- simulation_dataset[[i]]
     }
   }
 
-  for(i in 1:length(datasets5)) {
+  for (i in seq_along(datasets5)) {
     island <- datasets5[[i]]
-    if(length(island) == 1) {
+    if (length(island) == 1) {
       the_prop <- append(the_prop, 0)
       the_prop_youngest <- append(the_prop_youngest, 0)
     } else {
@@ -177,7 +178,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
       btimes <- list()
       colonisation_time <- c()
       diversity <- c()
-      for (o in 1:length(stac_age_known)) {
+      for (o in seq_along(stac_age_known)) {
         btimes[[o]] <- island[[stac_age_known[o]]]$branching_times[-1]
         colonisation_time[o] <- max(btimes[[o]])
         diversity[o] <- length(btimes[[o]]) +
@@ -187,7 +188,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
       seque <- cbind(colonisation_time, diversity)
       seque <- seque[rev(order(seque[, 1])), ]
 
-      if(is.matrix(seque)){
+      if (is.matrix(seque)){
         the_prop <- append(the_prop, as.numeric(seque[1, 2]/sum(seque[, 2])))
         the_prop_youngest <- append(
           the_prop_youngest,
@@ -195,7 +196,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
         )
       }
 
-      if(is.numeric(seque)){
+      if (is.numeric(seque)){
         the_prop <- append(the_prop, 1)
         the_prop_youngest <- append(the_prop_youngest, 1)
       }
@@ -205,7 +206,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
   tt <- matrix(ncol = 2, nrow = 5)
   tt[1:5,1] <- 1:5
   tt[1:5,2] <- hist(x = rank_largest_clade,
-                    breaks = seq(0.5,max(rank_largest_clade) + 0.5, by = 1),
+                    breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
                     plot = FALSE)$density[1:5]
 
   overall_results <- list(number_colonists = number_colonists,
@@ -238,7 +239,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
 #'   histogram of the number of colonizations, histogram of the largest clade
 #'   size and histogram of the rank of the largest clade.
 #' @author Rampal S. Etienne & Luis Valente
-#' @export plot_bootstrap_results
+#' @export
 plot_bootstrap_results <- function(overall_results,
                                    sumstats = c(65,5,28,1),
                                    ylim4 = 0.7,

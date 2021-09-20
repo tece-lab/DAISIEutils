@@ -49,7 +49,6 @@
 #' }
 summarize_bootstrap_results <- function(simulation_dataset,
                                         m_pool = 1000) {
-  replicates <- length(simulation_dataset)
 
   # Calculate overall species richness and colonization statistics across
   # all islands
@@ -65,7 +64,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
   size_smallest_clade <- c()
   rank_largest_clade <- c()
 
-  for (i in seq_along(replicates)) {
+  for (i in seq_along(simulation_dataset)) {
     the_island <- simulation_dataset[[i]]
     number_colonists <- append(
       number_colonists,
@@ -101,7 +100,10 @@ summarize_bootstrap_results <- function(simulation_dataset,
         }
       }
       scc <- sort(cc, decreasing = TRUE)
-      rank_largest_clade <- c(rank_largest_clade,which(scc == cc[which.max(s)]))
+      rank_largest_clade <- c(
+        rank_largest_clade,
+        which(scc == cc[which.max(s)])
+      )
       number_spec <- append(number_spec, sum(s))
       number_stac1 <- append(
         number_stac1,
@@ -150,7 +152,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
 
   datasets5 <- list()
   for (i in seq_along(simulation_dataset)) {
-    if (length(simulation_dataset[[i]]) > 6) { #typo?
+    if (length(simulation_dataset[[i]]) == 6) { #typo?
       pl <- length(datasets5) + 1
       datasets5[[pl]] <- simulation_dataset[[i]]
     }
@@ -179,7 +181,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
       seque <- seque[rev(order(seque[, 1])), ]
 
       if (is.matrix(seque)){
-        the_prop <- append(the_prop, as.numeric(seque[1, 2]/sum(seque[, 2])))
+        the_prop <- append(the_prop, as.numeric(seque[1, 2] / sum(seque[, 2])))
         the_prop_youngest <- append(
           the_prop_youngest,
           as.numeric(seque[nrow(seque), 2] / sum(seque[, 2]))
@@ -276,7 +278,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
 #'   title = 'Simulated under IW'
 #' )
 plot_bootstrap_results <- function(overall_results,
-                                   sumstats = c(65,5,28,1),
+                                   sumstats = c(65, 5, 28, 1),
                                    ylim4 = 0.7,
                                    title = NULL)
 {

@@ -44,10 +44,10 @@ Imports:
     sessioninfo,
     testit,
     relaxedDAISIE (>= 0.1.0),
-    DAISIE (>= 4.0.2),
+    DAISIE (>= 4.0.5),
     readr,
     tibble
 Remotes: 
     joshwlambert/relaxedDAISIE,
     Neves-P/hawaiispiders,
-    rsetienne/DAISIE@v4.0.2
+    rsetienne/DAISIE@v4.0.5

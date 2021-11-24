@@ -1,6 +1,5 @@
 args <- commandArgs(TRUE)
 
-library(args[3], character.only = TRUE)
 data_name <- do.call(data, args = list(args[1], package = args[3]))
 
 DAISIEutils::run_daisie_ml(
@@ -8,4 +7,6 @@ DAISIEutils::run_daisie_ml(
   data_name = data_name,
   model = args[2],
   array_index = as.numeric(args[4]),
-  cond = as.numeric(args[5]))
+  cond = as.numeric(args[5]),
+  optimmethod = args[6]
+)

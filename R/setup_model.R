@@ -18,7 +18,7 @@ setup_model <- function(
 
   lac <- stats::runif(1, min = 0, max = 2)
   mu <- stats::runif(1, min = 0, max = 2)
-  k <- stats::runif(1, min = 50, max = 200)
+  k <- stats::runif(1, min = 100, max = 200)
   gam <- stats::runif(1, min = 1e-5, max = 0.1)
   laa <- stats::runif(1, min = 0.1, max = 4)
   sd <- stats::runif(1, min = 0.1, max = 1)

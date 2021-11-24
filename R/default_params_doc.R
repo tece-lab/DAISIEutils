@@ -64,6 +64,9 @@
 #'   bic, and they're saved as an RDS file by [run_daisie_ml()].
 #' @param cond An integer specifying conditioning, as described in
 #'   [DAISIE::DAISIE_ML_CS()].
+#' @param optimmethod Method used in likelihood optimization. Default is
+#'  `"subplex"` (see `subplex` package). Alternative is `simplex` which was the
+#'  method in previous versions.
 #' @param model_1 A string with model that should run. For a list of options
 #'   see documentation for \code{model} parameter in [run_daisie_ml()].
 #' @param model_2 A string with model that should run. For a list of options
@@ -101,6 +104,7 @@ default_params_doc <- function(
   file_path,
   results,
   cond,
+  optimmethod,
   model_1,
   model_2,
   model_1_lik_res,

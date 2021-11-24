@@ -39,7 +39,7 @@
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_run_daisie_ml_long.sh Aldabra_Group cr_di relaxedDAISIE 5
+# sbatch DAISIEutils/bash/submit_run_daisie_ml_long.sh Aldabra_Group cr_di relaxedDAISIE 5 subplex
 ################################################################################
 
 
@@ -49,6 +49,7 @@ data=$1
 model=$2
 package=$3
 cond=$4
+optimmethod=$5
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -57,4 +58,5 @@ Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                             ${package} \
                                             ${seed} \
                                             ${cond} \
+                                            ${optimmethod}
 

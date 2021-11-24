@@ -13,6 +13,7 @@ default_params_doc(
   file_path,
   results,
   cond,
+  optimmethod,
   model_1,
   model_2,
   model_1_lik_res,
@@ -100,6 +101,10 @@ bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_
 
 \item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
+
+\item{optimmethod}{Method used in likelihood optimization. Default is
+\code{"subplex"} (see \code{subplex} package). Alternative is \code{simplex} which was the
+method in previous versions.}
 
 \item{model_1}{A string with model that should run. For a list of options
 see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}

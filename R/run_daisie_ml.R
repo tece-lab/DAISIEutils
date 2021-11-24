@@ -25,6 +25,7 @@ run_daisie_ml <- function(
   model,
   array_index,
   cond,
+  optimmethod,
   test = FALSE) {
 
 
@@ -77,6 +78,7 @@ run_daisie_ml <- function(
     idparsfix = idparsfix,
     ddmodel = ddmodel,
     cond = cond,
+    optimmethod = optimmethod,
     CS_version = cs_version
   )
 

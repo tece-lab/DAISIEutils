@@ -17,7 +17,8 @@ for (model in models) {
       model = model,
       array_index = array_index,
       cond = cond,
-      test = TRUE
+      test = TRUE,
+      optimmethod = "subplex"
     )
     run_daisie_ml(
       data = Azores_alt_m,
@@ -25,7 +26,8 @@ for (model in models) {
       model = model,
       array_index = array_index,
       cond = cond,
-      test = TRUE
+      test = TRUE,
+      optimmethod = "subplex"
     )
   }
 }

@@ -38,7 +38,6 @@ Suggests:
     testthat (>= 3.0.0),
     covr,
     lintr,
-    hawaiispiders (>= 1.0.1)
 Config/testthat/edition: 3
 Imports: 
     sessioninfo,
@@ -49,5 +48,4 @@ Imports:
     tibble
 Remotes: 
     joshwlambert/relaxedDAISIE,
-    Neves-P/hawaiispiders,
     rsetienne/DAISIE@v4.0.5

@@ -15,4 +15,7 @@ List all available models
 \examples{
 available_models <- DAISIEutils:::get_available_models()
 }
+\author{
+Pedro Neves
+}
 \keyword{internal}

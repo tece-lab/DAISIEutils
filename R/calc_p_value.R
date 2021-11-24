@@ -15,7 +15,7 @@ calc_p_value <- function(
       Sys.getenv("HOME"), "results", data_name
     )
   } else {
-    output_folder <- file.path(getwd(), "results", data_name)
+    output_folder <- file.path("results", data_name)
   }
 
   files <- list.files(

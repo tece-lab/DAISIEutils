@@ -4,8 +4,8 @@
 # of this script was copied to tests/testthat/testdata/ so as to be accessed
 # by R CHECK
 array_indices <- 1:5
-data(Azores, package = "relaxedDAISIE")
-data(Azores_alt_m, package = "relaxedDAISIE")
+data(Azores)
+data(Azores_alt_m)
 models <- c("cr_dd", "cr_di")
 cond <- 1
 

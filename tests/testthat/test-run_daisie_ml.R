@@ -1,6 +1,6 @@
 test_that("integration test", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   data_name <- "Azores"
   model <- "cr_dd"
   array_index <- 1
@@ -52,7 +52,7 @@ test_that("integration test", {
 
 test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   data_name <- "Azores"
   model <- "cr_dd"
   array_index <- 10
@@ -89,7 +89,7 @@ test_that("run_daisie_ml fails when expected", {
 
 test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   data_name <- "Azores"
   model <- 1
   array_index <- 10
@@ -125,7 +125,7 @@ test_that("run_daisie_ml fails when expected", {
 
 test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   data_name <- "Azores"
   model <- "cr_dd"
   array_index <- "nonsense"
@@ -162,7 +162,7 @@ test_that("run_daisie_ml fails when expected", {
 
 test_that("run_daisie_ml fails when expected", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   data_name <- "Azores"
   model <- "cr_dd"
   array_index <- 1

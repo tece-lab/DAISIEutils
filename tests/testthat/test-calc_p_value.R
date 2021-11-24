@@ -1,5 +1,5 @@
 test_that("calc_p_value produces correct output", {
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
 
   data_name <- "Azores"
   model <- "cr_dd"

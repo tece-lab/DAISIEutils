@@ -1,7 +1,7 @@
 test_that("bootstrap works", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data_name <- "Azores"
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   data_name <- "Azores"
   model <- "cr_dd"
   array_index <- 1

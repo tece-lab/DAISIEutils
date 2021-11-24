@@ -1,5 +1,5 @@
 test_that("run_sim cr model works", {
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   model <- "cr_dd"
   data <- Azores
   cond <- 1
@@ -27,7 +27,7 @@ test_that("run_sim cr model works", {
 })
 
 test_that("run_sim rr model works", {
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   model <- "rr_lac_di"
   data <- Azores
   cond <- 1

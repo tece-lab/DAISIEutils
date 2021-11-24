@@ -1,5 +1,5 @@
 test_that("calc_bic works", {
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   results <- data.frame(
     lambda_c = 2.575631,
     mu = 2.703317,
@@ -32,7 +32,7 @@ test_that("calc_bic fails when expected", {
 })
 
 test_that("calc_bic fails when expected", {
-  data("Azores", package = "relaxedDAISIE")
+  data("Azores")
   results <- data.frame(
     lambda_c = "nonsense",
     mu = "nonsense",

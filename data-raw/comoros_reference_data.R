@@ -4,7 +4,7 @@
 # of this script was copied to tests/testthat/testdata/results/Comoros so as to
 # be accessed by R CHECK
 array_indices <- 1:3
-data(Comoros, package = "relaxedDAISIE")
+data(Comoros)
 models <- c("cr_dd", "cr_di")
 cond <- 1
 

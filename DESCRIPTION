@@ -42,10 +42,8 @@ Config/testthat/edition: 3
 Imports: 
     sessioninfo,
     testit,
-    relaxedDAISIE (>= 0.1.0),
     DAISIE (>= 4.0.5),
     readr,
     tibble
 Remotes: 
-    joshwlambert/relaxedDAISIE,
     rsetienne/DAISIE@v4.0.5

@@ -1,5 +1,6 @@
 args <- commandArgs(TRUE)
 
+library(args[3], character.only = TRUE)
 data_name <- do.call(data, args = list(args[1], package = args[3]))
 
 DAISIEutils::run_daisie_ml(

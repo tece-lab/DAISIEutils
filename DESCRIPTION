@@ -49,6 +49,8 @@ Imports:
     testit,
     DAISIE (>= 4.0.5),
     readr,
-    tibble
+    tibble,
+    ggplot2,
+    cowplot
 Remotes: 
     rsetienne/DAISIE@v4.0.5

@@ -105,7 +105,8 @@ bootstrap <- function(
     sim = sim,
     model_sim_lik_res = model_sim_lik_res
   )
-
+  print("safe location inner")
+  print(file_path)
   saveRDS(
     output,
     file = file_path

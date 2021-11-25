@@ -62,6 +62,8 @@ bootstrap <- function(
     path = output_folder,
     full.names = TRUE,
     pattern = paste0(data_name, "_", model, "_[0-9].rds$"))
+  print("model_files")
+  print(model_files)
   model_lik_res <- lapply(model_files, readRDS)
 
   best_model <- choose_best_model(model_lik_res)

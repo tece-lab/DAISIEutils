@@ -23,7 +23,7 @@ test_that("bootstrap works", {
 
 
   # Omit console output in tests
-  invisible(suppressMessages(capture.output(
+  # invisible(suppressMessages(capture.output(
     bootstrap(
       data = Azores,
       data_name = data_name,
@@ -32,7 +32,7 @@ test_that("bootstrap works", {
       cond = cond,
       test = test
     )
-  )))
+  # )))
   actual_output <- readRDS(results_name)
   message("test-bootstrap")
   print("list dirs")

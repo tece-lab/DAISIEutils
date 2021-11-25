@@ -87,7 +87,8 @@ bootstrap <- function(
   model_idparsfix <- model_arguments$idparsfix
   model_ddmodel <- model_arguments$ddmodel
   model_cs_version <- model_arguments$cs_version
-
+  print("bootstrap model_initparsopt")
+  print(model_initparsopt)
   ##### ML Optimization ####
   model_sim_lik_res <- DAISIE::DAISIE_ML(
     datalist = sim[[1]],

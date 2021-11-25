@@ -30,7 +30,7 @@ create_file_path <- function(output_folder,
                              data_name,
                              model,
                              array_index,
-                             cluster_dir = Sys.getenv("HOME")) {
+                             cluster_dir) {
 
   if (is_on_cluster()) {
     output_file_path <- file.path(

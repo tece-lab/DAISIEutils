@@ -29,7 +29,7 @@ run_daisie_ml <- function(
   cond,
   optimmethod,
   output_folder,
-  cluster_dir,
+  cluster_dir = Sys.getenv("HOME"),
   test = FALSE) {
 
   if (test) {
@@ -54,9 +54,8 @@ run_daisie_ml <- function(
 
   if (!is.null(output_folder)) {
     file_path <- create_output_folder(
-      data_name = data_name,
-      model = model,
-      array_index = array_index
+     output_folder = output_folder,
+     cluster_dir = cluster_dir
     )
   }
 
@@ -106,5 +105,4 @@ run_daisie_ml <- function(
       file = file_path
     )
   }
-
 }

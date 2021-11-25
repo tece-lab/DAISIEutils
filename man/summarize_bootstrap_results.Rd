@@ -4,20 +4,16 @@
 \alias{summarize_bootstrap_results}
 \title{Computes summary results of bootstrap simulations useful for plotting}
 \usage{
-summarize_bootstrap_results(
-  simulation_dataset,
-  empirical_summary_statistics,
-  m_pool = 1000
-)
+summarize_bootstrap_results(simulation_dataset, m_pool = 1000)
 }
 \arguments{
 \item{simulation_dataset}{output of DAISIE_sim}
 
+\item{m_pool}{size of the mainland pool}
+
 \item{empirical_summary_statistics}{vector with the number of species, number
 of colonization, size of the largest clade and the rank of the largest clade
 in the empirical data}
-
-\item{m_pool}{size of the mainland pool}
 
 \item{time}{age of the island or archipelago}
 }
@@ -26,6 +22,43 @@ overall_results a list of results
 }
 \description{
 The output is a list of results
+}
+\examples{
+\dontrun{
+clado_rate <- 0.5
+ext_rate <- 0.2
+carr_cap <- Inf
+immig_rate <- 0.005
+ana_rate <- 1
+sim_pars <- c(clado_rate, ext_rate, carr_cap, immig_rate, ana_rate)
+set.seed(1)
+
+dataset_cs <- DAISIE::DAISIE_sim_constant_rate(
+  time = 10,
+  M = 1000,
+  pars = sim_pars,
+  replicates = 10,
+  plot_sims = FALSE,
+  verbose = FALSE,
+  divdepmodel = "CS"
+)
+
+dataset_iw <- DAISIE::DAISIE_sim_constant_rate(
+  time = 10,
+  M = 1000,
+  pars = sim_pars,
+  replicates = 10,
+  plot_sims = FALSE,
+  verbose = FALSE,
+  divdepmodel = "IW"
+)
+overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
+  simulation_dataset = dataset_cs
+)
+overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
+  simulation_dataset = dataset_iw
+)
+}
 }
 \author{
 Rampal S. Etienne & Luis Valente

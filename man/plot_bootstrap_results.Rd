@@ -12,20 +12,21 @@ plot_bootstrap_results(
 )
 }
 \arguments{
-\item{overall_results}{summary results obtained with summarize_boorstrap_results}
+\item{overall_results}{summary results obtained with
+\code{\link[=summarize_bootstrap_results]{summarize_bootstrap_results()}}.}
 
 \item{sumstats}{vector with the number of species, number
-of colonization, size of the largest clade and the rank of the largest clade
-in the empirical data}
+of colonization, size of the largest clade and the rank of the largest
+clade in the empirical data}
 
-\item{ylim4}{maximum of the plot of the rank of the largest clade}
+\item{ylim4}{maximum of the plot of the rank of the largest clade.}
 
-\item{title}{title of the plot}
+\item{title}{title of the plot.}
 }
 \value{
 none Four plots are shown: histogram of the number of species,
-histogram of the number of colonizations, histogram of the largest clade size
-and histogram of the rank of the largest clade
+histogram of the number of colonizations, histogram of the largest clade
+size and histogram of the rank of the largest clade.
 }
 \description{
 The output is a list of results

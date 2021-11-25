@@ -24,6 +24,7 @@ Authors:
   \item Joshua W. Lambert \email{j.w.l.lambert@rug.nl} (\href{https://orcid.org/0000-0001-5218-3046}{ORCID})
   \item Luis Valente \email{luis.valente@naturalis.nl} (\href{https://orcid.org/0000-0003-4247-8785}{ORCID})
   \item Richèl J.C. Bilderbeek \email{richel@richelbilderbeek.nl} (\href{https://orcid.org/0000-0003-1107-7049}{ORCID})
+  \item Rampal S. Etienne \email{r.s.etienne@rug.nl} (\href{https://orcid.org/0000-0003-2142-7612}{ORCID})
 }
 
 }

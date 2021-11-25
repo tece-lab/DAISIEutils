@@ -11,7 +11,7 @@ test_that("bootstrap works", {
   reference_files <- list.files(
     file.path("testdata", "results", "Azores"),
     full.names = TRUE,
-    pattern = "*.rds"
+    pattern = paste0(data_name, "_", model, "_[0-9].rds$")
   )
   results_name <- create_output_folder(
     data_name = data_name,

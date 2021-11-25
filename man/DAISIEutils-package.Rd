@@ -6,7 +6,9 @@
 \alias{DAISIEutils-package}
 \title{DAISIEutils: Utility Functions for the DAISIE Package}
 \description{
-The goal of DAISIEutils is to collect useful utility functions that are used recurently in DAISIE projects. DAISIEutils is a companion package of the R package DAISIE.
+The goal of DAISIEutils is to collect useful utility functions that
+    are used recurently in DAISIE projects. DAISIEutils is a companion package 
+    of the R package DAISIE.
 }
 \seealso{
 Useful links:

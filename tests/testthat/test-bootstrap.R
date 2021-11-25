@@ -10,7 +10,9 @@ test_that("bootstrap works", {
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    file.path("testdata/results/Azores"), full.names = TRUE, pattern = "*.rds"
+    file.path("testdata", "results", "Azores"),
+    full.names = TRUE,
+    pattern = "*.rds"
   )
   results_name <- create_output_folder(
     data_name = data_name,

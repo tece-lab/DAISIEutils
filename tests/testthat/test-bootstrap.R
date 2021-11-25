@@ -37,7 +37,8 @@ test_that("bootstrap works", {
   expected_output <- readRDS(
     file.path("testdata/results/Azores/Azores_boot_cr_dd_1.rds")
   )
-
+  print(file.path("testdata/results/Azores/Azores_boot_cr_dd_1.rds"))
+  print(results_name)
   expect_equal(actual_output, expected_output)
 
   # Delete temp folder

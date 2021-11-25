@@ -2,32 +2,33 @@
 #'
 #' @inheritParams default_params_doc
 #'
-#' @return Creates appropriate directory. Returns string with path for
-#' output object. If on Peregrine, folder will be `$HOME/results/$output_name`.
-#' If called from another environment, folder will be
-#' `getwd()/results/$output_name`.
+#' @return Void function, it creates appropriate directory.
 #' @export
 #' @author Pedro Neves
 #'
 #' @examples
 #' \dontrun{
+#' # creating folder on home
 #' create_output_folder(
-#'   data_name = "results_folder",
-#'   model = "cr_dd",
-#'   array_index = 1
+#'   output_folder = "results",
+#'   cluster_dir = Sys.getenv("HOME")
+#' )
+#' # creating folder on data
+#' create_output_folder(
+#'   output_folder = "results",
+#'   cluster_dir = Sys.getenv("USER", "data")
 #' )
 #' }
 create_output_folder <- function(
-  data_name,
-  model,
-  array_index) {
+  output_folder,
+  cluster_dir) {
 
   if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
+    output_file_path <- file.path(
+     cluster_dir, output_folder
     )
   } else {
-    output_folder <- file.path("results", data_name)
+    output_file_path <- file.path(output_folder)
   }
 
   if (!dir.exists(output_folder)) {
@@ -38,18 +39,4 @@ create_output_folder <- function(
     "output folder exists",
     dir.exists(output_folder)
   )
-
-  if (is.na(model) || is.na(array_index)) {
-    file_path <- file.path(
-      output_folder,
-      paste0(data_name, ".rds")
-    )
-  } else {
-    file_path <- file.path(
-      output_folder,
-      paste0(data_name, "_", model, "_", array_index, ".rds")
-    )
-  }
-
-  return(file_path)
 }

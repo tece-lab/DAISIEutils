@@ -15,7 +15,9 @@
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
 #'   array_index = 1,
-#'   cond = 1
+#'   cond = 1,
+#'   optimmethod = "subplex",
+#'   output_file_dir = "results"
 #' )
 #' }
 #' @author Pedro Neves, Joshua W. Lambert, Luis Valente
@@ -26,8 +28,9 @@ run_daisie_ml <- function(
   array_index,
   cond,
   optimmethod,
+  output_folder,
+  cluster_dir,
   test = FALSE) {
-
 
   if (test) {
     seed <- array_index
@@ -48,11 +51,15 @@ run_daisie_ml <- function(
     model = model,
     array_index = array_index,
     seed = seed)
-  file_path <- create_output_folder(
-    data_name = data_name,
-    model = model,
-    array_index = array_index
-  )
+
+  if (!is.null(output_folder)) {
+    file_path <- create_output_folder(
+      data_name = data_name,
+      model = model,
+      array_index = array_index
+    )
+  }
+
   testit::assert(is.numeric(array_index) && is.finite(array_index))
   testit::assert(is.numeric(cond) && is.finite(cond))
 
@@ -85,8 +92,19 @@ run_daisie_ml <- function(
   bic <- calc_bic(results = lik_res, data = data)
   lik_res <- cbind(lik_res, bic)
 
-  saveRDS(
-    lik_res,
-    file = file_path
-  )
+  if (is.null(output_folder)) {
+    return(lik_res)
+  } else {
+    create_file_path(
+      output_folder = output_folder,
+      data_name = data_name,
+      model = model,
+      array_index = array_index,
+      cluster_dir = cluster_dir)
+    saveRDS(
+      lik_res,
+      file = file_path
+    )
+  }
+
 }

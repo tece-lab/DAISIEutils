@@ -35,7 +35,7 @@ test_that("bootstrap works", {
   actual_output <- readRDS(results_name)
 
   expected_output <- readRDS(
-    file.path("testdata/results/Azores/Azores_boot_cr_dd_1.rds")
+    file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds")
   )
   expect_equal(actual_output, expected_output)
 

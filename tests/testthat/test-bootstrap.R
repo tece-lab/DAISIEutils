@@ -10,7 +10,7 @@ test_that("bootstrap works", {
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    file.path(getwd(), "testdata"), full.names = TRUE, pattern = "*.rds"
+    file.path("testdata/results/Azores"), full.names = TRUE, pattern = "*.rds"
   )
   results_name <- create_output_folder(
     data_name = data_name,
@@ -35,7 +35,7 @@ test_that("bootstrap works", {
   actual_output <- readRDS(results_name)
 
   expected_output <- readRDS(
-    file.path(getwd(), "testdata/Azores_boot_cr_dd_1.rds")
+    file.path("testdata/results/Azores/Azores_boot_cr_dd_1.rds")
   )
 
   expect_equal(actual_output, expected_output)

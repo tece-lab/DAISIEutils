@@ -14,7 +14,7 @@ bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details. Otherwise it may be generated via simulations, using
-\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
 }
 \value{
 Numeric value with BIC

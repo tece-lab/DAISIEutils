@@ -21,7 +21,7 @@
 #' sim_pars <- c(clado_rate, ext_rate, carr_cap, immig_rate, ana_rate)
 #' set.seed(1)
 #'
-#' dataset_cs <- DAISIE::DAISIE_sim_constant_rate(
+#' dataset_cs <- DAISIE::DAISIE_sim_cr(
 #'   time = 10,
 #'   M = 1000,
 #'   pars = sim_pars,
@@ -31,7 +31,7 @@
 #'   divdepmodel = "CS"
 #' )
 #'
-#' dataset_iw <- DAISIE::DAISIE_sim_constant_rate(
+#' dataset_iw <- DAISIE::DAISIE_sim_cr(
 #'   time = 10,
 #'   M = 1000,
 #'   pars = sim_pars,
@@ -242,7 +242,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
 #' sim_pars <- c(clado_rate, ext_rate, carr_cap, immig_rate, ana_rate)
 #' set.seed(1)
 #'
-#' dataset_cs <- DAISIE::DAISIE_sim_constant_rate(
+#' dataset_cs <- DAISIE::DAISIE_sim_cr(
 #'   time = 10,
 #'   M = 1000,
 #'   pars = sim_pars,
@@ -252,7 +252,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
 #'   divdepmodel = "CS"
 #' )
 #'
-#' dataset_iw <- DAISIE::DAISIE_sim_constant_rate(
+#' dataset_iw <- DAISIE::DAISIE_sim_cr(
 #'   time = 10,
 #'   M = 1000,
 #'   pars = sim_pars,

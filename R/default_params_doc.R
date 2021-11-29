@@ -55,7 +55,7 @@
 #' @param data A list, conforming to the [`DAISIE`] object format. Usually
 #'   preprocessed by [DAISIE::DAISIE_dataprep()], see it's documentation for
 #'   details. Otherwise it may be generated via simulations, using
-#'   [DAISIE::DAISIE_sim_constant_rate()] and friends.
+#'   [DAISIE::DAISIE_sim_cr()] and friends.
 #' @param array_index A single numeric with the array index. It is used for
 #'   naming the output file.
 #' @param file_path The system directory where the output files will be stored.

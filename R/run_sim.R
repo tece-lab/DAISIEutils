@@ -20,7 +20,7 @@ run_sim <- function(
 
 
   if (grepl("cr", model)) {
-    sim <- DAISIE::DAISIE_sim_constant_rate(
+    sim <- DAISIE::DAISIE_sim_cr(
       time = time,
       M = m,
       pars = pars,

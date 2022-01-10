@@ -25,6 +25,7 @@ bootstrap <- function(
   model,
   array_index,
   cond,
+  optimmethod = "subplex",
   test = FALSE) {
 
   if (test) {
@@ -62,11 +63,9 @@ bootstrap <- function(
     path = output_folder,
     full.names = TRUE,
     pattern = paste0(data_name, "_", model, "_[0-9].rds$"))
-  print("model_files")
-  print(model_files)
+
   model_lik_res <- lapply(model_files, readRDS)
-  print("after copy inner")
-  print(list.files(output_folder, full.names = TRUE))
+
   best_model <- choose_best_model(model_lik_res)
 
   sim <- run_sim(
@@ -87,8 +86,7 @@ bootstrap <- function(
   model_idparsfix <- model_arguments$idparsfix
   model_ddmodel <- model_arguments$ddmodel
   model_cs_version <- model_arguments$cs_version
-  print("bootstrap model_initparsopt")
-  print(model_initparsopt)
+
   ##### ML Optimization ####
   model_sim_lik_res <- DAISIE::DAISIE_ML(
     datalist = sim[[1]],
@@ -107,8 +105,7 @@ bootstrap <- function(
     sim = sim,
     model_sim_lik_res = model_sim_lik_res
   )
-  print("safe location inner")
-  print(file_path)
+
   saveRDS(
     output,
     file = file_path

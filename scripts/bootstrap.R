@@ -7,4 +7,5 @@ DAISIEutils::bootstrap(
   data_name = data_name,
   model = args[2],
   array_index = as.numeric(args[4]),
-  cond = as.numeric(args[5]))
+  cond = as.numeric(args[5]),
+  optimmethod = args[6])

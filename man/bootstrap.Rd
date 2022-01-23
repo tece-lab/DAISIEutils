@@ -4,7 +4,15 @@
 \alias{bootstrap}
 \title{Runs a bootstrapping on a DAISIE model to determine parameter precision}
 \usage{
-bootstrap(data, data_name, model, array_index, cond, test = FALSE)
+bootstrap(
+  data,
+  data_name,
+  model,
+  array_index,
+  cond,
+  optimmethod = "subplex",
+  test = FALSE
+)
 }
 \arguments{
 \item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
@@ -71,6 +79,10 @@ naming the output file.}
 
 \item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
+
+\item{optimmethod}{Method used in likelihood optimization. Default is
+\code{"subplex"} (see \code{subplex} package). Alternative is \code{simplex} which was the
+method in previous versions.}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}

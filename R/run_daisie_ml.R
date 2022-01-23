@@ -25,7 +25,8 @@ run_daisie_ml <- function(
   model,
   array_index,
   cond,
-  optimmethod,
+  methode = "odeint::runge_kutta_fehlberg78",
+  optimmethod = "subplex",
   test = FALSE) {
 
 

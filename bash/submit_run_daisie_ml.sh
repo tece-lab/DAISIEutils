@@ -49,6 +49,7 @@ data=$1
 model=$2
 package=$3
 cond=$4
+methode=$5
 optimmethod=$5
 seed=${SLURM_ARRAY_TASK_ID}
 
@@ -58,5 +59,6 @@ Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                             ${package} \
                                             ${seed} \
                                             ${cond} \
+                                            ${methode} \
                                             ${optimmethod}
 

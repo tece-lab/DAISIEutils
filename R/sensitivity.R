@@ -80,13 +80,17 @@ sensitivity <- function(
   }
 
   ranked_models <- list()
-
   ranked_models <- lapply(best_models_list, function(x) {
     sort(sapply(x, `[[`, "bic"), decreasing = FALSE)
   })
+  if (all(is.na(unlist(best_models_list)))) {
+    return("No model converged")
+  }
 
   names_ranked_models <- lapply(ranked_models, names)
-
+  names_ranked_models <- lapply(names_ranked_models, function (x) {
+    if (length(x) == 0) x <- "no_conv" else x <- x
+  })
   name_best_fit_model <- unname(sapply(names_ranked_models, "[[", 1))
 
   sens_best_fit <- sapply(

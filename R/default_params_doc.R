@@ -68,7 +68,7 @@
 #'  `"odeint::runge_kutta_fehlberg78"`. See help for [DAISIE::DAISIE_ML_CS()]
 #'  for a full list of available options.
 #' @param optimmethod Method used in likelihood optimization. Default is
-#'  `"subplex"` (see [subplex-package] package). Alternative is `simplex` which was the
+#'  `"subplex"` (from [subplex-package]). Alternative is `simplex` which was the
 #'  method in previous versions.
 #' @param model_1 A string with model that should run. For a list of options
 #'   see documentation for \code{model} parameter in [run_daisie_ml()].

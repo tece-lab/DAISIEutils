@@ -81,7 +81,7 @@ naming the output file.}
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
 \item{optimmethod}{Method used in likelihood optimization. Default is
-\code{"subplex"} (see \code{subplex} package). Alternative is \code{simplex} which was the
+\code{"subplex"} (see \link{subplex-package} package). Alternative is \code{simplex} which was the
 method in previous versions.}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing

@@ -27,7 +27,9 @@ print_metadata <- function(
   data_name,
   model,
   array_index,
-  seed) {
+  seed,
+  methode,
+  optimmethode) {
   options(width = 150)
   testit::assert("data_name is character", is.character(data_name))
   message(
@@ -35,6 +37,8 @@ print_metadata <- function(
   )
   message("Data name: ", data_name)
   message("Model name: ", model)
+  message("Using the ", methode, " for numerical integration.")
+  message("Using the ", optimmethode, " optimisation algorithm.")
   message("Running analysis with array index: ", array_index)
   message("Running analysis with seed: ", seed)
   message("Start time: ", Sys.time())

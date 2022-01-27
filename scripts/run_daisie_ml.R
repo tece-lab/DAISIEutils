@@ -7,5 +7,6 @@ DAISIEutils::run_daisie_ml(
   model = args[2],
   array_index = as.numeric(args[4]),
   cond = as.numeric(args[5]),
-  optimmethod = args[6]
+  methode = args[6],
+  optimmethod = args[7]
 )

@@ -103,7 +103,7 @@ bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
 \item{optimmethod}{Method used in likelihood optimization. Default is
-\code{"subplex"} (see \code{subplex} package). Alternative is \code{simplex} which was the
+\code{"subplex"} (see \link{subplex-package} package). Alternative is \code{simplex} which was the
 method in previous versions.}
 
 \item{model_1}{A string with model that should run. For a list of options
@@ -140,6 +140,10 @@ purposes, to fix the seed.}
 
 \item{logs_path}{Character with path to the folder containing logs. Only log
 files should be present, in plain text format.}
+
+\item{methode}{Method for numerical integration of ODE system. Default is
+\code{"odeint::runge_kutta_fehlberg78"}. See help for \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}
+for a full list of available options.}
 }
 \value{
 Nothing

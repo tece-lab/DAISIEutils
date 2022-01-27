@@ -4,7 +4,7 @@
 \alias{print_metadata}
 \title{Print session and run info to console/log file}
 \usage{
-print_metadata(data_name, model, array_index, seed)
+print_metadata(data_name, model, array_index, seed, methode, optimmethode)
 }
 \arguments{
 \item{data_name}{String. Will be used for the name of the created output
@@ -68,6 +68,10 @@ naming the output file.}
 This value is determined by \code{\link[=Sys.time]{Sys.time()}} and \code{array_index} to ensure
 parallel jobs have different seeds. Only the last 6 digits of the
 \code{\link[=Sys.time]{Sys.time()}} (as an integer) are used.}
+
+\item{methode}{Method for numerical integration of ODE system. Default is
+\code{"odeint::runge_kutta_fehlberg78"}. See help for \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}
+for a full list of available options.}
 }
 \value{
 Nothing. Prints session and run info used by DAISIE to console.

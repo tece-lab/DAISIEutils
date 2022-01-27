@@ -31,6 +31,52 @@ size and histogram of the rank of the largest clade.
 \description{
 The output is a list of results
 }
+\examples{
+\dontrun{
+clado_rate <- 0.5
+ext_rate <- 0.2
+carr_cap <- Inf
+immig_rate <- 0.005
+ana_rate <- 1
+sim_pars <- c(clado_rate, ext_rate, carr_cap, immig_rate, ana_rate)
+set.seed(1)
+
+dataset_cs <- DAISIE::DAISIE_sim_cr(
+  time = 10,
+  M = 1000,
+  pars = sim_pars,
+  replicates = 10,
+  plot_sims = FALSE,
+  verbose = FALSE,
+  divdepmodel = "CS"
+)
+
+dataset_iw <- DAISIE::DAISIE_sim_cr(
+  time = 10,
+  M = 1000,
+  pars = sim_pars,
+  replicates = 10,
+  plot_sims = FALSE,
+  verbose = FALSE,
+  divdepmodel = "IW"
+)
+overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
+  simulation_dataset = dataset_cs
+)
+overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
+  simulation_dataset = dataset_iw
+)
+par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
+DAISIEutils::plot_bootstrap_results(
+  overall_results = overall_results_cs,
+  title = 'Simulated under CS'
+)
+DAISIEutils::plot_bootstrap_results(
+  overall_results = overall_results_iw,
+  title = 'Simulated under IW'
+)
+}
+}
 \author{
 Rampal S. Etienne & Luis Valente
 }

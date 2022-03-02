@@ -11,8 +11,7 @@
 #' setup_model(
 #'   model = model
 #' )
-setup_model <- function(
-  model) {
+setup_model <- function(model) {
   expected_models <- get_available_models()
   testit::assert(model %in% expected_models)
 

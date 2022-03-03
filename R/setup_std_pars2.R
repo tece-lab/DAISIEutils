@@ -21,13 +21,13 @@
 setup_std_pars2 <- function(res = 100,
                             ddmodel,
                             cond,
-                            verbose = TRUE,
-                            island_ontogeny = 0,
+                            verbose = 0,
+                            island_ontogeny = NA,
                             eqmodel = 0,
-                            maxiter = 1000 * round((1.25) ^ 5),
                             tol = c(1e-04, 1e-05, 1e-07),
+                            maxiter = 1000 * round((1.25) ^ 5),
                             x_E = 0.95,
-                            x_I = 0.95) {
+                            x_I = 0.98) {
 
 
   pars2 <- c(

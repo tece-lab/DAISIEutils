@@ -4,67 +4,14 @@
 \alias{plot_ll_surface}
 \title{Plot contour of loglikelihood surface around a given value}
 \usage{
-plot_ll_surface(datalist, initparsopt, param_1, param_2, model)
-}
-\arguments{
-\item{model}{A string with model that should run. Models are as follows:
-\itemize{
-\item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
-free.
-\item \code{"cr_di"} Clade specific model - diversity independent (K = Inf). All
-other parameters free.
-\item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
-anagenesis (laa fixed to zero). All other parameters free.
-\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf)
-and no anagenesis (laa fixed to zero). All other parameters free.
-\item \code{"cr_di_0lac"} Clade specific model - diversity indendent (K = Inf)
-and no cladogenesis (lac fixed to zero). All other parameters free.
-\item \code{"cr_dd_0lac"} Clade specific model - diversity dependent and no
-cladogenesis (lac fixed to zero). All other parameters free.
-\item \code{"rr_lac_di"} Clade specific model - diversity independent (K = Inf)
-and relaxed cladogenesis. All other parameters free.
-\item \code{"rr_lac_dd"} Clade specific model - diversity dependent and relaxed
-cladogenesis. All other parameters free.
-\item \code{"rr_mu_di"} Clade specific model - diversity independent (K = Inf) and
-relaxed extinction. All other parameters free.
-\item \code{"rr_mu_dd"} Clade specific model - diversity dependent and relaxed
-extinction. All other parameters free.
-\item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
-capacity. All other parameters free.
-\item \code{"rr_laa_di"} Clade specific model - diversity independent (K = Inf)
-and relaxed anagenesis. All other parameters free.
-\item \code{"rr_laa_dd"} Clade specific model - diversity dependent and relaxed
-anagenesis. All other parameters free.
-\item \code{"rr_mu_di_0lac"} Clade specific model - diversity independent,
-relaxed extinction, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_mu_dd_0lac"} Clade specific model - diversity dependent, relaxed
-extinction, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_k_0lac"} Clade specific model - diversity dependent, relaxed
-carrying capacity, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_laa_di_0lac"} Clade specific model - diversity independent,
-relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"r_laa_dd_0lac"} Clade specific model - diversity dependent, relaxed
-anagenesis, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_lac_di_0laa"} Clade specific model - diversity independent,
-relaxed cladogenesis, and no anagenesis (laa fixed to zero)
-\item \code{"rr_lac_dd_0laa"} Clade specific model - diversity dependent
-\item \code{"rr_mu_di_0laa"} Clade specific model - diversity independent
-\item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
-\item \code{"rr_k_0laa"} Clade specific model - diversity dependent
-}}
+plot_ll_surface(data_to_plot, param_1, param_2)
 }
 \value{
-A ggplot with the likelihood surface.
+A contour ggplot with the likelihood surface.
 }
 \description{
-Plots the likelihood surface around a set of parameters \code{initparopt} around
-two axes (\code{param_1} and \code{param_2}). The loglikelihood is computed according
-to specified model parameters.
+Plots the likelihood surface around a set of parameters \code{initparsopt} around
+two axes (\code{param_1} and \code{param_2}).
 }
 \author{
 Pedro Santos Neves

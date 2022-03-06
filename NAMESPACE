@@ -3,6 +3,7 @@
 export(bootstrap)
 export(bootstrap_lr)
 export(calc_bic)
+export(calc_ll_surface)
 export(calc_loglik_ratio)
 export(calc_p_value)
 export(calc_power)

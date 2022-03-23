@@ -12,7 +12,9 @@
 plot_ll_surface <- function(data_to_plot, param_1, param_2) {
 
 
-  p <- ggplot2::ggplot(data = data_to_plot, aes(param_1, param_2, z = loglik)) +
+  p <- ggplot2::ggplot(
+    data = data_to_plot,
+    ggplot2::aes(param_1, param_2, z = loglik)) +
     ggplot2::geom_contour_filled()
   p
 }

@@ -21,9 +21,10 @@ if (isFALSE("googledrive" %in% rownames(installed.packages()))) {
 
 time_suffix <- format(Sys.time(), "%H%M_%d%m%Y")
 results_upload_name <- paste("results", project_name, time_suffix, sep = "_")
-logs_upload_name <- paste("logs_", project_name, time_suffix, sep = "_")
+logs_upload_name <- paste("logs", project_name, time_suffix, sep = "_")
 
 # Use cached token
+
 options(gargle_oauth_email = TRUE)
 
 # Upload files
@@ -39,7 +40,7 @@ googledrive::drive_upload(
 
 # Clean up
 if (isTRUE(all(file.remove("results.zip"), file.remove("logs.zip")))) {
-  message("Temporary files deleted successfully.")
+  message("Temporary .zip files deleted successfully.")
 }
 
 if (isTRUE(any(file.exists("results.zip"), file.exists("logs.zip")))) {

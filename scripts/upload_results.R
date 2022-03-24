@@ -1,5 +1,5 @@
 # Uploads results directory to google drive
-# Run this script interactively first to set up google drive OAUTH
+# Make sure to manually configure token first
 results_present <- dir.exists("results")
 logs_present <- dir.exists("logs")
 if (isTRUE(all(logs_present, results_present))) {
@@ -16,6 +16,9 @@ if (isFALSE("googledrive" %in% rownames(installed.packages()))) {
 time_suffix <- format(Sys.time(), "%H%M_%d%m%Y")
 results_upload_name <- paste0("results_", time_suffix)
 logs_upload_name <- paste0("logs_", time_suffix)
+
+# Use cached token
+options(gargle_oauth_email = TRUE)
 
 googledrive::drive_upload(
   media = "results.zip",

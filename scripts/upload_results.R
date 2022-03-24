@@ -13,8 +13,6 @@ if (isFALSE("googledrive" %in% rownames(installed.packages()))) {
   install.packages("googledrive")
 }
 
-options(gargle_oauth_email = TRUE)
-
 time_suffix <- format(Sys.time(), "%H%M_%d%m%Y")
 results_upload_name <- paste0("results_", time_suffix)
 logs_upload_name <- paste0("logs_", time_suffix)

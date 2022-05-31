@@ -10,6 +10,7 @@ bootstrap(
   model,
   array_index,
   cond,
+  methode = "lsodes",
   optimmethod = "subplex",
   test = FALSE
 )
@@ -79,6 +80,10 @@ naming the output file.}
 
 \item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
+
+\item{methode}{Method for numerical integration of ODE system. Default is
+\code{"odeint::runge_kutta_fehlberg78"}. See help for \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}
+for a full list of available options.}
 
 \item{optimmethod}{Method used in likelihood optimization. Default is
 \code{"subplex"} (from \link{subplex-package}). Alternative is \code{simplex} which was the

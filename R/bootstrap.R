@@ -25,6 +25,7 @@ bootstrap <- function(
   model,
   array_index,
   cond,
+  methode = "lsodes",
   optimmethod = "subplex",
   test = FALSE) {
 
@@ -45,7 +46,9 @@ bootstrap <- function(
     data_name = data_name,
     model = paste("boot", model, sep = "_"),
     array_index = array_index,
-    seed = seed)
+    seed = seed,
+    methode = methode,
+    optimmethod = optimmethod)
   file_path <- create_output_folder(
     data_name = data_name,
     model = paste("boot", model, sep = "_"),
@@ -97,6 +100,8 @@ bootstrap <- function(
     idparsfix = model_idparsfix,
     ddmodel = model_ddmodel,
     cond = cond,
+    methode = methode,
+    optimmethod = optimmethod,
     CS_version = model_cs_version
   )
 

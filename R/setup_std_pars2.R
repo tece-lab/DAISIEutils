@@ -18,6 +18,7 @@
 #'
 #' @author Pedro Santos Neves
 #' @examples
+#' std_pars2 <- setup_std_pars2()
 setup_std_pars2 <- function(res = 100,
                             ddmodel,
                             cond,

@@ -36,6 +36,9 @@ are \code{ddmodel} and \code{cond}, as these are most often varied when checking
 output. Regardless, all other default parameter values can be forced to
 meet specific needs of more complex models.
 }
+\examples{
+std_pars2 <- setup_std_pars2()
+}
 \author{
 Pedro Santos Neves
 }

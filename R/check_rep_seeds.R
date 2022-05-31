@@ -16,7 +16,7 @@
 #'   * `Seeds`: A numeric with the corresponding seed that was duplicated.
 #'   * `Array_indices`: A numeric with corresponding array index.
 #' @export
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 #'
 #' @note
 #' This function is the preferred method for checking for the presence of

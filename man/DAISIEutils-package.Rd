@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Pedro Neves \email{p.m.santos.neves@rug.nl} (\href{https://orcid.org/0000-0003-2561-4677}{ORCID})
+\strong{Maintainer}: Pedro Santos Neves \email{p.m.santos.neves@rug.nl} (\href{https://orcid.org/0000-0003-2561-4677}{ORCID})
 
 Authors:
 \itemize{

@@ -113,5 +113,5 @@ run_daisie_ml(
 }
 }
 \author{
-Pedro Neves, Joshua W. Lambert, Luis Valente
+Pedro Santos Neves, Joshua W. Lambert, Luis Valente
 }

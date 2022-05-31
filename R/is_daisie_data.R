@@ -4,7 +4,7 @@
 #'
 #' @return `TRUE` if `data` is a valid [DAISIE] object, `FALSE` if not.
 #' @export
-#' @author Pedro Neves, Richèl J. C. Bilderbeek
+#' @author Pedro Santos Neves, Richèl J. C. Bilderbeek
 is_daisie_data <- function(data) {
   if (!is.list(data)) {
     return(FALSE)

@@ -83,5 +83,5 @@ create_output_folder(
 }
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }

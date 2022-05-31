@@ -71,5 +71,5 @@ setup_model(
 )
 }
 \author{
-Luis M Valente, Pedro Neves, Joshua W. Lambert
+Luis M Valente, Pedro Santos Neves, Joshua W. Lambert
 }

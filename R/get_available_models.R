@@ -3,7 +3,7 @@
 #' @return A character vector with the named codes for all available models.
 #' @keywords internal
 #'
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 #'
 #' @examples
 #' available_models <- DAISIEutils:::get_available_models()

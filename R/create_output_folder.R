@@ -7,7 +7,7 @@
 #' If called from another environment, folder will be
 #' `getwd()/results/$output_name`.
 #' @export
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 #'
 #' @examples
 #' \dontrun{

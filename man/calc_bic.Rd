@@ -23,5 +23,5 @@ Numeric value with BIC
 Compute Bayesian Information Criterion of a model
 }
 \author{
-Joshua W. Lambert, Pedro Neves
+Joshua W. Lambert, Pedro Santos Neves
 }

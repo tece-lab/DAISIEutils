@@ -17,5 +17,5 @@ on_cluster <- is_on_cluster()
 
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }

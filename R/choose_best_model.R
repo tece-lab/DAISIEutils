@@ -8,7 +8,7 @@
 #'   fields as `NA`.
 #' @export
 #'
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 choose_best_model <- function(model_lik_res) {
   logliks <- unlist(lapply(X = model_lik_res, FUN = "[[", "loglik"))
   if (all(is.na(logliks))) {

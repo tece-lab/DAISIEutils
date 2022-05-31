@@ -19,5 +19,5 @@ details. Otherwise it may be generated via simulations, using
 Checks if object is a \link{DAISIE} simulation data
 }
 \author{
-Pedro Neves, Richèl J. C. Bilderbeek
+Pedro Santos Neves, Richèl J. C. Bilderbeek
 }

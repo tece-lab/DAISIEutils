@@ -18,7 +18,7 @@
 #'   cond = 1
 #' )
 #' }
-#' @author Pedro Neves, Joshua W. Lambert, Luis Valente
+#' @author Pedro Santos Neves, Joshua W. Lambert, Luis Valente
 run_daisie_ml <- function(
   data,
   data_name,

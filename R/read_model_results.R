@@ -8,7 +8,7 @@
 #'   the of the alternate seed runs for each model.
 #' @export
 #'
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 read_model_results <- function(results_root_folder) {
   testit::assert(
     "Root folder exists",

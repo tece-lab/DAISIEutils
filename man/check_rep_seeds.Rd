@@ -47,5 +47,5 @@ repeated_seeds <- check_rep_seeds(logs_path = "/logs/")
 with older log files.
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }

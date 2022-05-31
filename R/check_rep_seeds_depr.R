@@ -16,7 +16,7 @@
 #'   * `Seeds`: A numeric with the corresponding seed that was duplicated.
 #'   * `Array_indices`: A numeric with corresponding array index.
 #' @export
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 #'
 #' @note
 #' In this function, the lines containing the scraped values can be anywhere in

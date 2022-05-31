@@ -16,6 +16,6 @@ List all available models
 available_models <- DAISIEutils:::get_available_models()
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }
 \keyword{internal}

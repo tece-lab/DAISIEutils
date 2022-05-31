@@ -5,7 +5,7 @@
 #' @return Numeric value with BIC
 #' @export
 #'
-#' @author Joshua W. Lambert, Pedro Neves
+#' @author Joshua W. Lambert, Pedro Santos Neves
 calc_bic <- function(results, data) {
   k <- results$df
   m <- data[[1]]$not_present + length(data) - 1

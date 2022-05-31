@@ -101,5 +101,5 @@ print_metadata(
 }
 }
 \author{
-Pedro Neves, Luis Valente, Joshua W. Lambert
+Pedro Santos Neves, Luis Valente, Joshua W. Lambert
 }

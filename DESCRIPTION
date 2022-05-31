@@ -51,4 +51,4 @@ Imports:
     readr,
     tibble
 Remotes: 
-    rsetienne/DAISIE@onto_IW
+    rsetienne/DAISIE@v4.2.0

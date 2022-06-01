@@ -11,7 +11,7 @@ test_that("calc_p_value produces correct output", {
     array_index = array_index
   ))
 
-  # Place files need to run bootstrap
+  # Place files needed to run bootstrap
   reference_files <- list.files(
     "testdata/",
     full.names = TRUE,

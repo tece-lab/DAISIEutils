@@ -24,7 +24,8 @@ default_params_doc(
   full_output,
   seed,
   test,
-  logs_path
+  logs_path,
+  results_dir
 )
 }
 \arguments{
@@ -141,9 +142,14 @@ purposes, to fix the seed.}
 \item{logs_path}{Character with path to the folder containing logs. Only log
 files should be present, in plain text format.}
 
-\item{methode}{Method for numerical integration of ODE system. Default is
-\code{"odeint::runge_kutta_fehlberg78"}. See help for \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}
-for a full list of available options.}
+\item{results_dir}{A string with the path to the directory where results
+are to be stored or can be found. For example, if the data in question
+is (to be) stored in in \verb{folder_with_res/$data_name}, then \code{results_dir}
+should be \code{"folder_with_res"}.
+Defaults to \code{NULL}, which indicates the default directories are to be used.
+Default directories are:
+* \verb{$HOME/results/$data_name} if on the cluster
+* \verb{getwd()/results/$data_name} if called from another environment}
 }
 \value{
 Nothing

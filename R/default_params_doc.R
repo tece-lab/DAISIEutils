@@ -64,9 +64,6 @@
 #'   bic, and they're saved as an RDS file by [run_daisie_ml()].
 #' @param cond An integer specifying conditioning, as described in
 #'   [DAISIE::DAISIE_ML_CS()].
-#' @param methode Method for numerical integration of ODE system. Default is
-#'  `"odeint::runge_kutta_fehlberg78"`. See help for [DAISIE::DAISIE_ML_CS()]
-#'  for a full list of available options.
 #' @param optimmethod Method used in likelihood optimization. Default is
 #'  `"subplex"` (from [subplex-package]). Alternative is `simplex` which was the
 #'  method in previous versions.
@@ -94,6 +91,14 @@
 #'   purposes, to fix the seed.
 #' @param logs_path Character with path to the folder containing logs. Only log
 #'   files should be present, in plain text format.
+#' @param results_dir A string with the path to the directory where results
+#'   are to be stored or can be found. For example, if the data in question
+#'   is (to be) stored in in `folder_with_res/$data_name`, then `results_dir`
+#'   should be `"folder_with_res"`.
+#'   Defaults to `NULL`, which indicates the default directories are to be used.
+#'   Default directories are:
+#'     * `$HOME/results/$data_name` if on the cluster
+#'     * `getwd()/results/$data_name` if called from another environment
 #'
 #' @return Nothing
 #' @keywords internal
@@ -118,6 +123,7 @@ default_params_doc <- function(
   full_output,
   seed,
   test,
-  logs_path) {
+  logs_path,
+  results_dir) {
   # Nothing
 }

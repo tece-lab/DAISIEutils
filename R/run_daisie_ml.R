@@ -26,6 +26,7 @@ run_daisie_ml <- function(
   array_index,
   cond,
   optimmethod,
+  low_rates,
   test = FALSE) {
 
 
@@ -57,7 +58,8 @@ run_daisie_ml <- function(
   testit::assert(is.numeric(cond) && is.finite(cond))
 
   model_arguments <- setup_model(
-    model = model
+    model = model,
+    low_rates = low_rates
   )
 
   initparsopt <- model_arguments$initparsopt

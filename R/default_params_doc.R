@@ -91,6 +91,12 @@
 #'   purposes, to fix the seed.
 #' @param logs_path Character with path to the folder containing logs. Only log
 #'   files should be present, in plain text format.
+#' @param low_rates Boolean determining whether the random sampling of initial
+#'   parameter estimates should be sampled from a broad range (FALSE) or from a
+#'   restricted range where the initial rates a ensured to be smaller (TRUE).
+#'   The latter helps when using large datasets that may fail the initial
+#'   likelihood computation with higher rates that could be sampled from the
+#'   broad range of rates.
 #'
 #' @return Nothing
 #' @keywords internal

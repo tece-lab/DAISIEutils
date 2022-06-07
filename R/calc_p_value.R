@@ -6,17 +6,12 @@
 #' @return Numeric p-value
 #' @export
 calc_p_value <- function(
-  data
+  data,
+  results_dir = NULL
 ) {
 
   data_name <- deparse(substitute(data))
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path("results", data_name)
-  }
+  output_folder <- create_results_dir_path(data_name, results_dir)
 
   files <- list.files(
     path = output_folder,

@@ -23,4 +23,5 @@ create_results_dir_path <- function(data_name, results_dir = NULL) {
       output_folder <- file.path("results", data_name)
     }
   }
+  output_folder
 }

@@ -26,7 +26,7 @@ run_daisie_ml <- function(
   array_index,
   cond,
   optimmethod,
-  low_rates,
+  low_rates = FALSE,
   test = FALSE) {
 
 

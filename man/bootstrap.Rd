@@ -82,9 +82,21 @@ naming the output file.}
 \item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
+\item{methode}{Method of the ODE-solver. Supported Boost \code{ODEINT}
+solvers (steppers) are:
+\code{"odeint::runge_kutta_cash_karp54"}
+\code{"odeint::runge_kutta_fehlberg78"}
+\code{"odeint::runge_kutta_dopri5"}
+\code{"odeint::bulirsch_stoer"}
+without \verb{odeint::}-prefix, \verb{\link{deSolve}{ode}()} method is
+assumed. The default method overall is
+\code{"lsodes"} for \verb{\link{DAISIE_ML_CS}()}
+and \code{"ode45"} from \verb{\link[deSolve]\{ode\}()} for
+\verb{\link{DAISIE_ML_IW}()}.}
+
 \item{optimmethod}{Method used in likelihood optimization. Default is
-\code{"subplex"} (from \link{subplex-package}). Alternative is \code{simplex} which was the
-method in previous versions.}
+\code{subplex} (see \verb{\link[subplex]\{subplex\}()} for full details).
+Alternative is \code{"simplex"} which was the method in previous versions.}
 
 \item{results_dir}{A string with the path to the directory where results
 are to be stored or can be found. For example, if the data in question

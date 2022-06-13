@@ -69,9 +69,21 @@ This value is determined by \code{\link[=Sys.time]{Sys.time()}} and \code{array_
 parallel jobs have different seeds. Only the last 6 digits of the
 \code{\link[=Sys.time]{Sys.time()}} (as an integer) are used.}
 
+\item{methode}{Method of the ODE-solver. Supported Boost \code{ODEINT}
+solvers (steppers) are:
+\code{"odeint::runge_kutta_cash_karp54"}
+\code{"odeint::runge_kutta_fehlberg78"}
+\code{"odeint::runge_kutta_dopri5"}
+\code{"odeint::bulirsch_stoer"}
+without \verb{odeint::}-prefix, \verb{\link{deSolve}{ode}()} method is
+assumed. The default method overall is
+\code{"lsodes"} for \verb{\link{DAISIE_ML_CS}()}
+and \code{"ode45"} from \verb{\link[deSolve]\{ode\}()} for
+\verb{\link{DAISIE_ML_IW}()}.}
+
 \item{optimmethod}{Method used in likelihood optimization. Default is
-\code{"subplex"} (from \link{subplex-package}). Alternative is \code{simplex} which was the
-method in previous versions.}
+\code{subplex} (see \verb{\link[subplex]\{subplex\}()} for full details).
+Alternative is \code{"simplex"} which was the method in previous versions.}
 }
 \value{
 Nothing. Prints session and run info used by DAISIE to console.

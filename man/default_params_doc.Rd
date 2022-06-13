@@ -14,6 +14,7 @@ default_params_doc(
   results,
   cond,
   optimmethod,
+  methode,
   model_1,
   model_2,
   model_1_lik_res,
@@ -25,7 +26,11 @@ default_params_doc(
   seed,
   test,
   logs_path,
-  results_dir
+  results_dir,
+  overall_results,
+  sumstats,
+  ylim4,
+  title
 )
 }
 \arguments{
@@ -104,11 +109,23 @@ bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
 \item{optimmethod}{Method used in likelihood optimization. Default is
-\code{"subplex"} (from \link{subplex-package}). Alternative is \code{simplex} which was the
-method in previous versions.}
+\code{subplex} (see \verb{\link[subplex]\{subplex\}()} for full details).
+Alternative is \code{"simplex"} which was the method in previous versions.}
+
+\item{methode}{Method of the ODE-solver. Supported Boost \code{ODEINT}
+solvers (steppers) are:
+\code{"odeint::runge_kutta_cash_karp54"}
+\code{"odeint::runge_kutta_fehlberg78"}
+\code{"odeint::runge_kutta_dopri5"}
+\code{"odeint::bulirsch_stoer"}
+without \verb{odeint::}-prefix, \verb{\link{deSolve}{ode}()} method is
+assumed. The default method overall is
+\code{"lsodes"} for \verb{\link{DAISIE_ML_CS}()}
+and \code{"ode45"} from \verb{\link[deSolve]\{ode\}()} for
+\verb{\link{DAISIE_ML_IW}()}.}
 
 \item{model_1}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
+see documentation for \code{model}  parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
 \item{model_2}{A string with model that should run. For a list of options
 see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
@@ -150,6 +167,17 @@ Defaults to \code{NULL}, which indicates the default directories are to be used.
 Default directories are:
 * \verb{$HOME/results/$data_name} if on the cluster
 * \verb{getwd()/results/$data_name} if called from another environment}
+
+\item{overall_results}{summary results obtained with
+\code{\link[=summarize_bootstrap_results]{summarize_bootstrap_results()}}.}
+
+\item{sumstats}{vector with the number of species, number
+of colonization, size of the largest clade and the rank of the largest
+clade in the empirical data}
+
+\item{ylim4}{maximum of the plot of the rank of the largest clade.}
+
+\item{title}{title of the plot.}
 }
 \value{
 Nothing

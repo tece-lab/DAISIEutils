@@ -23,11 +23,6 @@ clade in the empirical data}
 
 \item{title}{title of the plot.}
 }
-\value{
-none Four plots are shown: histogram of the number of species,
-histogram of the number of colonizations, histogram of the largest clade
-size and histogram of the rank of the largest clade.
-}
 \description{
 The output is a list of results
 }

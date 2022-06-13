@@ -64,13 +64,24 @@
 #'   bic, and they're saved as an RDS file by [run_daisie_ml()].
 #' @param cond An integer specifying conditioning, as described in
 #'   [DAISIE::DAISIE_ML_CS()].
+#' @param methode Method of the ODE-solver. Supported Boost `ODEINT`
+#'   solvers (steppers) are:
+#'   `"odeint::runge_kutta_cash_karp54"`
+#'   `"odeint::runge_kutta_fehlberg78"`
+#'   `"odeint::runge_kutta_dopri5"`
+#'   `"odeint::bulirsch_stoer"`
+#'   without `odeint::`-prefix, `\link{deSolve}{ode}()` method is
+#'   assumed. The default method overall is
+#'   `"lsodes"` for `\link{DAISIE_ML_CS}()`
+#'   and `"ode45"` from `\link[deSolve]{ode}()` for
+#'   `\link{DAISIE_ML_IW}()`.
 #' @param optimmethod Method used in likelihood optimization. Default is
-#'  `"subplex"` (from [subplex-package]). Alternative is `simplex` which was the
-#'  method in previous versions.
+#'   `subplex` (see `\link[subplex]{subplex}()` for full details).
+#'   Alternative is `"simplex"` which was the method in previous versions.
 #' @param model_1 A string with model that should run. For a list of options
-#'   see documentation for \code{model} parameter in [run_daisie_ml()].
+#'   see documentation for `model`  parameter in [run_daisie_ml()].
 #' @param model_2 A string with model that should run. For a list of options
-#'   see documentation for \code{model} parameter in [run_daisie_ml()].
+#'   see documentation for `model` parameter in [run_daisie_ml()].
 #' @param model_1_lik_res A data frame with results from a DAISIE maximum
 #'   likelihood model.
 #' @param model_2_lik_res A data frame with results from a DAISIE maximum
@@ -99,6 +110,13 @@
 #'   Default directories are:
 #'     * `$HOME/results/$data_name` if on the cluster
 #'     * `getwd()/results/$data_name` if called from another environment
+#' @param overall_results summary results obtained with
+#'   [summarize_bootstrap_results()].
+#' @param sumstats vector with the number of species, number
+#'   of colonization, size of the largest clade and the rank of the largest
+#'   clade in the empirical data
+#' @param ylim4 maximum of the plot of the rank of the largest clade.
+#' @param title title of the plot.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -113,6 +131,7 @@ default_params_doc <- function(
   results,
   cond,
   optimmethod,
+  methode,
   model_1,
   model_2,
   model_1_lik_res,
@@ -124,6 +143,11 @@ default_params_doc <- function(
   seed,
   test,
   logs_path,
-  results_dir) {
+  results_dir,
+  overall_results,
+  sumstats,
+  ylim4,
+  title
+  ) {
   # Nothing
 }

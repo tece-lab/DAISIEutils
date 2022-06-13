@@ -8,6 +8,11 @@
 #' @author Joshua W. Lambert
 #' @export plot_sim_metrics
 plot_sim_metrics <- function(sim_metrics) {
+  # workaround nonstandard evaluation of global variables
+  number_spec <- NULL
+  number_colonists <- NULL
+  sumstats <- NULL
+  overall_results <- NULL
 
   plotting_data <- data.frame(
     number_spec = sim_metrics$number_spec,
@@ -42,7 +47,7 @@ plot_sim_metrics <- function(sim_metrics) {
 
   bar_colors <- rep('cornsilk3',5)
   bar_colors[sumstats[4]] <- 'blue'
-  barplot(height = overall_results$tt[, 2],
+  graphics::barplot(height = overall_results$tt[, 2],
           names.arg = c('1st', '2nd', '3rd', '4th', '5th'),
           col = bar_colors,
           border = bar_colors,

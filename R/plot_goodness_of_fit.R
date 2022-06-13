@@ -197,7 +197,7 @@ summarize_bootstrap_results <- function(simulation_dataset,
 
   tt <- matrix(ncol = 2, nrow = 5)
   tt[1:5,1] <- 1:5
-  tt[1:5,2] <- hist(x = rank_largest_clade,
+  tt[1:5,2] <- graphics::hist(x = rank_largest_clade,
                     breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
                     plot = FALSE)$density[1:5]
 
@@ -220,16 +220,8 @@ summarize_bootstrap_results <- function(simulation_dataset,
 #'
 #' The output is a list of results
 #'
-#' @param overall_results summary results obtained with
-#'   [summarize_bootstrap_results()].
-#' @param sumstats vector with the number of species, number
-#'   of colonization, size of the largest clade and the rank of the largest
-#'   clade in the empirical data
-#' @param ylim4 maximum of the plot of the rank of the largest clade.
-#' @param title title of the plot.
-#' @return none Four plots are shown: histogram of the number of species,
-#'   histogram of the number of colonizations, histogram of the largest clade
-#'   size and histogram of the rank of the largest clade.
+#' @inheritParams default_params_doc
+#'
 #' @author Rampal S. Etienne & Luis Valente
 #' @export
 #' @examples
@@ -282,7 +274,7 @@ plot_bootstrap_results <- function(overall_results,
                                    ylim4 = 0.7,
                                    title = NULL)
 {
-  hist(
+  graphics::hist(
     x = overall_results$number_spec,
     xlab = "Number of species",
     breaks = 30,
@@ -292,11 +284,11 @@ plot_bootstrap_results <- function(overall_results,
     border = "cornsilk3",
     main = title
   )
-  abline(v = median(overall_results$number_spec), col = "black", lwd = 2)
-  arrows(sumstats[1], 1, sumstats[1], 0, col = 'blue', length = 0.07, lwd = 1.5)
+  graphics::abline(v = stats::median(overall_results$number_spec), col = "black", lwd = 2)
+  graphics::arrows(sumstats[1], 1, sumstats[1], 0, col = 'blue', length = 0.07, lwd = 1.5)
 
   ### Colonizations
-  hist(
+  graphics::hist(
     x = overall_results$number_colonists,
     col = "cornsilk3",
     border = "cornsilk3",
@@ -305,15 +297,15 @@ plot_bootstrap_results <- function(overall_results,
     freq = FALSE,
     xlab = "Number of colonization events"
   )
-  abline(
-    v = median(overall_results$number_colonists, na.rm = T),
+  graphics::abline(
+    v = stats::median(overall_results$number_colonists, na.rm = T),
     col = "black",
     lwd = 2
   )
-  arrows(sumstats[2], 1, sumstats[2], 0, col = 'blue', length = 0.07, lwd = 1.5)
+  graphics::arrows(sumstats[2], 1, sumstats[2], 0, col = 'blue', length = 0.07, lwd = 1.5)
 
   ##### size largest clade
-  hist(
+  graphics::hist(
     x = overall_results$size_largest_clade,
     col = "cornsilk3",
     border = "cornsilk3",
@@ -322,16 +314,16 @@ plot_bootstrap_results <- function(overall_results,
     freq = FALSE,
     xlab = "Size largest clade"
   )
-  abline(
-    v = median(overall_results$size_largest_clade, na.rm = T),
+  graphics::abline(
+    v = stats::median(overall_results$size_largest_clade, na.rm = T),
     col = "black",
     lwd = 2
   )
-  arrows(sumstats[3], 1, sumstats[3], 0, col = 'blue', length = 0.07, lwd = 1.5)
+  graphics::arrows(sumstats[3], 1, sumstats[3], 0, col = 'blue', length = 0.07, lwd = 1.5)
 
   bar_colors <- rep('cornsilk3',5)
   bar_colors[sumstats[4]] <- 'blue'
-  barplot(height = overall_results$tt[, 2],
+  graphics::barplot(height = overall_results$tt[, 2],
           names.arg = c('1st', '2nd', '3rd', '4th', '5th'),
           col = bar_colors,
           border = bar_colors,

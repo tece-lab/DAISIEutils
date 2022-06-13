@@ -69,7 +69,7 @@ calc_sim_metrics <- function(daisie_data) {
 
   tt <- matrix(ncol = 2, nrow = 5)
   tt[1:5,1] <- 1:5
-  tt[1:5,2] <- hist(x = rank_largest_clade,
+  tt[1:5,2] <- graphics::hist(x = rank_largest_clade,
                     breaks = seq(0.5,max(rank_largest_clade) + 0.5, by = 1),
                     plot = FALSE)$density[1:5]
 

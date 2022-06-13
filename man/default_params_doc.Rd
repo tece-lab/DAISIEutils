@@ -144,7 +144,7 @@ files should be present, in plain text format.}
 
 \item{results_dir}{A string with the path to the directory where results
 are to be stored or can be found. For example, if the data in question
-is (to be) stored in in \verb{folder_with_res/$data_name}, then \code{results_dir}
+is (to be) stored in \verb{folder_with_res/$data_name}, then \code{results_dir}
 should be \code{"folder_with_res"}.
 Defaults to \code{NULL}, which indicates the default directories are to be used.
 Default directories are:

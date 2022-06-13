@@ -1,4 +1,4 @@
-#' Create model output folder
+#' Create output folder
 #'
 #' @inheritParams default_params_doc
 #'

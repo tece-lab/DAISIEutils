@@ -19,16 +19,15 @@
 #' )
 #' }
 #' @author Pedro Santos Neves, Joshua W. Lambert, Luis Valente
-run_daisie_ml <- function(
-  data,
-  data_name,
-  model,
-  array_index,
-  cond,
-  methode = "odeint::runge_kutta_fehlberg78",
-  optimmethod = "subplex",
-  test = FALSE) {
-
+run_daisie_ml <- function(  data,
+                            data_name,
+                            model,
+                            array_index,
+                            cond,
+                            methode = "odeint::runge_kutta_fehlberg78",
+                            optimmethod = "subplex",
+                            results_dir = NULL,
+                            test = FALSE) {
 
   if (test) {
     seed <- array_index
@@ -51,11 +50,12 @@ run_daisie_ml <- function(
     seed = seed,
     methode = methode,
     optimmethod = optimmethod)
-  file_path <- create_output_folder(
+
+  output_folder_path <- create_output_folder(
     data_name = data_name,
-    model = model,
-    array_index = array_index
+    results_dir = results_dir
   )
+
   testit::assert(is.numeric(array_index) && is.finite(array_index))
   testit::assert(is.numeric(cond) && is.finite(cond))
 
@@ -88,8 +88,17 @@ run_daisie_ml <- function(
   bic <- calc_bic(results = lik_res, data = data)
   lik_res <- cbind(lik_res, bic)
 
+  output_path <- file.path(
+    output_folder_path,
+    paste(
+      model,
+      array_index,
+      sep = "_"
+    )
+  )
+
   saveRDS(
     lik_res,
-    file = file_path
+    file = output_path
   )
 }

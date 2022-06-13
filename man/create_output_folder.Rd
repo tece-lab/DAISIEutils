@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_output_folder.R
 \name{create_output_folder}
 \alias{create_output_folder}
-\title{Create model output folder}
+\title{Create output folder}
 \usage{
 create_output_folder(data_name, results_dir = NULL)
 }
@@ -12,7 +12,7 @@ folder.}
 
 \item{results_dir}{A string with the path to the directory where results
 are to be stored or can be found. For example, if the data in question
-is (to be) stored in in \verb{folder_with_res/$data_name}, then \code{results_dir}
+is (to be) stored in \verb{folder_with_res/$data_name}, then \code{results_dir}
 should be \code{"folder_with_res"}.
 Defaults to \code{NULL}, which indicates the default directories are to be used.
 Default directories are:
@@ -27,7 +27,7 @@ called from another environment, folder will be
 specified, resulting in \verb{results_dir/$data_name}.
 }
 \description{
-Create model output folder
+Create output folder
 }
 \examples{
 \dontrun{

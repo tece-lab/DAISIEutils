@@ -18,14 +18,16 @@
 #'   cond = 1,
 #' )
 #' }
-bootstrap_lr <- function(
-  data,
-  data_name,
-  model_1,
-  model_2,
-  array_index,
-  cond,
-  test = FALSE) {
+bootstrap_lr <- function(data,
+                         data_name,
+                         model_1,
+                         model_2,
+                         array_index,
+                         cond,
+                         methode = "lsodes",
+                         optimmethod = "subplex",
+                         results_dir = NULL,
+                         test = FALSE) {
 
   if (test) {
     seed <- array_index
@@ -43,28 +45,23 @@ bootstrap_lr <- function(
     data_name = data_name,
     model = paste("boot_lr", model_1, model_2, sep = "_"),
     array_index = array_index,
-    seed = seed)
-  file_path <- create_output_folder(
+    seed = seed,
+    methode = methode,
+    optimmethod = optimmethod)
+
+  data_to_read_path <- create_results_dir_path(
     data_name = data_name,
-    model = paste("boot_lr", model_1, model_2, sep = "_"),
-    array_index = array_index
+    results_dir = results_dir
   )
 
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path("results", data_name)
-  }
   model_1_files <- list.files(
-    path = output_folder,
+    path = data_to_read_path,
     full.names = TRUE,
     pattern = paste0(data_name, "_", model_1, "_[0-9].rds$"))
   model_1_lik_res <- lapply(model_1_files, readRDS)
 
   model_2_files <- list.files(
-    path = output_folder,
+    path = data_to_read_path,
     full.names = TRUE,
     pattern = paste0(data_name, "_", model_2, "_[0-9].rds$"))
   model_2_lik_res <- lapply(model_2_files, readRDS)
@@ -189,9 +186,21 @@ bootstrap_lr <- function(
     model_2_sim_2_lik_res = model_2_sim_2_lik_res,
     lik_ratio_2 = lik_ratio_2
   )
-
+  output_folder_path <- create_output_folder(
+    data_name = data_name,
+    results_dir = results_dir
+  )
+  output_path <- file.path(
+    output_folder_path,
+    paste(
+      model_1,
+      model_2,
+      array_index,
+      sep = "_"
+    )
+  )
   saveRDS(
     output,
-    file = file_path
+    file = output_path
   )
 }

@@ -93,7 +93,7 @@
 #'   files should be present, in plain text format.
 #' @param results_dir A string with the path to the directory where results
 #'   are to be stored or can be found. For example, if the data in question
-#'   is (to be) stored in in `folder_with_res/$data_name`, then `results_dir`
+#'   is (to be) stored in `folder_with_res/$data_name`, then `results_dir`
 #'   should be `"folder_with_res"`.
 #'   Defaults to `NULL`, which indicates the default directories are to be used.
 #'   Default directories are:

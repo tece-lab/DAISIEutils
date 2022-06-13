@@ -11,6 +11,9 @@ bootstrap_lr(
   model_2,
   array_index,
   cond,
+  methode = "lsodes",
+  optimmethod = "subplex",
+  results_dir = NULL,
   test = FALSE
 )
 }
@@ -34,6 +37,19 @@ naming the output file.}
 
 \item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
+
+\item{optimmethod}{Method used in likelihood optimization. Default is
+\code{"subplex"} (from \link{subplex-package}). Alternative is \code{simplex} which was the
+method in previous versions.}
+
+\item{results_dir}{A string with the path to the directory where results
+are to be stored or can be found. For example, if the data in question
+is (to be) stored in \verb{folder_with_res/$data_name}, then \code{results_dir}
+should be \code{"folder_with_res"}.
+Defaults to \code{NULL}, which indicates the default directories are to be used.
+Default directories are:
+* \verb{$HOME/results/$data_name} if on the cluster
+* \verb{getwd()/results/$data_name} if called from another environment}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}

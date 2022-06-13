@@ -16,18 +16,18 @@
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
 #'   array_index = 1,
-#'   cond = 1,
+#'   cond = 1
 #' )
 #' }
-bootstrap <- function(
-  data,
-  data_name,
-  model,
-  array_index,
-  cond,
-  methode = "lsodes",
-  optimmethod = "subplex",
-  test = FALSE) {
+bootstrap <- function(data,
+                      data_name,
+                      model,
+                      array_index,
+                      cond,
+                      methode = "lsodes",
+                      optimmethod = "subplex",
+                      results_dir = NULL,
+                      test = FALSE) {
 
   if (test) {
     seed <- array_index
@@ -48,22 +48,15 @@ bootstrap <- function(
     array_index = array_index,
     seed = seed,
     methode = methode,
-    optimmethod = optimmethod)
-  file_path <- create_output_folder(
+    optimmethod = optimmethod
+  )
+  data_to_read_path <- create_results_dir_path(
     data_name = data_name,
-    model = paste("boot", model, sep = "_"),
-    array_index = array_index
+    results_dir = results_dir
   )
 
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path("results", data_name)
-  }
   model_files <- list.files(
-    path = output_folder,
+    path = data_to_read_path,
     full.names = TRUE,
     pattern = paste0(data_name, "_", model, "_[0-9].rds$"))
 
@@ -111,8 +104,17 @@ bootstrap <- function(
     model_sim_lik_res = model_sim_lik_res
   )
 
-  saveRDS(
-    output,
-    file = file_path
+  output_folder_path <- create_output_folder(
+    data_name = data_name,
+    results_dir = results_dir
   )
+  output_path <- file.path(
+    output_folder_path,
+    paste(
+      model,
+      array_index,
+      sep = "_"
+    )
+  )
+  saveRDS(output, file = output_path)
 }

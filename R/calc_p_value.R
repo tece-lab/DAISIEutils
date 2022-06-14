@@ -6,11 +6,11 @@
 #' @return Numeric p-value
 #' @export
 calc_p_value <- function(
-  data,
+  daisie_data,
   results_dir = NULL
 ) {
 
-  data_name <- deparse(substitute(data))
+  data_name <- deparse(substitute(daisie_data))
   output_folder <- create_results_dir_path(data_name, results_dir)
 
   files <- list.files(

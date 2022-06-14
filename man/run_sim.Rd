@@ -4,10 +4,10 @@
 \alias{run_sim}
 \title{Runs a DAISIE simulation}
 \usage{
-run_sim(data, model, lik_res, cond)
+run_sim(daisie_data, model, lik_res, cond)
 }
 \arguments{
-\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}

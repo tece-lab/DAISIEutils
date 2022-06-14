@@ -11,12 +11,12 @@ test_that("calc_bic works", {
     conv = 0)
   bic <- calc_bic(
     results = results,
-    data = Azores)
+    daisie_data = Azores)
   expect_equal(bic, 195.7286817)
 })
 
 test_that("calc_bic fails when expected", {
-  data <- list("nonsense")
+  daisie_data <- list("nonsense")
   results <- data.frame(
     lambda_c = 2.575631,
     mu = 2.703317,
@@ -28,7 +28,7 @@ test_that("calc_bic fails when expected", {
     conv = 0)
   expect_error(calc_bic(
     results = results,
-    data = data))
+    daisie_data = daisie_data))
 })
 
 test_that("calc_bic fails when expected", {
@@ -44,5 +44,5 @@ test_that("calc_bic fails when expected", {
     conv = "nonsense")
   expect_error(calc_bic(
     results = results,
-    data = Azores))
+    daisie_data = Azores))
 })

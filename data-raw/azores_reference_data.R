@@ -12,7 +12,7 @@ cond <- 1
 for (model in models) {
   for (array_index in array_indices) {
     DAISIEutils::run_daisie_ml(
-      data = Azores,
+      daisie_data = Azores,
       data_name = "Azores",
       model = model,
       array_index = array_index,
@@ -21,7 +21,7 @@ for (model in models) {
       optimmethod = "subplex"
     )
     DAISIEutils::run_daisie_ml(
-      data = Azores_alt_m,
+      daisie_data = Azores_alt_m,
       data_name = "Azores_alt_m",
       model = model,
       array_index = array_index,
@@ -41,7 +41,7 @@ saveRDS(sens_out, "results/Azores_Azores_alt_m.rds")
 
 for (array_index in array_indices) {
   DAISIEutils::bootstrap_lr(
-    data = Azores,
+    daisie_data = Azores,
     data_name = "Azores",
     model_1 = "cr_dd",
     model_2 = "cr_di",
@@ -50,7 +50,7 @@ for (array_index in array_indices) {
     test = TRUE
   )
   DAISIEutils::bootstrap(
-    data = Azores,
+    daisie_data = Azores,
     data_name = "Azores",
     model = "cr_dd",
     array_index = array_index,

@@ -1,7 +1,7 @@
 test_that("run_sim cr model works", {
   data("Azores")
   model <- "cr_dd"
-  data <- Azores
+  daisie_data <- Azores
   cond <- 1
   set.seed(1)
   lik_res <- data.frame(
@@ -14,12 +14,11 @@ test_that("run_sim cr model works", {
     df = 5,
     conv = 0)
   out <- run_sim(
-    data = data,
+    daisie_data = daisie_data,
     model = model,
     lik_res = lik_res,
     cond = cond
   )
-  # expect_true(is_daisie_data(out)) TODO: Finish is_daisie_data() to use this.
 
   expect_length(out[[1]], 11)
   expected_last_line <- c(Time = 0, nI = 4, nA = 2, nC = 23, present = 10)
@@ -29,7 +28,7 @@ test_that("run_sim cr model works", {
 test_that("run_sim rr model works", {
   data("Azores")
   model <- "rr_lac_di"
-  data <- Azores
+  daisie_data <- Azores
   cond <- 1
   set.seed(1)
   lik_res <- data.frame(
@@ -43,12 +42,11 @@ test_that("run_sim rr model works", {
     df = 5,
     conv = 0)
   out <- run_sim(
-    data = data,
+    daisie_data = daisie_data,
     model = model,
     lik_res = lik_res,
     cond = cond
   )
-  # expect_true(is_daisie_data(out)) TODO: Finish is_daisie_data() to use this.
 
   expect_length(out[[1]], 9)
   expected_last_line <- c(Time = 0, nI = 1, nA = 3, nC = 325, present = 8)

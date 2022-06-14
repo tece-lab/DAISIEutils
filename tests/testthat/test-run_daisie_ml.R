@@ -23,7 +23,7 @@ test_that("integration test", {
   # Omit console output in tests
   invisible(capture.output(suppressMessages(
     run_daisie_ml(
-      data = Azores, # nolint
+      daisie_data = Azores, # nolint
       data_name = data_name,
       model = model,
       array_index = array_index,
@@ -75,7 +75,7 @@ test_that("run_daisie_ml fails when expected", {
   # Omit console output in tests
   expect_error(invisible(capture.output(
     run_daisie_ml(
-      data = list(), # nolint
+      daisie_data = list(), # nolint
       data_name = data_name,
       model = model,
       array_index = array_index,
@@ -111,7 +111,7 @@ test_that("run_daisie_ml fails when expected", {
   # Omit console output in tests
   expect_error(invisible(capture.output(
     run_daisie_ml(
-      data = Azores, # nolint
+      daisie_data = Azores, # nolint
       data_name = data_name,
       model = model,
       array_index = array_index,
@@ -148,7 +148,7 @@ test_that("run_daisie_ml fails when expected", {
   # Omit console output in tests
   expect_error(invisible(capture.output(
     run_daisie_ml(
-      data = Azores, # nolint
+      daisie_data = Azores, # nolint
       data_name = data_name,
       model = model,
       array_index = array_index,
@@ -181,7 +181,7 @@ test_that("run_daisie_ml fails when expected", {
   # Omit console output in tests
   expect_error(invisible(capture.output(
     run_daisie_ml(
-      data = Azores, # nolint
+      daisie_data = Azores, # nolint
       data_name = data_name,
       model = model,
       array_index = array_index,

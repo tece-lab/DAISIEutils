@@ -5,7 +5,7 @@
 \title{Run DAISIE analysis}
 \usage{
 run_daisie_ml(
-  data,
+  daisie_data,
   data_name,
   model,
   array_index,
@@ -17,7 +17,7 @@ run_daisie_ml(
 )
 }
 \arguments{
-\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
@@ -122,7 +122,7 @@ Run DAISIE analysis
 \dontrun{
 data(Galapagos_datalist, package = "DAISIE")
 run_daisie_ml(
-  data = Galapagos_datalist,
+  daisie_data = Galapagos_datalist,
   data_name = "Galapagos_datalist",
   model = "cr_dd",
   array_index = 1,

@@ -5,13 +5,13 @@
 #' @return List with output from [`DAISIE`] simulation
 #' @export
 run_sim <- function(
-  data,
+    daisie_data,
   model,
   lik_res,
   cond) {
 
-  time <- data[[1]]$island_age
-  m <- data[[1]]$not_present + (length(data) - 1)
+  time <- daisie_data[[1]]$island_age
+  m <- daisie_data[[1]]$not_present + (length(daisie_data) - 1)
   pars <- c(lik_res$lambda_c,
             lik_res$mu,
             lik_res$K,

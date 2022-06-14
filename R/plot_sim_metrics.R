@@ -13,6 +13,7 @@ plot_sim_metrics <- function(sim_metrics) {
   number_colonists <- NULL
   sumstats <- NULL
   overall_results <- NULL
+  ylim4 <- NULL
 
   plotting_data <- data.frame(
     number_spec = sim_metrics$number_spec,

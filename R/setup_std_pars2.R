@@ -20,8 +20,8 @@
 #' @examples
 #' std_pars2 <- setup_std_pars2()
 setup_std_pars2 <- function(res = 100,
-                            ddmodel,
-                            cond,
+                            ddmodel = 11,
+                            cond = 0,
                             verbose = 0,
                             island_ontogeny = NA,
                             eqmodel = 0,

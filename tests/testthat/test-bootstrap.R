@@ -25,7 +25,7 @@ test_that("bootstrap works", {
   # Omit console output in tests
   # invisible(suppressMessages(capture.output(
     bootstrap(
-      data = Azores,
+      daisie_data = Azores,
       data_name = data_name,
       model = "cr_dd",
       array_index = array_index,

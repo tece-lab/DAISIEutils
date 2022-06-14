@@ -18,7 +18,7 @@ test_that("calc_power produces correct output", {
     pattern = "*.rds"
   )
   expect_true(all(file.copy(reference_files, results_folder)))
-  output <- calc_power(data = Azores)
+  output <- calc_power(daisie_data = Azores)
 
   expected_output <- 0.166666666667
   expect_equal(output, expected_output)
@@ -29,5 +29,5 @@ test_that("calc_power produces correct output", {
 })
 
 test_that("calc_power produces error", {
-  expect_error(calc_power(data = "nonsense"))
+  expect_error(calc_power(daisie_data = "nonsense"))
 })

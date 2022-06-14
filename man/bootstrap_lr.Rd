@@ -5,7 +5,7 @@
 \title{Runs a parameteric bootstrapping likelihood ratio test on two DAISIE models}
 \usage{
 bootstrap_lr(
-  data,
+  daisie_data,
   data_name,
   model_1,
   model_2,
@@ -18,7 +18,7 @@ bootstrap_lr(
 )
 }
 \arguments{
-\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
@@ -78,7 +78,7 @@ Runs a parameteric bootstrapping likelihood ratio test on two DAISIE models
 \dontrun{
 data(Galapagos_datalist, package = "DAISIE")
 bootstrap_lr(
-  data = Galapagos_datalist,
+  daisie_data = Galapagos_datalist,
   model_1 = "cr_dd",
   model_2 = "cr_di",
   array_index = 1,

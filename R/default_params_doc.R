@@ -52,7 +52,7 @@
 #'   folder.
 #' @param results_root_folder Character. A path to the root folder containing
 #'   subfolders. Each subfolder contains result files for analysis runs.
-#' @param data A list, conforming to the [`DAISIE`] object format. Usually
+#' @param daisie_data A list, conforming to the [`DAISIE`] object format. Usually
 #'   preprocessed by [DAISIE::DAISIE_dataprep()], see it's documentation for
 #'   details. Otherwise it may be generated via simulations, using
 #'   [DAISIE::DAISIE_sim_cr()] and friends.
@@ -125,7 +125,7 @@ default_params_doc <- function(
   model,
   data_name,
   results_root_folder,
-  data,
+  daisie_data,
   array_index,
   file_path,
   results,

@@ -11,14 +11,14 @@
 #' \dontrun{
 #' data(Galapagos_datalist, package = "DAISIE")
 #' bootstrap_lr(
-#'   data = Galapagos_datalist,
+#'   daisie_data = Galapagos_datalist,
 #'   model_1 = "cr_dd",
 #'   model_2 = "cr_di",
 #'   array_index = 1,
 #'   cond = 1,
 #' )
 #' }
-bootstrap_lr <- function(data,
+bootstrap_lr <- function(daisie_data,
                          data_name,
                          model_1,
                          model_2,
@@ -75,7 +75,7 @@ bootstrap_lr <- function(data,
   )
 
   sim_1 <- run_sim(
-    data = data,
+    daisie_data = daisie_data,
     model = model_1,
     lik_res = best_model_1,
     cond = cond
@@ -136,7 +136,7 @@ bootstrap_lr <- function(data,
   )
 
   sim_2 <- run_sim(
-    data = data,
+    daisie_data = daisie_data,
     model = model_1,
     lik_res = best_model_1,
     cond = cond

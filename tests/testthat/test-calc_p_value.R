@@ -20,7 +20,10 @@ test_that("calc_p_value produces correct output", {
   )
   expect_true(all(file.copy(reference_files, results_folder)))
 
-  output <- calc_p_value(data = Azores, results_dir = results_folder)
+  output <- calc_p_value(
+    daisie_data = Azores,
+    results_dir = dirname(results_folder)
+  )
   expected_output <- 0.33333333
   expect_equal(output, expected_output)
 
@@ -29,5 +32,5 @@ test_that("calc_p_value produces correct output", {
 })
 
 test_that("calc_p_value produces error", {
-  expect_error(calc_p_value(data = "nonsense"))
+  expect_error(calc_p_value(daisie_data = "nonsense"))
 })

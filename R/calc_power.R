@@ -5,10 +5,10 @@
 #' @return Numeric power
 #' @export
 calc_power <- function(
-  data
+  daisie_data
 ) {
 
-  data_name <- deparse(substitute(data))
+  data_name <- deparse(substitute(daisie_data))
   if (is_on_cluster()) {
     output_folder <- file.path(
       Sys.getenv("HOME"), "results", data_name

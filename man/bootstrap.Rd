@@ -5,7 +5,7 @@
 \title{Runs a bootstrapping on a DAISIE model to determine parameter precision}
 \usage{
 bootstrap(
-  data,
+  daisie_data,
   data_name,
   model,
   array_index,
@@ -17,7 +17,7 @@ bootstrap(
 )
 }
 \arguments{
-\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
 preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
 details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
@@ -123,7 +123,7 @@ Runs a bootstrapping on a DAISIE model to determine parameter precision
 \dontrun{
 data(Galapagos_datalist, package = "DAISIE")
 bootstrap(
-  data = Galapagos_datalist,
+  daisie_data = Galapagos_datalist,
   data_name = "Galapagos_datalist",
   model = "cr_dd",
   array_index = 1,

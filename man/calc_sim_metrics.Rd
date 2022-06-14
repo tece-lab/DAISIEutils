@@ -6,6 +6,12 @@
 \usage{
 calc_sim_metrics(daisie_data)
 }
+\arguments{
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
+details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
+}
 \value{
 List of simulation metrics
 }

@@ -6,8 +6,8 @@
 \usage{
 setup_std_pars2(
   res = 100,
-  ddmodel,
-  cond,
+  ddmodel = 11,
+  cond = 0,
   verbose = 0,
   island_ontogeny = NA,
   eqmodel = 0,

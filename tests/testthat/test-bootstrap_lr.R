@@ -26,7 +26,7 @@ test_that("bootstrap_lr works", {
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
     bootstrap_lr(
-      data = Azores,
+      daisie_data = Azores,
       data_name = data_name,
       model_1 = model_1,
       model_2 = model_2,

@@ -40,18 +40,16 @@
 #' @author Joshua W. Lambert
 sensitivity <- function(
   data_names,
-  full_output = FALSE) {
+  full_output = FALSE,
+  results_dir = NULL) {
 
   best_models_list <- list()
   output <- list()
   for (i in seq_along(data_names)) {
-    if (is_on_cluster()) {
-      output_folder <- file.path(
-        Sys.getenv("HOME"), "results", data_names[i]
-      )
-    } else {
-      output_folder <- file.path(getwd(), "results", data_names[i])
-    }
+    results_folder <- create_results_dir_path(
+      data_name = data_names[1],
+      results_dir = results_dir
+    )
     expected_models <- get_available_models()
 
     best_models_list[[i]] <- list()
@@ -59,7 +57,7 @@ sensitivity <- function(
 
     for (j in seq_along(expected_models)) {
       data_files <- list.files(
-        path = output_folder,
+        path = results_folder,
         full.names = TRUE,
         pattern = paste0(expected_models[j], "_[0-9].rds$"))
 
@@ -88,7 +86,7 @@ sensitivity <- function(
   }
 
   names_ranked_models <- lapply(ranked_models, names)
-  names_ranked_models <- lapply(names_ranked_models, function (x) {
+  names_ranked_models <- lapply(names_ranked_models, function(x) {
     if (length(x) == 0) x <- "no_conv" else x <- x
   })
   name_best_fit_model <- unname(sapply(names_ranked_models, "[[", 1))

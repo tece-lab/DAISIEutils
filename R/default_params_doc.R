@@ -117,6 +117,52 @@
 #'   clade in the empirical data
 #' @param ylim4 maximum of the plot of the rank of the largest clade.
 #' @param title title of the plot.
+#' @param res Sets the maximum number of species for which a probability must
+#'   be computed, must be larger than the size of the largest clade.
+#' @param ddmodel Sets the model of diversity-dependence:
+#'   * `ddmodel = 0`: no diversity dependence
+#'   * `ddmodel = 1`: linear dependence in speciation rate
+#'   * `ddmodel = 11`: linear dependence in speciation rate and in immigration
+#'     rate
+#'   * `ddmodel = 2`: exponential dependence in speciation rate
+#'   * `ddmodel = 21`: exponential dependence in speciation rate and in
+#'   immigration rate
+#' @param verbose In simulation and dataprep functions a logical,
+#'   \code{Default = TRUE} gives intermediate output should be printed.
+#'   For ML functions a numeric determining if intermediate output should be
+#'   printed, \code{Default = 0} does not print, \code{verbose = 1} prints
+#'   intermediate output of the parameters and loglikelihood, \code{verbose = 2}
+#'   means also intermediate progress during loglikelihood computation is shown.
+#' @param island_ontogeny In \code{\link{DAISIE_sim_time_dep}()},
+#'   \code{\link{DAISIE_ML_CS}} and plotting a string describing the type of
+#'   island ontogeny. Can be \code{"const"}, \code{"beta"} for a beta function
+#'   describing area through time. String checked by
+#'   \code{\link{is_island_ontogeny_input}()}. \cr In all other functions a
+#'   numeric describing the type of island ontogeny. Can be \code{0} for
+#'   constant, \code{1} for a beta function describing area through time. In ML
+#'   functions \code{island_ontogeny = NA} assumes constant ontogeny. Time
+#'   dependent estimation is not yet available as development is still ongoing.
+#'   Will return an error if called in that case.
+#' @param eqmodel Sets the equilibrium constraint that can be used during the
+#'   likelihood optimization. Only available for datatype = 'single'.\cr\cr
+#'   eqmodel = 0 : no equilibrium is assumed \cr eqmodel = 13 : near-equilibrium
+#'   is assumed on endemics using deterministic equation for endemics and
+#'   immigrants. Endemics must be within x_E of the equilibrium value\cr eqmodel
+#'   = 15 : near-equilibrium is assumed on endemics and immigrants using
+#'   deterministic equation for endemics and immigrants. Endemics must be within
+#'   x_E of the equilibrium value, while non-endemics must be within x_I of the
+#'   equilibrium value.
+#' @param tol Sets the tolerances in the optimization. Consists of:
+#'   * `reltolx` - relative tolerance of parameter values in optimization.
+#'   * `reltolf` - relative tolerance of function value in optimization.
+#'   * `abstolx` - absolute tolerance of parameter values in optimization.
+#' @param maxiter Sets the maximum number of iterations in the optimization.
+#' @param x_E Sets the fraction of the equlibrium endemic diversity above which
+#'   the endemics are assumed to be in equilibrium; only active for
+#'   `eqmodel = 13` or `15`.
+#' @param x_I Sets the fraction of the equlibrium non-endemic diversity above
+#'   which the system is assumed to be in equilibrium; only active for
+#'   `eqmodel = 15`.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -147,7 +193,16 @@ default_params_doc <- function(
   overall_results,
   sumstats,
   ylim4,
-  title
+  title,
+  res,
+  ddmodel,
+  verbose,
+  island_ontogeny,
+  eqmodel,
+  tol,
+  maxiter,
+  x_E,
+  x_I
   ) {
   # Nothing
 }

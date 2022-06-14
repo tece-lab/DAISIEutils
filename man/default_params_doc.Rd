@@ -30,7 +30,16 @@ default_params_doc(
   overall_results,
   sumstats,
   ylim4,
-  title
+  title,
+  res,
+  ddmodel,
+  verbose,
+  island_ontogeny,
+  eqmodel,
+  tol,
+  maxiter,
+  x_E,
+  x_I
 )
 }
 \arguments{
@@ -178,6 +187,65 @@ clade in the empirical data}
 \item{ylim4}{maximum of the plot of the rank of the largest clade.}
 
 \item{title}{title of the plot.}
+
+\item{res}{Sets the maximum number of species for which a probability must
+be computed, must be larger than the size of the largest clade.}
+
+\item{ddmodel}{Sets the model of diversity-dependence:
+\itemize{
+\item \code{ddmodel = 0}: no diversity dependence
+\item \code{ddmodel = 1}: linear dependence in speciation rate
+\item \code{ddmodel = 11}: linear dependence in speciation rate and in immigration
+rate
+\item \code{ddmodel = 2}: exponential dependence in speciation rate
+\item \code{ddmodel = 21}: exponential dependence in speciation rate and in
+immigration rate
+}}
+
+\item{verbose}{In simulation and dataprep functions a logical,
+\code{Default = TRUE} gives intermediate output should be printed.
+For ML functions a numeric determining if intermediate output should be
+printed, \code{Default = 0} does not print, \code{verbose = 1} prints
+intermediate output of the parameters and loglikelihood, \code{verbose = 2}
+means also intermediate progress during loglikelihood computation is shown.}
+
+\item{island_ontogeny}{In \code{\link{DAISIE_sim_time_dep}()},
+\code{\link{DAISIE_ML_CS}} and plotting a string describing the type of
+island ontogeny. Can be \code{"const"}, \code{"beta"} for a beta function
+describing area through time. String checked by
+\code{\link{is_island_ontogeny_input}()}. \cr In all other functions a
+numeric describing the type of island ontogeny. Can be \code{0} for
+constant, \code{1} for a beta function describing area through time. In ML
+functions \code{island_ontogeny = NA} assumes constant ontogeny. Time
+dependent estimation is not yet available as development is still ongoing.
+Will return an error if called in that case.}
+
+\item{eqmodel}{Sets the equilibrium constraint that can be used during the
+likelihood optimization. Only available for datatype = 'single'.\cr\cr
+eqmodel = 0 : no equilibrium is assumed \cr eqmodel = 13 : near-equilibrium
+is assumed on endemics using deterministic equation for endemics and
+immigrants. Endemics must be within x_E of the equilibrium value\cr eqmodel
+= 15 : near-equilibrium is assumed on endemics and immigrants using
+deterministic equation for endemics and immigrants. Endemics must be within
+x_E of the equilibrium value, while non-endemics must be within x_I of the
+equilibrium value.}
+
+\item{tol}{Sets the tolerances in the optimization. Consists of:
+\itemize{
+\item \code{reltolx} - relative tolerance of parameter values in optimization.
+\item \code{reltolf} - relative tolerance of function value in optimization.
+\item \code{abstolx} - absolute tolerance of parameter values in optimization.
+}}
+
+\item{maxiter}{Sets the maximum number of iterations in the optimization.}
+
+\item{x_E}{Sets the fraction of the equlibrium endemic diversity above which
+the endemics are assumed to be in equilibrium; only active for
+\code{eqmodel = 13} or \code{15}.}
+
+\item{x_I}{Sets the fraction of the equlibrium non-endemic diversity above
+which the system is assumed to be in equilibrium; only active for
+\code{eqmodel = 15}.}
 }
 \value{
 Nothing

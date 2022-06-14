@@ -56,10 +56,10 @@ dataset_iw <- DAISIE::DAISIE_sim_cr(
   divdepmodel = "IW"
 )
 overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
-  simulation_dataset = dataset_cs
+  daisie_data = dataset_cs
 )
 overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
-  simulation_dataset = dataset_iw
+  daisie_data = dataset_iw
 )
 par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
 DAISIEutils::plot_bootstrap_results(

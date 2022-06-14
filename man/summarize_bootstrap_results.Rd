@@ -4,18 +4,20 @@
 \alias{summarize_bootstrap_results}
 \title{Computes summary results of bootstrap simulations useful for plotting}
 \usage{
-summarize_bootstrap_results(simulation_dataset, m_pool = 1000)
+summarize_bootstrap_results(daisie_data, mainland_n = 1000)
 }
 \arguments{
-\item{simulation_dataset}{output of DAISIE_sim}
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
+preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
+details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
 
-\item{m_pool}{size of the mainland pool}
-
-\item{empirical_summary_statistics}{vector with the number of species, number
-of colonization, size of the largest clade and the rank of the largest clade
-in the empirical data}
-
-\item{time}{age of the island or archipelago}
+\item{mainland_n}{A numeric stating the number of mainland species, that
+is the number of species that can potentially colonize the island.
+If using a clade-specific diversity dependence, this value is set to 1
+internally in the simulation.
+If using an island-wide diversity dependence, this value is set to the
+number of mainland species.}
 }
 \value{
 overall_results a list of results
@@ -53,10 +55,10 @@ dataset_iw <- DAISIE::DAISIE_sim_cr(
   divdepmodel = "IW"
 )
 overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
-  simulation_dataset = dataset_cs
+  daisie_data = dataset_cs
 )
 overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
-  simulation_dataset = dataset_iw
+  daisie_data = dataset_iw
 )
 }
 }

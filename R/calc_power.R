@@ -9,6 +9,8 @@ calc_power <- function(
   results_dir = NULL
 ) {
 
+  data_name <- deparse(substitute(daisie_data))
+
   results_folder <- create_results_dir_path(data_name, results_dir)
   files <- list.files(
     path = results_folder,

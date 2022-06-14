@@ -163,6 +163,12 @@
 #' @param x_I Sets the fraction of the equlibrium non-endemic diversity above
 #'   which the system is assumed to be in equilibrium; only active for
 #'   `eqmodel = 15`.
+#' @param mainland_n A numeric stating the number of mainland species, that
+#'   is the number of species that can potentially colonize the island.
+#'   If using a clade-specific diversity dependence, this value is set to 1
+#'   internally in the simulation.
+#'   If using an island-wide diversity dependence, this value is set to the
+#'   number of mainland species.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -202,7 +208,8 @@ default_params_doc <- function(
   tol,
   maxiter,
   x_E,
-  x_I
+  x_I,
+  mainland_n
   ) {
   # Nothing
 }

@@ -1,6 +1,6 @@
 test_that("read_model_results works", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
-  reference_path <- file.path(getwd(), "testdata", "results")
+  reference_path <- file.path("testdata", "results")
   obtained_results <- read_model_results(reference_path)
 
   expected_results <- list(

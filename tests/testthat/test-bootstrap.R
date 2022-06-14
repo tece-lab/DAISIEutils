@@ -13,17 +13,16 @@ test_that("bootstrap works", {
     full.names = TRUE,
     pattern = paste0(data_name, "_", model, "_[0-9].rds$")
   )
-  results_name <- create_output_folder(
+  temp_dir <- tempdir()
+  results_folder <- create_output_folder(
     data_name = data_name,
-    model = "boot_cr_dd",
-    array_index = 1
+    results_dir = temp_dir
   )
-  results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
 
   # Omit console output in tests
-  # invisible(suppressMessages(capture.output(
+  invisible(suppressMessages(capture.output(
     bootstrap(
       daisie_data = Azores,
       data_name = data_name,
@@ -32,7 +31,7 @@ test_that("bootstrap works", {
       cond = cond,
       test = test
     )
-  # )))
+  )))
   actual_output <- readRDS(results_name)
   message("test-bootstrap")
   print("list dirs")

@@ -2,12 +2,7 @@
 #'
 #' The output is a list of results
 #'
-#' @param simulation_dataset output of DAISIE_sim
-#' @param empirical_summary_statistics vector with the number of species, number
-#' of colonization, size of the largest clade and the rank of the largest clade
-#' in the empirical data
-#' @param m_pool size of the mainland pool
-#' @param time age of the island or archipelago
+#' @inheritParams default_params_doc
 #' @return overall_results a list of results
 #' @author Rampal S. Etienne & Luis Valente
 #' @export summarize_bootstrap_results
@@ -41,14 +36,14 @@
 #'   divdepmodel = "IW"
 #' )
 #' overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
-#'   simulation_dataset = dataset_cs
+#'   daisie_data = dataset_cs
 #' )
 #' overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
-#'   simulation_dataset = dataset_iw
+#'   daisie_data = dataset_iw
 #' )
 #' }
-summarize_bootstrap_results <- function(simulation_dataset,
-                                        m_pool = 1000) {
+summarize_bootstrap_results <- function(daisie_data,
+                                        mainland_n = 1000) {
 
   # Calculate overall species richness and colonization statistics across
   # all islands
@@ -64,16 +59,16 @@ summarize_bootstrap_results <- function(simulation_dataset,
   size_smallest_clade <- c()
   rank_largest_clade <- c()
 
-  for (i in seq_along(simulation_dataset)) {
-    the_island <- simulation_dataset[[i]]
+  for (i in seq_along(daisie_data)) {
+    the_island <- daisie_data[[i]]
     number_colonists <- append(
       number_colonists,
-      m_pool - the_island[[1]]$not_present
+      mainland_n - the_island[[1]]$not_present
     )
     number_stac0 <- append(number_stac0, the_island[[1]]$not_present)
     u_island <- unlist(the_island)
 
-    if (the_island[[1]]$not_present == m_pool) {
+    if (the_island[[1]]$not_present == mainland_n) {
       number_spec <- append(number_spec, 0)
       number_stac1 <- append(number_stac1, 0)
       number_stac2 <- append(number_stac2, 0)
@@ -151,10 +146,10 @@ summarize_bootstrap_results <- function(simulation_dataset,
   the_prop_youngest <- c()
 
   datasets5 <- list()
-  for (i in seq_along(simulation_dataset)) {
-    if (length(simulation_dataset[[i]]) == 6) { #typo?
+  for (i in seq_along(daisie_data)) {
+    if (length(daisie_data[[i]]) == 6) { #typo?
       pl <- length(datasets5) + 1
-      datasets5[[pl]] <- simulation_dataset[[i]]
+      datasets5[[pl]] <- daisie_data[[i]]
     }
   }
 
@@ -254,10 +249,10 @@ summarize_bootstrap_results <- function(simulation_dataset,
 #'   divdepmodel = "IW"
 #' )
 #' overall_results_cs <- DAISIEutils::summarize_bootstrap_results(
-#'   simulation_dataset = dataset_cs
+#'   daisie_data = dataset_cs
 #' )
 #' overall_results_iw <- DAISIEutils::summarize_bootstrap_results(
-#'   simulation_dataset = dataset_iw
+#'   daisie_data = dataset_iw
 #' )
 #' par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
 #' DAISIEutils::plot_bootstrap_results(

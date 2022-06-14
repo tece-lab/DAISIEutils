@@ -11,9 +11,9 @@ calc_bic(results, daisie_data)
 \code{\link[=run_daisie_ml]{run_daisie_ml()}}. These results are the \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}} and the
 bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
-\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
-preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
-details. Otherwise it may be generated via simulations, using
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format.
+Usually preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation
+for details. Otherwise it may be generated via simulations, using
 \code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
 }
 \value{

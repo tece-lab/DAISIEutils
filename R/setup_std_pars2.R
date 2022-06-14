@@ -27,8 +27,8 @@ setup_std_pars2 <- function(res = 100,
                             eqmodel = 0,
                             tol = c(1e-04, 1e-05, 1e-07),
                             maxiter = 1000 * round((1.25) ^ 5),
-                            x_E = 0.95,
-                            x_I = 0.98) {
+                            x_E = 0.95, # nolint
+                            x_I = 0.98) { # nolint
 
 
   pars2 <- c(

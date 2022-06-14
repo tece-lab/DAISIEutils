@@ -35,4 +35,3 @@ test_that("calc_p_value produces correct output", {
 test_that("calc_p_value produces error", {
   expect_error(calc_p_value(daisie_data = "nonsense"))
 })
-

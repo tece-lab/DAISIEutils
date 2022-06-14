@@ -30,14 +30,14 @@ calc_sim_metrics <- function(daisie_data) {
     num_spec <- c()
     col_time <- c()
 
-    stacs <- lapply(sim_rep, '[[', "stac")
+    stacs <- lapply(sim_rep, "[[", "stac")
 
     for (j in 2:length(sim_rep)) {
       if (stacs[j] != 3) {
         num_spec <- c(num_spec, length(sim_rep[[j]]$branching_times) - 1)
         col_time <- c(col_time, sim_rep[[j]]$branching_times[2])
       } else {
-        for (k in 1:length(sim_rep[[j]]$all_colonisations)) {
+        for (k in seq_along(sim_rep[[j]]$all_colonisations)) {
           num_spec <- c(
             num_spec,
             length(sim_rep[[j]]$all_colonisations[[k]]$event_times) - 1)
@@ -48,8 +48,10 @@ calc_sim_metrics <- function(daisie_data) {
       }
     }
     sorted_col_time <- sort(col_time, decreasing = TRUE)
-    rank_largest_clade <- c(rank_largest_clade,
-                            which(sorted_col_time == col_time[which.max(num_spec)]))
+    rank_largest_clade <- c(
+      rank_largest_clade,
+      which(sorted_col_time == col_time[which.max(num_spec)])
+    )
     number_spec <- c(number_spec, sum(num_spec))
     stacs_vec <- unlist(stacs)
     number_stac1 <- c(number_stac1, length(which(stacs_vec == 1)))
@@ -57,7 +59,7 @@ calc_sim_metrics <- function(daisie_data) {
     number_stac3 <- c(number_stac3, length(which(stacs_vec == 3)))
     number_stac4 <- c(number_stac4, length(which(stacs_vec == 4)))
 
-    branching_times <- lapply(sim_rep, '[[', "branching_times")
+    branching_times <- lapply(sim_rep, "[[", "branching_times")
     num_branching_times <- unlist(lapply(branching_times, length))
     num_singleton_endemic <- length(intersect(which(stacs_vec == 2),
                                               which(num_branching_times == 2)))
@@ -68,9 +70,9 @@ calc_sim_metrics <- function(daisie_data) {
   }
 
   tt <- matrix(ncol = 2, nrow = 5)
-  tt[1:5,1] <- 1:5
-  tt[1:5,2] <- graphics::hist(x = rank_largest_clade,
-                    breaks = seq(0.5,max(rank_largest_clade) + 0.5, by = 1),
+  tt[1:5, 1] <- 1:5
+  tt[1:5, 2] <- graphics::hist(x = rank_largest_clade,
+                    breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
                     plot = FALSE)$density[1:5]
 
 

@@ -85,7 +85,7 @@ summarize_bootstrap_results <- function(daisie_data,
           s <- c(s, length(the_island[[j]]$branching_times) - 1)
           cc <- c(cc, the_island[[j]]$branching_times[2])
         } else {
-          for (k in 1:length(the_island[[j]]$all_colonisations)) {
+          for (k in seq_along(the_island[[j]]$all_colonisations)) {
             s <- c(
               s,
               length(the_island[[j]]$all_colonisations[[k]]$event_times) - 1
@@ -142,7 +142,6 @@ summarize_bootstrap_results <- function(daisie_data,
   }
 
   the_prop <- c()
-  max_clade <- c()
   the_prop_youngest <- c()
 
   datasets5 <- list()
@@ -175,7 +174,7 @@ summarize_bootstrap_results <- function(daisie_data,
       seque <- cbind(colonisation_time, diversity)
       seque <- seque[rev(order(seque[, 1])), ]
 
-      if (is.matrix(seque)){
+      if (is.matrix(seque)) {
         the_prop <- append(the_prop, as.numeric(seque[1, 2] / sum(seque[, 2])))
         the_prop_youngest <- append(
           the_prop_youngest,
@@ -183,7 +182,7 @@ summarize_bootstrap_results <- function(daisie_data,
         )
       }
 
-      if (is.numeric(seque)){
+      if (is.numeric(seque)) {
         the_prop <- append(the_prop, 1)
         the_prop_youngest <- append(the_prop_youngest, 1)
       }
@@ -191,8 +190,8 @@ summarize_bootstrap_results <- function(daisie_data,
   }
 
   tt <- matrix(ncol = 2, nrow = 5)
-  tt[1:5,1] <- 1:5
-  tt[1:5,2] <- graphics::hist(x = rank_largest_clade,
+  tt[1:5, 1] <- 1:5
+  tt[1:5, 2] <- graphics::hist(x = rank_largest_clade,
                     breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
                     plot = FALSE)$density[1:5]
 
@@ -257,18 +256,17 @@ summarize_bootstrap_results <- function(daisie_data,
 #' par(mfrow = c(2, 4), cex.lab = 1.5, cex.main = 1.5)
 #' DAISIEutils::plot_bootstrap_results(
 #'   overall_results = overall_results_cs,
-#'   title = 'Simulated under CS'
+#'   title = "Simulated under CS"
 #' )
 #' DAISIEutils::plot_bootstrap_results(
 #'   overall_results = overall_results_iw,
-#'   title = 'Simulated under IW'
+#'   title = "Simulated under IW"
 #' )
 #' }
 plot_bootstrap_results <- function(overall_results,
                                    sumstats = c(65, 5, 28, 1),
                                    ylim4 = 0.7,
-                                   title = NULL)
-{
+                                   title = NULL) {
   graphics::hist(
     x = overall_results$number_spec,
     xlab = "Number of species",
@@ -279,8 +277,20 @@ plot_bootstrap_results <- function(overall_results,
     border = "cornsilk3",
     main = title
   )
-  graphics::abline(v = stats::median(overall_results$number_spec), col = "black", lwd = 2)
-  graphics::arrows(sumstats[1], 1, sumstats[1], 0, col = 'blue', length = 0.07, lwd = 1.5)
+  graphics::abline(
+    v = stats::median(overall_results$number_spec),
+    col = "black",
+    lwd = 2
+  )
+  graphics::arrows(
+    sumstats[1],
+    1,
+    sumstats[1],
+    0,
+    col = "blue",
+    length = 0.07,
+    lwd = 1.5
+  )
 
   ### Colonizations
   graphics::hist(
@@ -297,7 +307,15 @@ plot_bootstrap_results <- function(overall_results,
     col = "black",
     lwd = 2
   )
-  graphics::arrows(sumstats[2], 1, sumstats[2], 0, col = 'blue', length = 0.07, lwd = 1.5)
+  graphics::arrows(
+    sumstats[2],
+    1,
+    sumstats[2],
+    0,
+    col = "blue",
+    length = 0.07,
+    lwd = 1.5
+  )
 
   ##### size largest clade
   graphics::hist(
@@ -314,16 +332,23 @@ plot_bootstrap_results <- function(overall_results,
     col = "black",
     lwd = 2
   )
-  graphics::arrows(sumstats[3], 1, sumstats[3], 0, col = 'blue', length = 0.07, lwd = 1.5)
+  graphics::arrows(
+    sumstats[3],
+    1,
+    sumstats[3],
+    0,
+    col = "blue",
+    length = 0.07,
+    lwd = 1.5
+  )
 
-  bar_colors <- rep('cornsilk3',5)
-  bar_colors[sumstats[4]] <- 'blue'
+  bar_colors <- rep("cornsilk3", 5)
+  bar_colors[sumstats[4]] <- "blue"
   graphics::barplot(height = overall_results$tt[, 2],
-          names.arg = c('1st', '2nd', '3rd', '4th', '5th'),
+          names.arg = c("1st", "2nd", "3rd", "4th", "5th"),
           col = bar_colors,
           border = bar_colors,
-          xlab = 'Rank largest clade',
-          ylab = 'Density',
+          xlab = "Rank largest clade",
+          ylab = "Density",
           ylim = c(0, ylim4))
 }
-

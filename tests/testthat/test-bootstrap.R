@@ -40,8 +40,11 @@ test_that("bootstrap works", {
   print("list files")
   print(list.files(full.names = TRUE))
   print(getwd())
-  message('results name: ', results_name)
-  message('expected name: ', file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds"))
+  message("results name: ", results_name)
+  message(
+    "expected name: ",
+    file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds")
+  )
   expected_output <- readRDS(
     file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds")
   )

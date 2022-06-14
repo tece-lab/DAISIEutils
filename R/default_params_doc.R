@@ -52,9 +52,9 @@
 #'   folder.
 #' @param results_root_folder Character. A path to the root folder containing
 #'   subfolders. Each subfolder contains result files for analysis runs.
-#' @param daisie_data A list, conforming to the [`DAISIE`] object format. Usually
-#'   preprocessed by [DAISIE::DAISIE_dataprep()], see it's documentation for
-#'   details. Otherwise it may be generated via simulations, using
+#' @param daisie_data A list, conforming to the [`DAISIE`] object format.
+#'   Usually preprocessed by [DAISIE::DAISIE_dataprep()], see it's documentation
+#'   for details. Otherwise it may be generated via simulations, using
 #'   [DAISIE::DAISIE_sim_cr()] and friends.
 #' @param array_index A single numeric with the array index. It is used for
 #'   naming the output file.
@@ -207,8 +207,8 @@ default_params_doc <- function(
   eqmodel,
   tol,
   maxiter,
-  x_E,
-  x_I,
+  x_E, # nolint
+  x_I, # nolint
   mainland_n
   ) {
   # Nothing

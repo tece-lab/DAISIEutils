@@ -5,20 +5,23 @@ test_that("calc_power produces correct output", {
   model <- "cr_dd"
   array_index <- 1
   cond <- 1
-  results_folder <- dirname(create_output_folder(
+
+  temp_dir <- tempdir()
+  results_folder <- create_output_folder(
     data_name = data_name,
-    model = model,
-    array_index = array_index
-  ))
+    results_dir = temp_dir
+  )
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    "testdata/",
+    file.path("testdata"),
     full.names = TRUE,
-    pattern = "*.rds"
+    pattern = "*.rds",
+    recursive = TRUE
   )
   expect_true(all(file.copy(reference_files, results_folder)))
-  output <- calc_power(daisie_data = Azores)
+
+  output <- calc_power(daisie_data = Azores, results_dir = temp_dir)
 
   expected_output <- 0.166666666667
   expect_equal(output, expected_output)

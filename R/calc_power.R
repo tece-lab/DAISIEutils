@@ -5,20 +5,13 @@
 #' @return Numeric power
 #' @export
 calc_power <- function(
-  daisie_data
+  daisie_data,
+  results_dir = NULL
 ) {
 
-  data_name <- deparse(substitute(daisie_data))
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path(getwd(), "results", data_name)
-  }
-
+  results_folder <- create_results_dir_path(data_name, results_dir)
   files <- list.files(
-    path = output_folder,
+    path = results_folder,
     full.names = TRUE,
     pattern = "boot_lr"
   )

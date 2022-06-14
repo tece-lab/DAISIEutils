@@ -14,23 +14,25 @@ test_that("calc_p_value produces correct output", {
 
   # Place files needed to run bootstrap
   reference_files <- list.files(
-    "tests/testthat/testdata",
+    file.path("testdata"),
     full.names = TRUE,
-    pattern = "*.rds", recursive = TRUE
+    pattern = "*.rds",
+    recursive = TRUE
   )
   expect_true(all(file.copy(reference_files, results_folder)))
 
   output <- calc_p_value(
     daisie_data = Azores,
-    results_dir = dirname(results_folder)
+    results_dir = temp_dir
   )
   expected_output <- 0.33333333
   expect_equal(output, expected_output)
 
   # Delete temp folder
-  expect_equal(unlink(file.path(getwd(), "results"), recursive = TRUE), 0)
+  expect_equal(unlink(temp_dir, recursive = TRUE), 0)
 })
 
 test_that("calc_p_value produces error", {
   expect_error(calc_p_value(daisie_data = "nonsense"))
 })
+

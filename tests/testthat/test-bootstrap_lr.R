@@ -10,17 +10,16 @@ test_that("bootstrap_lr works", {
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    file.path("testdata", "Results", "Azores"),
+    file.path("tests", "testthat", "testdata", "Results", "Azores"),
     full.names = TRUE,
     pattern = "*.rds"
   )
-  results_name <- create_output_folder(
+  temp_dir <- tempdir()
+  results_folder <- create_output_folder(
     data_name = data_name,
-    model = paste("boot_lr", model_1, model_2, sep = "_"),
-    array_index = 1
+    results_dir = temp_dir
   )
 
-  results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
   # Omit console output in tests

@@ -59,7 +59,9 @@ sensitivity <- function(
       data_files <- list.files(
         path = results_folder,
         full.names = TRUE,
-        pattern = paste0(expected_models[j], "_[0-9].rds$"))
+        pattern = paste0(expected_models[j], "_[0-9].rds$"),
+        recursive = TRUE
+      )
 
       if (length(data_files) > 0) {
         data_lik_res <- lapply(data_files, readRDS)

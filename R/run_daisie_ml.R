@@ -97,8 +97,12 @@ run_daisie_ml <- function(daisie_data,
     )
   )
 
-  saveRDS(
-    lik_res,
-    file = output_path
-  )
+  if (is.na(output_path)) {
+    return(lik_res)
+  } else {
+    saveRDS(
+      lik_res,
+      file = output_path
+    )
+  }
 }

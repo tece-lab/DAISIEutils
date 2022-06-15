@@ -20,7 +20,9 @@ should be \code{"folder_with_res"}.
 Defaults to \code{NULL}, which indicates the default directories are to be used.
 Default directories are:
 * \verb{$HOME/results/$data_name} if on the cluster
-* \verb{getwd()/results/$data_name} if called from another environment}
+* \verb{getwd()/results/$data_name} if called from another environment
+If \code{is.na(results_dir)}, then the object is returned to the R session and
+not saved to file.}
 }
 \value{
 A list of 3 elements if \code{full_output} is \code{FALSE}, or of 4 elements if

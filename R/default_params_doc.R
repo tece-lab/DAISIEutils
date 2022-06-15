@@ -110,6 +110,8 @@
 #'   Default directories are:
 #'     * `$HOME/results/$data_name` if on the cluster
 #'     * `getwd()/results/$data_name` if called from another environment
+#'   If `is.na(results_dir)`, then the object is returned to the R session and
+#'   not saved to file.
 #' @param overall_results summary results obtained with
 #'   [summarize_bootstrap_results()].
 #' @param sumstats vector with the number of species, number

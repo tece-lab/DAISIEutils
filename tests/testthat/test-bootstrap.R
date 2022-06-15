@@ -29,17 +29,12 @@ test_that("bootstrap works", {
       model = "cr_dd",
       array_index = array_index,
       cond = cond,
-      test = test
+      test = test,
+      results_dir = temp_dir
     )
   )))
-  actual_output <- readRDS(results_name)
-  message("test-bootstrap")
-  print("list dirs")
-  print(list.dirs())
-  print("list files")
-  print(list.files(full.names = TRUE))
-  print(getwd())
-  message("results name: ", results_name)
+  actual_output <- readRDS(file.path(results_folder, ))
+
   message(
     "expected name: ",
     file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds")

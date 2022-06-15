@@ -207,4 +207,5 @@ test_that("run_daisie_ml fails when expected", {
   )))
   # Clean-up
   expect_equal(unlink(temp_dir, recursive = TRUE), 0)
+  expect_equal(unlink(results_folder, recursive = TRUE), 0)
 })

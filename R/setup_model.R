@@ -11,16 +11,27 @@
 #' setup_model(
 #'   model = model
 #' )
-setup_model <- function(model) {
+setup_model <- function(
+  model,
+  low_rates = FALSE) {
   expected_models <- get_available_models()
   testit::assert(model %in% expected_models)
 
-  lac <- stats::runif(1, min = 0, max = 2)
-  mu <- stats::runif(1, min = 0, max = 2)
-  k <- stats::runif(1, min = 100, max = 200)
-  gam <- stats::runif(1, min = 1e-5, max = 0.1)
-  laa <- stats::runif(1, min = 0.1, max = 4)
-  sd <- stats::runif(1, min = 0.1, max = 1)
+  if (isFALSE(low_rates)) {
+    lac <- stats::runif(1, min = 0, max = 2)
+    mu <- stats::runif(1, min = 0, max = 2)
+    k <- stats::runif(1, min = 100, max = 200)
+    gam <- stats::runif(1, min = 1e-5, max = 0.1)
+    laa <- stats::runif(1, min = 0.1, max = 4)
+    sd <- stats::runif(1, min = 0.1, max = 1)
+  } else {
+    lac <- stats::runif(1, min = 0, max = 0.1)
+    mu <- stats::runif(1, min = 0, max = 0.1)
+    k <- stats::runif(1, min = 100, max = 200)
+    gam <- stats::runif(1, min = 1e-5, max = 0.1)
+    laa <- stats::runif(1, min = 0, max = 0.1)
+    sd <- stats::runif(1, min = 0.1, max = 1)
+  }
 
   # define default DAISIE model (CR DD)
   ddmodel <- 11

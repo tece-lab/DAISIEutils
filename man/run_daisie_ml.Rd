@@ -13,6 +13,7 @@ run_daisie_ml(
   methode = "odeint::runge_kutta_fehlberg78",
   optimmethod = "subplex",
   results_dir = NULL,
+  low_rates = FALSE,
   test = FALSE
 )
 }
@@ -106,6 +107,13 @@ Defaults to \code{NULL}, which indicates the default directories are to be used.
 Default directories are:
 * \verb{$HOME/results/$data_name} if on the cluster
 * \verb{getwd()/results/$data_name} if called from another environment}
+
+\item{low_rates}{Boolean determining whether the random sampling of initial
+parameter estimates should be sampled from a broad range (FALSE) or from a
+restricted range where the initial rates a ensured to be smaller (TRUE).
+The latter helps when using large datasets that may fail the initial
+likelihood computation with higher rates that could be sampled from the
+broad range of rates.}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}

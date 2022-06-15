@@ -27,8 +27,8 @@ run_daisie_ml <- function(daisie_data,
                           methode = "odeint::runge_kutta_fehlberg78",
                           optimmethod = "subplex",
                           results_dir = NULL,
+                          low_rates = FALSE,
                           test = FALSE) {
-
   if (test) {
     seed <- array_index
   } else {
@@ -59,7 +59,8 @@ run_daisie_ml <- function(daisie_data,
   testit::assert(is.numeric(cond) && is.finite(cond))
 
   model_arguments <- setup_model(
-    model = model
+    model = model,
+    low_rates = low_rates
   )
 
   initparsopt <- model_arguments$initparsopt

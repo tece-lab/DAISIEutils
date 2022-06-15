@@ -169,6 +169,12 @@
 #'   internally in the simulation.
 #'   If using an island-wide diversity dependence, this value is set to the
 #'   number of mainland species.
+#' @param low_rates Boolean determining whether the random sampling of initial
+#'   parameter estimates should be sampled from a broad range (FALSE) or from a
+#'   restricted range where the initial rates a ensured to be smaller (TRUE).
+#'   The latter helps when using large datasets that may fail the initial
+#'   likelihood computation with higher rates that could be sampled from the
+#'   broad range of rates.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -209,7 +215,8 @@ default_params_doc <- function(
   maxiter,
   x_E, # nolint
   x_I, # nolint
-  mainland_n
+  mainland_n,
+  low_rates
   ) {
   # Nothing
 }

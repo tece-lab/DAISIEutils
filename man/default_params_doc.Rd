@@ -40,7 +40,8 @@ default_params_doc(
   maxiter,
   x_E,
   x_I,
-  mainland_n
+  mainland_n,
+  low_rates
 )
 }
 \arguments{
@@ -254,6 +255,13 @@ If using a clade-specific diversity dependence, this value is set to 1
 internally in the simulation.
 If using an island-wide diversity dependence, this value is set to the
 number of mainland species.}
+
+\item{low_rates}{Boolean determining whether the random sampling of initial
+parameter estimates should be sampled from a broad range (FALSE) or from a
+restricted range where the initial rates a ensured to be smaller (TRUE).
+The latter helps when using large datasets that may fail the initial
+likelihood computation with higher rates that could be sampled from the
+broad range of rates.}
 }
 \value{
 Nothing

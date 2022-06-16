@@ -90,10 +90,13 @@ run_daisie_ml <- function(daisie_data,
 
   output_path <- file.path(
     output_folder_path,
-    paste(
+    paste0(
+      data_name,
+      "_",
       model,
+      "_",
       array_index,
-      sep = "_"
+      ".rds"
     )
   )
 

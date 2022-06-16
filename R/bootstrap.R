@@ -112,7 +112,8 @@ bootstrap <- function(daisie_data,
   output_path <- file.path(
     output_folder_path,
     paste0(
-      "boot_",
+      data_name,
+      "_boot_",
       model,
       "_",
       array_index,

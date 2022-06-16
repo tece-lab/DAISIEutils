@@ -33,12 +33,8 @@ test_that("bootstrap works", {
       results_dir = temp_dir
     )
   )))
-  actual_output <- readRDS(file.path(results_folder, ))
+  actual_output <- readRDS(file.path(results_folder, "Azores_boot_cr_dd_1.rds"))
 
-  message(
-    "expected name: ",
-    file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds")
-  )
   expected_output <- readRDS(
     file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds")
   )

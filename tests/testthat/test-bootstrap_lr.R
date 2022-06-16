@@ -30,11 +30,16 @@ test_that("bootstrap_lr works", {
       model_1 = model_1,
       model_2 = model_2,
       cond = cond,
-      array_index,
-      test = test
+      array_index = array_index,
+      test = test,
+      results_dir = temp_dir
     )
   )))
-  actual_output <- readRDS(results_name)
+  actual_output <- readRDS(file.path(
+    results_folder,
+    "Azores_boot_lr_cr_dd_cr_di_1.rds"
+  ))
+
 
   expected_output <- readRDS(
     file.path(
@@ -49,4 +54,5 @@ test_that("bootstrap_lr works", {
 
   # Delete temp folder
   expect_equal(unlink("results", recursive = TRUE), 0)
+  expect_equal(unlink(temp_dir, recursive = TRUE), 0)
 })

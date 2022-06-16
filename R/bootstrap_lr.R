@@ -57,7 +57,9 @@ bootstrap_lr <- function(daisie_data,
   model_1_files <- list.files(
     path = data_to_read_path,
     full.names = TRUE,
-    pattern = paste0(data_name, "_", model_1, "_[0-9].rds$"))
+    pattern = paste0(data_name, "_", model_1, "_[0-9].rds$"),
+    recursive = TRUE
+  )
   model_1_lik_res <- lapply(model_1_files, readRDS)
 
   model_2_files <- list.files(
@@ -192,11 +194,15 @@ bootstrap_lr <- function(daisie_data,
   )
   output_path <- file.path(
     output_folder_path,
-    paste(
+    paste0(
+      data_name,
+      "_boot_lr_",
       model_1,
+      "_",
       model_2,
+      "_",
       array_index,
-      sep = "_"
+      ".rds"
     )
   )
   saveRDS(

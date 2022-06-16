@@ -4,11 +4,10 @@
 #'
 #' @return List with output from [`DAISIE`] simulation
 #' @export
-run_sim <- function(
-    daisie_data,
-  model,
-  lik_res,
-  cond) {
+run_sim <- function(daisie_data,
+                    model,
+                    lik_res,
+                    cond) {
 
   time <- daisie_data[[1]]$island_age
   m <- daisie_data[[1]]$not_present + (length(daisie_data) - 1)

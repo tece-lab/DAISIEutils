@@ -27,7 +27,7 @@ test_that("calc_power produces correct output", {
   expect_equal(output, expected_output)
 
   # Delete temp folder
-  expect_equal(unlink(file.path(, "results"), recursive = TRUE), 0)
+  expect_equal(unlink(file.path("results"), recursive = TRUE), 0)
   expect_equal(unlink(file.path(temp_dir, "results"), recursive = TRUE), 0)
 
 })

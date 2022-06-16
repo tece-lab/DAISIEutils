@@ -39,6 +39,6 @@ test_that("sensitivity works", {
   expect_equal(object = obtained_result, expected = expected_result)
 
   # Delete temp folder
-  expect_equal(unlink(file.path(getwd(), "results"), recursive = TRUE), 0)
-  expect_equal(unlink(file.path(getwd(), "tempdir"), recursive = TRUE), 0)
+  expect_equal(unlink(file.path("results"), recursive = TRUE), 0)
+  expect_equal(unlink(file.path(temp_dir), recursive = TRUE), 0)
 })

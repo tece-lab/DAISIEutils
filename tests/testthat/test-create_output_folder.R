@@ -12,5 +12,5 @@ test_that("Directory is created", {
   )
   expect_true(dir.exists(file.path(getwd(), "results", "test")))
   # Clean-up
-  expect_equal(unlink(file.path(getwd(), "results"), recursive = TRUE), 0)
+  expect_equal(unlink(file.path("results"), recursive = TRUE), 0)
 })

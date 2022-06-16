@@ -25,11 +25,12 @@ test_that("calc_p_value produces correct output", {
     daisie_data = Azores,
     results_dir = temp_dir
   )
-  expected_output <- 0.33333333
+  expected_output <- 0.83333333333
   expect_equal(output, expected_output)
 
   # Delete temp folder
   expect_equal(unlink(temp_dir, recursive = TRUE), 0)
+  expect_equal(unlink(results_folder, recursive = TRUE), 0)
 })
 
 test_that("calc_p_value produces error", {

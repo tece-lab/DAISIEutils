@@ -42,7 +42,7 @@ test_that("integration test", {
   expected_data_frame <- data.frame(
     lambda_c = 0.255152525210057,
     mu = 2.37865891764784,
-    K = 0.6908508,
+    K = 0.69085076285686,
     gamma = 0.0410410972670184,
     lambda_a = 1.55073608640901,
     loglik = -100.335327768561,

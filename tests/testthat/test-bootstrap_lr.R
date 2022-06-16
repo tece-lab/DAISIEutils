@@ -12,7 +12,8 @@ test_that("bootstrap_lr works", {
   reference_files <- list.files(
     file.path("testdata", "Results", "Azores"),
     full.names = TRUE,
-    pattern = "*.rds"
+    pattern = "Azores_cr_*.rds",
+    recursive = TRUE
   )
   temp_dir <- tempdir()
   results_folder <- create_output_folder(

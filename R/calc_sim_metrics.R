@@ -7,8 +7,6 @@
 #' @author Joshua W. Lambert
 calc_sim_metrics <- function(daisie_data) {
 
-  m_pool <- daisie_data[[1]][[1]]$not_present +
-    length(daisie_data[[1]]) - 1
 
   number_colonists <- c()
   number_spec <- c()

@@ -303,7 +303,7 @@ plot_bootstrap_results <- function(overall_results,
     xlab = "Number of colonization events"
   )
   graphics::abline(
-    v = stats::median(overall_results$number_colonists, na.rm = T),
+    v = stats::median(overall_results$number_colonists, na.rm = TRUE),
     col = "black",
     lwd = 2
   )
@@ -328,7 +328,7 @@ plot_bootstrap_results <- function(overall_results,
     xlab = "Size largest clade"
   )
   graphics::abline(
-    v = stats::median(overall_results$size_largest_clade, na.rm = T),
+    v = stats::median(overall_results$size_largest_clade, na.rm = TRUE),
     col = "black",
     lwd = 2
   )

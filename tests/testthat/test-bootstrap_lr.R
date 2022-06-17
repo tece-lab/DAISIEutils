@@ -24,7 +24,7 @@ test_that("bootstrap_lr works", {
   expect_true(all(file.copy(reference_files, results_folder)))
 
   # Omit console output in tests
-  invisible(suppressMessages(capture.output(
+  # invisible(suppressMessages(capture.output(
     bootstrap_lr(
       daisie_data = Azores,
       data_name = data_name,
@@ -35,7 +35,7 @@ test_that("bootstrap_lr works", {
       test = test,
       results_dir = results_folder
     )
-  )))
+  # )))
   actual_output <- readRDS(file.path(
     results_folder,
     "Azores_boot_lr_cr_dd_cr_di_1.rds"

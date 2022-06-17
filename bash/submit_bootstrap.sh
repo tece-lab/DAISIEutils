@@ -49,7 +49,8 @@ datalist_name=$1
 model=$2
 package=$3
 cond=$4
-optimmethod=$5
+results_dir=${5-NULL}
+optimmethod=${6-subplex}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -58,4 +59,5 @@ Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
                                         ${package} \
                                         ${seed} \
                                         ${cond} \
+                                        ${results_dir} \
                                         ${optimmethod}

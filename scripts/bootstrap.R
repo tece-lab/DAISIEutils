@@ -8,5 +8,6 @@ DAISIEutils::bootstrap(
   model = args[2],
   array_index = as.numeric(args[4]),
   cond = as.numeric(args[5]),
-  optimmethod = args[6]
+  results_dir = args[6],
+  optimmethod = args[7]
 )

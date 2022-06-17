@@ -29,7 +29,8 @@
 "Azores"
 
 #' @name Azores_alt_m
-#' @title Birds of Azores archipelago with alternative mainland species pool size
+#' @title
+#' Birds of Azores archipelago with alternative mainland species pool size
 #' @docType data
 #'
 #' @description A dataset containing the age of the archipelago, number of

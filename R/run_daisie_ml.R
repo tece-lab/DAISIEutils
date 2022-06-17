@@ -48,7 +48,8 @@ run_daisie_ml <- function(daisie_data,
     array_index = array_index,
     seed = seed,
     methode = methode,
-    optimmethod = optimmethod)
+    optimmethod = optimmethod
+  )
 
   output_folder_path <- create_output_folder(
     data_name = data_name,

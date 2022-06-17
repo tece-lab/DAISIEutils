@@ -12,7 +12,8 @@ test_that("run_sim cr model works", {
     lambda_a = 1.00351,
     loglik = -76.00026,
     df = 5,
-    conv = 0)
+    conv = 0
+  )
   out <- run_sim(
     daisie_data = daisie_data,
     model = model,
@@ -40,7 +41,8 @@ test_that("run_sim rr model works", {
     sd = 1,
     loglik = -76.00026,
     df = 5,
-    conv = 0)
+    conv = 0
+  )
   out <- run_sim(
     daisie_data = daisie_data,
     model = model,

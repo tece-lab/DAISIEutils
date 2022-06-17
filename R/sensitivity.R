@@ -38,11 +38,9 @@
 #' )
 #' }
 #' @author Joshua W. Lambert
-sensitivity <- function(
-  data_names,
-  full_output = FALSE,
-  results_dir = NULL) {
-
+sensitivity <- function(data_names,
+                        full_output = FALSE,
+                        results_dir = NULL) {
   best_models_list <- list()
   output <- list()
   for (i in seq_along(data_names)) {
@@ -76,7 +74,8 @@ sensitivity <- function(
 
   for (data_name in data_names) {
     best_models_list[[data_name]][sapply(
-      best_models_list[[data_name]], is.null)] <- NULL
+      best_models_list[[data_name]], is.null
+    )] <- NULL
   }
 
   ranked_models <- list()
@@ -96,7 +95,8 @@ sensitivity <- function(
   sens_best_fit <- sapply(
     name_best_fit_model,
     identical,
-    name_best_fit_model[1])
+    name_best_fit_model[1]
+  )
 
   if (all(sens_best_fit)) {
     output$best_fit_sensitivity <- "Best fit model is not sensitive to input"
@@ -107,7 +107,8 @@ sensitivity <- function(
   sens_model_select <- sapply(
     names_ranked_models,
     identical,
-    names_ranked_models[[1]])
+    names_ranked_models[[1]]
+  )
 
   if (all(sens_model_select)) {
     output$model_selection_sensitivity <-
@@ -122,5 +123,5 @@ sensitivity <- function(
   if (full_output) {
     output$full_output <- best_models_list
   }
-    return(output)
+  return(output)
 }

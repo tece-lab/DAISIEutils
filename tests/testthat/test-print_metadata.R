@@ -13,7 +13,8 @@ test_that("print_metadata works", {
       array_index = array_index,
       seed = seed,
       methode = methode,
-      optimmethod = optimmethod)
+      optimmethod = optimmethod
+    )
   ))))
   suppressMessages(expect_output(
     print_metadata(
@@ -22,6 +23,7 @@ test_that("print_metadata works", {
       array_index = array_index,
       seed = seed,
       methode = methode,
-      optimmethod = optimmethod)
+      optimmethod = optimmethod
+    )
   ))
 })

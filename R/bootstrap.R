@@ -28,7 +28,6 @@ bootstrap <- function(daisie_data,
                       optimmethod = "subplex",
                       results_dir = NULL,
                       test = FALSE) {
-
   if (test) {
     seed <- array_index
   } else {

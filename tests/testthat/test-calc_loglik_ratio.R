@@ -7,7 +7,8 @@ test_that("calc_loglik_ratio works", {
     lambda_a = 1.00351,
     loglik = -76.00026,
     df = 5,
-    conv = 0)
+    conv = 0
+  )
 
   delta <- 200
   lik_res_2 <- data.frame(
@@ -18,7 +19,8 @@ test_that("calc_loglik_ratio works", {
     lambda_a = 1.00351 + 20,
     loglik = -76.00026 - delta,
     df = 5,
-    conv = 0)
+    conv = 0
+  )
 
   actual_loglik_ratio <- calc_loglik_ratio(
     model_1_lik_res = lik_res_1,
@@ -38,7 +40,8 @@ test_that("calc_loglik_ratio abuse", {
     lambda_a = 1.00351,
     loglik = -76.00026,
     df = 5,
-    conv = 0)
+    conv = 0
+  )
 
   lik_res_2 <- c(1, 2, 3, 4, 5, 6, 7, 8)
   actual_loglik_ratio <- expect_error(

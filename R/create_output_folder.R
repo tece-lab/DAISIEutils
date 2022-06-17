@@ -19,7 +19,6 @@
 #' }
 create_output_folder <- function(data_name,
                                  results_dir = NULL) {
-
   output_folder <- create_results_dir_path(data_name, results_dir)
 
   if (!dir.exists(output_folder)) {

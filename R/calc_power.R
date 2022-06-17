@@ -4,11 +4,8 @@
 #'
 #' @return Numeric power
 #' @export
-calc_power <- function(
-  daisie_data,
-  results_dir = NULL
-) {
-
+calc_power <- function(daisie_data,
+                       results_dir = NULL) {
   data_name <- deparse(substitute(daisie_data))
 
   results_folder <- create_results_dir_path(data_name, results_dir)

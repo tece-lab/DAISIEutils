@@ -3,9 +3,8 @@ test_that("Directory is created", {
   model <- "cr_dd"
   array_index <- 1
   expect_message(file_name <- create_output_folder(
-      data_name = data_name
-    ), regexp = "results/test not found, creating it."
-  )
+    data_name = data_name
+  ), regexp = "results/test not found, creating it.")
   expect_equal(
     file_name,
     file.path("results", "test")

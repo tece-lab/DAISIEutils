@@ -6,8 +6,6 @@
 #' @export
 #' @author Joshua W. Lambert
 calc_sim_metrics <- function(daisie_data) {
-
-
   number_colonists <- c()
   number_spec <- c()
   number_stac0 <- c()
@@ -38,10 +36,12 @@ calc_sim_metrics <- function(daisie_data) {
         for (k in seq_along(sim_rep[[j]]$all_colonisations)) {
           num_spec <- c(
             num_spec,
-            length(sim_rep[[j]]$all_colonisations[[k]]$event_times) - 1)
+            length(sim_rep[[j]]$all_colonisations[[k]]$event_times) - 1
+          )
           col_time <- c(
             col_time,
-            sim_rep[[j]]$all_colonisations[[k]]$event_times[2])
+            sim_rep[[j]]$all_colonisations[[k]]$event_times[2]
+          )
         }
       }
     }
@@ -59,8 +59,10 @@ calc_sim_metrics <- function(daisie_data) {
 
     branching_times <- lapply(sim_rep, "[[", "branching_times")
     num_branching_times <- unlist(lapply(branching_times, length))
-    num_singleton_endemic <- length(intersect(which(stacs_vec == 2),
-                                              which(num_branching_times == 2)))
+    num_singleton_endemic <- length(intersect(
+      which(stacs_vec == 2),
+      which(num_branching_times == 2)
+    ))
     number_stac2_singletons <- c(number_stac2_singletons, num_singleton_endemic)
 
     size_largest_clade <- c(size_largest_clade, max(num_spec))
@@ -69,22 +71,26 @@ calc_sim_metrics <- function(daisie_data) {
 
   tt <- matrix(ncol = 2, nrow = 5)
   tt[1:5, 1] <- 1:5
-  tt[1:5, 2] <- graphics::hist(x = rank_largest_clade,
-                    breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
-                    plot = FALSE)$density[1:5]
+  tt[1:5, 2] <- graphics::hist(
+    x = rank_largest_clade,
+    breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
+    plot = FALSE
+  )$density[1:5]
 
 
-  sim_metrics <- list(number_colonists = number_colonists,
-                      number_spec = number_spec,
-                      number_stac0 = number_stac0,
-                      number_stac1 = number_stac1,
-                      number_stac2 = number_stac2,
-                      number_stac3 = number_stac3,
-                      number_stac4 = number_stac4,
-                      number_stac2_singletons = number_stac2_singletons,
-                      size_largest_clade = size_largest_clade,
-                      size_smallest_clade = size_smallest_clade,
-                      tt = tt)
+  sim_metrics <- list(
+    number_colonists = number_colonists,
+    number_spec = number_spec,
+    number_stac0 = number_stac0,
+    number_stac1 = number_stac1,
+    number_stac2 = number_stac2,
+    number_stac3 = number_stac3,
+    number_stac4 = number_stac4,
+    number_stac2_singletons = number_stac2_singletons,
+    size_largest_clade = size_largest_clade,
+    size_smallest_clade = size_smallest_clade,
+    tt = tt
+  )
 
   return(sim_metrics)
 }

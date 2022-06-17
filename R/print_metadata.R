@@ -23,13 +23,12 @@
 #' }
 #' @author Pedro Santos Neves, Luis Valente, Joshua W. Lambert
 #' @export
-print_metadata <- function(
-  data_name,
-  model,
-  array_index,
-  seed,
-  methode,
-  optimmethod) {
+print_metadata <- function(data_name,
+                           model,
+                           array_index,
+                           seed,
+                           methode,
+                           optimmethod) {
   options(width = 150)
   testit::assert("data_name is character", is.character(data_name))
   message(

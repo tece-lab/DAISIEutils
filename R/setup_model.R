@@ -11,9 +11,8 @@
 #' setup_model(
 #'   model = model
 #' )
-setup_model <- function(
-  model,
-  low_rates = FALSE) {
+setup_model <- function(model,
+                        low_rates = FALSE) {
   expected_models <- get_available_models()
   testit::assert(model %in% expected_models)
 
@@ -45,7 +44,7 @@ setup_model <- function(
   # change to diversity-independence (DI)
   if (grepl("di", model)) {
     ddmodel <- 0
-    idparsopt <- idparsopt[-which(names(idparsopt) == "k")] #TODO change
+    idparsopt <- idparsopt[-which(names(idparsopt) == "k")] # TODO change
     parsfix <- Inf
     idparsfix <- 3
     initparsopt <- initparsopt[-which(names(initparsopt) == "k")]
@@ -74,22 +73,26 @@ setup_model <- function(
     if (grepl("rr_lac", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "cladogenesis")
+        relaxed_par = "cladogenesis"
+      )
     }
     if (grepl("rr_mu", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "extinction")
+        relaxed_par = "extinction"
+      )
     }
     if (grepl("rr_k", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "carrying_capacity")
+        relaxed_par = "carrying_capacity"
+      )
     }
     if (grepl("rr_laa", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "anagenesis")
+        relaxed_par = "anagenesis"
+      )
     }
   }
 

@@ -28,7 +28,6 @@ bootstrap_lr <- function(daisie_data,
                          optimmethod = "subplex",
                          results_dir = NULL,
                          test = FALSE) {
-
   if (test) {
     seed <- array_index
   } else {
@@ -47,7 +46,8 @@ bootstrap_lr <- function(daisie_data,
     array_index = array_index,
     seed = seed,
     methode = methode,
-    optimmethod = optimmethod)
+    optimmethod = optimmethod
+  )
 
   data_to_read_path <- create_results_dir_path(
     data_name = data_name,
@@ -67,7 +67,8 @@ bootstrap_lr <- function(daisie_data,
   model_2_files <- list.files(
     path = data_to_read_path,
     full.names = TRUE,
-    pattern = paste0(data_name, "_", model_2, "_[0-9].rds$"))
+    pattern = paste0(data_name, "_", model_2, "_[0-9].rds$")
+  )
   model_2_lik_res <- lapply(model_2_files, readRDS)
   message("model_2_files: ", model_2_files)
   best_model_1 <- choose_best_model(model_1_lik_res)

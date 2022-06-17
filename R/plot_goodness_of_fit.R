@@ -45,7 +45,6 @@
 #' }
 summarize_bootstrap_results <- function(daisie_data,
                                         mainland_n = 1000) {
-
   # Calculate overall species richness and colonization statistics across
   # all islands
   number_colonists <- c()
@@ -147,7 +146,8 @@ summarize_bootstrap_results <- function(daisie_data,
 
   datasets5 <- list()
   for (i in seq_along(daisie_data)) {
-    if (length(daisie_data[[i]]) == 6) { #typo?
+    if (length(daisie_data[[i]]) == 6) {
+      # typo?
       pl <- length(datasets5) + 1
       datasets5[[pl]] <- daisie_data[[i]]
     }
@@ -161,7 +161,7 @@ summarize_bootstrap_results <- function(daisie_data,
     } else {
       island[[1]] <- NULL
       stac_vec <- unlist(island)[which(names(unlist(island)) == "stac")]
-      stac_age_known <- which(stac_vec == 2 | stac_vec == 3 |  stac_vec == 4)
+      stac_age_known <- which(stac_vec == 2 | stac_vec == 3 | stac_vec == 4)
       btimes <- list()
       colonisation_time <- c()
       diversity <- c()
@@ -192,21 +192,25 @@ summarize_bootstrap_results <- function(daisie_data,
 
   tt <- matrix(ncol = 2, nrow = 5)
   tt[1:5, 1] <- 1:5
-  tt[1:5, 2] <- graphics::hist(x = rank_largest_clade,
-                    breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
-                    plot = FALSE)$density[1:5]
+  tt[1:5, 2] <- graphics::hist(
+    x = rank_largest_clade,
+    breaks = seq(0.5, max(rank_largest_clade) + 0.5, by = 1),
+    plot = FALSE
+  )$density[1:5]
 
-  overall_results <- list(number_colonists = number_colonists,
-                          number_spec = number_spec,
-                          number_stac0 = number_stac0,
-                          number_stac1 = number_stac1,
-                          number_stac2 = number_stac2,
-                          number_stac3 = number_stac3,
-                          number_stac4 = number_stac4,
-                          number_stac2_singletons = number_stac2_singletons,
-                          size_largest_clade = size_largest_clade,
-                          size_smallest_clade = size_smallest_clade,
-                          tt = tt)
+  overall_results <- list(
+    number_colonists = number_colonists,
+    number_spec = number_spec,
+    number_stac0 = number_stac0,
+    number_stac1 = number_stac1,
+    number_stac2 = number_stac2,
+    number_stac3 = number_stac3,
+    number_stac4 = number_stac4,
+    number_stac2_singletons = number_stac2_singletons,
+    size_largest_clade = size_largest_clade,
+    size_smallest_clade = size_smallest_clade,
+    tt = tt
+  )
 
   return(overall_results = overall_results)
 }
@@ -346,11 +350,13 @@ plot_bootstrap_results <- function(overall_results,
 
   bar_colors <- rep("cornsilk3", 5)
   bar_colors[sumstats[4]] <- "blue"
-  graphics::barplot(height = overall_results$tt[, 2],
-          names.arg = c("1st", "2nd", "3rd", "4th", "5th"),
-          col = bar_colors,
-          border = bar_colors,
-          xlab = "Rank largest clade",
-          ylab = "Density",
-          ylim = c(0, ylim4))
+  graphics::barplot(
+    height = overall_results$tt[, 2],
+    names.arg = c("1st", "2nd", "3rd", "4th", "5th"),
+    col = bar_colors,
+    border = bar_colors,
+    xlab = "Rank largest clade",
+    ylab = "Density",
+    ylim = c(0, ylim4)
+  )
 }

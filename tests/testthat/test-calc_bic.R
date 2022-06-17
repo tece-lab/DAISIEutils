@@ -8,10 +8,12 @@ test_that("calc_bic works", {
     lambda_a = 1.00351,
     loglik = -76.00026,
     df = 5,
-    conv = 0)
+    conv = 0
+  )
   bic <- calc_bic(
     results = results,
-    daisie_data = Azores)
+    daisie_data = Azores
+  )
   expect_equal(bic, 195.7286817)
 })
 
@@ -25,10 +27,12 @@ test_that("calc_bic fails when expected", {
     lambda_a = 1.00351,
     loglik = -76.00026,
     df = 5,
-    conv = 0)
+    conv = 0
+  )
   expect_error(calc_bic(
     results = results,
-    daisie_data = daisie_data))
+    daisie_data = daisie_data
+  ))
 })
 
 test_that("calc_bic fails when expected", {
@@ -41,8 +45,10 @@ test_that("calc_bic fails when expected", {
     lambda_a = "nonsense",
     loglik = "nonsense",
     df = "nonsense",
-    conv = "nonsense")
+    conv = "nonsense"
+  )
   expect_error(calc_bic(
     results = results,
-    daisie_data = Azores))
+    daisie_data = Azores
+  ))
 })

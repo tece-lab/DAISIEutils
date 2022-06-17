@@ -12,7 +12,7 @@ test_that("bootstrap_lr works", {
   reference_files <- list.files(
     file.path("testdata", "Results", "Azores"),
     full.names = TRUE,
-    pattern = "Azores_cr_*.rds",
+    pattern = "Azores_cr_*",
     recursive = TRUE
   )
   temp_dir <- tempdir()

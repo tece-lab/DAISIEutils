@@ -1,4 +1,4 @@
-# nolint: cyclocomp_linter start
+# nolint start: cyclocomp_linter
 #' Computes summary results of bootstrap simulations useful for plotting
 #'
 #' The output is a list of results

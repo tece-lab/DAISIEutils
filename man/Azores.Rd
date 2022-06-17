@@ -3,23 +3,37 @@
 \docType{data}
 \name{Azores}
 \alias{Azores}
-\title{Prices of 50,000 round cut diamonds.}
+\title{Birds of Azores archipelago}
 \format{
-A data frame with 53940 rows and 10 variables:
+An object of class \code{list} of length 18:
 \describe{
-\item{price}{price, in US dollars}
-\item{carat}{weight of the diamond, in carats}
+\item{island_age}{Age of the island}
+\item{not_present}{Number of mainland species that did not colonise the
+island}
+\item{colonist_name}{The name of the colonising clade}
+\item{branching_times}{The age of the island and the colonisation and
+subsequent branching times for a clade}
+\item{stac}{Endemicity status for a clade}
+\item{missing_species}{Number of species missing from a phylogeny of a
+clade}
+\item{type1or2}{Defines what type of species are in a clade, used for
+2-type analysis}
 ...
 }
 }
 \source{
-\url{http://www.diamondse.info/}
+Valente et al. (2020) doi:
+\url{https://doi.org/10.1038/s41586-020-2022-5}
+\url{https://github.com/joshwlambert/relaxedDAISIE}
 }
 \usage{
 Azores
 }
 \description{
-A dataset containing the prices and other attributes of almost 54,000
-diamonds.
+A dataset containing the age of the archipelago, number of
+species on mainland not present on the island, and each colonising clade with
+colonisation and branching times, endemicity status, missing species, and the
+type of species. Obtained and parsed from the relaxedDAISIE project strictly
+for illustration and test purposes
 }
 \keyword{datasets}

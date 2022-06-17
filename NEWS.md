@@ -1,3 +1,30 @@
+# DAISIEutils 1.2.0
+
+* Reworked all reference test file infrastructure to use `tempdir()`.
+* Added `results_dir` argument to functions that load and/or write to the file 
+system to allow the user to specify a custom directory appropriate for their 
+environment. The default, `NULL` maintains previous behaviour, i.e., saves
+and loads from a folder `results/` in the root of the working directory.
+* Removed `is_daisie_data()` as it was incomplete and seldom used. May be ported
+from other packages in the future.
+* Rework `create_output_folder()` to only handle directory creation. 
+The file path generation is now handled by `create_results_dir_path()` assuming 
+previous functionality with new added flexibility via the `results_dir` argument
+as described above.
+* Add alternative (lower) CES rates to `run_daisie_ml()` and setup model to
+allow certain datasets to be begin estimation from valid parameters.
+* Renamed argument `data` to `daisie_data` for consistency with more recent
+DAISIE related packages and to avoid conflicts with base R's `data()`.
+* Add functions to plot bootstrap results to check model
+goodness of fit: `plot_bootstrap_results()`, `summarize_bootstrap_results()` 
+adding to `plot_sim_metrics()` which now is split into `calc_sim_metrics()`.
+* Add `setup_std_pars2()` to generate common `pars2`, useful for development
+within 'DAISIE'.
+* `run_daisie_ml()` can now return it's output to session rather than saving
+to file by setting `results_dir` to `NA`.
+* Style entire package with 'styler'.
+* Added `.zenodo.json` with metadata for automatic Zenodo releases.
+
 # DAISIEutils 1.1.0
 
 -   `choose_best_model()` correctly handles results where no model was estimated successfully, and returns `NA` appropriately.

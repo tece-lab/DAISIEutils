@@ -53,7 +53,6 @@ bootstrap_lr <- function(daisie_data,
     data_name = data_name,
     results_dir = results_dir
   )
-  message(data_to_read_path)
 
   model_1_files <- list.files(
     path = data_to_read_path,

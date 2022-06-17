@@ -4,38 +4,41 @@ test_that("sensitivity works", {
 
   # Place files need for sensitivity
   reference_files <- list.files(
-    file.path(getwd(), "testdata/"), full.names = TRUE, pattern = "Azores_cr_d*"
+    file.path("testdata", "results"),
+    full.names = TRUE,
+    pattern = "Azores_cr_d*",
+    recursive = TRUE
   )
   reference_files_alt <- list.files(
-    file.path(getwd(), "testdata/"),
+    file.path("testdata", "results"),
     full.names = TRUE,
-    pattern = "Azores_alt_m_d*"
+    pattern = "Azores_alt_m_d*",
+    recursive = TRUE
   )
-  azores_filepath <- create_output_folder(
+  temp_dir <- tempdir()
+  azores_folder <- create_output_folder(
     data_name = data_names[1],
-    model = "cr_di",
-    array_index = 1
+    results_dir = temp_dir
   )
-  azores_alt_m_filepath <- create_output_folder(
+  azores_alt_m_folder <- create_output_folder(
     data_name = data_names[2],
-    model = "cr_di",
-    array_index = 1
+    results_dir = temp_dir
   )
 
-  azores_folder <- dirname(azores_filepath)
   expect_true(all(file.copy(reference_files, azores_folder)))
-
-  azores_alt_m_folder <- dirname(azores_alt_m_filepath)
   expect_true(all(file.copy(reference_files_alt, azores_alt_m_folder)))
 
-  obtained_result <- sensitivity(data_names = data_names, full_output = TRUE)
-
-  expected_result <- readRDS(file.path(
-    getwd(), "testdata/Azores_Azores_alt_m.rds")
+  obtained_result <- sensitivity(
+    data_names = data_names,
+    full_output = TRUE,
+    results_dir = temp_dir
   )
+
+  expected_result <- readRDS(file.path("testdata", "Azores_Azores_alt_m.rds"))
 
   expect_equal(object = obtained_result, expected = expected_result)
 
   # Delete temp folder
-  expect_equal(unlink(file.path(getwd(), "results"), recursive = TRUE), 0)
+  expect_equal(unlink(file.path("results"), recursive = TRUE), 0)
+  expect_equal(unlink(file.path(temp_dir), recursive = TRUE), 0)
 })

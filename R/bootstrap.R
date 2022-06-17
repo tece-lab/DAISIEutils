@@ -12,21 +12,22 @@
 #' \dontrun{
 #' data(Galapagos_datalist, package = "DAISIE")
 #' bootstrap(
-#'   data = Galapagos_datalist,
+#'   daisie_data = Galapagos_datalist,
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
 #'   array_index = 1,
-#'   cond = 1,
+#'   cond = 1
 #' )
 #' }
-bootstrap <- function(
-  data,
-  data_name,
-  model,
-  array_index,
-  cond,
-  test = FALSE) {
-
+bootstrap <- function(daisie_data,
+                      data_name,
+                      model,
+                      array_index,
+                      cond,
+                      methode = "lsodes",
+                      optimmethod = "subplex",
+                      results_dir = NULL,
+                      test = FALSE) {
   if (test) {
     seed <- array_index
   } else {
@@ -44,30 +45,27 @@ bootstrap <- function(
     data_name = data_name,
     model = paste("boot", model, sep = "_"),
     array_index = array_index,
-    seed = seed)
-  file_path <- create_output_folder(
+    seed = seed,
+    methode = methode,
+    optimmethod = optimmethod
+  )
+  data_to_read_path <- create_results_dir_path(
     data_name = data_name,
-    model = paste("boot", model, sep = "_"),
-    array_index = array_index
+    results_dir = results_dir
   )
 
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path("results", data_name)
-  }
   model_files <- list.files(
-    path = output_folder,
+    path = data_to_read_path,
     full.names = TRUE,
-    pattern = paste0(data_name, "_", model, "_[0-9].rds$"))
+    pattern = paste0(data_name, "_", model, "_[0-9].rds$")
+  )
+
   model_lik_res <- lapply(model_files, readRDS)
 
   best_model <- choose_best_model(model_lik_res)
 
   sim <- run_sim(
-    data = data,
+    daisie_data = daisie_data,
     model = model,
     lik_res = best_model,
     cond = cond
@@ -95,6 +93,8 @@ bootstrap <- function(
     idparsfix = model_idparsfix,
     ddmodel = model_ddmodel,
     cond = cond,
+    methode = methode,
+    optimmethod = optimmethod,
     CS_version = model_cs_version
   )
 
@@ -104,8 +104,20 @@ bootstrap <- function(
     model_sim_lik_res = model_sim_lik_res
   )
 
-  saveRDS(
-    output,
-    file = file_path
+  output_folder_path <- create_output_folder(
+    data_name = data_name,
+    results_dir = results_dir
   )
+  output_path <- file.path(
+    output_folder_path,
+    paste0(
+      data_name,
+      "_boot_",
+      model,
+      "_",
+      array_index,
+      ".rds"
+    )
+  )
+  saveRDS(output, file = output_path)
 }

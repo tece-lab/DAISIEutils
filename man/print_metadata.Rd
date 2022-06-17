@@ -4,7 +4,7 @@
 \alias{print_metadata}
 \title{Print session and run info to console/log file}
 \usage{
-print_metadata(data_name, model, array_index, seed)
+print_metadata(data_name, model, array_index, seed, methode, optimmethod)
 }
 \arguments{
 \item{data_name}{String. Will be used for the name of the created output
@@ -68,6 +68,22 @@ naming the output file.}
 This value is determined by \code{\link[=Sys.time]{Sys.time()}} and \code{array_index} to ensure
 parallel jobs have different seeds. Only the last 6 digits of the
 \code{\link[=Sys.time]{Sys.time()}} (as an integer) are used.}
+
+\item{methode}{Method of the ODE-solver. Supported Boost \code{ODEINT}
+solvers (steppers) are:
+\code{"odeint::runge_kutta_cash_karp54"}
+\code{"odeint::runge_kutta_fehlberg78"}
+\code{"odeint::runge_kutta_dopri5"}
+\code{"odeint::bulirsch_stoer"}
+without \verb{odeint::}-prefix, \verb{\link{deSolve}{ode}()} method is
+assumed. The default method overall is
+\code{"lsodes"} for \verb{\link{DAISIE_ML_CS}()}
+and \code{"ode45"} from \verb{\link[deSolve]\{ode\}()} for
+\verb{\link{DAISIE_ML_IW}()}.}
+
+\item{optimmethod}{Method used in likelihood optimization. Default is
+\code{subplex} (see \verb{\link[subplex]\{subplex\}()} for full details).
+Alternative is \code{"simplex"} which was the method in previous versions.}
 }
 \value{
 Nothing. Prints session and run info used by DAISIE to console.
@@ -93,5 +109,5 @@ print_metadata(
 }
 }
 \author{
-Pedro Neves, Luis Valente, Joshua W. Lambert
+Pedro Santos Neves, Luis Valente, Joshua W. Lambert
 }

@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --time=9-23:05:00
+#SBATCH --time=2-23:05:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=bootstrap
-#SBATCH --output=logs/b-%a.log
+#SBATCH --output=logs/b-%j-%a.log
 #SBATCH --mem=2GB
 #SBATCH --array=1-1000
 #SBATCH --partition=gelifes
@@ -49,6 +49,7 @@ datalist_name=$1
 model=$2
 package=$3
 cond=$4
+optimmethod=$5
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -57,4 +58,4 @@ Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
                                         ${package} \
                                         ${seed} \
                                         ${cond} \
-
+                                        ${optimmethod}

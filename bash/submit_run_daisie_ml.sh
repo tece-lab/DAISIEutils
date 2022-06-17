@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=72:00:00
+#SBATCH --time=02:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=daisie_ml
@@ -36,10 +36,16 @@
 # package - the name of the package where the data is stored.
 # seed - The seed used to sample the optimization initial parameters.
 # cond - The conditioning for DAISIE_ML
+# methode - The ode solver used by DAISIE. Defaults to
+#   odeint::runge_kutta_fehlberg78. See help for DAISIE::DAISIE_ML() for a list
+#   of available solvers
+# optimmethod - Optimization algorithm used to maximize the likelihood. Defaults
+#   to subplex. Alternative is simplex.
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
 # sbatch DAISIEutils/bash/submit_run_daisie_ml.sh Aldabra_Group cr_di relaxedDAISIE 5
+# Example with methode set to lsodes and optimmethod set to simplex
 ################################################################################
 
 
@@ -49,6 +55,8 @@ data=$1
 model=$2
 package=$3
 cond=$4
+methode=${5-odeint::runge_kutta_fehlberg78}
+optimmethod=${6-subplex}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -57,4 +65,6 @@ Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                             ${package} \
                                             ${seed} \
                                             ${cond} \
+                                            ${methode} \
+                                            ${optimmethod}
 

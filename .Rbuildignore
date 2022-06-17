@@ -6,3 +6,4 @@
 ^bash$
 ^scripts$
 ^data-raw$
+^\.zenodo\.json$

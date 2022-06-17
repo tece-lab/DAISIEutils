@@ -20,5 +20,5 @@ fields as \code{NA}.
 From multiple seeds, choose the best model fit
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }

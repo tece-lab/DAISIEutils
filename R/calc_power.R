@@ -4,28 +4,20 @@
 #'
 #' @return Numeric power
 #' @export
-calc_power <- function(
-  data
-) {
+calc_power <- function(daisie_data,
+                       results_dir = NULL) {
+  data_name <- deparse(substitute(daisie_data))
 
-  data_name <- deparse(substitute(data))
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path(getwd(), "results", data_name)
-  }
-
+  results_folder <- create_results_dir_path(data_name, results_dir)
   files <- list.files(
-    path = output_folder,
+    path = results_folder,
     full.names = TRUE,
     pattern = "boot_lr"
   )
   if (length(files) == 0) {
     stop("No files found.")
   }
-  if (length(files) != 1000 & length(files) != 5) {
+  if (length(files) != 1000 && length(files) != 5) {
     stop("1000 bootstrap results expected but only ", length(files), " found.")
   }
 

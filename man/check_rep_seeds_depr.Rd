@@ -44,5 +44,5 @@ repeated_seeds <- check_rep_seeds_depr(logs_path = "/logs/")
 \code{\link[=check_rep_seeds]{check_rep_seeds()}} for optimized checks on current logs.
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }

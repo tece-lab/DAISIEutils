@@ -11,22 +11,23 @@
 #' \dontrun{
 #' data(Galapagos_datalist, package = "DAISIE")
 #' bootstrap_lr(
-#'   data = Galapagos_datalist,
+#'   daisie_data = Galapagos_datalist,
 #'   model_1 = "cr_dd",
 #'   model_2 = "cr_di",
 #'   array_index = 1,
 #'   cond = 1,
 #' )
 #' }
-bootstrap_lr <- function(
-  data,
-  data_name,
-  model_1,
-  model_2,
-  array_index,
-  cond,
-  test = FALSE) {
-
+bootstrap_lr <- function(daisie_data,
+                         data_name,
+                         model_1,
+                         model_2,
+                         array_index,
+                         cond,
+                         methode = "lsodes",
+                         optimmethod = "subplex",
+                         results_dir = NULL,
+                         test = FALSE) {
   if (test) {
     seed <- array_index
   } else {
@@ -43,32 +44,33 @@ bootstrap_lr <- function(
     data_name = data_name,
     model = paste("boot_lr", model_1, model_2, sep = "_"),
     array_index = array_index,
-    seed = seed)
-  file_path <- create_output_folder(
-    data_name = data_name,
-    model = paste("boot_lr", model_1, model_2, sep = "_"),
-    array_index = array_index
+    seed = seed,
+    methode = methode,
+    optimmethod = optimmethod
   )
 
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path("results", data_name)
-  }
+  data_to_read_path <- create_results_dir_path(
+    data_name = data_name,
+    results_dir = results_dir
+  )
+
   model_1_files <- list.files(
-    path = output_folder,
+    path = data_to_read_path,
     full.names = TRUE,
-    pattern = paste0(data_name, "_", model_1, "_[0-9].rds$"))
+    pattern = paste0(data_name, "_", model_1, "_[0-9].rds$"),
+    recursive = TRUE
+  )
+  message("model_1_files: ", model_1_files)
+  message(data_to_read_path)
   model_1_lik_res <- lapply(model_1_files, readRDS)
 
   model_2_files <- list.files(
-    path = output_folder,
+    path = data_to_read_path,
     full.names = TRUE,
-    pattern = paste0(data_name, "_", model_2, "_[0-9].rds$"))
+    pattern = paste0(data_name, "_", model_2, "_[0-9].rds$")
+  )
   model_2_lik_res <- lapply(model_2_files, readRDS)
-
+  message("model_2_files: ", model_2_files)
   best_model_1 <- choose_best_model(model_1_lik_res)
   best_model_2 <- choose_best_model(model_2_lik_res)
 
@@ -78,7 +80,7 @@ bootstrap_lr <- function(
   )
 
   sim_1 <- run_sim(
-    data = data,
+    daisie_data = daisie_data,
     model = model_1,
     lik_res = best_model_1,
     cond = cond
@@ -139,7 +141,7 @@ bootstrap_lr <- function(
   )
 
   sim_2 <- run_sim(
-    data = data,
+    daisie_data = daisie_data,
     model = model_1,
     lik_res = best_model_1,
     cond = cond
@@ -189,9 +191,25 @@ bootstrap_lr <- function(
     model_2_sim_2_lik_res = model_2_sim_2_lik_res,
     lik_ratio_2 = lik_ratio_2
   )
-
+  output_folder_path <- create_output_folder(
+    data_name = data_name,
+    results_dir = results_dir
+  )
+  output_path <- file.path(
+    output_folder_path,
+    paste0(
+      data_name,
+      "_boot_lr_",
+      model_1,
+      "_",
+      model_2,
+      "_",
+      array_index,
+      ".rds"
+    )
+  )
   saveRDS(
     output,
-    file = file_path
+    file = output_path
   )
 }

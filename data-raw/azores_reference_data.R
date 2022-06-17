@@ -4,33 +4,35 @@
 # of this script was copied to tests/testthat/testdata/ so as to be accessed
 # by R CHECK
 array_indices <- 1:5
-data(Azores, package = "relaxedDAISIE")
-data(Azores_alt_m, package = "relaxedDAISIE")
+data(Azores)
+data(Azores_alt_m)
 models <- c("cr_dd", "cr_di")
 cond <- 1
 
 for (model in models) {
   for (array_index in array_indices) {
-    run_daisie_ml(
-      data = Azores,
+    DAISIEutils::run_daisie_ml(
+      daisie_data = Azores,
       data_name = "Azores",
       model = model,
       array_index = array_index,
       cond = cond,
-      test = TRUE
+      test = TRUE,
+      optimmethod = "subplex"
     )
-    run_daisie_ml(
-      data = Azores_alt_m,
+    DAISIEutils::run_daisie_ml(
+      daisie_data = Azores_alt_m,
       data_name = "Azores_alt_m",
       model = model,
       array_index = array_index,
       cond = cond,
-      test = TRUE
+      test = TRUE,
+      optimmethod = "subplex"
     )
   }
 }
 
-sens_out <- sensitivity(
+sens_out <- DAISIEutils::sensitivity(
   data_names = c("Azores", "Azores_alt_m"),
   full_output = TRUE
 )
@@ -38,8 +40,8 @@ sens_out <- sensitivity(
 saveRDS(sens_out, "results/Azores_Azores_alt_m.rds")
 
 for (array_index in array_indices) {
-  bootstrap_lr(
-    data = Azores,
+  DAISIEutils::bootstrap_lr(
+    daisie_data = Azores,
     data_name = "Azores",
     model_1 = "cr_dd",
     model_2 = "cr_di",
@@ -47,8 +49,8 @@ for (array_index in array_indices) {
     cond = cond,
     test = TRUE
   )
-  bootstrap(
-    data = Azores,
+  DAISIEutils::bootstrap(
+    daisie_data = Azores,
     data_name = "Azores",
     model = "cr_dd",
     array_index = array_index,
@@ -56,4 +58,3 @@ for (array_index in array_indices) {
     test = TRUE
   )
 }
-

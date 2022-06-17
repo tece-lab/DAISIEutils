@@ -8,7 +8,7 @@
 #'   the of the alternate seed runs for each model.
 #' @export
 #'
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 read_model_results <- function(results_root_folder) {
   testit::assert(
     "Root folder exists",
@@ -58,17 +58,18 @@ read_model_results <- function(results_root_folder) {
     )))
     model_files_bools <- lapply(
       X = models,
-      FUN = function(model)
+      FUN = function(model) {
         grepl(
           pattern = paste(data_set, model, "[1-9]", sep = "_"),
           x = result_files
         )
+      }
     )
     bool_indices <- unlist(lapply(model_files_bools, which))
     testit::assert(
       fact = "Models read without duplicates",
-      all(!duplicated(bool_indices)
-      ))
+      all(!duplicated(bool_indices))
+    )
 
     model_list <- list()
     for (i in seq_along(model_files_bools)) {

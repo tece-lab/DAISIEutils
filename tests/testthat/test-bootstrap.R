@@ -1,8 +1,7 @@
 test_that("bootstrap works", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data_name <- "Azores"
-  data("Azores", package = "relaxedDAISIE")
-  data_name <- "Azores"
+  data("Azores")
   model <- "cr_dd"
   array_index <- 1
   cond <- 1
@@ -10,36 +9,38 @@ test_that("bootstrap works", {
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    file.path(getwd(), "testdata"), full.names = TRUE, pattern = "*.rds"
+    file.path("testdata", "results", "Azores"),
+    full.names = TRUE,
+    pattern = paste0(data_name, "_", model, "_[0-9].rds$")
   )
-  results_name <- create_output_folder(
+  temp_dir <- tempdir()
+  results_folder <- create_output_folder(
     data_name = data_name,
-    model = "boot_cr_dd",
-    array_index = 1
+    results_dir = temp_dir
   )
-  results_folder <- dirname(results_name)
   expect_true(all(file.copy(reference_files, results_folder)))
 
 
   # Omit console output in tests
   invisible(suppressMessages(capture.output(
     bootstrap(
-      data = Azores,
+      daisie_data = Azores,
       data_name = data_name,
       model = "cr_dd",
       array_index = array_index,
       cond = cond,
-      test = test
+      test = test,
+      results_dir = temp_dir
     )
   )))
-  actual_output <- readRDS(results_name)
+  actual_output <- readRDS(file.path(results_folder, "Azores_boot_cr_dd_1.rds"))
 
   expected_output <- readRDS(
-    file.path(getwd(), "testdata/Azores_boot_cr_dd_1.rds")
+    file.path("testdata", "results", "Azores", "Azores_boot_cr_dd_1.rds")
   )
-
   expect_equal(actual_output, expected_output)
 
   # Delete temp folder
   expect_equal(unlink("results", recursive = TRUE), 0)
+  expect_equal(unlink(temp_dir, recursive = TRUE), 0)
 })

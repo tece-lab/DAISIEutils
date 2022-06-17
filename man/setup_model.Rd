@@ -4,7 +4,7 @@
 \alias{setup_model}
 \title{Set up DAISIE_ML arguments}
 \usage{
-setup_model(model)
+setup_model(model, low_rates = FALSE)
 }
 \arguments{
 \item{model}{A string with model that should run. Models are as follows:
@@ -57,6 +57,13 @@ relaxed cladogenesis, and no anagenesis (laa fixed to zero)
 \item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
 \item \code{"rr_k_0laa"} Clade specific model - diversity dependent
 }}
+
+\item{low_rates}{Boolean determining whether the random sampling of initial
+parameter estimates should be sampled from a broad range (FALSE) or from a
+restricted range where the initial rates a ensured to be smaller (TRUE).
+The latter helps when using large datasets that may fail the initial
+likelihood computation with higher rates that could be sampled from the
+broad range of rates.}
 }
 \value{
 A named list with \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML()}} arguments.
@@ -71,5 +78,5 @@ setup_model(
 )
 }
 \author{
-Luis M Valente, Pedro Neves, Joshua W. Lambert
+Luis M Valente, Pedro Santos Neves, Joshua W. Lambert
 }

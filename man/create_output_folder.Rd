@@ -2,86 +2,42 @@
 % Please edit documentation in R/create_output_folder.R
 \name{create_output_folder}
 \alias{create_output_folder}
-\title{Create model output folder}
+\title{Create output folder}
 \usage{
-create_output_folder(data_name, model, array_index)
+create_output_folder(data_name, results_dir = NULL)
 }
 \arguments{
 \item{data_name}{String. Will be used for the name of the created output
 folder.}
 
-\item{model}{A string with model that should run. Models are as follows:
-\itemize{
-\item \code{"cr_dd"} Clade specific model - diversity dependent. All parameters
-free.
-\item \code{"cr_di"} Clade specific model - diversity independent (K = Inf). All
-other parameters free.
-\item \code{"cr_dd_0laa"} Clade specific model - diversity dependent and no
-anagenesis (laa fixed to zero). All other parameters free.
-\item \code{"cr_di_0laa"} Clade specific model - diversity independent (K = Inf)
-and no anagenesis (laa fixed to zero). All other parameters free.
-\item \code{"cr_di_0lac"} Clade specific model - diversity indendent (K = Inf)
-and no cladogenesis (lac fixed to zero). All other parameters free.
-\item \code{"cr_dd_0lac"} Clade specific model - diversity dependent and no
-cladogenesis (lac fixed to zero). All other parameters free.
-\item \code{"rr_lac_di"} Clade specific model - diversity independent (K = Inf)
-and relaxed cladogenesis. All other parameters free.
-\item \code{"rr_lac_dd"} Clade specific model - diversity dependent and relaxed
-cladogenesis. All other parameters free.
-\item \code{"rr_mu_di"} Clade specific model - diversity independent (K = Inf) and
-relaxed extinction. All other parameters free.
-\item \code{"rr_mu_dd"} Clade specific model - diversity dependent and relaxed
-extinction. All other parameters free.
-\item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
-capacity. All other parameters free.
-\item \code{"rr_laa_di"} Clade specific model - diversity independent (K = Inf)
-and relaxed anagenesis. All other parameters free.
-\item \code{"rr_laa_dd"} Clade specific model - diversity dependent and relaxed
-anagenesis. All other parameters free.
-\item \code{"rr_mu_di_0lac"} Clade specific model - diversity independent,
-relaxed extinction, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_mu_dd_0lac"} Clade specific model - diversity dependent, relaxed
-extinction, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_k_0lac"} Clade specific model - diversity dependent, relaxed
-carrying capacity, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_laa_di_0lac"} Clade specific model - diversity independent,
-relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"r_laa_dd_0lac"} Clade specific model - diversity dependent, relaxed
-anagenesis, and no cladogenesis (lac fixed to zero). All other
-parameters free.
-\item \code{"rr_lac_di_0laa"} Clade specific model - diversity independent,
-relaxed cladogenesis, and no anagenesis (laa fixed to zero)
-\item \code{"rr_lac_dd_0laa"} Clade specific model - diversity dependent
-\item \code{"rr_mu_di_0laa"} Clade specific model - diversity independent
-\item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
-\item \code{"rr_k_0laa"} Clade specific model - diversity dependent
-}}
-
-\item{array_index}{A single numeric with the array index. It is used for
-naming the output file.}
+\item{results_dir}{A string with the path to the directory where results
+are to be stored or can be found. For example, if the data in question
+is (to be) stored in \verb{folder_with_res/$data_name}, then \code{results_dir}
+should be \code{"folder_with_res"}.
+Defaults to \code{NULL}, which indicates the default directories are to be used.
+Default directories are:
+* \verb{$HOME/results/$data_name} if on the cluster
+* \verb{getwd()/results/$data_name} if called from another environment
+If \code{is.na(results_dir)}, then the object is returned to the R session and
+not saved to file.}
 }
 \value{
-Creates appropriate directory. Returns string with path for
-output object. If on Peregrine, folder will be \verb{$HOME/results/$output_name}.
-If called from another environment, folder will be
-\verb{getwd()/results/$output_name}.
+Creates appropriate directory. Returns string with path for output object. By
+default, if on Peregrine, folder will be \verb{$HOME/results/$data_name}. If
+called from another environment, folder will be
+\verb{getwd()/results/$data_name}. Alternatively, another valid root can be
+specified, resulting in \verb{results_dir/$data_name}.
 }
 \description{
-Create model output folder
+Create output folder
 }
 \examples{
 \dontrun{
 create_output_folder(
-  data_name = "results_folder",
-  model = "cr_dd",
-  array_index = 1
+  data_name = "results_folder"
 )
 }
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }

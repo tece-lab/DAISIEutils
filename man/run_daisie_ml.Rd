@@ -4,13 +4,24 @@
 \alias{run_daisie_ml}
 \title{Run DAISIE analysis}
 \usage{
-run_daisie_ml(data, data_name, model, array_index, cond, test = FALSE)
+run_daisie_ml(
+  daisie_data,
+  data_name,
+  model,
+  array_index,
+  cond,
+  methode = "odeint::runge_kutta_fehlberg78",
+  optimmethod = "subplex",
+  results_dir = NULL,
+  low_rates = FALSE,
+  test = FALSE
+)
 }
 \arguments{
-\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
-preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
-details. Otherwise it may be generated via simulations, using
-\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format.
+Usually preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation
+for details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
 
 \item{data_name}{String. Will be used for the name of the created output
 folder.}
@@ -72,6 +83,40 @@ naming the output file.}
 \item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
+\item{methode}{Method of the ODE-solver. Supported Boost \code{ODEINT}
+solvers (steppers) are:
+\code{"odeint::runge_kutta_cash_karp54"}
+\code{"odeint::runge_kutta_fehlberg78"}
+\code{"odeint::runge_kutta_dopri5"}
+\code{"odeint::bulirsch_stoer"}
+without \verb{odeint::}-prefix, \verb{\link{deSolve}{ode}()} method is
+assumed. The default method overall is
+\code{"lsodes"} for \verb{\link{DAISIE_ML_CS}()}
+and \code{"ode45"} from \verb{\link[deSolve]\{ode\}()} for
+\verb{\link{DAISIE_ML_IW}()}.}
+
+\item{optimmethod}{Method used in likelihood optimization. Default is
+\code{subplex} (see \verb{\link[subplex]\{subplex\}()} for full details).
+Alternative is \code{"simplex"} which was the method in previous versions.}
+
+\item{results_dir}{A string with the path to the directory where results
+are to be stored or can be found. For example, if the data in question
+is (to be) stored in \verb{folder_with_res/$data_name}, then \code{results_dir}
+should be \code{"folder_with_res"}.
+Defaults to \code{NULL}, which indicates the default directories are to be used.
+Default directories are:
+* \verb{$HOME/results/$data_name} if on the cluster
+* \verb{getwd()/results/$data_name} if called from another environment
+If \code{is.na(results_dir)}, then the object is returned to the R session and
+not saved to file.}
+
+\item{low_rates}{Boolean determining whether the random sampling of initial
+parameter estimates should be sampled from a broad range (FALSE) or from a
+restricted range where the initial rates a ensured to be smaller (TRUE).
+The latter helps when using large datasets that may fail the initial
+likelihood computation with higher rates that could be sampled from the
+broad range of rates.}
+
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}
 }
@@ -87,7 +132,7 @@ Run DAISIE analysis
 \dontrun{
 data(Galapagos_datalist, package = "DAISIE")
 run_daisie_ml(
-  data = Galapagos_datalist,
+  daisie_data = Galapagos_datalist,
   data_name = "Galapagos_datalist",
   model = "cr_dd",
   array_index = 1,
@@ -96,5 +141,5 @@ run_daisie_ml(
 }
 }
 \author{
-Pedro Neves, Joshua W. Lambert, Luis Valente
+Pedro Santos Neves, Joshua W. Lambert, Luis Valente
 }

@@ -5,10 +5,10 @@
 #' @return Numeric value with BIC
 #' @export
 #'
-#' @author Joshua W. Lambert, Pedro Neves
-calc_bic <- function(results, data) {
+#' @author Joshua W. Lambert, Pedro Santos Neves
+calc_bic <- function(results, daisie_data) {
   k <- results$df
-  m <- data[[1]]$not_present + length(data) - 1
+  m <- daisie_data[[1]]$not_present + length(daisie_data) - 1
   bic <- k * (log(m) + log(2 * pi)) - 2 * results$loglik
   bic
 }

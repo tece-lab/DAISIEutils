@@ -8,11 +8,13 @@ default_params_doc(
   model,
   data_name,
   results_root_folder,
-  data,
+  daisie_data,
   array_index,
   file_path,
   results,
   cond,
+  optimmethod,
+  methode,
   model_1,
   model_2,
   model_1_lik_res,
@@ -23,7 +25,23 @@ default_params_doc(
   full_output,
   seed,
   test,
-  logs_path
+  logs_path,
+  results_dir,
+  overall_results,
+  sumstats,
+  ylim4,
+  title,
+  res,
+  ddmodel,
+  verbose,
+  island_ontogeny,
+  eqmodel,
+  tol,
+  maxiter,
+  x_E,
+  x_I,
+  mainland_n,
+  low_rates
 )
 }
 \arguments{
@@ -84,10 +102,10 @@ folder.}
 \item{results_root_folder}{Character. A path to the root folder containing
 subfolders. Each subfolder contains result files for analysis runs.}
 
-\item{data}{A list, conforming to the \code{\link{DAISIE}} object format. Usually
-preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation for
-details. Otherwise it may be generated via simulations, using
-\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_constant_rate()}} and friends.}
+\item{daisie_data}{A list, conforming to the \code{\link{DAISIE}} object format.
+Usually preprocessed by \code{\link[DAISIE:DAISIE_dataprep]{DAISIE::DAISIE_dataprep()}}, see it's documentation
+for details. Otherwise it may be generated via simulations, using
+\code{\link[DAISIE:DAISIE_sim]{DAISIE::DAISIE_sim_cr()}} and friends.}
 
 \item{array_index}{A single numeric with the array index. It is used for
 naming the output file.}
@@ -101,8 +119,24 @@ bic, and they're saved as an RDS file by \code{\link[=run_daisie_ml]{run_daisie_
 \item{cond}{An integer specifying conditioning, as described in
 \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML_CS()}}.}
 
+\item{optimmethod}{Method used in likelihood optimization. Default is
+\code{subplex} (see \verb{\link[subplex]\{subplex\}()} for full details).
+Alternative is \code{"simplex"} which was the method in previous versions.}
+
+\item{methode}{Method of the ODE-solver. Supported Boost \code{ODEINT}
+solvers (steppers) are:
+\code{"odeint::runge_kutta_cash_karp54"}
+\code{"odeint::runge_kutta_fehlberg78"}
+\code{"odeint::runge_kutta_dopri5"}
+\code{"odeint::bulirsch_stoer"}
+without \verb{odeint::}-prefix, \verb{\link{deSolve}{ode}()} method is
+assumed. The default method overall is
+\code{"lsodes"} for \verb{\link{DAISIE_ML_CS}()}
+and \code{"ode45"} from \verb{\link[deSolve]\{ode\}()} for
+\verb{\link{DAISIE_ML_IW}()}.}
+
 \item{model_1}{A string with model that should run. For a list of options
-see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
+see documentation for \code{model}  parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
 
 \item{model_2}{A string with model that should run. For a list of options
 see documentation for \code{model} parameter in \code{\link[=run_daisie_ml]{run_daisie_ml()}}.}
@@ -135,6 +169,101 @@ purposes, to fix the seed.}
 
 \item{logs_path}{Character with path to the folder containing logs. Only log
 files should be present, in plain text format.}
+
+\item{results_dir}{A string with the path to the directory where results
+are to be stored or can be found. For example, if the data in question
+is (to be) stored in \verb{folder_with_res/$data_name}, then \code{results_dir}
+should be \code{"folder_with_res"}.
+Defaults to \code{NULL}, which indicates the default directories are to be used.
+Default directories are:
+* \verb{$HOME/results/$data_name} if on the cluster
+* \verb{getwd()/results/$data_name} if called from another environment
+If \code{is.na(results_dir)}, then the object is returned to the R session and
+not saved to file.}
+
+\item{overall_results}{summary results obtained with
+\code{\link[=summarize_bootstrap_results]{summarize_bootstrap_results()}}.}
+
+\item{sumstats}{vector with the number of species, number
+of colonization, size of the largest clade and the rank of the largest
+clade in the empirical data}
+
+\item{ylim4}{maximum of the plot of the rank of the largest clade.}
+
+\item{title}{title of the plot.}
+
+\item{res}{Sets the maximum number of species for which a probability must
+be computed, must be larger than the size of the largest clade.}
+
+\item{ddmodel}{Sets the model of diversity-dependence:
+\itemize{
+\item \code{ddmodel = 0}: no diversity dependence
+\item \code{ddmodel = 1}: linear dependence in speciation rate
+\item \code{ddmodel = 11}: linear dependence in speciation rate and in immigration
+rate
+\item \code{ddmodel = 2}: exponential dependence in speciation rate
+\item \code{ddmodel = 21}: exponential dependence in speciation rate and in
+immigration rate
+}}
+
+\item{verbose}{In simulation and dataprep functions a logical,
+\code{Default = TRUE} gives intermediate output should be printed.
+For ML functions a numeric determining if intermediate output should be
+printed, \code{Default = 0} does not print, \code{verbose = 1} prints
+intermediate output of the parameters and loglikelihood, \code{verbose = 2}
+means also intermediate progress during loglikelihood computation is shown.}
+
+\item{island_ontogeny}{In \code{\link{DAISIE_sim_time_dep}()},
+\code{\link{DAISIE_ML_CS}} and plotting a string describing the type of
+island ontogeny. Can be \code{"const"}, \code{"beta"} for a beta function
+describing area through time. String checked by
+\code{\link{is_island_ontogeny_input}()}. \cr In all other functions a
+numeric describing the type of island ontogeny. Can be \code{0} for
+constant, \code{1} for a beta function describing area through time. In ML
+functions \code{island_ontogeny = NA} assumes constant ontogeny. Time
+dependent estimation is not yet available as development is still ongoing.
+Will return an error if called in that case.}
+
+\item{eqmodel}{Sets the equilibrium constraint that can be used during the
+likelihood optimization. Only available for datatype = 'single'.\cr\cr
+eqmodel = 0 : no equilibrium is assumed \cr eqmodel = 13 : near-equilibrium
+is assumed on endemics using deterministic equation for endemics and
+immigrants. Endemics must be within x_E of the equilibrium value\cr eqmodel
+= 15 : near-equilibrium is assumed on endemics and immigrants using
+deterministic equation for endemics and immigrants. Endemics must be within
+x_E of the equilibrium value, while non-endemics must be within x_I of the
+equilibrium value.}
+
+\item{tol}{Sets the tolerances in the optimization. Consists of:
+\itemize{
+\item \code{reltolx} - relative tolerance of parameter values in optimization.
+\item \code{reltolf} - relative tolerance of function value in optimization.
+\item \code{abstolx} - absolute tolerance of parameter values in optimization.
+}}
+
+\item{maxiter}{Sets the maximum number of iterations in the optimization.}
+
+\item{x_E}{Sets the fraction of the equlibrium endemic diversity above which
+the endemics are assumed to be in equilibrium; only active for
+\code{eqmodel = 13} or \code{15}.}
+
+\item{x_I}{Sets the fraction of the equlibrium non-endemic diversity above
+which the system is assumed to be in equilibrium; only active for
+\code{eqmodel = 15}.}
+
+\item{mainland_n}{A numeric stating the number of mainland species, that
+is the number of species that can potentially colonize the island.
+If using a clade-specific diversity dependence, this value is set to 1
+internally in the simulation.
+If using an island-wide diversity dependence, this value is set to the
+number of mainland species.}
+
+\item{low_rates}{Boolean determining whether the random sampling of initial
+parameter estimates should be sampled from a broad range (FALSE) or from a
+restricted range where the initial rates a ensured to be smaller (TRUE).
+The latter helps when using large datasets that may fail the initial
+likelihood computation with higher rates that could be sampled from the
+broad range of rates.}
 }
 \value{
 Nothing

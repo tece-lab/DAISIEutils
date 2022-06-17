@@ -16,7 +16,7 @@
 #'   * `Seeds`: A numeric with the corresponding seed that was duplicated.
 #'   * `Array_indices`: A numeric with corresponding array index.
 #' @export
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 #'
 #' @note
 #' In this function, the lines containing the scraped values can be anywhere in
@@ -59,7 +59,8 @@ check_rep_seeds_depr <- function(logs_path) {
     size_array_line <- length(array_line)
     size_seed_line <- length(seed_line)
     invalid_lines <- any(
-      c(size_data_line < 1,
+      c(
+        size_data_line < 1,
         size_model_line < 1,
         size_array_line < 1,
         size_seed_line < 1

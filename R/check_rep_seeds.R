@@ -16,7 +16,7 @@
 #'   * `Seeds`: A numeric with the corresponding seed that was duplicated.
 #'   * `Array_indices`: A numeric with corresponding array index.
 #' @export
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 #'
 #' @note
 #' This function is the preferred method for checking for the presence of
@@ -53,16 +53,20 @@ check_rep_seeds <- function(logs_path) {
     seed_line <- log_heads[[i]][5]
     testit::assert(
       fact = "Array line exists. Try check_rep_seeds_depr() if this fails",
-      grepl("Data name:", data_line))
+      grepl("Data name:", data_line)
+    )
     testit::assert(
       fact = "Array line exists. Try check_rep_seeds_depr() if this fails",
-      grepl("Running analysis with array index:", array_line))
+      grepl("Running analysis with array index:", array_line)
+    )
     testit::assert(
       fact = "Seed line exists. Try check_rep_seeds_depr() if this fails",
-      grepl("Running analysis with seed:", seed_line))
+      grepl("Running analysis with seed:", seed_line)
+    )
     testit::assert(
       fact = "Seed line exists. Try check_rep_seeds_depr() if this fails",
-      grepl("Model name:", model_line))
+      grepl("Model name:", model_line)
+    )
 
     data_names[i] <- sub(".*: ", "", data_line)
     model_names[i] <- sub(".*: ", "", model_line)

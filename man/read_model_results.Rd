@@ -20,5 +20,5 @@ the of the alternate seed runs for each model.
 Reads \code{run_daisie_ml()} results
 }
 \author{
-Pedro Neves
+Pedro Santos Neves
 }

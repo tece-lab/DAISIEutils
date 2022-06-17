@@ -1,10 +1,10 @@
 Package: DAISIEutils
 Title: Utility Functions for the DAISIE Package
-Date: 2021-06-22
-Version: 1.1.0
+Date: 2022-06-17
+Version: 1.2.0
 Authors@R: c(
     person(given = "Pedro",
-           family = "Neves",
+           family = "Santos Neves",
            role = c("aut", "cre"),
            email = "p.m.santos.neves@rug.nl",
            comment = c(ORCID = "0000-0003-2561-4677")),
@@ -22,7 +22,12 @@ Authors@R: c(
            family = "Bilderbeek",
            email = "richel@richelbilderbeek.nl",
            role = c("aut"),
-           comment = c(ORCID = "0000-0003-1107-7049")))
+           comment = c(ORCID = "0000-0003-1107-7049")),
+               person(given = "Rampal S.",
+           family = "Etienne",
+           email = "r.s.etienne@rug.nl",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0003-2142-7612")))
 Description: The goal of DAISIEutils is to collect useful utility functions that
     are used recurently in DAISIE projects. DAISIEutils is a companion package 
     of the R package DAISIE.
@@ -30,7 +35,7 @@ License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.0
 URL: https://github.com/tece-lab/DAISIEutils
 BugReports: https://github.com/tece-lab/DAISIEutils/issues
 Depends: R (>= 4.0.0)
@@ -38,16 +43,12 @@ Suggests:
     testthat (>= 3.0.0),
     covr,
     lintr,
-    hawaiispiders (>= 1.0.1)
 Config/testthat/edition: 3
 Imports: 
     sessioninfo,
     testit,
-    relaxedDAISIE (>= 0.1.0),
-    DAISIE (>= 4.0.2),
-    readr,
-    tibble
+    DAISIE (>= 4.2.1),
+    ggplot2,
+    cowplot
 Remotes: 
-    joshwlambert/relaxedDAISIE,
-    Neves-P/hawaiispiders,
-    rsetienne/DAISIE@v4.0.2
+    rsetienne/DAISIE

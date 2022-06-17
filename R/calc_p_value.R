@@ -5,18 +5,10 @@
 #'
 #' @return Numeric p-value
 #' @export
-calc_p_value <- function(
-  data
-) {
-
-  data_name <- deparse(substitute(data))
-  if (is_on_cluster()) {
-    output_folder <- file.path(
-      Sys.getenv("HOME"), "results", data_name
-    )
-  } else {
-    output_folder <- file.path(getwd(), "results", data_name)
-  }
+calc_p_value <- function(daisie_data,
+                         results_dir = NULL) {
+  data_name <- deparse(substitute(daisie_data))
+  output_folder <- create_results_dir_path(data_name, results_dir)
 
   files <- list.files(
     path = output_folder,
@@ -27,7 +19,7 @@ calc_p_value <- function(
     stop("No files found.")
   }
 
-  if (length(files) != 1000 & length(files) != 5) {
+  if (length(files) != 1000 && length(files) != 5) {
     stop("1000 bootstrap results expected but only ", length(files), " found.")
   }
   list_res <- lapply(files, readRDS)

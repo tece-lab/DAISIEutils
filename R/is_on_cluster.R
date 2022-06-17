@@ -6,7 +6,7 @@
 #' @examples
 #' on_cluster <- is_on_cluster()
 #'
-#' @author Pedro Neves
+#' @author Pedro Santos Neves
 is_on_cluster <- function() {
   if (identical(Sys.getenv("HOSTNAME"), "peregrine.hpc.rug.nl")) {
     return(TRUE)

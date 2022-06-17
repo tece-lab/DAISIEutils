@@ -12,10 +12,11 @@ test_that("setup_model is correct for cr_dd", {
     idparsnoshift = 6:10,
     initparsopt = c(
       lac = 0.5310173262842,
-      mu = 0.7442477992736,
-      k = 135.9280045027845,
-      gam = 0.0908216969216,
-      laa = 0.8865595310461),
+      mu = 0.74424779927358,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.88655953104608
+    ),
     cs_version = 1
   )
   expect_equal(model_arguments, expected_arguments)
@@ -33,10 +34,12 @@ test_that("setup_model is correct for cr_di", {
     parsfix = Inf,
     idparsfix = 3,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992736,
-                    gam = 0.0908216969216,
-                    laa = 0.8865595310461),
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992736,
+      gam = 0.0908216969216,
+      laa = 0.8865595310461
+    ),
     cs_version = 1
   )
   expect_equal(model_arguments, expected_arguments)
@@ -54,10 +57,12 @@ test_that("setup_model is correct for cr_dd_0laa", {
     parsfix = 0,
     idparsfix = 5,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992736,
-                    k = 135.9280045027845,
-                    gam = 0.0908216969216),
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.74424779927358,
+      k = 157.28533633518964,
+      gam = 0.0908216969216
+    ),
     cs_version = 1
   )
   expect_equal(model_arguments, expected_arguments)
@@ -75,9 +80,11 @@ test_that("setup_model is correct for cr_di_0laa", {
     parsfix = c(Inf, 0),
     idparsfix = c(3, 5),
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992736,
-                    gam = 0.0908216969216),
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992736,
+      gam = 0.0908216969216
+    ),
     cs_version = 1
   )
   expect_equal(model_arguments, expected_arguments)
@@ -95,10 +102,12 @@ test_that("setup_model is correct for cr_dd_0lac", {
     parsfix = 0,
     idparsfix = 1,
     idparsnoshift = 6:10,
-    initparsopt = c(mu = 0.7442477992736,
-                    k = 135.9280045027845,
-                    gam = 0.0908216969216,
-                    laa = 0.8865595310461),
+    initparsopt = c(
+      mu = 0.74424779927358,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.88655953104608
+    ),
     cs_version = 1
   )
   expect_equal(model_arguments, expected_arguments)
@@ -116,9 +125,11 @@ test_that("setup_model is correct for cr_di_0lac", {
     parsfix = c(0, Inf),
     idparsfix = c(1, 3),
     idparsnoshift = 6:10,
-    initparsopt = c(mu = 0.7442477992736,
-                    gam = 0.0908216969216,
-                    laa = 0.8865595310461),
+    initparsopt = c(
+      mu = 0.7442477992736,
+      gam = 0.0908216969216,
+      laa = 0.8865595310461
+    ),
     cs_version = 1
   )
   expect_equal(model_arguments, expected_arguments)
@@ -136,13 +147,17 @@ test_that("setup_model is correct for rr_lac_di", {
     parsfix = Inf,
     idparsfix = 3,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.53101732628419995,
-                    mu = 0.74424779927358031,
-                    gam = 0.0908216969216,
-                    laa = 0.88655953104607754,
-                    sd = 9.085507164709270e-01),
-    cs_version = list(model = 2,
-                      relaxed_par = "cladogenesis")
+    initparsopt = c(
+      lac = 0.53101732628419995,
+      mu = 0.74424779927358031,
+      gam = 0.0908216969216,
+      laa = 0.88655953104607754,
+      sd = 9.085507164709270e-01
+    ),
+    cs_version = list(
+      model = 2,
+      relaxed_par = "cladogenesis"
+    )
   )
   expect_equal(model_arguments, expected_arguments)
 })
@@ -159,14 +174,18 @@ test_that("setup_model is correct for rr_lac_dd", {
     parsfix = NULL,
     idparsfix = NULL,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992735803,
-                    k = 135.9280045027845,
-                    gam = 0.0908216969216,
-                    laa = 0.8865595310460775,
-                    sd = 0.9085507164709270),
-    cs_version = list(model = 2,
-                      relaxed_par = "cladogenesis")
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992735803,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.8865595310460775,
+      sd = 0.9085507164709270
+    ),
+    cs_version = list(
+      model = 2,
+      relaxed_par = "cladogenesis"
+    )
   )
   expect_equal(model_arguments, expected_arguments)
 })
@@ -183,14 +202,18 @@ test_that("setup_model is correct for rr_mu_dd", {
     parsfix = NULL,
     idparsfix = NULL,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992735803,
-                    k = 135.9280045027845,
-                    gam = 0.0908216969216,
-                    laa = 0.8865595310460775,
-                    sd = 0.9085507164709270),
-    cs_version = list(model = 2,
-                      relaxed_par = "extinction")
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992735803,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.8865595310460775,
+      sd = 0.9085507164709270
+    ),
+    cs_version = list(
+      model = 2,
+      relaxed_par = "extinction"
+    )
   )
   expect_equal(model_arguments, expected_arguments)
 })
@@ -207,13 +230,17 @@ test_that("setup_model is correct for rr_mu_di", {
     parsfix = Inf,
     idparsfix = 3,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992735803,
-                    gam = 0.09082169692157768,
-                    laa = 0.88655953104607754,
-                    sd = 0.9085507164709270),
-    cs_version = list(model = 2,
-                      relaxed_par = "extinction")
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992735803,
+      gam = 0.09082169692157768,
+      laa = 0.88655953104607754,
+      sd = 0.9085507164709270
+    ),
+    cs_version = list(
+      model = 2,
+      relaxed_par = "extinction"
+    )
   )
   expect_equal(model_arguments, expected_arguments)
 })
@@ -230,14 +257,18 @@ test_that("setup_model is correct for rr_k", {
     parsfix = NULL,
     idparsfix = NULL,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992735803,
-                    k = 135.9280045027845,
-                    gam = 0.0908216969216,
-                    laa = 0.8865595310460775,
-                    sd = 0.9085507164709270),
-    cs_version = list(model = 2,
-                      relaxed_par = "carrying_capacity")
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992735803,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.8865595310460775,
+      sd = 0.9085507164709270
+    ),
+    cs_version = list(
+      model = 2,
+      relaxed_par = "carrying_capacity"
+    )
   )
   expect_equal(model_arguments, expected_arguments)
 })
@@ -254,14 +285,18 @@ test_that("setup_model is correct for rr_laa_dd", {
     parsfix = NULL,
     idparsfix = NULL,
     idparsnoshift = 6:10,
-    initparsopt = c(lac = 0.5310173262842,
-                    mu = 0.7442477992735803,
-                    k = 135.9280045027845,
-                    gam = 0.0908216969216,
-                    laa = 0.8865595310460775,
-                    sd = 0.9085507164709270),
-    cs_version = list(model = 2,
-                      relaxed_par = "anagenesis")
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992735803,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.8865595310460775,
+      sd = 0.9085507164709270
+    ),
+    cs_version = list(
+      model = 2,
+      relaxed_par = "anagenesis"
+    )
   )
   expect_equal(model_arguments, expected_arguments)
 })

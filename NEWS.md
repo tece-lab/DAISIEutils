@@ -22,11 +22,14 @@ adding to `plot_sim_metrics()` which now is split into `calc_sim_metrics()`.
 within 'DAISIE'.
 * `run_daisie_ml()` can now return it's output to session rather than saving
 to file by setting `results_dir` to `NA`.
+* `run_daisie_ml()` uses `lsodes` as default `methode`, in line with 'DAISIE'.
 * Style entire package with 'styler'.
 * Require 'DAISIE' v4.2.1.
 * No longer depend on private packages, to ensure package can be accessed by 
 more users.
 * Due to new plot functions, depend on 'ggplot2'and 'cowplot'.
+* Added `upload_results.R` and `upload_results.sh` to upload to Google drive
+directly from Peregrine.
 * Added `.zenodo.json` with metadata for automatic Zenodo releases.
 
 # DAISIEutils 1.1.0

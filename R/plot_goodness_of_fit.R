@@ -1,3 +1,4 @@
+# nolint: cyclocomp_linter start
 #' Computes summary results of bootstrap simulations useful for plotting
 #'
 #' The output is a list of results
@@ -209,6 +210,7 @@ summarize_bootstrap_results <- function(daisie_data,
 
   return(overall_results = overall_results)
 }
+# nolint end
 
 #' Computes summary results of bootstrap simulations useful for plotting
 #'

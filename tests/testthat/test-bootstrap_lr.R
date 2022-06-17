@@ -10,7 +10,7 @@ test_that("bootstrap_lr works", {
 
   # Place files need to run bootstrap
   reference_files <- list.files(
-    file.path("testdata", "Results", "Azores"),
+    file.path("testdata", "results", "Azores"),
     full.names = TRUE,
     pattern = "Azores_cr_*",
     recursive = TRUE

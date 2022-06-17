@@ -21,9 +21,11 @@ test_that("bootstrap_lr works", {
     results_dir = temp_dir
   )
 
-  expect_true(all(file.copy(reference_files, results_folder)))
+  message("reference_files: ", reference_files)
   message("results folder: ", results_folder)
-  message("files in results_folder: ", list.files(results_folder))
+  expect_true(all(file.copy(reference_files, results_folder)))
+  copied_files <- list.files(results_folder)
+  message("files in reference folder: ", copied_files)
   # Omit console output in tests
   # invisible(suppressMessages(capture.output(
     bootstrap_lr(

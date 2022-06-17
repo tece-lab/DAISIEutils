@@ -33,7 +33,7 @@ test_that("bootstrap_lr works", {
       cond = cond,
       array_index = array_index,
       test = test,
-      results_dir = temp_dir
+      results_dir = results_folder
     )
   )))
   actual_output <- readRDS(file.path(

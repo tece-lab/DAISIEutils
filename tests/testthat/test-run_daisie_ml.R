@@ -8,21 +8,11 @@ test_that("integration test", {
   test <- TRUE
 
 
-  # Place files need for run_daisie_ml
-  reference_files <- list.files(
-    file.path("testdata", "results"),
-    full.names = TRUE,
-    pattern = "*.rds",
-    recursive = TRUE
-  )
-
   temp_dir <- tempdir()
   results_folder <- create_output_folder(
     data_name = data_name,
     results_dir = temp_dir
   )
-
-  expect_true(all(file.copy(reference_files, results_folder)))
 
   # Omit console output in tests
   invisible(capture.output(suppressMessages(
@@ -32,7 +22,8 @@ test_that("integration test", {
       model = model,
       array_index = array_index,
       cond = cond,
-      test = test
+      test = test,
+      results_dir = results_folder
     )
   )))
 
@@ -64,21 +55,13 @@ test_that("run_daisie_ml fails when expected", {
   array_index <- 10
   cond <- 1
 
-  # Place files need for run_daisie_ml
-  reference_files <- list.files(
-    file.path("testdata", "results"),
-    full.names = TRUE,
-    pattern = "*.rds",
-    recursive = TRUE
-  )
+
 
   temp_dir <- tempdir()
   results_folder <- create_output_folder(
     data_name = data_name,
     results_dir = temp_dir
   )
-
-  expect_true(all(file.copy(reference_files, results_folder)))
 
 
   # Omit console output in tests
@@ -105,21 +88,12 @@ test_that("run_daisie_ml fails when expected", {
   array_index <- 10
   cond <- 1
 
-  # Place files need for run_daisie_ml
-  reference_files <- list.files(
-    file.path("testdata/"),
-    full.names = TRUE,
-    recursive = TRUE,
-    pattern = "*.rds"
-  )
 
   temp_dir <- tempdir()
   results_folder <- create_output_folder(
     data_name = data_name,
     results_dir = temp_dir
   )
-
-  expect_true(all(file.copy(reference_files, results_folder)))
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
@@ -145,18 +119,11 @@ test_that("run_daisie_ml fails when expected", {
   cond <- 1
 
   # Place files need for run_daisie_ml
-  reference_files <- list.files(
-    file.path("testdata", "results"),
-    full.names = TRUE,
-    pattern = "*.rds",
-    recursive = TRUE
-  )
   temp_dir <- tempdir()
   results_folder <- create_output_folder(
     data_name = data_name,
     results_dir = temp_dir
   )
-  expect_true(all(file.copy(reference_files, results_folder)))
 
   # Omit console output in tests
   expect_error(invisible(capture.output(
@@ -182,13 +149,6 @@ test_that("run_daisie_ml fails when expected", {
   array_index <- 1
   cond <- "nonsense"
 
-  # Place files need for run_daisie_ml
-  reference_files <- list.files(
-    file.path(getwd(), "testdata", "results"),
-    full.names = TRUE,
-    pattern = "*.rds",
-    recursive = TRUE
-  )
   temp_dir <- tempdir()
   results_folder <- create_output_folder(
     data_name = data_name,

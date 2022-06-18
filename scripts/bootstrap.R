@@ -2,7 +2,6 @@ args <- commandArgs(TRUE)
 
 data_name <- do.call(data, args = list(args[1], package = args[3]))
 
-
 if (identical(args[6], "NULL")) {
   DAISIEutils::bootstrap(
     daisie_data = get(data_name),
@@ -37,4 +36,3 @@ if (identical(args[6], "NULL")) {
     optimmethod = args[8]
   )
 }
-

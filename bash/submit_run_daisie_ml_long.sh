@@ -49,7 +49,10 @@ data=$1
 model=$2
 package=$3
 cond=$4
-optimmethod=$5
+results_dir=${5-NULL}
+methode=${6-lsodes}
+optimmethod=${7-subplex}
+low_rates=${8-FALSE}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -58,5 +61,7 @@ Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                             ${package} \
                                             ${seed} \
                                             ${cond} \
-                                            ${optimmethod}
-
+                                            ${results_dir} \
+                                            ${methode} \
+                                            ${optimmethod} \
+                                            ${low_rates}

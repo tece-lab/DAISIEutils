@@ -52,7 +52,9 @@ model_1=$2
 model_2=$3
 package=$4
 cond=$5
-results_dir=${5-NULL}
+results_dir=${6-NULL}
+methode=${7-lsodes}
+optimmethod=${8-subplex}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -61,5 +63,7 @@ Rscript DAISIEutils/scripts/bootstrap_lr.R ${datalist_name} \
                                            ${model_2} \
                                            ${package} \
                                            ${seed} \
-                                           ${cond}
-
+                                           ${cond} \
+                                           ${results_dir} \
+                                           ${methode} \
+                                           ${optimmethod}

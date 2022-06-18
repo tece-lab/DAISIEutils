@@ -51,7 +51,7 @@ model=$2
 package=$3
 cond=$4
 results_dir=${5-NULL}
-methode={6-lsodes}
+methode=${6-lsodes}
 optimmethod=${7-subplex}
 seed=${SLURM_ARRAY_TASK_ID}
 
@@ -64,4 +64,3 @@ Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
                                         ${results_dir} \
                                         ${methode} \
                                         ${optimmethod}
-

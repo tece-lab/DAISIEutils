@@ -36,6 +36,7 @@
 # package - the name of the package where the data is stored.
 # seed - The seed used to sample the optimization initial parameters.
 # cond - The conditioning for DAISIE_ML
+#
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
@@ -50,7 +51,8 @@ model=$2
 package=$3
 cond=$4
 results_dir=${5-NULL}
-optimmethod=${6-subplex}
+methode={6-lsodes}
+optimmethod=${7-subplex}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -60,4 +62,6 @@ Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
                                         ${seed} \
                                         ${cond} \
                                         ${results_dir} \
+                                        ${methode} \
                                         ${optimmethod}
+

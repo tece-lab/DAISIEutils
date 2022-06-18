@@ -9,7 +9,7 @@
 #SBATCH --partition=gelifes
 
 # DAISIEutils: Utility Functions for the DAISIE Package
-# Copyright (C) 2021 Pedro Neves, Joshua W. Lambert
+# Copyright (C) 2022 Pedro Neves, Joshua W. Lambert
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -52,6 +52,7 @@ model_1=$2
 model_2=$3
 package=$4
 cond=$5
+results_dir=${5-NULL}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -60,5 +61,5 @@ Rscript DAISIEutils/scripts/bootstrap_lr.R ${datalist_name} \
                                            ${model_2} \
                                            ${package} \
                                            ${seed} \
-                                           ${cond} \
+                                           ${cond}
 

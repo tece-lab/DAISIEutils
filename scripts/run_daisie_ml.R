@@ -1,8 +1,7 @@
 args <- commandArgs(TRUE)
 
 data_name <- do.call(data, args = list(args[1], package = args[3]))
-  print(args[8])
-if (identical(args[8], "NULL")) {
+if (identical(args[6], "NULL")) {
   DAISIEutils::run_daisie_ml(
     daisie_data = get(data_name),
     data_name = data_name,
@@ -14,7 +13,7 @@ if (identical(args[8], "NULL")) {
     optimmethod = args[8],
     low_rates = as.logical(args[9])
   )
-} else if (identical(args[8], "NA")){
+} else if (identical(args[6], "NA")){
   DAISIEutils::run_daisie_ml(
     daisie_data = get(data_name),
     data_name = data_name,

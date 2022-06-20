@@ -9,7 +9,7 @@
 #SBATCH --partition=gelifes
 
 # DAISIEutils: Utility Functions for the DAISIE Package
-# Copyright (C) 2021 Pedro Neves, Joshua W. Lambert
+# Copyright (C) 2022 Pedro Neves, Joshua W. Lambert
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -38,6 +38,12 @@
 # package - the name of the package where the data is stored.
 # seed - The seed used to sample the optimization initial parameters.
 # cond - The conditioning for DAISIE_ML
+# results_dir - The directory where results should be read from and saved to.
+# Defaults to /results/$datalist_name if left unspecified.
+# methode - The numerical integrator used to calculate the likelihood of the
+# model. If left unspecified defaults to the lsodes method.
+# optimmethod - The optimization algorithm used to maximize the likelihood. If
+# left unspecified, the default subplex algorithm is used.
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
@@ -52,6 +58,9 @@ model_1=$2
 model_2=$3
 package=$4
 cond=$5
+results_dir=${6-NULL}
+methode=${7-lsodes}
+optimmethod=${8-subplex}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -61,4 +70,6 @@ Rscript DAISIEutils/scripts/bootstrap_lr.R ${datalist_name} \
                                            ${package} \
                                            ${seed} \
                                            ${cond} \
-
+                                           ${results_dir} \
+                                           ${methode} \
+                                           ${optimmethod}

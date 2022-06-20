@@ -31,29 +31,6 @@
     "title": "DAISIEutils: Utility Functions for the DAISIE Package",
 
     "access_right": "open",
-    "resource_type": {
-      "type": "software",
-      "title": "Software"
-    },
-    "related_identifiers": [
-      {
-        "scheme": "doi",
-        "identifier": "10.5281/zenodo.4813095",
-        "relation": "isSupplementTo",
-        "resource_type": "software"
-      },
-      {
-        "scheme": "url",
-        "identifier": "https://github.com/tece-lab/DAISIEutils/releases/tag/v1.1.0",
-        "relation": "isSupplementedBy",
-        "resource_type": "software"
-      },
-      {
-        "scheme": "doi",
-        "identifier": "10.5281/zenodo.4721424",
-        "relation": "isVersionOf"
-      }
-    ],
 
     "keywords": [
       "HPCC",

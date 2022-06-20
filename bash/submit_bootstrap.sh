@@ -36,6 +36,12 @@
 # package - the name of the package where the data is stored.
 # seed - The seed used to sample the optimization initial parameters.
 # cond - The conditioning for DAISIE_ML
+# results_dir - The directory where results should be read from and saved to.
+# Defaults to /results/$datalist_name if left unspecified.
+# methode - The numerical integrator used to calculate the likelihood of the
+# model. If left unspecified defaults to the lsodes method.
+# optimmethod - The optimization algorithm used to maximize the likelihood. If
+# left unspecified, the default subplex algorithm is used.
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
@@ -49,7 +55,9 @@ datalist_name=$1
 model=$2
 package=$3
 cond=$4
-optimmethod=$5
+results_dir=${5-NULL}
+methode=${6-lsodes}
+optimmethod=${7-subplex}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -58,4 +66,6 @@ Rscript DAISIEutils/scripts/bootstrap.R ${datalist_name} \
                                         ${package} \
                                         ${seed} \
                                         ${cond} \
+                                        ${results_dir} \
+                                        ${methode} \
                                         ${optimmethod}

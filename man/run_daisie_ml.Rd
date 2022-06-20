@@ -10,7 +10,7 @@ run_daisie_ml(
   model,
   array_index,
   cond,
-  methode = "odeint::runge_kutta_fehlberg78",
+  methode = "lsodes",
   optimmethod = "subplex",
   results_dir = NULL,
   low_rates = FALSE,

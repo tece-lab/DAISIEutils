@@ -34,7 +34,7 @@ if (identical(args[7], "NULL")) {
     model_2 = args[3],
     array_index = as.numeric(args[5]),
     cond = as.numeric(args[6]),
-    results_dir = args[7],
+    results_dir = args[6],
     methode = args[8],
     optimmethod = args[9]
   )

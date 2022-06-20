@@ -36,11 +36,12 @@
 # package - the name of the package where the data is stored.
 # seed - The seed used to sample the optimization initial parameters.
 # cond - The conditioning for DAISIE_ML
-# methode - The ode solver used by DAISIE. Defaults to
-#   odeint::runge_kutta_fehlberg78. See help for DAISIE::DAISIE_ML() for a list
-#   of available solvers
-# optimmethod - Optimization algorithm used to maximize the likelihood. Defaults
-#   to subplex. Alternative is simplex.
+# results_dir - The directory where results should be read from and saved to.
+# Defaults to /results/$datalist_name if left unspecified.
+# methode - The numerical integrator used to calculate the likelihood of the
+# model. If left unspecified defaults to the lsodes method.
+# optimmethod - The optimization algorithm used to maximize the likelihood. If
+# left unspecified, the default subplex algorithm is used.
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:

@@ -1,3 +1,7 @@
+# DAISIEutils 1.2.1
+
+* Correct `.zenodo.json` for automatic release and archiving on Zenodo.
+
 # DAISIEutils 1.2.0
 
 * Reworked all reference test file infrastructure to use `tempdir()`.

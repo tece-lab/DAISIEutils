@@ -2,7 +2,7 @@ args <- commandArgs(TRUE)
 
 data_name <- do.call(data, args = list(args[1], package = args[4]))
 
-if (identical(args[6], "NULL")) {
+if (identical(args[7], "NULL")) {
   DAISIEutils::bootstrap_lr(
     daisie_data = get(data_name),
     data_name = data_name,
@@ -14,7 +14,7 @@ if (identical(args[6], "NULL")) {
     methode = args[8],
     optimmethod = args[9]
   )
-} else if (identical(args[6], "NA")){
+} else if (identical(args[7], "NA")){
   DAISIEutils::bootstrap_lr(
     daisie_data = get(data_name),
     data_name = data_name,

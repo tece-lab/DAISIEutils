@@ -45,7 +45,7 @@ sensitivity <- function(data_names,
   output <- list()
   for (i in seq_along(data_names)) {
     results_folder <- create_results_dir_path(
-      data_name = data_names[1],
+      data_name = data_names[i],
       results_dir = results_dir
     )
     expected_models <- get_available_models()

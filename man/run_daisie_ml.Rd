@@ -14,6 +14,7 @@ run_daisie_ml(
   optimmethod = "subplex",
   results_dir = NULL,
   low_rates = FALSE,
+  rep_index = "NULL",
   test = FALSE
 )
 }
@@ -116,6 +117,12 @@ restricted range where the initial rates a ensured to be smaller (TRUE).
 The latter helps when using large datasets that may fail the initial
 likelihood computation with higher rates that could be sampled from the
 broad range of rates.}
+
+\item{rep_index}{A string which by default is "NULL" (it is a string and not
+a true NULL due to being passed from the command line), or can be a string
+of a numeric which is used to detect whether multiple data set from the
+same data source is being run. This is the case, for example, when fitting
+a DAISIE model to a posterior distribution of data.}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}

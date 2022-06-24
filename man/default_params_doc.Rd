@@ -41,7 +41,8 @@ default_params_doc(
   x_E,
   x_I,
   mainland_n,
-  low_rates
+  low_rates,
+  rep_index
 )
 }
 \arguments{
@@ -264,6 +265,12 @@ restricted range where the initial rates a ensured to be smaller (TRUE).
 The latter helps when using large datasets that may fail the initial
 likelihood computation with higher rates that could be sampled from the
 broad range of rates.}
+
+\item{rep_index}{A string which by default is "NULL" (it is a string and not
+a true NULL due to being passed from the command line), or can be a string
+of a numeric which is used to detect whether multiple data set from the
+same data source is being run. This is the case, for example, when fitting
+a DAISIE model to a posterior distribution of data.}
 }
 \value{
 Nothing

@@ -6,7 +6,9 @@ if (args[9] == "NULL") {
 } else {
   rep <- as.numeric(args[9])
   data_name <- do.call(data, args = list(args[1], package = args[3]))
+  print(get(data_name))
   daisie_data <- get(data_name)[[rep]]
+  print(daisie_data)
 }
 
 if (identical(args[6], "NULL")) {

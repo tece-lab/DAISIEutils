@@ -1,5 +1,6 @@
 args <- commandArgs(TRUE)
-
+print(args)
+print(length(args))
 if (args[9] == "NULL") {
   data_name <- do.call(data, args = list(args[1], package = args[3]))
   daisie_data <- get(data_name)

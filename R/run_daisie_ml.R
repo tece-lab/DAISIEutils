@@ -93,24 +93,27 @@ run_daisie_ml <- function(daisie_data,
   if (identical(rep_index, "NULL")) {
     output_path <- file.path(
       output_folder_path,
-      paste(
+      paste0(
         data_name,
+        "_",
         model,
+        "_",
         array_index,
-        ".rds",
-        sep = "_"
+        ".rds"
       )
     )
   } else {
     output_path <- file.path(
       output_folder_path,
-      paste(
+      paste0(
         data_name,
+        "_",
         model,
+        "_",
         array_index,
+        "_",
         rep_index,
-        ".rds",
-        sep = "_"
+        ".rds"
       )
     )
   }

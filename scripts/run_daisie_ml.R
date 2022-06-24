@@ -1,9 +1,17 @@
 args <- commandArgs(TRUE)
 
-data_name <- do.call(data, args = list(args[1], package = args[3]))
+if (args[9] == "NULL") {
+  data_name <- do.call(data, args = list(args[1], package = args[3]))
+  daisie_data <- get(data_name)
+} else {
+  rep <- as.numeric(args[9])
+  data_name <- do.call(data, args = list(args[1], package = args[3]))
+  daisie_data <- get(data_name)[[rep]]
+}
+
 if (identical(args[6], "NULL")) {
   DAISIEutils::run_daisie_ml(
-    daisie_data = get(data_name),
+    daisie_data = daisie_data,
     data_name = data_name,
     model = args[2],
     array_index = as.numeric(args[4]),
@@ -15,7 +23,7 @@ if (identical(args[6], "NULL")) {
   )
 } else if (identical(args[6], "NA")){
   DAISIEutils::run_daisie_ml(
-    daisie_data = get(data_name),
+    daisie_data = daisie_data,
     data_name = data_name,
     model = args[2],
     array_index = as.numeric(args[4]),
@@ -27,7 +35,7 @@ if (identical(args[6], "NULL")) {
   )
 } else {
   DAISIEutils::run_daisie_ml(
-    daisie_data = get(data_name),
+    daisie_data = daisie_data,
     data_name = data_name,
     model = args[2],
     array_index = as.numeric(args[4]),

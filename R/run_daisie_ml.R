@@ -28,6 +28,7 @@ run_daisie_ml <- function(daisie_data,
                           optimmethod = "subplex",
                           results_dir = NULL,
                           low_rates = FALSE,
+                          rep_index = "NULL",
                           test = FALSE) {
   if (test) {
     seed <- array_index
@@ -89,17 +90,33 @@ run_daisie_ml <- function(daisie_data,
   bic <- calc_bic(results = lik_res, daisie_data = daisie_data)
   lik_res <- cbind(lik_res, bic)
 
-  output_path <- file.path(
-    output_folder_path,
-    paste0(
-      data_name,
-      "_",
-      model,
-      "_",
-      array_index,
-      ".rds"
+  if (identical(rep_index, "NULL")) {
+    output_path <- file.path(
+      output_folder_path,
+      paste0(
+        data_name,
+        "_",
+        model,
+        "_",
+        array_index,
+        ".rds"
+      )
     )
-  )
+  } else {
+    output_path <- file.path(
+      output_folder_path,
+      paste0(
+        data_name,
+        "_",
+        model,
+        "_",
+        array_index,
+        "_",
+        rep_index,
+        ".rds"
+      )
+    )
+  }
 
   if (is.na(output_path)) {
     return(lik_res)

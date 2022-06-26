@@ -60,6 +60,7 @@ results_dir=${5-NULL}
 methode=${6-lsodes}
 optimmethod=${7-subplex}
 low_rates=${8-FALSE}
+rep_index=${9-NULL}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -71,4 +72,5 @@ Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                             ${results_dir} \
                                             ${methode} \
                                             ${optimmethod} \
-                                            ${low_rates}
+                                            ${low_rates} \
+                                            ${rep_index}

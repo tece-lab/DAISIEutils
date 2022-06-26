@@ -23,6 +23,7 @@ setup_model <- function(model,
     gam <- stats::runif(1, min = 1e-5, max = 0.1)
     laa <- stats::runif(1, min = 0.1, max = 4)
     sd <- stats::runif(1, min = 0.1, max = 1)
+    prob_init_presence <- stats::runif(1, min = 0, max = 0.9)
   } else {
     lac <- stats::runif(1, min = 0, max = 0.1)
     mu <- stats::runif(1, min = 0, max = 0.1)
@@ -30,6 +31,7 @@ setup_model <- function(model,
     gam <- stats::runif(1, min = 1e-5, max = 0.1)
     laa <- stats::runif(1, min = 0, max = 0.1)
     sd <- stats::runif(1, min = 0.1, max = 1)
+    prob_init_presence <- stats::runif(1, min = 0, max = 0.1)
   }
 
   # define default DAISIE model (CR DD)
@@ -94,6 +96,12 @@ setup_model <- function(model,
         relaxed_par = "anagenesis"
       )
     }
+  }
+
+  # change to non-oceanic model
+  if (grepl("nonoceanic", model)) {
+    idparsopt <- c(idparsopt, prob_init_presence = 6)
+    initparsopt <- c(initparsopt, prob_init_presence = prob_init_presence)
   }
 
   out <- list(

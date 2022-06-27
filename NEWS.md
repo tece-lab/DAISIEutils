@@ -1,3 +1,10 @@
+# DAISIEutils 1.3.0
+
+* Can now extract a single data set (or replicate) from a data set that stores 
+several within the same list.
+* Add support for non-oceanic models (which can be chosen in the relevant 
+functions and start with `nonoceanic` in relevant functions).
+
 # DAISIEutils 1.2.1
 
 * Correct `.zenodo.json` for automatic release and archiving on Zenodo.

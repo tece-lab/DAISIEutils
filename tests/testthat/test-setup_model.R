@@ -300,3 +300,148 @@ test_that("setup_model is correct for rr_laa_dd", {
   )
   expect_equal(model_arguments, expected_arguments)
 })
+
+test_that("setup_model is correct for nonoceanic_cr_dd", {
+  set.seed(1)
+  model <- "nonoceanic_cr_dd"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 11,
+    idparsopt = c(
+      lac = 1, mu = 2, k = 3, gam = 4, laa = 5, prob_init_presence = 6
+    ),
+    parsfix = NULL,
+    idparsfix = NULL,
+    idparsnoshift = 6:10,
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.74424779927358,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.88655953104608,
+      prob_init_presence = 0.85020774174482
+    ),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})
+
+test_that("setup_model is correct for nonoceanic_cr_di", {
+  set.seed(1)
+  model <- "nonoceanic_cr_di"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 0,
+    idparsopt = c(lac = 1, mu = 2, gam = 4, laa = 5, prob_init_presence = 6),
+    parsfix = Inf,
+    idparsfix = 3,
+    idparsnoshift = 6:10,
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992736,
+      gam = 0.0908216969216,
+      laa = 0.8865595310461,
+      prob_init_presence = 0.85020774174482
+    ),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})
+
+test_that("setup_model is correct for nonoceanic_cr_dd_0laa", {
+  set.seed(1)
+  model <- "nonoceanic_cr_dd_0laa"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 11,
+    idparsopt = c(lac = 1, mu = 2, k = 3, gam = 4, prob_init_presence = 6),
+    parsfix = 0,
+    idparsfix = 5,
+    idparsnoshift = 6:10,
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.74424779927358,
+      k = 157.28533633518964,
+      gam = 0.0908216969216,
+      prob_init_presence = 0.85020774174482
+    ),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})
+
+test_that("setup_model is correct for nonoceanic_cr_di_0laa", {
+  set.seed(1)
+  model <- "nonoceanic_cr_di_0laa"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 0,
+    idparsopt = c(lac = 1, mu = 2, gam = 4, prob_init_presence = 6),
+    parsfix = c(Inf, 0),
+    idparsfix = c(3, 5),
+    idparsnoshift = 6:10,
+    initparsopt = c(
+      lac = 0.5310173262842,
+      mu = 0.7442477992736,
+      gam = 0.0908216969216,
+      prob_init_presence = 0.85020774174482
+    ),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})
+
+test_that("setup_model is correct for nonoceanic_cr_dd_0lac", {
+  set.seed(1)
+  model <- "nonoceanic_cr_dd_0lac"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 11,
+    idparsopt = c(mu = 2, k = 3, gam = 4, laa = 5, prob_init_presence = 6),
+    parsfix = 0,
+    idparsfix = 1,
+    idparsnoshift = 6:10,
+    initparsopt = c(
+      mu = 0.74424779927358,
+      k = 157.28533633518964,
+      gam = 0.09082169692158,
+      laa = 0.88655953104608,
+      prob_init_presence = 0.85020774174482
+    ),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})
+
+test_that("setup_model is correct for nonoceanic_cr_di_0lac", {
+  set.seed(1)
+  model <- "nonoceanic_cr_di_0lac"
+  model_arguments <- setup_model(
+    model = model
+  )
+  expected_arguments <- list(
+    ddmodel = 0,
+    idparsopt = c(mu = 2, gam = 4, laa = 5, prob_init_presence = 6),
+    parsfix = c(0, Inf),
+    idparsfix = c(1, 3),
+    idparsnoshift = 6:10,
+    initparsopt = c(
+      mu = 0.7442477992736,
+      gam = 0.0908216969216,
+      laa = 0.8865595310461,
+      prob_init_presence = 0.85020774174482
+    ),
+    cs_version = 1
+  )
+  expect_equal(model_arguments, expected_arguments)
+})

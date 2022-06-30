@@ -20,7 +20,8 @@ if (identical(args[6], "NULL")) {
     methode = args[7],
     optimmethod = args[8],
     low_rates = as.logical(args[9]),
-    rep_index = args[10]
+    rep_index = args[10],
+    res = args[11]
   )
 } else if (identical(args[6], "NA")){
   DAISIEutils::run_daisie_ml(
@@ -33,7 +34,8 @@ if (identical(args[6], "NULL")) {
     methode = args[7],
     optimmethod = args[8],
     low_rates = as.logical(args[9]),
-    rep_index = args[10]
+    rep_index = args[10],
+    res = args[11]
   )
 } else {
   DAISIEutils::run_daisie_ml(
@@ -46,6 +48,7 @@ if (identical(args[6], "NULL")) {
     methode = args[7],
     optimmethod = args[8],
     low_rates = as.logical(args[9]),
-    rep_index = args[10]
+    rep_index = args[10],
+    res = args[11]
   )
 }

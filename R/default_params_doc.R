@@ -119,8 +119,6 @@
 #'   clade in the empirical data
 #' @param ylim4 maximum of the plot of the rank of the largest clade.
 #' @param title title of the plot.
-#' @param res Sets the maximum number of species for which a probability must
-#'   be computed, must be larger than the size of the largest clade.
 #' @param ddmodel Sets the model of diversity-dependence:
 #'   * `ddmodel = 0`: no diversity dependence
 #'   * `ddmodel = 1`: linear dependence in speciation rate
@@ -216,7 +214,6 @@ default_params_doc <- function(model,
                                sumstats,
                                ylim4,
                                title,
-                               res,
                                ddmodel,
                                verbose,
                                island_ontogeny,
@@ -227,6 +224,7 @@ default_params_doc <- function(model,
                                x_I, # nolint
                                mainland_n,
                                low_rates,
-                               rep_index) {
+                               rep_index,
+                               res) {
   # Nothing
 }

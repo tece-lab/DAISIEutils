@@ -125,8 +125,10 @@ of a numeric which is used to detect whether multiple data set from the
 same data source is being run. This is the case, for example, when fitting
 a DAISIE model to a posterior distribution of data.}
 
-\item{res}{Sets the maximum number of species for which a probability must
-be computed, must be larger than the size of the largest clade.}
+\item{res}{A numeric determining the resolution of the likelihood
+calculations, it sets the limit for the maximum number of species for
+which a probability must be computed, which must be larger than the size
+of the largest clade.}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}

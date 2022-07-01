@@ -193,8 +193,10 @@ clade in the empirical data}
 
 \item{title}{title of the plot.}
 
-\item{res}{Sets the maximum number of species for which a probability must
-be computed, must be larger than the size of the largest clade.}
+\item{res}{A numeric determining the resolution of the likelihood
+calculations, it sets the limit for the maximum number of species for
+which a probability must be computed, which must be larger than the size
+of the largest clade.}
 
 \item{ddmodel}{Sets the model of diversity-dependence:
 \itemize{

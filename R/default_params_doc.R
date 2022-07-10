@@ -119,8 +119,6 @@
 #'   clade in the empirical data
 #' @param ylim4 maximum of the plot of the rank of the largest clade.
 #' @param title title of the plot.
-#' @param res Sets the maximum number of species for which a probability must
-#'   be computed, must be larger than the size of the largest clade.
 #' @param ddmodel Sets the model of diversity-dependence:
 #'   * `ddmodel = 0`: no diversity dependence
 #'   * `ddmodel = 1`: linear dependence in speciation rate
@@ -182,6 +180,10 @@
 #'   of a numeric which is used to detect whether multiple data set from the
 #'   same data source is being run. This is the case, for example, when fitting
 #'   a DAISIE model to a posterior distribution of data.
+#' @param res A numeric determining the resolution of the likelihood
+#'   calculations, it sets the limit for the maximum number of species for
+#'   which a probability must be computed, which must be larger than the size
+#'   of the largest clade.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -212,7 +214,6 @@ default_params_doc <- function(model,
                                sumstats,
                                ylim4,
                                title,
-                               res,
                                ddmodel,
                                verbose,
                                island_ontogeny,
@@ -223,6 +224,7 @@ default_params_doc <- function(model,
                                x_I, # nolint
                                mainland_n,
                                low_rates,
-                               rep_index) {
+                               rep_index,
+                               res) {
   # Nothing
 }

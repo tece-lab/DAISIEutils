@@ -31,7 +31,6 @@ default_params_doc(
   sumstats,
   ylim4,
   title,
-  res,
   ddmodel,
   verbose,
   island_ontogeny,
@@ -42,7 +41,8 @@ default_params_doc(
   x_I,
   mainland_n,
   low_rates,
-  rep_index
+  rep_index,
+  res
 )
 }
 \arguments{
@@ -193,9 +193,6 @@ clade in the empirical data}
 
 \item{title}{title of the plot.}
 
-\item{res}{Sets the maximum number of species for which a probability must
-be computed, must be larger than the size of the largest clade.}
-
 \item{ddmodel}{Sets the model of diversity-dependence:
 \itemize{
 \item \code{ddmodel = 0}: no diversity dependence
@@ -271,6 +268,11 @@ a true NULL due to being passed from the command line), or can be a string
 of a numeric which is used to detect whether multiple data set from the
 same data source is being run. This is the case, for example, when fitting
 a DAISIE model to a posterior distribution of data.}
+
+\item{res}{A numeric determining the resolution of the likelihood
+calculations, it sets the limit for the maximum number of species for
+which a probability must be computed, which must be larger than the size
+of the largest clade.}
 }
 \value{
 Nothing

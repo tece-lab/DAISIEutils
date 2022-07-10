@@ -29,6 +29,7 @@ run_daisie_ml <- function(daisie_data,
                           results_dir = NULL,
                           low_rates = FALSE,
                           rep_index = "NULL",
+                          res = 100,
                           test = FALSE) {
   if (test) {
     seed <- array_index
@@ -81,8 +82,10 @@ run_daisie_ml <- function(daisie_data,
     idparsopt = idparsopt,
     parsfix = parsfix,
     idparsfix = idparsfix,
+    res = res,
     ddmodel = ddmodel,
     cond = cond,
+    methode = methode,
     optimmethod = optimmethod,
     CS_version = cs_version
   )

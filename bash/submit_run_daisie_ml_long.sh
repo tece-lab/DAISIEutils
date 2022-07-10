@@ -42,8 +42,18 @@
 # model. If left unspecified defaults to the lsodes method.
 # optimmethod - The optimization algorithm used to maximize the likelihood. If
 # left unspecified, the default subplex algorithm is used.
-# low_rates - A logical, TRUE resulting in a model parametrisation with lower
-# rates.
+# low_rates - A boolean determining whether to sample the initial parameter
+# estimates from the standard distribution (FALSE, default) or whether to sample
+# from a restricted distribution in which the upper bound of the initial
+# parameter estimates are lower
+# rep_index - A numeric or NULL which determines whether the data being read is
+# a single data set (i.e. a single replicate), set by NULL which is default, or
+# one of several data sets, in which case the data set to choice is set by
+# rep_index
+# res - A numeric determining the resolution of the likelihood calculations, it
+# sets the limit for the maximum number of species for which a probability
+# must be computed, which must be larger than the size of the largest clade
+
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
@@ -61,6 +71,8 @@ results_dir=${5-NULL}
 methode=${6-lsodes}
 optimmethod=${7-subplex}
 low_rates=${8-FALSE}
+rep_index=${9-NULL}
+res=${10-100}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -72,4 +84,6 @@ Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                             ${results_dir} \
                                             ${methode} \
                                             ${optimmethod} \
-                                            ${low_rates}
+                                            ${low_rates} \
+                                            ${rep_index} \
+                                            ${res}

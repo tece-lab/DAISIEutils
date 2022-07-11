@@ -1,4 +1,8 @@
-# DAISIEutils (development version)
+# DAISIEutils 1.4.0
+
+* Add new argument `res` to change resolution in `DAISIE::DAISIE_ML_CS()`.
+Default values allows for backwards compatibility in functions and job scripts
+for Peregrine.
 
 # DAISIEutils 1.3.0
 

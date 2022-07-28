@@ -51,4 +51,4 @@ Imports:
     ggplot2,
     cowplot
 Remotes: 
-    rsetienne/DAISIE
+    rsetienne/DAISIE@relaxed

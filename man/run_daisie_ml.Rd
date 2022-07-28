@@ -52,6 +52,10 @@ relaxed extinction. All other parameters free.
 extinction. All other parameters free.
 \item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
 capacity. All other parameters free.
+\item \code{"rr_gam_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed colonisation. All other parameters free.
+\item \code{"rr_gam_dd"} Clade specific model - diversity dependent and relaxed
+colonisation. All other parameters free.
 \item \code{"rr_laa_di"} Clade specific model - diversity independent (K = Inf)
 and relaxed anagenesis. All other parameters free.
 \item \code{"rr_laa_dd"} Clade specific model - diversity dependent and relaxed
@@ -65,6 +69,12 @@ parameters free.
 \item \code{"rr_k_0lac"} Clade specific model - diversity dependent, relaxed
 carrying capacity, and no cladogenesis (lac fixed to zero). All other
 parameters free.
+\item \code{"rr_gam_di_0lac"} Clade specific model - diversity independent,
+relaxed colonisation, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"r_gam_dd_0lac"} Clade specific model - diversity dependent, relaxed
+colonisation, and no cladogenesis (lac fixed to zero). All other
+parameters free.
 \item \code{"rr_laa_di_0lac"} Clade specific model - diversity independent,
 relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
 parameters free.
@@ -77,6 +87,12 @@ relaxed cladogenesis, and no anagenesis (laa fixed to zero)
 \item \code{"rr_mu_di_0laa"} Clade specific model - diversity independent
 \item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
 \item \code{"rr_k_0laa"} Clade specific model - diversity dependent
+\item \code{"rr_gam_di_0laa"} Clade specific model - diversity independent, relaxed
+colonisation, and no anagenesis (laa fixed to zero). All other parameters
+free
+\item \code{"rr_gam_dd_0laa"} Clade specific model - diversity dependent, relaxed
+colonisation, and no anagenesis (laa fixed to zero). All other parameters
+free
 }}
 
 \item{array_index}{A single numeric with the array index. It is used for

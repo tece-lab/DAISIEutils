@@ -90,6 +90,12 @@ setup_model <- function(model,
         relaxed_par = "carrying_capacity"
       )
     }
+    if (grepl("rr_gam", model)) {
+      cs_version <- DAISIE::create_CS_version(
+        model = 2,
+        relaxed_par = "immigration"
+      )
+    }
     if (grepl("rr_laa", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,

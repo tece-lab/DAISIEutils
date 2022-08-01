@@ -200,6 +200,8 @@
 #'   calculations, it sets the limit for the maximum number of species for
 #'   which a probability must be computed, which must be larger than the size
 #'   of the largest clade.
+#' @param prop_type2_pool A numeric determining the proportion of the mainland
+#'   species pool that is composed on type 2 species.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -241,6 +243,7 @@ default_params_doc <- function(model,
                                mainland_n,
                                low_rates,
                                rep_index,
-                               res) {
+                               res,
+                               prop_type2_pool) {
   # Nothing
 }

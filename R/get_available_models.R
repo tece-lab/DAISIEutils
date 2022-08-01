@@ -21,7 +21,10 @@ get_available_models <- function() {
     "rr_k_0laa", "rr_gam_di_0laa", "rr_gam_dd_0laa",
     "nonoceanic_cr_dd", "nonoceanic_cr_di",
     "nonoceanic_cr_dd_0laa", "nonoceanic_cr_di_0laa",
-    "nonoceanic_cr_di_0lac", "nonoceanic_cr_dd_0lac"
+    "nonoceanic_cr_di_0lac", "nonoceanic_cr_dd_0lac",
+    "cr_dd_2type_lac", "cr_dd_2type_mu", "cr_dd_2type_k",
+    "cr_dd_2type_lac_mu", "cr_dd_2type_lac_k", "cr_dd_2type_mu_k",
+    "cr_dd_2type_lac_mu_k"
   )
   available_models
 }

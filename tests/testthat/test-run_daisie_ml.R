@@ -28,7 +28,7 @@ test_that("integration test", {
   )))
 
   obtained_result <- readRDS(file.path(
-    results_folder, "Azores_cr_dd_1.rds"
+    results_folder, "Azores", "Azores_cr_dd_1.rds"
   ))
   expected_data_frame <- data.frame(
     lambda_c = 0.280535793053737,

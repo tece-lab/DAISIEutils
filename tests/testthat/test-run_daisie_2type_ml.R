@@ -1,11 +1,14 @@
 test_that("integration test", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data("Azores")
+  Azores[[1]]$not_present <- NULL
+  Azores[[1]]$not_present_type1 <- 900
+  Azores[[1]]$not_present_type2 <- 83
   Azores[[2]]$type1or2 <- 2
   data_name <- "Azores"
   model <- "cr_dd_2type_lac"
   array_index <- 1
-  cond <- 1
+  cond <- 2
   test <- TRUE
 
 
@@ -30,7 +33,7 @@ test_that("integration test", {
   )))
 
   obtained_result <- readRDS(file.path(
-    results_folder, "Azores_cr_dd_2type_lac_1.rds"
+    results_folder, "Azores/Azores_cr_dd_2type_lac_1.rds"
   ))
   expected_data_frame <- data.frame(
     lambda_c = 0.280535793053737,

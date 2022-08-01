@@ -16,4 +16,6 @@ calc_bic <- function(results, daisie_data) {
   }
   bic <- k * (log(m) + log(2 * pi)) - 2 * results$loglik
   bic
+  testit::assert(is.numeric(bic))
+  testit::assert(identical(length(bic), 1))
 }

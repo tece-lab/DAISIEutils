@@ -1,10 +1,10 @@
 test_that("integration test", {
   skip_if(Sys.getenv("CI") == "", message = "Run only on CI")
   data("Azores")
-  Azores[[1]]$not_present <- NULL
-  Azores[[1]]$not_present_type1 <- 900
-  Azores[[1]]$not_present_type2 <- 83
-  Azores[[2]]$type1or2 <- 2
+  Azores[[1]]$not_present <- NULL # nolint
+  Azores[[1]]$not_present_type1 <- 900 # nolint
+  Azores[[1]]$not_present_type2 <- 83 # nolint
+  Azores[[2]]$type1or2 <- 2 # nolint
   data_name <- "Azores"
   model <- "cr_dd_2type_lac"
   array_index <- 1

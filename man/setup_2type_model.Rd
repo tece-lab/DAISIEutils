@@ -74,6 +74,9 @@ colonisation, and no anagenesis (laa fixed to zero). All other parameters
 free
 }}
 
+\item{prop_type2_pool}{A numeric determining the proportion of the mainland
+species pool that is composed on type 2 species.}
+
 \item{low_rates}{Boolean determining whether the random sampling of initial
 parameter estimates should be sampled from a broad range (FALSE) or from a
 restricted range where the initial rates a ensured to be smaller (TRUE).

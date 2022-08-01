@@ -42,7 +42,8 @@ default_params_doc(
   mainland_n,
   low_rates,
   rep_index,
-  res
+  res,
+  prop_type2_pool
 )
 }
 \arguments{
@@ -289,6 +290,9 @@ a DAISIE model to a posterior distribution of data.}
 calculations, it sets the limit for the maximum number of species for
 which a probability must be computed, which must be larger than the size
 of the largest clade.}
+
+\item{prop_type2_pool}{A numeric determining the proportion of the mainland
+species pool that is composed on type 2 species.}
 }
 \value{
 Nothing

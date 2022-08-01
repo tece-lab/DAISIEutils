@@ -147,6 +147,9 @@ calculations, it sets the limit for the maximum number of species for
 which a probability must be computed, which must be larger than the size
 of the largest clade.}
 
+\item{prop_type2_pool}{A numeric determining the proportion of the mainland
+species pool that is composed on type 2 species.}
+
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}
 }

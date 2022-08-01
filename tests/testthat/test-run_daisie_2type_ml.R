@@ -36,15 +36,21 @@ test_that("integration test", {
     results_folder, "Azores", "Azores_cr_dd_2type_lac_1.rds"
   ))
   expected_data_frame <- data.frame(
-    lambda_c = 0.280535793053737,
-    mu = 2.38942198362333,
-    K = 0.732758822363135,
-    gamma = 0.0413447514828757,
-    lambda_a = 1.55082618008487,
-    loglik = -100.286741139873,
-    df = 5,
+    lambda_c = 0.0001522401495244741,
+    mu = 2.466608181929915,
+    K = 1.000041410128819,
+    gamma = 0.04184459392408853,
+    lambda_a = 1.518366951094948,
+    lambda_c2 = 7303.538959742727,
+    mu2 = 2.466608181929915,
+    K2 = 1.000041410128819,
+    gamma2 = 0.04184459392408853,
+    lambda_a2 = 1.518366951094948,
+    prop_type2 = 0.163,
+    loglik = -100.196436286698,
+    df = 6,
     conv = 0,
-    bic = 244.301644006703
+    bic = 252.8666666457449
   )
   expect_equal(obtained_result, expected_data_frame)
   # Clean-up

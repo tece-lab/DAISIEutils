@@ -53,6 +53,10 @@
 # res - A numeric determining the resolution of the likelihood calculations, it
 # sets the limit for the maximum number of species for which a probability
 # must be computed, which must be larger than the size of the largest clade
+# par_upper_bound - A numeric defining the upper limit of the integration
+# of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
+# model being applied is not the relaxed-rate model, this parameter can be
+# ignored and left as its default as it does not influence the model
 
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
@@ -74,6 +78,7 @@ optimmethod=${7-subplex}
 low_rates=${8-FALSE}
 rep_index=${9-NULL}
 res=${10-100}
+par_upper_bound=${11-Inf}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
@@ -87,4 +92,5 @@ Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
                                             ${optimmethod} \
                                             ${low_rates} \
                                             ${rep_index} \
-                                            ${res}
+                                            ${res} \
+                                            ${par_upper_bound}

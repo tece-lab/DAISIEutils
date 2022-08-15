@@ -12,7 +12,8 @@
 #'   model = model
 #' )
 setup_model <- function(model,
-                        low_rates = FALSE) {
+                        low_rates = FALSE,
+                        par_upper_bound = Inf) {
   expected_models <- get_available_models()
   testit::assert(model %in% expected_models)
 
@@ -75,31 +76,36 @@ setup_model <- function(model,
     if (grepl("rr_lac", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "cladogenesis"
+        relaxed_par = "cladogenesis",
+        par_upper_bound = par_upper_bound
       )
     }
     if (grepl("rr_mu", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "extinction"
+        relaxed_par = "extinction",
+        par_upper_bound = par_upper_bound
       )
     }
     if (grepl("rr_k", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "carrying_capacity"
+        relaxed_par = "carrying_capacity",
+        par_upper_bound = par_upper_bound
       )
     }
     if (grepl("rr_gam", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "immigration"
+        relaxed_par = "immigration",
+        par_upper_bound = par_upper_bound
       )
     }
     if (grepl("rr_laa", model)) {
       cs_version <- DAISIE::create_CS_version(
         model = 2,
-        relaxed_par = "anagenesis"
+        relaxed_par = "anagenesis",
+        par_upper_bound = par_upper_bound
       )
     }
   }

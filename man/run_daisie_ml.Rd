@@ -16,6 +16,7 @@ run_daisie_ml(
   low_rates = FALSE,
   rep_index = "NULL",
   res = 100,
+  par_upper_bound = Inf,
   test = FALSE
 )
 }
@@ -145,6 +146,11 @@ a DAISIE model to a posterior distribution of data.}
 calculations, it sets the limit for the maximum number of species for
 which a probability must be computed, which must be larger than the size
 of the largest clade.}
+
+\item{par_upper_bound}{A numeric defining the upper limit of the integration
+of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
+model being applied is not the relaxed-rate model, this parameter can be
+ignored and left as its default as it does not influence the model.}
 
 \item{test}{A boolean, defaults to \code{FALSE}. Set to \code{TRUE} for testing
 purposes, to fix the seed.}

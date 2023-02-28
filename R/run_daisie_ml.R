@@ -30,6 +30,7 @@ run_daisie_ml <- function(daisie_data,
                           low_rates = FALSE,
                           rep_index = "NULL",
                           res = 100,
+                          par_upper_bound = Inf,
                           test = FALSE) {
   if (test) {
     seed <- array_index
@@ -63,7 +64,8 @@ run_daisie_ml <- function(daisie_data,
 
   model_arguments <- setup_model(
     model = model,
-    low_rates = low_rates
+    low_rates = low_rates,
+    par_upper_bound = par_upper_bound
   )
 
   initparsopt <- model_arguments$initparsopt

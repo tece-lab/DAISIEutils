@@ -4,7 +4,7 @@
 \alias{setup_model}
 \title{Set up DAISIE_ML arguments}
 \usage{
-setup_model(model, low_rates = FALSE)
+setup_model(model, low_rates = FALSE, par_upper_bound = Inf)
 }
 \arguments{
 \item{model}{A string with model that should run. Models are as follows:
@@ -80,6 +80,11 @@ restricted range where the initial rates a ensured to be smaller (TRUE).
 The latter helps when using large datasets that may fail the initial
 likelihood computation with higher rates that could be sampled from the
 broad range of rates.}
+
+\item{par_upper_bound}{A numeric defining the upper limit of the integration
+of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
+model being applied is not the relaxed-rate model, this parameter can be
+ignored and left as its default as it does not influence the model.}
 }
 \value{
 A named list with \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML()}} arguments.

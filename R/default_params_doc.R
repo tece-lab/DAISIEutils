@@ -202,6 +202,10 @@
 #'   of the largest clade.
 #' @param prop_type2_pool A numeric determining the proportion of the mainland
 #'   species pool that is composed on type 2 species.
+#' @param par_upper_bound A numeric defining the upper limit of the integration
+#'   of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
+#'   model being applied is not the relaxed-rate model, this parameter can be
+#'   ignored and left as its default as it does not influence the model.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -244,6 +248,7 @@ default_params_doc <- function(model,
                                low_rates,
                                rep_index,
                                res,
-                               prop_type2_pool) {
+                               prop_type2_pool,
+                               par_upper_bound) {
   # Nothing
 }

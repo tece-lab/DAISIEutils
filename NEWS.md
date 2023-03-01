@@ -1,4 +1,4 @@
-# DAISIEutils (development version)
+# DAISIEutils 1.5.0
 
 * Allow relaxed-rate DAISIE ML models. 
   * This requires new a argument for `run_daisie_ml()` and `setup_model()`: 
@@ -9,7 +9,8 @@
 adjacent function `setup_2type_model()`. Similarly add required R 
 `run_daisie_2type_ml.R` script and shell scripts `submit_run_daisie_2type_ml.sh`
 and `submit_run_daisie_2type_ml_long.sh` to run said analyses in an HPCC.
-* Package depends on CRAN DAISIE release instead of GitHub repository.
+* Package depends on CRAN DAISIE release instead of GitHub repository. Now
+requires DAISIE >= v4.3.1 to ensure latest ML related bugfixes are used.
 * Add new tests covering new cases.
 * Add Rampal Etienne's details to zenodo release.
 

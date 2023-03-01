@@ -23,7 +23,7 @@ Authors@R: c(
            email = "richel@richelbilderbeek.nl",
            role = c("aut"),
            comment = c(ORCID = "0000-0003-1107-7049")),
-               person(given = "Rampal S.",
+    person(given = "Rampal S.",
            family = "Etienne",
            email = "r.s.etienne@rug.nl",
            role = c("aut"),

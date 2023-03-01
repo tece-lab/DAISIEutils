@@ -23,6 +23,10 @@
 #'     extinction. All other parameters free.
 #'   * `"rr_k"` Clade specific model - diversity dependent and relaxed carrying
 #'     capacity. All other parameters free.
+#'   * `"rr_gam_di"` Clade specific model - diversity independent (K = Inf)
+#'     and relaxed colonisation. All other parameters free.
+#'   * `"rr_gam_dd"` Clade specific model - diversity dependent and relaxed
+#'     colonisation. All other parameters free.
 #'   * `"rr_laa_di"` Clade specific model - diversity independent (K = Inf)
 #'     and relaxed anagenesis. All other parameters free.
 #'   * `"rr_laa_dd"` Clade specific model - diversity dependent and relaxed
@@ -36,6 +40,12 @@
 #'   * `"rr_k_0lac"` Clade specific model - diversity dependent, relaxed
 #'     carrying capacity, and no cladogenesis (lac fixed to zero). All other
 #'     parameters free.
+#'   * `"rr_gam_di_0lac"` Clade specific model - diversity independent,
+#'     relaxed colonisation, and no cladogenesis (lac fixed to zero). All other
+#'     parameters free.
+#'   * `"r_gam_dd_0lac"` Clade specific model - diversity dependent, relaxed
+#'     colonisation, and no cladogenesis (lac fixed to zero). All other
+#'     parameters free.
 #'   * `"rr_laa_di_0lac"` Clade specific model - diversity independent,
 #'     relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
 #'     parameters free.
@@ -48,6 +58,12 @@
 #'   * `"rr_mu_di_0laa"` Clade specific model - diversity independent
 #'   * `"rr_mu_dd_0laa"` Clade specific model - diversity dependent
 #'   * `"rr_k_0laa"` Clade specific model - diversity dependent
+#'   * `"rr_gam_di_0laa"` Clade specific model - diversity independent, relaxed
+#'     colonisation, and no anagenesis (laa fixed to zero). All other parameters
+#'     free
+#'   * `"rr_gam_dd_0laa"` Clade specific model - diversity dependent, relaxed
+#'     colonisation, and no anagenesis (laa fixed to zero). All other parameters
+#'     free
 #' @param data_name String. Will be used for the name of the created output
 #'   folder.
 #' @param results_root_folder Character. A path to the root folder containing
@@ -184,6 +200,12 @@
 #'   calculations, it sets the limit for the maximum number of species for
 #'   which a probability must be computed, which must be larger than the size
 #'   of the largest clade.
+#' @param prop_type2_pool A numeric determining the proportion of the mainland
+#'   species pool that is composed on type 2 species.
+#' @param par_upper_bound A numeric defining the upper limit of the integration
+#'   of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
+#'   model being applied is not the relaxed-rate model, this parameter can be
+#'   ignored and left as its default as it does not influence the model.
 #'
 #' @return Nothing
 #' @keywords internal
@@ -225,6 +247,8 @@ default_params_doc <- function(model,
                                mainland_n,
                                low_rates,
                                rep_index,
-                               res) {
+                               res,
+                               prop_type2_pool,
+                               par_upper_bound) {
   # Nothing
 }

@@ -50,5 +50,3 @@ Imports:
     DAISIE (>= 4.2.1),
     ggplot2,
     cowplot
-Remotes: 
-    rsetienne/DAISIE

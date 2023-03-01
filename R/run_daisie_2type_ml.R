@@ -1,4 +1,4 @@
-#' Run DAISIE analysis
+#' Run 2 type DAISIE analysis
 #'
 #' @inheritParams default_params_doc
 #'
@@ -10,7 +10,7 @@
 #' @examples
 #' \dontrun{
 #' data(Galapagos_datalist, package = "DAISIE")
-#' run_daisie_ml(
+#' run_daisie_2type_ml(
 #'   daisie_data = Galapagos_datalist,
 #'   data_name = "Galapagos_datalist",
 #'   model = "cr_dd",
@@ -19,19 +19,19 @@
 #' )
 #' }
 #' @author Pedro Santos Neves, Joshua W. Lambert, Luis Valente
-run_daisie_ml <- function(daisie_data,
-                          data_name,
-                          model,
-                          array_index,
-                          cond,
-                          methode = "lsodes",
-                          optimmethod = "subplex",
-                          results_dir = NULL,
-                          low_rates = FALSE,
-                          rep_index = "NULL",
-                          res = 100,
-                          par_upper_bound = Inf,
-                          test = FALSE) {
+run_daisie_2type_ml <- function(daisie_data,
+                                data_name,
+                                model,
+                                array_index,
+                                cond,
+                                methode = "lsodes",
+                                optimmethod = "subplex",
+                                results_dir = NULL,
+                                low_rates = FALSE,
+                                rep_index = "NULL",
+                                res = 100,
+                                prop_type2_pool,
+                                test = FALSE) {
   if (test) {
     seed <- array_index
   } else {
@@ -62,10 +62,10 @@ run_daisie_ml <- function(daisie_data,
   testit::assert(is.numeric(array_index) && is.finite(array_index))
   testit::assert(is.numeric(cond) && is.finite(cond))
 
-  model_arguments <- setup_model(
+  model_arguments <- setup_2type_model(
     model = model,
-    low_rates = low_rates,
-    par_upper_bound = par_upper_bound
+    prop_type2_pool = prop_type2_pool,
+    low_rates = low_rates
   )
 
   initparsopt <- model_arguments$initparsopt

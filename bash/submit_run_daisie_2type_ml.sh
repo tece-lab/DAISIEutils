@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=9-23:00:00
+#SBATCH --time=02:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=daisie_ml
@@ -53,15 +53,14 @@
 # res - A numeric determining the resolution of the likelihood calculations, it
 # sets the limit for the maximum number of species for which a probability
 # must be computed, which must be larger than the size of the largest clade
-# par_upper_bound - A numeric defining the upper limit of the integration
-# of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
-# model being applied is not the relaxed-rate model, this parameter can be
-# ignored and left as its default as it does not influence the model
+# prop_type2_pool - A numeric determining the proportion of the mainland species
+# pool that is composed on type 2 species
 
 ################################################################################
 ##### Before running make sure install_DAISIEutils.sh has been run ####
 # Example:
-# sbatch DAISIEutils/bash/submit_run_daisie_ml_long.sh Aldabra_Group cr_di relaxedDAISIE 5 subplex
+# sbatch DAISIEutils/bash/submit_run_daisie_ml.sh Aldabra_Group cr_di relaxedDAISIE 5
+# Example with methode set to lsodes and optimmethod set to simplex
 ################################################################################
 
 
@@ -77,19 +76,19 @@ optimmethod=${7-subplex}
 low_rates=${8-FALSE}
 rep_index=${9-NULL}
 res=${10-100}
-par_upper_bound=${11-Inf}
+prop_type2_pool=${11}
 seed=${SLURM_ARRAY_TASK_ID}
 
 ml R
-Rscript DAISIEutils/scripts/run_daisie_ml.R ${data} \
-                                            ${model} \
-                                            ${package} \
-                                            ${seed} \
-                                            ${cond} \
-                                            ${results_dir} \
-                                            ${methode} \
-                                            ${optimmethod} \
-                                            ${low_rates} \
-                                            ${rep_index} \
-                                            ${res} \
-                                            ${par_upper_bound}
+Rscript DAISIEutils/scripts/run_daisie_2type_ml.R ${data} \
+                                                  ${model} \
+                                                  ${package} \
+                                                  ${seed} \
+                                                  ${cond} \
+                                                  ${results_dir} \
+                                                  ${methode} \
+                                                  ${optimmethod} \
+                                                  ${low_rates} \
+                                                  ${rep_index} \
+                                                  ${res} \
+                                                  ${prop_type2_pool}

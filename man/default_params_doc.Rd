@@ -42,7 +42,9 @@ default_params_doc(
   mainland_n,
   low_rates,
   rep_index,
-  res
+  res,
+  prop_type2_pool,
+  par_upper_bound
 )
 }
 \arguments{
@@ -70,6 +72,10 @@ relaxed extinction. All other parameters free.
 extinction. All other parameters free.
 \item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
 capacity. All other parameters free.
+\item \code{"rr_gam_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed colonisation. All other parameters free.
+\item \code{"rr_gam_dd"} Clade specific model - diversity dependent and relaxed
+colonisation. All other parameters free.
 \item \code{"rr_laa_di"} Clade specific model - diversity independent (K = Inf)
 and relaxed anagenesis. All other parameters free.
 \item \code{"rr_laa_dd"} Clade specific model - diversity dependent and relaxed
@@ -83,6 +89,12 @@ parameters free.
 \item \code{"rr_k_0lac"} Clade specific model - diversity dependent, relaxed
 carrying capacity, and no cladogenesis (lac fixed to zero). All other
 parameters free.
+\item \code{"rr_gam_di_0lac"} Clade specific model - diversity independent,
+relaxed colonisation, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"r_gam_dd_0lac"} Clade specific model - diversity dependent, relaxed
+colonisation, and no cladogenesis (lac fixed to zero). All other
+parameters free.
 \item \code{"rr_laa_di_0lac"} Clade specific model - diversity independent,
 relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
 parameters free.
@@ -95,6 +107,12 @@ relaxed cladogenesis, and no anagenesis (laa fixed to zero)
 \item \code{"rr_mu_di_0laa"} Clade specific model - diversity independent
 \item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
 \item \code{"rr_k_0laa"} Clade specific model - diversity dependent
+\item \code{"rr_gam_di_0laa"} Clade specific model - diversity independent, relaxed
+colonisation, and no anagenesis (laa fixed to zero). All other parameters
+free
+\item \code{"rr_gam_dd_0laa"} Clade specific model - diversity dependent, relaxed
+colonisation, and no anagenesis (laa fixed to zero). All other parameters
+free
 }}
 
 \item{data_name}{String. Will be used for the name of the created output
@@ -273,6 +291,14 @@ a DAISIE model to a posterior distribution of data.}
 calculations, it sets the limit for the maximum number of species for
 which a probability must be computed, which must be larger than the size
 of the largest clade.}
+
+\item{prop_type2_pool}{A numeric determining the proportion of the mainland
+species pool that is composed on type 2 species.}
+
+\item{par_upper_bound}{A numeric defining the upper limit of the integration
+of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
+model being applied is not the relaxed-rate model, this parameter can be
+ignored and left as its default as it does not influence the model.}
 }
 \value{
 Nothing

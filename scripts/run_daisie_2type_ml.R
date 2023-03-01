@@ -10,7 +10,7 @@ if (args[10] == "NULL") {
 }
 
 if (identical(args[6], "NULL")) {
-  DAISIEutils::run_daisie_ml(
+  DAISIEutils::run_daisie_2type_ml(
     daisie_data = daisie_data,
     data_name = data_name,
     model = args[2],
@@ -22,10 +22,10 @@ if (identical(args[6], "NULL")) {
     low_rates = as.logical(args[9]),
     rep_index = args[10],
     res = as.numeric(args[11]),
-    par_upper_bound = as.numeric(args[12])
+    prop_type2_pool = as.numeric(args[12])
   )
 } else if (identical(args[6], "NA")){
-  DAISIEutils::run_daisie_ml(
+  DAISIEutils::run_daisie_2type_ml(
     daisie_data = daisie_data,
     data_name = data_name,
     model = args[2],
@@ -37,10 +37,10 @@ if (identical(args[6], "NULL")) {
     low_rates = as.logical(args[9]),
     rep_index = args[10],
     res = as.numeric(args[11]),
-    par_upper_bound = as.numeric(args[12])
+    prop_type2_pool = as.numeric(args[12])
   )
 } else {
-  DAISIEutils::run_daisie_ml(
+  DAISIEutils::run_daisie_2type_ml(
     daisie_data = daisie_data,
     data_name = data_name,
     model = args[2],
@@ -52,6 +52,6 @@ if (identical(args[6], "NULL")) {
     low_rates = as.logical(args[9]),
     rep_index = args[10],
     res = as.numeric(args[11]),
-    par_upper_bound = as.numeric(args[12])
+    prop_type2_pool = as.numeric(args[12])
   )
 }

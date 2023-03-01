@@ -156,7 +156,9 @@ test_that("setup_model is correct for rr_lac_di", {
     ),
     cs_version = list(
       model = 2,
-      relaxed_par = "cladogenesis"
+      relaxed_par = "cladogenesis",
+      par_sd = 0,
+      par_upper_bound = Inf
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -184,7 +186,9 @@ test_that("setup_model is correct for rr_lac_dd", {
     ),
     cs_version = list(
       model = 2,
-      relaxed_par = "cladogenesis"
+      relaxed_par = "cladogenesis",
+      par_sd = 0,
+      par_upper_bound = Inf
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -212,7 +216,9 @@ test_that("setup_model is correct for rr_mu_dd", {
     ),
     cs_version = list(
       model = 2,
-      relaxed_par = "extinction"
+      relaxed_par = "extinction",
+      par_sd = 0,
+      par_upper_bound = Inf
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -239,7 +245,9 @@ test_that("setup_model is correct for rr_mu_di", {
     ),
     cs_version = list(
       model = 2,
-      relaxed_par = "extinction"
+      relaxed_par = "extinction",
+      par_sd = 0,
+      par_upper_bound = Inf
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -267,7 +275,9 @@ test_that("setup_model is correct for rr_k", {
     ),
     cs_version = list(
       model = 2,
-      relaxed_par = "carrying_capacity"
+      relaxed_par = "carrying_capacity",
+      par_sd = 0,
+      par_upper_bound = Inf
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -295,7 +305,9 @@ test_that("setup_model is correct for rr_laa_dd", {
     ),
     cs_version = list(
       model = 2,
-      relaxed_par = "anagenesis"
+      relaxed_par = "anagenesis",
+      par_sd = 0,
+      par_upper_bound = Inf
     )
   )
   expect_equal(model_arguments, expected_arguments)

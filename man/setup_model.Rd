@@ -4,7 +4,7 @@
 \alias{setup_model}
 \title{Set up DAISIE_ML arguments}
 \usage{
-setup_model(model, low_rates = FALSE)
+setup_model(model, low_rates = FALSE, par_upper_bound = Inf)
 }
 \arguments{
 \item{model}{A string with model that should run. Models are as follows:
@@ -31,6 +31,10 @@ relaxed extinction. All other parameters free.
 extinction. All other parameters free.
 \item \code{"rr_k"} Clade specific model - diversity dependent and relaxed carrying
 capacity. All other parameters free.
+\item \code{"rr_gam_di"} Clade specific model - diversity independent (K = Inf)
+and relaxed colonisation. All other parameters free.
+\item \code{"rr_gam_dd"} Clade specific model - diversity dependent and relaxed
+colonisation. All other parameters free.
 \item \code{"rr_laa_di"} Clade specific model - diversity independent (K = Inf)
 and relaxed anagenesis. All other parameters free.
 \item \code{"rr_laa_dd"} Clade specific model - diversity dependent and relaxed
@@ -44,6 +48,12 @@ parameters free.
 \item \code{"rr_k_0lac"} Clade specific model - diversity dependent, relaxed
 carrying capacity, and no cladogenesis (lac fixed to zero). All other
 parameters free.
+\item \code{"rr_gam_di_0lac"} Clade specific model - diversity independent,
+relaxed colonisation, and no cladogenesis (lac fixed to zero). All other
+parameters free.
+\item \code{"r_gam_dd_0lac"} Clade specific model - diversity dependent, relaxed
+colonisation, and no cladogenesis (lac fixed to zero). All other
+parameters free.
 \item \code{"rr_laa_di_0lac"} Clade specific model - diversity independent,
 relaxed anagenesis, and no cladogenesis (lac fixed to zero). All other
 parameters free.
@@ -56,6 +66,12 @@ relaxed cladogenesis, and no anagenesis (laa fixed to zero)
 \item \code{"rr_mu_di_0laa"} Clade specific model - diversity independent
 \item \code{"rr_mu_dd_0laa"} Clade specific model - diversity dependent
 \item \code{"rr_k_0laa"} Clade specific model - diversity dependent
+\item \code{"rr_gam_di_0laa"} Clade specific model - diversity independent, relaxed
+colonisation, and no anagenesis (laa fixed to zero). All other parameters
+free
+\item \code{"rr_gam_dd_0laa"} Clade specific model - diversity dependent, relaxed
+colonisation, and no anagenesis (laa fixed to zero). All other parameters
+free
 }}
 
 \item{low_rates}{Boolean determining whether the random sampling of initial
@@ -64,6 +80,11 @@ restricted range where the initial rates a ensured to be smaller (TRUE).
 The latter helps when using large datasets that may fail the initial
 likelihood computation with higher rates that could be sampled from the
 broad range of rates.}
+
+\item{par_upper_bound}{A numeric defining the upper limit of the integration
+of a parameter when fitting the relaxed-rate DAISIE model. If the DAISIE
+model being applied is not the relaxed-rate model, this parameter can be
+ignored and left as its default as it does not influence the model.}
 }
 \value{
 A named list with \code{\link[DAISIE:DAISIE_ML]{DAISIE::DAISIE_ML()}} arguments.

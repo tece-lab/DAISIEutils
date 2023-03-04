@@ -1,7 +1,7 @@
 Package: DAISIEutils
 Title: Utility Functions for the DAISIE Package
-Date: 2022-07-11
-Version: 1.4.0.9000
+Date: 2023-03-01
+Version: 1.5.0
 Authors@R: c(
     person(given = "Pedro",
            family = "Santos Neves",
@@ -23,7 +23,7 @@ Authors@R: c(
            email = "richel@richelbilderbeek.nl",
            role = c("aut"),
            comment = c(ORCID = "0000-0003-1107-7049")),
-               person(given = "Rampal S.",
+    person(given = "Rampal S.",
            family = "Etienne",
            email = "r.s.etienne@rug.nl",
            role = c("aut"),
@@ -47,6 +47,8 @@ Config/testthat/edition: 3
 Imports: 
     sessioninfo,
     testit,
-    DAISIE (>= 4.2.1),
+    DAISIE (>= 4.3.1),
     ggplot2,
     cowplot
+Remotes:
+    rsetienne/DAISIE@v4.3.1

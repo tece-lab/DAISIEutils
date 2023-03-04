@@ -3,8 +3,10 @@
 * Allow relaxed-rate DAISIE ML models. 
   * This requires new a argument for `run_daisie_ml()` and `setup_model()`: 
   `par_upper_bound`, which sets the upper limit of the integration of a relaxed 
-  parameter. This defaults to `Inf` in the R function and shell scripts, 
-  corresponding to the standard constant-rate case (i.e., not relaxed-rate).
+  parameter. This defaults to `Inf` in the R function and shell scripts, which
+  is no upper bound of integration for the relaxed-rate DAISIE model. This 
+  parameter is ignored when using the standard constant-rate case 
+  (i.e., not relaxed-rate).
 * Allow 2 type DAISIE ML analyses, handled by `run_daisie_2type_ml()` and 
 adjacent function `setup_2type_model()`. Similarly add required R 
 `run_daisie_2type_ml.R` script and shell scripts `submit_run_daisie_2type_ml.sh`

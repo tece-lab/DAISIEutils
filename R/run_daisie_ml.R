@@ -76,6 +76,34 @@ run_daisie_ml <- function(daisie_data,
   ddmodel <- model_arguments$ddmodel
   cs_version <- model_arguments$cs_version
 
+  # for relaxed model run initial optimisation for initial parameters
+  if (grepl("rr", model)) {
+
+    # setup diversity-dependent DAISIE model
+    init_model_arguments <- setup_model(
+      model = "cr_dd",
+      low_rates = low_rates,
+      par_upper_bound = Inf
+    )
+    lik_res <- DAISIE::DAISIE_ML(
+      datalist = daisie_data,
+      initparsopt = init_model_arguments$initparsopt,
+      idparsnoshift = init_model_arguments$idparsnoshift,
+      idparsopt = init_model_arguments$idparsopt,
+      parsfix = init_model_arguments$parsfix,
+      idparsfix = init_model_arguments$idparsfix,
+      res = res,
+      ddmodel = init_model_arguments$ddmodel,
+      cond = cond,
+      methode = methode,
+      optimmethod = optimmethod,
+      CS_version = init_model_arguments$cs_version
+    )
+
+    # extract DAISIE parameters for initial parameters
+    initparsopt[1:5] <- unlist(lik_res)[1:5]
+  }
+
   ##### ML Optimization ####
   lik_res <- DAISIE::DAISIE_ML(
     datalist = daisie_data,

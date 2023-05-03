@@ -7,7 +7,7 @@
 is_on_cluster()
 }
 \value{
-Boolean. \code{TRUE} if called from Peregrine HPCC, FALSE if not.
+Boolean. \code{TRUE} if called from Hábrók HPCC, FALSE if not.
 }
 \description{
 Check if code is running on Peregrine HPCC

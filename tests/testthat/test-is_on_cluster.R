@@ -1,17 +1,17 @@
 test_that("use", {
   # If HOSTNAME
-  if (identical(Sys.getenv("HOSTNAME"), "peregrine.hpc.rug.nl")) {
+  if (identical(Sys.getenv("SLURM_CLUSTER_NAME"), "habrok")) {
     expect_true(is_on_cluster())
 
-    Sys.unsetenv("HOSTNAME")
+    Sys.unsetenv("SLURM_CLUSTER_NAME")
     expect_false(is_on_cluster())
-    Sys.setenv(HOSTNAME = "peregrine.hpc.rug.nl")
+    identical(Sys.getenv("SLURM_CLUSTER_NAME"), "habrok")
   } else {
-    stored_hostname <- Sys.getenv("HOSTNAME")
+    stored_cluster_name <- Sys.getenv("SLURM_CLUSTER_NAME")
     expect_false(is_on_cluster())
 
-    Sys.setenv(HOSTNAME = "peregrine.hpc.rug.nl")
+    Sys.setenv(SLURM_CLUSTER_NAME = "habrok")
     expect_true(is_on_cluster())
-    Sys.setenv(HOSTNAME = stored_hostname)
+    Sys.setenv(SLURM_CLUSTER_NAME = stored_cluster_name)
   }
 })

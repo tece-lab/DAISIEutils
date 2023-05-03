@@ -1,3 +1,7 @@
+# DAISIEutils (development version)
+
+* Migrate from now defunct Peregrine HPCC to the new Hábrók HPCC
+
 # DAISIEutils 1.6.0
 
 * The version of R and DAISIE are incremented to 4.2 and 4.4.0, respectively

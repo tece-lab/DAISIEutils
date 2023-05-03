@@ -1,6 +1,6 @@
-#' Check if code is running on Peregrine HPCC
+#' Check if code is running on Hábrók HPCC
 #'
-#' @return Boolean. `TRUE` if called from Peregrine HPCC, FALSE if not.
+#' @return Boolean. `TRUE` if called from Hábrók HPCC, FALSE if not.
 #' @export
 #'
 #' @examples
@@ -8,7 +8,7 @@
 #'
 #' @author Pedro Santos Neves
 is_on_cluster <- function() {
-  if (identical(Sys.getenv("HOSTNAME"), "peregrine.hpc.rug.nl")) {
+  if (identical(Sys.getenv("SLURM_CLUSTER_NAME"), "habrok")) {
     return(TRUE)
   } else {
     return(FALSE)

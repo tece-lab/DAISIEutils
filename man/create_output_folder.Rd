@@ -23,7 +23,7 @@ not saved to file.}
 }
 \value{
 Creates appropriate directory. Returns string with path for output object. By
-default, if on Peregrine, folder will be \verb{$HOME/results/$data_name}. If
+default, if on Hábrók, folder will be \verb{$HOME/results/$data_name}. If
 called from another environment, folder will be
 \verb{getwd()/results/$data_name}. Alternatively, another valid root can be
 specified, resulting in \verb{results_dir/$data_name}.

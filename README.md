@@ -12,6 +12,8 @@
 The goal of DAISIEutils is to collect useful utility functions that are used recurrently in DAISIE projects. DAISIEutils is a companion package of the R package [DAISIE](https://github.com/rsetienne/DAISIE).
 This includes pipelines for typical analyses using DAISIE's maximum likelihood inference.
 
+**Note**: DAISIEutils depends on the latest CRAN release of DAISIE. It cannot be used with older versions of the DAISIE package.
+
 ## Installation
 
 You can install the released version of DAISIEutils from [GitHub](https://github.com/tece-lab/DAISIEutils) with:

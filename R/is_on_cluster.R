@@ -1,4 +1,4 @@
-#' Check if code is running on Peregrine HPCC
+#' Check if code is running on Hábrók HPCC
 #'
 #' @return Boolean. `TRUE` if called from Hábrók HPCC, FALSE if not.
 #' @export

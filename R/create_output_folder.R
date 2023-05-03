@@ -4,7 +4,7 @@
 #'
 #' @return
 #' Creates appropriate directory. Returns string with path for output object. By
-#' default, if on Peregrine, folder will be `$HOME/results/$data_name`. If
+#' default, if on Hábrók, folder will be `$HOME/results/$data_name`. If
 #' called from another environment, folder will be
 #' `getwd()/results/$data_name`. Alternatively, another valid root can be
 #' specified, resulting in `results_dir/$data_name`.

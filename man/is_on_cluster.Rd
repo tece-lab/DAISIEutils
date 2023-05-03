@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_on_cluster.R
 \name{is_on_cluster}
 \alias{is_on_cluster}
-\title{Check if code is running on Peregrine HPCC}
+\title{Check if code is running on Hábrók HPCC}
 \usage{
 is_on_cluster()
 }
@@ -10,7 +10,7 @@ is_on_cluster()
 Boolean. \code{TRUE} if called from Hábrók HPCC, FALSE if not.
 }
 \description{
-Check if code is running on Peregrine HPCC
+Check if code is running on Hábrók HPCC
 }
 \examples{
 on_cluster <- is_on_cluster()

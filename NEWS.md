@@ -1,4 +1,8 @@
-# DAISIEutils (development version)
+# DAISIEutils 1.6.0
+
+* The version of R and DAISIE are incremented to 4.2 and 4.4.0, respectively
+* The relaxed-rate DAISIE model now has an initial DAISIE optimisation to get better initial conditions (in `run_daisie_ml()`)
+* Removed an old documentation section causing warning
 
 # DAISIEutils 1.5.0
 

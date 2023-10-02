@@ -102,6 +102,9 @@ run_daisie_ml <- function(daisie_data,
 
     # extract DAISIE parameters for initial parameters
     initparsopt[1:5] <- unlist(lik_res)[1:5]
+
+    # prevent infinite parameter estimates given as initial parameters
+    initparsopt[is.infinite(initparsopt)] <- 1e5
   }
 
   ##### ML Optimization ####

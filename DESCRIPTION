@@ -1,9 +1,7 @@
 Package: DAISIEutils
 Title: Utility Functions for the DAISIE Package
 Date: 2023-05-03
-Version: 2.0.0.9000
 Version: 1.6.1
->>>>>>> develop
 Authors@R: c(
     person(given = "Pedro",
            family = "Santos Neves",
@@ -38,7 +36,7 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-URL: https://github.com/tece-lab/DAISIEutils
+URL: https://github.com/tece-lab/DAISIEutils, https://tece-lab.github.io/DAISIEutils/
 BugReports: https://github.com/tece-lab/DAISIEutils/issues
 Depends: R (>= 4.2.0)
 Suggests: 

@@ -1,6 +1,7 @@
-# DAISIEutils (development version)
+# DAISIEutils 1.6.1
 
 * Migrate from now defunct Peregrine HPCC to the new Hábrók HPCC
+* Prevent `Inf` from being passed to the relaxed rate model in `run_daisie_ml()` (#33)
 
 # DAISIEutils 1.6.0
 

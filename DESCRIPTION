@@ -2,6 +2,8 @@ Package: DAISIEutils
 Title: Utility Functions for the DAISIE Package
 Date: 2023-05-03
 Version: 2.0.0.9000
+Version: 1.6.1
+>>>>>>> develop
 Authors@R: c(
     person(given = "Pedro",
            family = "Santos Neves",

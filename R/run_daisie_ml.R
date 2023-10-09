@@ -105,6 +105,11 @@ run_daisie_ml <- function(daisie_data,
 
     # prevent infinite parameter estimates given as initial parameters
     initparsopt[is.infinite(initparsopt)] <- 1e5
+
+    # prevent initial parameters being greater than upper parameter limit
+    pick <- which(c("cladogenesis", "extinction", "carrying_capacity",
+                    "immigration", "anagenesis") == cs_version$relaxed_par)
+    initparsopt[initparsopt[pick] > par_upper_bound] <- par_upper_bound
   }
 
   ##### ML Optimization ####

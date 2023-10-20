@@ -1,3 +1,8 @@
+# DAISIEutils 1.6.2
+
+* Prevent parameter values above upper bound being passed to the relaxed rate model in `run_daisie_ml()` (#34).
+* Lower the value given as initial parameter value when estimated as infinite for the relaxed rate model in `run_daisie_ml()`.
+
 # DAISIEutils 1.6.1
 
 * Migrate from now defunct Peregrine HPCC to the new Hábrók HPCC

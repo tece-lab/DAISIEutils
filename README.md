@@ -3,8 +3,8 @@
 
 <!-- badges: start -->
 ![GitHub R package version](https://img.shields.io/github/r-package/v/tece-lab/DAISIEutils)
-[![R-CMD-check](https://github.com/tece-lab/DAISIEutils/workflows/R-CMD-check/badge.svg)](https://github.com/tece-lab/DAISIEutils/actions)
-[![Codecov test coverage](https://codecov.io/gh/tece-lab/DAISIEutils/branch/master/graph/badge.svg)](https://codecov.io/gh/tece-lab/DAISIEutils?branch=master)
+[![R-CMD-check](https://github.com/tece-lab/daisieutils/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tece-lab/daisieutils/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/tece-lab/daisieutils/graph/badge.svg)](https://app.codecov.io/gh/tece-lab/daisieutils)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![DOI](https://zenodo.org/badge/346893158.svg)](https://zenodo.org/badge/latestdoi/346893158)
 <!-- badges: end -->

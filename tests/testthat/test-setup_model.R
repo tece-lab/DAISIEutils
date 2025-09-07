@@ -156,9 +156,11 @@ test_that("setup_model is correct for rr_lac_di", {
     ),
     cs_version = list(
       model = 2,
+      function_to_optimize = "DAISIE",
       relaxed_par = "cladogenesis",
       par_sd = 0,
-      par_upper_bound = Inf
+      par_upper_bound = Inf,
+      integration_method = "standard"
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -186,9 +188,11 @@ test_that("setup_model is correct for rr_lac_dd", {
     ),
     cs_version = list(
       model = 2,
+      function_to_optimize = "DAISIE",
       relaxed_par = "cladogenesis",
       par_sd = 0,
-      par_upper_bound = Inf
+      par_upper_bound = Inf,
+      integration_method = "standard"
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -216,9 +220,11 @@ test_that("setup_model is correct for rr_mu_dd", {
     ),
     cs_version = list(
       model = 2,
+      function_to_optimize = "DAISIE",
       relaxed_par = "extinction",
       par_sd = 0,
-      par_upper_bound = Inf
+      par_upper_bound = Inf,
+      integration_method = "standard"
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -245,9 +251,11 @@ test_that("setup_model is correct for rr_mu_di", {
     ),
     cs_version = list(
       model = 2,
+      function_to_optimize = "DAISIE",
       relaxed_par = "extinction",
       par_sd = 0,
-      par_upper_bound = Inf
+      par_upper_bound = Inf,
+      integration_method = "standard"
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -275,9 +283,11 @@ test_that("setup_model is correct for rr_k", {
     ),
     cs_version = list(
       model = 2,
+      function_to_optimize = "DAISIE",
       relaxed_par = "carrying_capacity",
       par_sd = 0,
-      par_upper_bound = Inf
+      par_upper_bound = Inf,
+      integration_method = "standard"
     )
   )
   expect_equal(model_arguments, expected_arguments)
@@ -305,9 +315,11 @@ test_that("setup_model is correct for rr_laa_dd", {
     ),
     cs_version = list(
       model = 2,
+      function_to_optimize = "DAISIE",
       relaxed_par = "anagenesis",
       par_sd = 0,
-      par_upper_bound = Inf
+      par_upper_bound = Inf,
+      integration_method = "standard"
     )
   )
   expect_equal(model_arguments, expected_arguments)

@@ -12,6 +12,7 @@ The goal of DAISIEutils is to collect useful utility functions that are used rec
 Useful links:
 \itemize{
   \item \url{https://github.com/tece-lab/DAISIEutils}
+  \item \url{https://tece-lab.github.io/DAISIEutils/}
   \item Report bugs at \url{https://github.com/tece-lab/DAISIEutils/issues}
 }
 
